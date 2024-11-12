@@ -1,0 +1,35 @@
+<div class="grade-management-container">
+    <h2>Grade Management</h2>
+    <p>Select a class and subject to manage grades.</p>
+    
+    <!-- Table to display students and input grades -->
+    <table>
+      <thead>
+        <tr>
+          <th>Student ID</th>
+          <th>Full Name</th>
+          <th>Current Score</th>
+          <th>Update Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students; let i = index">
+          <td>{{ student.studentID }}</td>
+          <td>{{ student.fullName }}</td>
+          <td>{{ student.currentScore }}</td>
+          <td>
+            <input
+              type="number"
+              [(ngModel)]="student.newScore"
+              placeholder="Enter new score"
+              min="0"
+              max="10"
+              class="score-input"
+            />
+            <button (click)="updateScore(i)" class="btn btn-primary">Update</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

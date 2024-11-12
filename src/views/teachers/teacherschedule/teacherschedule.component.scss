@@ -1,0 +1,33 @@
+.teacher-schedule-container {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+
+  h2 {
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 20px;
+  }
+
+  .schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .scheduled {
+      background-color: #e0f7e9; // Light green background
+      font-weight: bold;
+      color: #2e7d32; // Darker green text for contrast
+    }
+  }
+}

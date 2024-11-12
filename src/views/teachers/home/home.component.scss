@@ -1,0 +1,90 @@
+.teacher-home-container {
+  background-image: url("../../../assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+
+  .banner-text {
+    text-align: center;
+    color: #ffffff;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    margin-top: 40px;
+
+    h2 {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 0;
+    }
+    
+    p {
+      font-size: 18px;
+      margin: 10px 0 0;
+    }
+  }
+
+  .content {
+    .task-list {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px 0;
+      list-style: none;
+
+      li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #4CAF50;
+        color: white;
+        width: 180px; // Tăng kích thước chiều rộng
+        height: 180px; // Tăng kích thước chiều cao
+        border-radius: 12px; // Bo góc lớn hơn để trông mềm mại
+        cursor: pointer;
+        transition: background-color 0.3s;
+        text-align: center;
+        font-size: 18px; // Kích thước văn bản lớn hơn
+
+        &:hover {
+          background-color: #45a049;
+        }
+
+        .icon {
+          width: 80px; // Tăng kích thước biểu tượng
+          height: 80px; // Tăng kích thước biểu tượng
+          background-size: cover;
+          background-position: center;
+          margin-bottom: 10px;
+        }
+
+        .class-info-icon {
+          background-image: url("../../..//assets/class-info-icon.png");
+          background-size: contain; // Để biểu tượng không bị cắt khi thay đổi kích thước
+        }
+
+        .grade-management-icon {
+          background-image: url("../../..//assets/grade-management-icon.png");
+          background-size: contain;
+        }
+
+        .teacher-profile-icon {
+          background-image: url("../../..//assets/teacher-profile-icon.png");
+          background-size: contain;
+        }
+
+        .teacher-schedule-icon {
+          background-image: url("../../..//assets/teacher-schedule-icon.png");
+          background-size: contain;
+        }
+      }
+    }
+  }
+}

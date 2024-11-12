@@ -1,0 +1,10 @@
+<div class="class-info">
+  <h2>Danh Sách Học Sinh - {{ selectedClass.name }}</h2>
+  <p>Giáo Viên: {{ selectedClass.teacher }}</p>
+  <p>Môn Học: {{ selectedClass.subject }}</p>
+
+  <ul>
+    <li *ngFor="let student of students">{{ student.name }}</li>
+  </ul>
+</div>
+  

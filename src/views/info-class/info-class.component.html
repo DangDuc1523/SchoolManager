@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class List Table</title>
+    <style>
+        /* Styling for the table container */
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        /* Table styling */
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            text-align: left;
+        }
+
+        /* Header styling */
+        thead th {
+            background-color: #4CAF50; /* Green-blue color for header */
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        /* Body styling */
+        tbody td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Alternating row color for readability */
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Hover effect on rows */
+        tbody tr:hover {
+            background-color: #d9edf7;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th>Tên lớp</th>
+                <th>Số lượng sinh viên</th>
+                <th>Giáo viên chủ nhiệm</th>
+                <th>Thời gian học</th>
+                <th>Phòng học</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Lớp 10A1</td>
+                <td>30</td>
+                <td>Nguyễn Văn An</td>
+                <td>7:30 AM - 11:30 AM</td>
+                <td>Phòng 101</td>
+            </tr>
+            <tr>
+                <td>Lớp 10A2</td>
+                <td>28</td>
+                <td>Trần Thị Bích</td>
+                <td>7:30 AM - 11:30 AM</td>
+                <td>Phòng 102</td>
+            </tr>
+            <tr>
+                <td>Lớp 11B1</td>
+                <td>32</td>
+                <td>Hoàng Văn Hùng</td>
+                <td>1:00 PM - 5:00 PM</td>
+                <td>Phòng 201</td>
+            </tr>
+            <tr>
+                <td>Lớp 11B2</td>
+                <td>30</td>
+                <td>Phạm Thị Hoa</td>
+                <td>1:00 PM - 5:00 PM</td>
+                <td>Phòng 202</td>
+            </tr>
+            <tr>
+                <td>Lớp 12C1</td>
+                <td>25</td>
+                <td>Nguyễn Văn Toàn</td>
+                <td>7:30 AM - 11:30 AM</td>
+                <td>Phòng 301</td>
+            </tr>
+            <tr>
+                <td>Lớp 12C2</td>
+                <td>29</td>
+                <td>Đỗ Thị Lan</td>
+                <td>1:00 PM - 5:00 PM</td>
+                <td>Phòng 302</td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

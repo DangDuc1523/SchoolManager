@@ -1,0 +1,27 @@
+<div class="teacher-home-container">
+  <div class="banner-text">
+    <h2>Welcome to the Teacher Dashboard</h2>
+    <p>Your management hub for classes, grades, profile, and schedule</p>
+  </div>
+
+  <div class="content">
+    <ul class="task-list">
+      <li (click)="navigateTo('class-info')">
+        <div class="icon class-info-icon"></div>
+        <span>Class Info</span>
+      </li>
+      <li (click)="navigateTo('grade-management')">
+        <div class="icon grade-management-icon"></div>
+        <span>Grade Management</span>
+      </li>
+      <li (click)="navigateTo('teacher-profile')">
+        <div class="icon teacher-profile-icon"></div>
+        <span>Teacher Profile</span>
+      </li>
+      <li (click)="navigateTo('teacher-schedule')">
+        <div class="icon teacher-schedule-icon"></div>
+        <span>Teacher Schedule</span>
+      </li>
+    </ul>
+  </div>
+</div>

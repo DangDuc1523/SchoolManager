@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form>
+            <label for="username">Username</label>
+            <div class="input-group">
+                <span class="icon">👤</span>
+                <input type="text" id="username" placeholder="Type your username">
+            </div>
+
+            <label for="password">Password</label>
+            <div class="input-group">
+                <span class="icon">🔒</span>
+                <input type="password" id="password" placeholder="Type your password">
+            </div>
+
+            <div class="forgot-password">
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="login-button">LOGIN</button>
+
+            <div class="signup-option">
+                <p>Or Sign Up Using</p>
+                <a (click)="signup()" class="signup-link">SIGN UP</a>
+            </div>
+            <div>
+                <button (click)="backToMain()" class="login-button">Back to main</button>
+            </div>
+     
+        </form>
+    </div>
+</body>
+</html>

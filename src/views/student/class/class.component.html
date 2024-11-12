@@ -1,0 +1,20 @@
+<div class="timetable">
+  <h2>Thời Khóa Biểu</h2>
+  <div class="week">
+    <div class="day" *ngFor="let day of timetable">
+      <div class="day-header">
+        <h3 class="day-name">{{ day.name }}</h3>
+        <span class="date">{{ day.subjects[0].date | date: 'dd/MM/yyyy' }}</span> <!-- Hiển thị ngày cho ngày đầu tiên -->
+      </div>
+      <ul>
+        <li *ngFor="let subject of day.subjects">
+          <div class="subject-info">
+            <span class="time">{{ subject.time }}</span>
+            <span class="subject">{{ subject.name }}</span>
+            <span class="room">({{ subject.room }})</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="grades">
+    <h2>Điểm Môn Học</h2>
+    <table>
+      <tr>
+        <th>Môn Học</th>
+        <th>Điểm</th>
+        <th>Xếp Loại</th>
+      </tr>
+      <tr *ngFor="let grade of grades">
+        <td>{{ grade.subject }}</td>
+        <td>{{ grade.score }}</td>
+        <td>{{ grade.rating }}</td>
+      </tr>
+    </table>
+  </div>
+  

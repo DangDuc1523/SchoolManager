@@ -1,0 +1,9 @@
+<div class="class-info">
+  <h2>Lớp Học Đã Tham Gia</h2>
+  <div class="class-card" *ngFor="let class of classes">
+    <h3>{{ class.name }}</h3>
+    <p>Giáo Viên: {{ class.teacher }}</p>
+    <p>Môn Học: {{ class.subject }}</p>
+    <button (click)="viewMembers(class)">Xem Thành Viên</button>
+  </div>
+</div>

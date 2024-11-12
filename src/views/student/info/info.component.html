@@ -1,0 +1,19 @@
+<div class="info">
+  <h2>Thông Tin Cá Nhân</h2>
+  <form>
+    <div class="form-group">
+      <label for="name">Họ và Tên:</label>
+      <input type="text" id="name" [(ngModel)]="user.name" [disabled]="!isEditing" />
+      <button type="button" (click)="edit()">Sửa</button>
+    </div>
+    <div class="form-group">
+      <label for="dob">Ngày Sinh:</label>
+      <input type="date" id="dob" [(ngModel)]="user.dateOfBirth" [disabled]="!isEditing" />
+    </div>
+    <div class="form-group">
+      <label for="address">Địa Chỉ:</label>
+      <input type="text" id="address" [(ngModel)]="user.address" [disabled]="!isEditing" />
+    </div>
+    <button class="save-button" [disabled]="!isEditing">Lưu Thay Đổi</button>
+  </form>
+</div>

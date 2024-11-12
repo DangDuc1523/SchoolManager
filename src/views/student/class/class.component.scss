@@ -1,0 +1,48 @@
+.timetable {
+  .week {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .day {
+      background-color: #e9ecef;
+      border-radius: 8px;
+      padding: 10px;
+      
+      .day-header {
+        display: flex;
+        justify-content: space-between;  /* Đặt 'Thứ' và ngày tháng ngang hàng */
+        align-items: center;
+        margin-bottom: 10px;
+        
+        .day-name {
+          color: #007bff;
+          font-weight: bold;
+        }
+
+        .date {
+          font-size: 0.9em;  /* Có thể giảm kích thước nếu cần */
+          margin-left: 200px;
+        }
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          padding: 5px;
+          background-color: #fff;
+          border-radius: 5px;
+          margin-bottom: 5px;
+
+          .subject-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+        }
+      }
+    }
+  }
+}

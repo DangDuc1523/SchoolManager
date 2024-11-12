@@ -1,0 +1,101 @@
+/* Hero Section Styling */
+.hero-section {
+    background-image: url('../../img/imgHome.jpg'); /* Use the path to your image */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 50px;
+    position: relative;
+    height: 100vh;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar .logo {
+    font-size: 40px;
+    font-weight: bold;
+    color: #00CFE8;
+  }
+  
+  .navbar .menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar .menu li {
+    display: inline;
+  }
+  
+  .navbar .menu a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .join-now {
+    background-color: #00CFE8;
+    padding: 8px 16px;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  
+  .hero-content {
+    max-width: 600px;
+    margin-top: 100px;
+  }
+  
+  .hero-content .tagline {
+    font-size: 30px;
+    color: #00CFE8;
+    font-weight: bold;
+  }
+  
+  .hero-content h1 {
+    font-size: 48px;
+    margin: 20px 0;
+  }
+  
+  .hero-content .description {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .buttons .btn {
+    margin-right: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .buttons .btn.read-more {
+    background-color: #00CFE8;
+    color: white;
+  }
+  
+  .buttons .btn.join-now {
+    background-color: white;
+    color: #00CFE8;
+  }
+  
+  .carousel-controls {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .carousel-controls button {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  

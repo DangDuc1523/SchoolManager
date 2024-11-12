@@ -1,0 +1,38 @@
+.grades {
+  width: 90vw; /* Chiều rộng toàn màn hình */
+  height: 90vh; /* Chiều cao toàn màn hình */
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../../img/anpha.jpg'); /* Đảm bảo đường dẫn ảnh đúng */
+  background-size: cover; /* Ảnh phủ toàn màn hình */
+  background-position: center; /* Căn giữa ảnh nền */
+  background-repeat: no-repeat; /* Không lặp lại ảnh nền */
+  color: #fff; /* Đổi màu chữ cho dễ nhìn trên nền tối */
+}
+.h2 {
+  background-color: #333;
+}
+.grades table {
+  width: 90%;
+  border-collapse: collapse;
+}
+.grades h2 {
+  color: #333;
+}
+.grades th, .grades td {
+  padding: 30px;
+  text-align: center;
+}
+
+.grades th {
+  background-color: rgba(76, 175, 80, 0.8); /* Màu nền nhẹ cho tiêu đề */
+  color: white;
+}
+
+.grades td {
+  background-color: rgba(255, 255, 255, 0.7); /* Nền nhẹ cho các ô dữ liệu */
+  color: #333;
+}

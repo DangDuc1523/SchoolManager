@@ -1,0 +1,55 @@
+.student-dashboard {
+  text-align: center;
+  color: #040404;
+  background-image: url('../../../img/trung-dung-ki-tuc-xa-sinh-vien-1584840891-768x462-1585622640877468277878.webp'); // Thay đường dẫn bằng đường dẫn đến ảnh của bạn
+  background-size: cover; // Ảnh nền bao phủ toàn bộ màn hình
+  background-position: center; // Căn giữa ảnh nền
+  background-repeat: no-repeat; // Đảm bảo ảnh nền không lặp lại
+  min-height: 100vh; // Đặt chiều cao tối thiểu là 100% chiều cao của màn hình
+  padding: 30px;
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .dashboard-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    .card {
+      width: 150px;
+      height: 150px;
+      background-color: rgba(76, 175, 80, 0.8); // Màu nền của thẻ, có độ trong suốt để ảnh nền thấy được
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      span {
+        font-size: 40px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+  }
+}

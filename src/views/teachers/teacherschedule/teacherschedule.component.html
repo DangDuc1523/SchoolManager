@@ -1,0 +1,22 @@
+<div class="teacher-schedule-container">
+  <h2>Teacher Schedule</h2>
+  
+  <table class="schedule-table">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th *ngFor="let day of daysOfWeek">{{ day }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let time of timeSlots">
+        <td>{{ time }}</td>
+        <td *ngFor="let day of daysOfWeek" [ngClass]="{'scheduled': isScheduled(day, time)}">
+          <ng-container *ngIf="schedule[day] && schedule[day][time]">
+            {{ schedule[day][time] }}
+          </ng-container>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

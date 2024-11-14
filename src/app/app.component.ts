@@ -1,28 +1,57 @@
-import { Component, inject } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
+import { AuthService } from '../service/auth.service';
+import { RouterModule, Router } from '@angular/router';
 import { LoginComponent } from '../views/login/login.component';
-import { DashboardComponent } from '../views/dashboard/dashboard.component';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
+import { DashboardComponent } from '../views/dashboard/dashboard.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,  // Đánh dấu là Standalone Component
-  imports: [RouterOutlet, CommonModule, RouterModule, DashboardComponent],  // Import các component và RouterModule
+  standalone: true,
+  imports: [RouterModule, LoginComponent, CommonModule, DashboardComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrl: './app.component.scss'
 })
-export class AppComponent {
-title =""
+export class AppComponent implements OnInit {
+  title = 'AngularT';
+  auth: AuthService = inject(AuthService);
+  router: Router = inject(Router);
+  isloggedin = this.auth.isLoggedIn();
 
-constructor(private router: Router) {}
-
-  navigate(){
-    this.router.navigate(['login']);
+  ngOnInit() {
+    // Lắng nghe sự kiện đăng nhập thành công và điều hướng dựa trên vai trò
+    this.auth.loginEvent.subscribe((role) => {
+      if (this.isloggedin) {
+        this.handleRoleNavigation(role);
+      }
+    });
   }
 
-  navigate2(){
-    this.router.navigate(['dashboard']);
+  handleLogin(loggedin: boolean) {
+    this.isloggedin = loggedin;
+    if (loggedin) {
+      // Điều hướng tới trang mặc định hoặc dựa trên vai trò sau khi đăng nhập
+      const role = this.auth.getRoles();
+      this.handleRoleNavigation(role);
+    }
+  }
+
+  handleRoleNavigation(role: string | null) {
+    if (role === 'Admin') {
+      this.router.navigate(['mainManager']);
+    } else if (role === 'Teacher') {
+      this.router.navigate(['home']);
+    }
+      else if (role === 'Student') {
+        this.router.navigate(['student']);
+    } else {
+      this.router.navigate(['']); // Điều hướng mặc định nếu vai trò không xác định
+    }
+  }
+
+  logout() {
+    this.auth.logout();
+    this.isloggedin = false;
+    this.router.navigate(['/login']); // Điều hướng đến trang đăng nhập khi đăng xuất
   }
 }

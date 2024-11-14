@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">School Manager</div>
+        <ul>
+            <li><a (click)="mainManager()">Home</a></li>
+            <li><a (click)="listAllClass()">List of classes</a></li>
+            <li><a (click)="timeTable()">Timetable</a></li>
+            <li><a (click)="listAllTeacher()">List of lecturers</a></li>
+            <li><a (click)="profileManager()">Profile</a></li>
+            <li><a (click)="logout()">Log out</a></li>
+
+        </ul>
+    </div>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Class name</th>
+                    <th>Type</th>
+                    <th>Hours</th>
+                    <th>Trainer</th>
+                    <th>Spots</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Like a butterfly</td>
+                    <td>Boxing</td>
+                    <td>9:00 AM - 11:00 AM</td>
+                    <td>Aaron Chapman</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Mind &amp; Body</td>
+                    <td>Yoga</td>
+                    <td>8:00 AM - 9:00 AM</td>
+                    <td>Adam Stewart</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>Crit Cardio</td>
+                    <td>Gym</td>
+                    <td>9:00 AM - 10:00 AM</td>
+                    <td>Aaron Chapman</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Wheel Pose Full Posture</td>
+                    <td>Yoga</td>
+                    <td>7:00 AM - 8:30 AM</td>
+                    <td>Donna Wilson</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>Playful Dancer's Flow</td>
+                    <td>Yoga</td>
+                    <td>8:00 AM - 9:00 AM</td>
+                    <td>Donna Wilson</td>
+                    <td>10</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>

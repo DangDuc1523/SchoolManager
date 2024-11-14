@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cvyv3Xw0a8THUqcJSyFpL5Cw9vSofn2PigtxCUwu+vj5KMIOs/IsTmxhk15FsuYXdG4zyp+G/Ey0JaVOzqAbAQ==",
+  "dgSpecHash": "mmaO+JjdptM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\Project\\Solution1\\SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj",
+  "projectFilePath": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.35\\microsoft.aspnetcore.authentication.jwtbearer.6.0.35.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

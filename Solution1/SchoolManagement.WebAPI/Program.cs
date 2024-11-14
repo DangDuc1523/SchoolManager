@@ -1,4 +1,4 @@
-﻿
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -50,6 +50,18 @@ builder.Services.AddScoped<AuthService>();
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+// Add CORS policy
+builder.Services.AddCors(options =>
+{
+  options.AddPolicy("AllowAngularApp",
+      policy => policy
+          .WithOrigins("http://localhost:4200") // Replace with your Angular app's URL
+          .AllowAnyHeader()
+          .AllowAnyMethod()
+          .AllowCredentials());
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(/*c =>
@@ -115,6 +127,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("AllowAngularApp");
 app.UseAuthentication();
 app.UseAuthorization();
 

@@ -1,36 +1,34 @@
-import { Component, inject } from '@angular/core';
-import { User } from '../../dto/User';
-import { Router, RouterModule } from '@angular/router';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  msg: string = "Hello world"
-  number: number = 2
-  isBool: boolean = true
-  fnVoid: Array<string> = ["abc","bcd"]
-  varAny: any = "1"
-  user: {name: string, age: number} = {name: "DucHD" , age: 21}
+  loginForm = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl('')
+  });
 
-  constructor(){
-    let user = new User("duchd", 22)
-    console.log(user.toString())
-    // let user1: User = {name: "duchh", age: 23}
-    // console.log(user1)
+  auth: AuthService = inject(AuthService);
+  @Output() loginevent = new EventEmitter<boolean>();
+
+  login() {
+    const username = this.loginForm.value.username ?? '';
+    const password = this.loginForm.value.password ?? '';
+    this.auth.login(username, password);   
+    this.loginevent.emit(this.auth.isLoggedIn());
   }
 
-  router = inject(Router)
-
-  signup(){
-    this.router.navigate(['signup'])
-  }
-
-  backToMain(){
-    this.router.navigate(['dashboard'])
+  signup() {
+    const username = this.loginForm.value.username ?? '';
+    const password = this.loginForm.value.password ?? '';
+    this.auth.signup(username, password);
+    this.loginevent.emit(this.auth.isLoggedIn());
   }
 }

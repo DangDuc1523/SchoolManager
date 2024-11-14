@@ -1,2 +1,10 @@
+<main class="main">
+  <div class="content">
+    <div class="left-side">
+      <!-- Chỉ hiển thị form đăng nhập nếu chưa đăng nhập -->
+      <app-login *ngIf="!isloggedin" (loginevent)="handleLogin($event)"></app-login>
+    </div>   
+  </div>
+</main>
 <router-outlet></router-outlet>
 

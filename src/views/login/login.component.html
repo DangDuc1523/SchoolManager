@@ -9,17 +9,17 @@
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form>
-            <label for="username">Username</label>
+        <form [formGroup]="loginForm" (submit)="login()">
+            <label for="username">Gmail</label>
             <div class="input-group">
                 <span class="icon">👤</span>
-                <input type="text" id="username" placeholder="Type your username">
+                <input type="text" id="username" formControlName="username" placeholder="Type your gmail">
             </div>
 
             <label for="password">Password</label>
             <div class="input-group">
                 <span class="icon">🔒</span>
-                <input type="password" id="password" placeholder="Type your password">
+                <input type="password" id="password" formControlName="password" placeholder="Type your password">
             </div>
 
             <div class="forgot-password">
@@ -28,15 +28,15 @@
 
             <button type="submit" class="login-button">LOGIN</button>
 
-            <div class="signup-option">
-                <p>Or Sign Up Using</p>
-                <a (click)="signup()" class="signup-link">SIGN UP</a>
-            </div>
             <div>
-                <button (click)="backToMain()" class="login-button">Back to main</button>
+                <button (click)="login()" class="login-button">Back to main</button>
             </div>
      
         </form>
+        <div class="signup-option">
+            <p>Or Sign Up Using</p>
+            <a (click)="signup()" class="signup-link">SIGN UP</a>
+        </div>
     </div>
 </body>
 </html>

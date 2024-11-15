@@ -1,36 +1,40 @@
 .teacher-profile-container {
-  text-align: center;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
+}
 
-  h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #4CAF50;
-  }
+.teacher-profile-header {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-  .teacher-info-table {
-    width: 80%;
-    margin: 0 auto;
-    border-collapse: separate;
-    border-spacing: 0 10px; // Adds vertical space between rows
+.teacher-profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-    th, td {
-      padding: 12px 20px;
-      text-align: left;
-      font-size: 18px;
-    }
+.teacher-profile-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
 
-    th {
-      background-color: #4CAF50; // Green background for header
-      font-weight: bold;
-      color: white;
-      border-radius: 5px 5px 0 0;
-    }
+.teacher-profile-label {
+  font-weight: bold;
+  color: #555;
+}
 
-    td {
-      background-color: #ffffff;
-      border: 1px solid #ddd;
-      color: #555;
-    }
-  }
+.teacher-profile-value {
+  color: #333;
 }

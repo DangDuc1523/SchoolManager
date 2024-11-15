@@ -1,27 +1,29 @@
-<div class="teacher-profile-container">
-  <h2>Teacher Profile</h2>
-
-  <!-- Display teacher information in a table -->
-  <table class="teacher-info-table">
-    <tr>
-      <th>Full Name</th>
-      <td>{{ teacher.fullName }}</td>
-    </tr>
-    <tr>
-      <th>Date of Birth</th>
-      <td>{{ teacher.dateOfBirth | date }}</td>
-    </tr>
-    <tr>
-      <th>Address</th>
-      <td>{{ teacher.address }}</td>
-    </tr>
-    <tr>
-      <th>Contact Info</th>
-      <td>{{ teacher.contactInfo }}</td>
-    </tr>
-    <tr>
-      <th>Specialty</th>
-      <td>{{ teacher.specialty }}</td>
-    </tr>
-  </table>
+<div *ngIf="teacher" class="teacher-profile-container">
+  <h2 class="teacher-profile-header">{{ teacher.fullName }}</h2>
+  <div class="teacher-profile-info">
+    <div class="teacher-profile-item">
+      <span class="teacher-profile-label">Role:</span>
+      <span class="teacher-profile-value">{{ teacher.role }}</span>
+    </div>
+    <div class="teacher-profile-item">
+      <span class="teacher-profile-label">Username:</span>
+      <span class="teacher-profile-value">{{ teacher.username }}</span>
+    </div>
+    <div class="teacher-profile-item">
+      <span class="teacher-profile-label">Date of Birth:</span>
+      <span class="teacher-profile-value">{{ teacher.dateOfBirth }}</span>
+    </div>
+    <div class="teacher-profile-item">
+      <span class="teacher-profile-label">Address:</span>
+      <span class="teacher-profile-value">{{ teacher.address }}</span>
+    </div>
+    <div class="teacher-profile-item">
+      <span class="teacher-profile-label">Contact Info:</span>
+      <span class="teacher-profile-value">{{ teacher.contactInfo }}</span>
+    </div>
+    <div class="teacher-profile-item">
+      <span class="teacher-profile-label">Specialty:</span>
+      <span class="teacher-profile-value">{{ teacher.specialty }}</span>
+    </div>
+  </div>
 </div>

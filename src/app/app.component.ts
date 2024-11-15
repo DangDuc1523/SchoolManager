@@ -1,28 +1,35 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from '../views/login/login.component';
 import { DashboardComponent } from '../views/dashboard/dashboard.component';
-import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
-
 
 @Component({
   selector: 'app-root',
-  standalone: true,  // Đánh dấu là Standalone Component
-  imports: [RouterOutlet, CommonModule, RouterModule, DashboardComponent],  // Import các component và RouterModule
+  standalone: true,
+  imports: [
+    RouterOutlet,
+    CommonModule,
+    RouterModule,
+    HttpClientModule, 
+    DashboardComponent,
+    LoginComponent
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-title =""
+  title = "School Manager";
 
-constructor(private router: Router) {}
+  constructor(private router: Router) {}
 
-  navigate(){
+  navigate() {
     this.router.navigate(['login']);
   }
 
-  navigate2(){
+  navigate2() {
     this.router.navigate(['dashboard']);
   }
 }

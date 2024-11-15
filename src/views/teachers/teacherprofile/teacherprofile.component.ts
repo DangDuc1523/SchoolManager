@@ -1,20 +1,31 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule, DatePipe } from '@angular/common';
+import { TeacherService } from '../../../services/teacher.service';
+import { Teacher } from '../../../dto/user.model';
 
 @Component({
-  selector: 'app-teacherprofile',
-  standalone: true,
-  imports: [CommonModule],
+  selector: 'app-teacher-profile',
+  standalone: true, 
+  imports: [CommonModule], 
   templateUrl: './teacherprofile.component.html',
-  styleUrls: ['./teacherprofile.component.scss']
+  styleUrls: ['./teacherprofile.component.scss'],
+  providers: [DatePipe],
 })
-export class TeacherProfileComponent {
-  // Sample teacher data for display only
-  teacher = {
-    fullName: 'John Doe',
-    dateOfBirth: new Date(1980, 5, 15),
-    address: '123 Main St, Springfield',
-    contactInfo: '123-456-7890',
-    specialty: 'Mathematics'
-  };
+export class TeacherProfileComponent implements OnInit {
+  teacher: Teacher | null = null;
+
+  constructor(private teacherService: TeacherService, private datePipe: DatePipe) {}
+
+  ngOnInit(): void {
+    const teacherId = 2;
+    this.teacherService.getTeacherProfile(teacherId).subscribe({
+      next: (data) => {
+        data.dateOfBirth = this.datePipe.transform(data.dateOfBirth, 'dd/MM/yyyy') || '';
+        this.teacher = data;
+      },
+      error: (err) => {
+        console.error('Error fetching teacher profile', err);
+      },
+    });
+  }
 }

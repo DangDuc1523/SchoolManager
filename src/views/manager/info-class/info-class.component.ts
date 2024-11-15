@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { MainManagerComponent } from "../main-manager/main-manager.component";
 
 @Component({
   selector: 'app-info-class',
   standalone: true,
-  imports: [],
+  imports: [MainManagerComponent],
   templateUrl: './info-class.component.html',
   styleUrl: './info-class.component.scss'
 })

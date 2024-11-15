@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { MainManagerComponent } from "../main-manager/main-manager.component";
 
 @Component({
   selector: 'app-list-teacher',
   standalone: true,
-  imports: [],
+  imports: [MainManagerComponent],
   templateUrl: './list-teacher.component.html',
   styleUrl: './list-teacher.component.scss'
 })

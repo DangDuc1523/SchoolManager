@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../service/auth.service';
 
 @Component({
   selector: 'app-main-manager',
@@ -11,6 +12,8 @@ import { Router } from '@angular/router';
 export class MainManagerComponent {
 
   router = inject(Router)
+
+  auth : AuthService = inject(AuthService);
 
   mainManager(){
     this.router.navigate(['mainManager']);
@@ -29,6 +32,7 @@ export class MainManagerComponent {
     this.router.navigate(['profileManager']);
   }
   logout(){
-    this.router.navigate(['']);
+      this.auth.logout();
+      this.router.navigate(['/login']); // Điều hướng đến trang đăng nhập khi đăng xuất
   }
 }

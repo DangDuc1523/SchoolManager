@@ -1,33 +1,36 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DashboardComponent } from '../../dashboard/dashboard.component';
+import { MainManagerComponent } from "../main-manager/main-manager.component";
+import { IClass } from '../../../dto/IClass'
+
+import { ApiService } from '../../../api/api.service';
 
 @Component({
   selector: 'app-list-class-manager',
   standalone: true,
-  imports: [],
+  imports: [ MainManagerComponent],
   templateUrl: './list-class-manager.component.html',
   styleUrl: './list-class-manager.component.scss'
 })
-export class ListClassManagerComponent {
-  router = inject(Router)
+export class ListClassManagerComponent implements OnInit {
+  
 
-  mainManager(){
-    this.router.navigate(['mainManager']);
-  }
+  classData: IClass[] = [];
 
-  listAllClass(){
-    this.router.navigate(['listClassManager']);
-  }
-  timeTable(){
-    this.router.navigate(['timeTableManager']);
-  }
-  listAllTeacher(){
-    this.router.navigate(['listTeacherManager']);
-  }
-  profileManager(){
-    this.router.navigate(['profileManager']);
-  }
-  logout(){
-    this.router.navigate(['']);
+  constructor(private apiService: ApiService) {}
+
+  ngOnInit(): void {
+    this.apiService.getClassManager().subscribe({
+      next: (data: IClass[]) => {
+        this.classData = data;
+      },
+      error: (error: any) => { // Định rõ kiểu `any` cho `error` để tránh lỗi
+        console.error('Lỗi khi gọi API:', error);
+      },
+      complete: () => {
+        console.log('Gọi API hoàn tất.');
+      }
+    });
   }
 }

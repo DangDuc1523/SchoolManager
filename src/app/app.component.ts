@@ -49,9 +49,9 @@ export class AppComponent implements OnInit {
     }
   }
 
-  logout() {
-    this.auth.logout();
-    this.isloggedin = false;
-    this.router.navigate(['/login']); // Điều hướng đến trang đăng nhập khi đăng xuất
-  }
+  // logout() {
+  //   this.auth.logout();
+  //   this.isloggedin = false;
+  //   this.router.navigate(['/login']); // Điều hướng đến trang đăng nhập khi đăng xuất
+  // }
 }

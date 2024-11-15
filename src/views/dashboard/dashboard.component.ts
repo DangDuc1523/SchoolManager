@@ -43,7 +43,10 @@ export class DashboardComponent {
     this.router.navigate(['mainManager']);
   }
 
-  logout(){
-    this.auth.logout()
+
+  logout() {
+    this.auth.logout();
+    this.router.navigate(['/login']); // Điều hướng đến trang đăng nhập khi đăng xuất
+
   }
 }

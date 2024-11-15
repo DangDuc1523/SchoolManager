@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
+import { IClass } from '../dto/IClass'
 
 
 @Injectable({
@@ -13,8 +13,8 @@ export class ApiService {
   
   constructor(private http: HttpClient) { }
 
-  getPatients(): Observable<any>{
-    return this.http.get<any>('https://localhost:44322/api/Patient/patients');
+  getClassManager(): Observable<IClass[]> {
+    return this.http.get<IClass[]>('https://localhost:44344/api/Class');
   }
 
   login(username: string, password: string): Observable<string> {
@@ -24,6 +24,6 @@ export class ApiService {
 
 
   signup(data: any): Observable<any>{
-    return this.http.post<any>('https://localhost:44344/api/Patient/signup', data);
+    return this.http.post<any>('https://localhost:44344/api', data);
   }
 }

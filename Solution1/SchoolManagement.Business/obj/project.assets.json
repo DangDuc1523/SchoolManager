@@ -1948,19 +1948,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "C:\\Users\\admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Business\\SchoolManagement.Business.csproj",
+      "projectUniqueName": "D:\\Angular\\school\\SchoolManager\\Solution1\\SchoolManagement.Business\\SchoolManagement.Business.csproj",
       "projectName": "SchoolManagement.Business",
-      "projectPath": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Business\\SchoolManagement.Business.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Business\\obj\\",
+      "projectPath": "D:\\Angular\\school\\SchoolManager\\Solution1\\SchoolManagement.Business\\SchoolManagement.Business.csproj",
+      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+      "outputPath": "D:\\Angular\\school\\SchoolManager\\Solution1\\SchoolManagement.Business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1968,18 +1968,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Data\\SchoolManagement.Data.csproj": {
-              "projectPath": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Data\\SchoolManagement.Data.csproj"
+            "D:\\Angular\\school\\SchoolManager\\Solution1\\SchoolManagement.Data\\SchoolManagement.Data.csproj": {
+              "projectPath": "D:\\Angular\\school\\SchoolManager\\Solution1\\SchoolManagement.Data\\SchoolManagement.Data.csproj"
             },
-            "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj": {
-              "projectPath": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj"
+            "D:\\Angular\\school\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj": {
+              "projectPath": "D:\\Angular\\school\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj"
             }
           }
         }
@@ -2014,7 +2013,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }

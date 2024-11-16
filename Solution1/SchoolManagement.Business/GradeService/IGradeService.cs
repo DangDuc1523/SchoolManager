@@ -1,13 +1,14 @@
-﻿using SchoolManagement.Models.Models;
+using SchoolManagement.Models.Models;
 
 namespace SchoolManagement.Business.GradeService
 {
-    public interface IGradeService
-    {
-        Task<IEnumerable<Grade>> GetAllGradeAsync();
-        Task<Grade> GetGradeByIdAsync(int id);
-        Task<Grade> AddGradeAsync(Grade Class);
-        Task<Grade> UpdateGradeAsync(Grade Class);
-        Task<Grade> DeleteGradeAsync(int id);
-    }
+  public interface IGradeService
+  {
+    Task<IEnumerable<Grade>> GetAllGradeAsync();
+    Task<Grade> GetGradeByIdAsync(int id);
+    Task<Grade> AddGradeAsync(Grade Class);
+    Task<Grade> UpdateGradeAsync(Grade Class);
+    Task<Grade> DeleteGradeAsync(int id);
+    Task<IEnumerable<Grade>> GetGradeBySubjectId(int studentId, int subjectId);
+  }
 }

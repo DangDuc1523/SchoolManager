@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sQnSvTYTCiLYQrSfbwWyZJkihhGhOObyXJg4Oxs+CD+MHiNTZlkRbeKwhCO71kZrtBh+cho0LxOUac6OJSfZ2A==",
+  "dgSpecHash": "8fxK7AN2C9p3Nk3+Hx/FiugYEbyuZKn2QTju+FE/SWwM593X9aa19zBYuJExIyu668umn33ZEnMP3SuMW7NBFw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\Project\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\Project\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.7\\microsoft.data.sqlclient.2.1.7.nupkg.sha512",

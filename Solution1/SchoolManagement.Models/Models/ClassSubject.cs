@@ -2,23 +2,22 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
-namespace SchoolManagement.Models.Models
+namespace SchoolManagement.Models.Models;
+
+public partial class ClassSubject
 {
-    [Table("Class_Subjects")]
-    public partial class ClassSubject
-    {
-        [Key]
-        [Column("ClassSubjectID")]
-        public int ClassSubjectId { get; set; }
-        [Column("ClassID")]
-        public int ClassId { get; set; }
-        [Column("SubjectID")]
-        public int SubjectId { get; set; }
-        [Column("TeacherID")]
-        public int TeacherId { get; set; }
-    }
+    public int ClassSubjectId { get; set; }
+
+    public int ClassId { get; set; }
+
+    public int SubjectId { get; set; }
+
+    public int TeacherId { get; set; }
+
+    public virtual Class Class { get; set; }
+
+    public virtual Subject Subject { get; set; }
+
+    public virtual User Teacher { get; set; }
 }

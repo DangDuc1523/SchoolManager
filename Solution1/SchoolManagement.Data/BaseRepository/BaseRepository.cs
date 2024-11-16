@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace SchoolManagement.Data.BaseRepository
@@ -72,21 +72,34 @@ namespace SchoolManagement.Data.BaseRepository
             }
         }
 
-        //public async Task<GetItemsPagingResDto<T>> GetItems(BasePagingAndSortDto payload)
-        //{
-        //    using (var context = new SchoolDbContext(_options))
-        //    {
-        //        IQueryable<T> query = context.Set<T>();
-        //        query = query.Skip(payload.StartIndex).Take(payload.PageSize);
-
-        //        var result = new GetItemsPagingResDto<T>()
-        //        {
-        //            Items = await query.ToListAsync(),
-        //            TotalCount = query.Count()
-        //        };
-
-        //        return result;
-        //    }
-        //}
+    public async Task<IEnumerable<T>> GetWhereAsync(Expression<Func<T, bool>> predicate)
+    {
+      using (var context = new SchoolDbContext(_options))
+      {
+        return await context.Set<T>().Where(predicate).ToListAsync();
+      }
     }
+
+
+
+
+
+
+    //public async Task<GetItemsPagingResDto<T>> GetItems(BasePagingAndSortDto payload)
+    //{
+    //    using (var context = new SchoolDbContext(_options))
+    //    {
+    //        IQueryable<T> query = context.Set<T>();
+    //        query = query.Skip(payload.StartIndex).Take(payload.PageSize);
+
+    //        var result = new GetItemsPagingResDto<T>()
+    //        {
+    //            Items = await query.ToListAsync(),
+    //            TotalCount = query.Count()
+    //        };
+
+    //        return result;
+    //    }
+    //}
+  }
 }

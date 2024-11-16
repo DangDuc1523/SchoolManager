@@ -1,4 +1,4 @@
-﻿using SchoolManagement.Data.BaseRepository;
+using SchoolManagement.Data.BaseRepository;
 using SchoolManagement.Models.Models;
 
 namespace SchoolManagement.Business.UserService
@@ -43,6 +43,13 @@ namespace SchoolManagement.Business.UserService
             }
             return User;
         }
-        
+
+
+    public async Task<IEnumerable<User>> GetUsersByRoleAsync(string role)
+    {
+      return await _userRepository.GetWhereAsync(u => u.Role == role);
     }
+
+
+  }
 }

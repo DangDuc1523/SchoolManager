@@ -2,36 +2,30 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
-namespace SchoolManagement.Models.Models
+namespace SchoolManagement.Models.Models;
+
+public partial class User
 {
-    [Index("Username", Name = "UQ__Users__536C85E4DBFDECCB", IsUnique = true)]
-    public partial class User
-    {
-        [Key]
-        [Column("UserID")]
-        public int UserId { get; set; }
-        [Required]
-        [StringLength(50)]
-        public string Username { get; set; }
-        [Required]
-        [StringLength(255)]
-        public string PasswordHash { get; set; }
-        [StringLength(20)]
-        public string Role { get; set; }
-        [Required]
-        [StringLength(100)]
-        public string FullName { get; set; }
-        [Column(TypeName = "date")]
-        public DateTime? DateOfBirth { get; set; }
-        [StringLength(255)]
-        public string Address { get; set; }
-        [StringLength(100)]
-        public string ContactInfo { get; set; }
-        [StringLength(50)]
-        public string Specialty { get; set; }
-    }
+    public int UserId { get; set; }
+
+    public string Username { get; set; }
+
+    public string PasswordHash { get; set; }
+
+    public string Role { get; set; }
+
+    public string FullName { get; set; }
+
+    public DateTime? DateOfBirth { get; set; }
+
+    public string Address { get; set; }
+
+    public string ContactInfo { get; set; }
+
+    public string Specialty { get; set; }
+
+    public virtual ICollection<ClassSubject> ClassSubjects { get; set; } = new List<ClassSubject>();
+
+    public virtual ICollection<Student> Students { get; set; } = new List<Student>();
 }

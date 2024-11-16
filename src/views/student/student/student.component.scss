@@ -1,55 +1,85 @@
+.header {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.username {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
 .student-dashboard {
   text-align: center;
   color: #040404;
-  background-image: url('../../../img/trung-dung-ki-tuc-xa-sinh-vien-1584840891-768x462-1585622640877468277878.webp'); // Thay đường dẫn bằng đường dẫn đến ảnh của bạn
-  background-size: cover; // Ảnh nền bao phủ toàn bộ màn hình
-  background-position: center; // Căn giữa ảnh nền
-  background-repeat: no-repeat; // Đảm bảo ảnh nền không lặp lại
-  min-height: 100vh; // Đặt chiều cao tối thiểu là 100% chiều cao của màn hình
+  background-image: url('../../img/fpt-hinh-1--thumbnail--1618982244543115484692.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
   padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-  h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  p {
-    font-size: 16px;
-    margin-bottom: 30px;
-  }
+.dashboard-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
 
-  .dashboard-cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+.card {
+  width: 200px;
+  height: 200px;
+  background-color: rgba(76, 175, 80, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-    .card {
-      width: 150px;
-      height: 150px;
-      background-color: rgba(76, 175, 80, 0.8); // Màu nền của thẻ, có độ trong suốt để ảnh nền thấy được
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.3s;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
 
-      &:hover {
-        transform: scale(1.05);
-      }
+.card span {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
 
-      span {
-        font-size: 40px;
-        margin-bottom: 10px;
-      }
+.card p {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
 
-      p {
-        font-size: 18px;
-        font-weight: bold;
-      }
-    }
-  }
+.logout-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.logout-button:hover {
+  background-color: #e64a19;
 }

@@ -79,4 +79,20 @@ export class AuthService {
         return null;
     }
   }
+  getId(): string | null {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        console.error('No token found');
+        return null;
+    }
+    
+    try {
+        const decodedToken: any = jwtDecode(token); // Giải mã token
+        // Lấy role từ trường có trong token (có thể thay đổi nếu cấu trúc token khác)
+        return decodedToken['UserId'] || null;
+    } catch (error) {
+        console.error('Error decoding token:', error);
+        return null;
+    }
+  }
 }

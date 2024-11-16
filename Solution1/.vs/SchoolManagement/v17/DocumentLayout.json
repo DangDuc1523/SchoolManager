@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\Angular\\school\\SchoolManager\\Solution1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|D:\\Angular\\school\\SchoolManager\\Solution1\\schoolmanagement.webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|solutionrelative:schoolmanagement.webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|d:\\angular\\school\\schoolmanager\\solution1\\schoolmanagement.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|solutionrelative:schoolmanagement.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0F37903B-913C-4B9D-8280-0D995A84287B}|SchoolManagement.Models\\SchoolManagement.Models.csproj|D:\\Angular\\school\\SchoolManager\\Solution1\\schoolmanagement.models\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0F37903B-913C-4B9D-8280-0D995A84287B}|SchoolManagement.Models\\SchoolManagement.Models.csproj|solutionrelative:schoolmanagement.models\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|D:\\Angular\\school\\SchoolManager\\Solution1\\schoolmanagement.webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|solutionrelative:schoolmanagement.webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|D:\\Angular\\school\\SchoolManager\\Solution1\\schoolmanagement.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 46,
+          "SelectedChildIndex": 44,
           "Children": [
             {
               "$type": "Bookmark",
@@ -206,7 +206,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\Angular\\school\\SchoolManager\\Solution1\\SchoolManagement.Models\\Models\\User.cs",
               "RelativeDocumentMoniker": "SchoolManagement.Models\\Models\\User.cs",
@@ -254,15 +254,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\Angular\\school\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "SchoolManagement.WebAPI\\Controllers\\AuthController.cs",
               "ToolTip": "D:\\Angular\\school\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\AuthController.cs",
               "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAwBIAAAAJAAAAAAAAAA==",
+              "ViewState": "AQIAACEAAAAAAAAAAAAYwCsAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T17:03:55.383Z"
+              "WhenOpened": "2024-11-13T17:03:55.383Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -278,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Angular\\school\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\appsettings.json",
               "RelativeDocumentMoniker": "SchoolManagement.WebAPI\\appsettings.json",

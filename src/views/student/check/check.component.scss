@@ -9,4 +9,18 @@
       }
     }
   }
-  
+  .back-btn:hover {
+    background-color: #0056b3;  // Thay đổi màu khi hover
+  }
+  .back-btn {
+    position: fixed;
+    top: 20px;        // Khoảng cách từ trên xuống
+    right: 20px;       // Khoảng cách từ trái sang
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }

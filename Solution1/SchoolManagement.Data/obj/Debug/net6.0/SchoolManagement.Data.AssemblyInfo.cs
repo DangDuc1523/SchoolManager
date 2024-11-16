@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SchoolManagement.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+84db509dd444f48fbbe311f0bc43b0baa9588407")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+91112ea80d3d4ca8ee73705d9bcc21e2b4df7428")]
->>>>>>> Duck
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cfea0e42b4308a8d2faf94b74d70948524f8a9b0")]
 [assembly: System.Reflection.AssemblyProductAttribute("SchoolManagement.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SchoolManagement.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

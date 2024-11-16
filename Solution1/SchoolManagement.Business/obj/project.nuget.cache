@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "M6lginm08yGBbNRuoj3w916MDW7galidBo5rSwbVJ577pWXjYvvo4RWZ3Zs/ik7j/YRqwVHuC/P/22jtCdx4mQ==",
+  "dgSpecHash": "xntvxckZdXA=",
   "success": true,
-  "projectFilePath": "D:\\Angular\\school\\SchoolManager\\Solution1\\SchoolManagement.Business\\SchoolManagement.Business.csproj",
+  "projectFilePath": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\SchoolManagement.Business.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.7\\microsoft.data.sqlclient.2.1.7.nupkg.sha512",

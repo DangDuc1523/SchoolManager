@@ -1,28 +1,44 @@
-import { Component, inject } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+
+import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../../service/auth.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'] 
 })
 export class LoginComponent {
-  msg: string = "Hello world";
-  number: number = 2;
-  isBool: boolean = true;
-  fnVoid: Array<string> = ["abc", "bcd"];
-  varAny: any = "1";
 
+  singupCheck = false;
 
   router = inject(Router);
 
-  signup() {
-    this.router.navigate(['signup']);
+  loginForm = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl('')
+  });
+
+  auth: AuthService = inject(AuthService);
+  @Output() loginevent = new EventEmitter<boolean>();
+
+  // Thêm EventEmitter cho sự kiện đăng ký
+  @Output() signupEvent = new EventEmitter<void>();
+
+  login() {
+    const username = this.loginForm.value.username ?? '';
+    const password = this.loginForm.value.password ?? '';
+    this.auth.login(username, password);   
+    this.loginevent.emit(this.auth.isLoggedIn());
   }
 
-  backToMain() {
-    this.router.navigate(['dashboard']);
+  signup() {
+    // Phát sự kiện đăng ký khi nhấn vào nút SIGN UP
+   // this.signupEvent.emit();
+
   }
 }

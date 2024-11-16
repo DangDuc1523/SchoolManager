@@ -1,29 +1,85 @@
 <div *ngIf="teacher" class="teacher-profile-container">
-  <h2 class="teacher-profile-header">{{ teacher.fullName }}</h2>
+  <h2 class="teacher-profile-header">Teacher Profile</h2>
+
   <div class="teacher-profile-info">
     <div class="teacher-profile-item">
-      <span class="teacher-profile-label">Role:</span>
-      <span class="teacher-profile-value">{{ teacher.role }}</span>
+      <label class="teacher-profile-label">Full Name:</label>
+      <input
+        *ngIf="isEditing"
+        [(ngModel)]="teacher.fullName"
+        class="teacher-profile-input"
+        required
+      />
+      <div *ngIf="isEditing && !teacher.fullName" class="error-message">Full Name is required.</div>
+      <span *ngIf="!isEditing" class="teacher-profile-value">{{ teacher.fullName }}</span>
     </div>
+
     <div class="teacher-profile-item">
-      <span class="teacher-profile-label">Username:</span>
-      <span class="teacher-profile-value">{{ teacher.username }}</span>
+      <label class="teacher-profile-label">Date of Birth:</label>
+      <input
+        *ngIf="isEditing"
+        [(ngModel)]="teacher.dateOfBirth"
+        type="date"
+        class="teacher-profile-input"
+        required
+      />
+      <div *ngIf="isEditing && !teacher.dateOfBirth" class="error-message">Date of Birth is required.</div>
+      <span *ngIf="!isEditing" class="teacher-profile-value">{{ teacher.dateOfBirth }}</span>
     </div>
+
     <div class="teacher-profile-item">
-      <span class="teacher-profile-label">Date of Birth:</span>
-      <span class="teacher-profile-value">{{ teacher.dateOfBirth }}</span>
+      <label class="teacher-profile-label">Address:</label>
+      <input
+        *ngIf="isEditing"
+        [(ngModel)]="teacher.address"
+        class="teacher-profile-input"
+        required
+      />
+      <div *ngIf="isEditing && !teacher.address" class="error-message">Address is required.</div>
+      <span *ngIf="!isEditing" class="teacher-profile-value">{{ teacher.address }}</span>
     </div>
+
     <div class="teacher-profile-item">
-      <span class="teacher-profile-label">Address:</span>
-      <span class="teacher-profile-value">{{ teacher.address }}</span>
+      <label class="teacher-profile-label">Contact Info:</label>
+      <input
+        *ngIf="isEditing"
+        [(ngModel)]="teacher.contactInfo"
+        class="teacher-profile-input"
+        required
+      />
+      <div *ngIf="isEditing && !teacher.contactInfo" class="error-message">Contact Info is required.</div>
+      <span *ngIf="!isEditing" class="teacher-profile-value">{{ teacher.contactInfo }}</span>
     </div>
+
     <div class="teacher-profile-item">
-      <span class="teacher-profile-label">Contact Info:</span>
-      <span class="teacher-profile-value">{{ teacher.contactInfo }}</span>
+      <label class="teacher-profile-label">Specialty:</label>
+      <input
+        *ngIf="isEditing"
+        [(ngModel)]="teacher.specialty"
+        class="teacher-profile-input"
+        required
+      />
+      <div *ngIf="isEditing && !teacher.specialty" class="error-message">Specialty is required.</div>
+      <span *ngIf="!isEditing" class="teacher-profile-value">{{ teacher.specialty }}</span>
     </div>
-    <div class="teacher-profile-item">
-      <span class="teacher-profile-label">Specialty:</span>
-      <span class="teacher-profile-value">{{ teacher.specialty }}</span>
-    </div>
+  </div>
+
+  <div class="teacher-profile-actions">
+    <button
+      *ngIf="!isEditing"
+      (click)="toggleEditMode()"
+      class="btn btn-primary"
+    >
+      Edit Profile
+    </button>
+    <button
+      *ngIf="isEditing"
+      (click)="saveProfile()"
+      [disabled]="!teacher.fullName || !teacher.dateOfBirth || !teacher.address || !teacher.contactInfo || !teacher.specialty"
+      class="btn btn-success"
+    >
+      Save
+    </button>
+    <button *ngIf="isEditing" (click)="toggleEditMode()" class="btn btn-secondary">Cancel</button>
   </div>
 </div>

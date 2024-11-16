@@ -1,0 +1,40 @@
+<div style="display: flex;">
+<div>
+<app-main-manager></app-main-manager>
+</div>
+<div class="container">
+    @if (classData.length > 0) {
+    <div>
+      <h2>Danh sách lớp học</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Mã lớp</th>
+            <th>Tên lớp</th>
+            <th>Lịch học</th>
+            <th>Phòng học</th>
+            <th>Số học sinh</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (classItem of classData; track classItem) {
+
+            <tr>
+            <td>{{ classItem.classId }}</td>
+            <td>{{ classItem.className }}</td>
+            <td>{{ classItem.schedule }}</td>
+            <td>{{ classItem.room }}</td>
+            <td>{{ classItem.studentCount }}</td>
+          </tr>
+        }
+        </tbody>
+      </table>
+    </div>
+   } @else {
+    <ng-template #noData>
+      <p>Không có dữ liệu để hiển thị.</p>
+    </ng-template>
+}
+  </div>
+  
+</div>

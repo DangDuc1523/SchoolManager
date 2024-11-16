@@ -1,5 +1,4 @@
-
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using SchoolManagement.Business.AuthService;
@@ -20,12 +19,15 @@ using SchoolManagement.Data.StudentRepository;
 using SchoolManagement.Data.SubjectRepository;
 using SchoolManagement.Data.TimeTableRepository;
 using SchoolManagement.Data.UserRepository;
+using SchoolManagement.Models.Data;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
 // Add DbContext:
 builder.Services.AddDbContext<SchoolDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 // Add Repository
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 builder.Services.AddScoped<IClassRepository, ClassRepository>();
@@ -35,6 +37,7 @@ builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<ITimeTableRepository, TimeTableRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ISubjectRepository, SubjectRepository>();
+
 // Add Service
 builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
 builder.Services.AddScoped<IClassService, ClassService>();
@@ -46,48 +49,23 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ISubjectService, SubjectService>();
 builder.Services.AddScoped<AuthService>();
 
-
-// Add services to the container.
-
-builder.Services.AddControllers();
-
-// Add CORS policy
+// Cấu hình CORS
 builder.Services.AddCors(options =>
 {
-  options.AddPolicy("AllowAngularApp",
-      policy => policy
-          .WithOrigins("http://localhost:4200") // Replace with your Angular app's URL
-          .AllowAnyHeader()
-          .AllowAnyMethod()
-          .AllowCredentials());
+    options.AddPolicy("AllowLocalhost4200", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")  // Địa chỉ frontend Angular
+              .AllowAnyMethod()  // Cho phép bất kỳ phương thức HTTP
+              .AllowAnyHeader(); // Cho phép bất kỳ header nào
+    });
 });
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// Add services to the container.
+builder.Services.AddControllers();
+
+// Thêm Swagger
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(/*c =>
-{
-    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        In = ParameterLocation.Header,
-        Description = "Please enter JWT with Bearer into field. Example: Bearer {token}",
-        Name = "Authorization",
-        Type = SecuritySchemeType.ApiKey,
-        Scheme = "Bearer"
-    });
-    c.AddSecurityRequirement(new OpenApiSecurityRequirement {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
-            },
-            new string[] { }
-        }
-    });
-}*/);
+builder.Services.AddSwaggerGen();
 
 // Đọc JWT settings từ appsettings.json
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
@@ -111,6 +89,7 @@ builder.Services.AddAuthentication(options =>
         IssuerSigningKey = new SymmetricSecurityKey(key)
     };
 });
+
 // Cấu hình Authorization
 builder.Services.AddAuthorization(options =>
 {
@@ -118,7 +97,10 @@ builder.Services.AddAuthorization(options =>
 });
 
 var app = builder.Build();
-//app.UseCors("AllowAngularApp");
+
+// Sử dụng CORS trước khi xác thực
+app.UseCors("AllowLocalhost4200");  // Thêm CORS vào pipeline của ứng dụng
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -127,10 +109,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseCors("AllowAngularApp");
 app.UseAuthentication();
 app.UseAuthorization();
-
 
 app.MapControllers();
 

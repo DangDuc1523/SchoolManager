@@ -3,25 +3,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace SchoolManagement.Models.Models;
-
-public partial class Class
+namespace SchoolManagement.Models.Models
 {
-    public int ClassId { get; set; }
-
-    public string ClassName { get; set; }
-
-    public string Schedule { get; set; }
-
-    public string Room { get; set; }
-
-    public int? StudentCount { get; set; }
-
-    public virtual ICollection<ClassSubject> ClassSubjects { get; set; } = new List<ClassSubject>();
-
-    public virtual ICollection<Grade> Grades { get; set; } = new List<Grade>();
-
-    public virtual ICollection<Student> Students { get; set; } = new List<Student>();
-
-    public virtual ICollection<Timetable> Timetables { get; set; } = new List<Timetable>();
+    public partial class Class
+    {
+        public int ClassId { get; set; }
+        public string ClassName { get; set; }
+        public int? TeacherId { get; set; }
+        public string Schedule { get; set; }
+        public string Room { get; set; }
+        public int? StudentCount { get; set; }
+    }
 }

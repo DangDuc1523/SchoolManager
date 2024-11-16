@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SchoolManagement.Business.UserService;
 using SchoolManagement.Models.Models;
 
@@ -33,27 +33,14 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
             return Ok(User);
         }
 
-    [HttpPost]
-    public async Task<IActionResult> GetTeachers()
-    {
-      var teachers = await _userService.GetUsersByRoleAsync("Teacher");
-      if (teachers == null || !teachers.Any())
-      {
-        return NotFound("No teachers found.");
-      }
+        //[HttpPost]
+        //public async Task<IActionResult> AddUser(User User)
+        //{
+        //    var createdUser = await _userService.AddUserAsync(User);
+        //    return CreatedAtAction(nameof(GetUserById), new { id = createdUser.UserId }, createdUser);
+        //}
 
-      return Ok(teachers);
-    }
-
-
-    //[HttpPost]
-    //public async Task<IActionResult> AddUser(User User)
-    //{
-    //    var createdUser = await _userService.AddUserAsync(User);
-    //    return CreatedAtAction(nameof(GetUserById), new { id = createdUser.UserId }, createdUser);
-    //}
-
-    [HttpPut("{id}")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(int id, User User)
         {
             var updatedUser = await _userService.UpdateUserAsync(User);

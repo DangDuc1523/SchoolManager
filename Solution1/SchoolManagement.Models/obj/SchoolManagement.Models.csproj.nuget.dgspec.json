@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj": {}
+    "D:\\Angular\\school\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj": {}
   },
   "projects": {
-    "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj": {
+    "D:\\Angular\\school\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj",
+        "projectUniqueName": "D:\\Angular\\school\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj",
         "projectName": "SchoolManagement.Models",
-        "projectPath": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\obj\\",
+        "projectPath": "D:\\Angular\\school\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "D:\\Angular\\school\\SchoolManager\\Solution1\\SchoolManagement.Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -67,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     }

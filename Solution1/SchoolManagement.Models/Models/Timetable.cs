@@ -2,21 +2,35 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
-namespace SchoolManagement.Models.Models
+
+
+namespace SchoolManagement.Models.Models;
+
+public partial class Timetable
+
 {
-    public partial class Timetable
-    {
-        public int TimetableId { get; set; }
-        public int ClassId { get; set; }
-        public int SubjectId { get; set; }
-        public string DateLearn { get; set; }
-        public TimeSpan StartTime { get; set; }
-        public TimeSpan EndTime { get; set; }
-        public string Room { get; set; }
-    }
+    public int TimetableId { get; set; }
+
+    public int ClassId { get; set; }
+
+    public int SubjectId { get; set; }
+
+    public string DateLearn { get; set; }
+
+    public TimeSpan StartTime { get; set; }
+
+    public TimeSpan EndTime { get; set; }
+
+    public string Room { get; set; }
+
+    public virtual Class Class { get; set; }
+
+    public virtual Subject Subject { get; set; }
 }

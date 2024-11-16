@@ -3,14 +3,23 @@
 using System;
 using System.Collections.Generic;
 
-namespace SchoolManagement.Models.Models
+namespace SchoolManagement.Models.Models;
+
+public partial class Grade
 {
-    public partial class Grade
-    {
-        public int GradeId { get; set; }
-        public int StudentId { get; set; }
-        public int SubjectId { get; set; }
-        public int ClassId { get; set; }
-        public double? Score { get; set; }
-    }
+    public int GradeId { get; set; }
+
+    public int StudentId { get; set; }
+
+    public int SubjectId { get; set; }
+
+    public int ClassId { get; set; }
+
+    public double? Score { get; set; }
+
+    public virtual Class Class { get; set; }
+
+    public virtual Student Student { get; set; }
+
+    public virtual Subject Subject { get; set; }
 }

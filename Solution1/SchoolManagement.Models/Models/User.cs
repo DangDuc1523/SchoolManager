@@ -4,8 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SchoolManagement.Models.Models
-{
+namespace SchoolManagement.Models.Models;
+
+
     public partial class User
     {
         public int UserId { get; set; }
@@ -23,4 +24,5 @@ namespace SchoolManagement.Models.Models
         [NotMapped]
         public string OtpCode { get; set; }
     }
-}
+
+

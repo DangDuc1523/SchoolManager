@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-
-using SchoolManagement.Models.Data;
-
-=======
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
+using SchoolManagement.Business;
+using SchoolManagement.Business.UserService;
 using SchoolManagement.Data;
->>>>>>> Duck
 using SchoolManagement.Models.Models;
-using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -29,57 +21,11 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
 
     public AuthController(IConfiguration configuration, SchoolDbContext userService, IUserService uService, EmailService emailService)
     {
-<<<<<<< HEAD
       _configuration = configuration;
       _userService = userService;
       _uService = uService;
       _emailService = emailService;
-=======
-        private readonly IConfiguration _configuration;
-        private readonly SchoolDbContext _userService;
 
-        public AuthController(IConfiguration configuration, SchoolDbContext sev)
-        {
-            _configuration = configuration;
-            _userService = sev;
-        }
-
-        [HttpPost("login")]
-        public async Task<IActionResult> Login(string username, string password)
-        {
-            // Kiểm tra thông tin đăng nhập (giả sử trong ví dụ này là đúng)
-            User acc = _userService.Users
-                .Where(u => u.Username == username && u.PasswordHash == password).FirstOrDefault();
-            if (acc != null)
-            {
-                var jwtSettings = _configuration.GetSection("JwtSettings");
-                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["SecretKey"]));
-                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-                var token = new JwtSecurityToken(
-                    issuer: jwtSettings["Issuer"],
-                    audience: jwtSettings["Audience"],
-                    claims: new[]
-{
-            new Claim("UserId", acc.UserId.ToString()),
-            new Claim("Username", acc.Username),
-            new Claim("UserRole", acc.Role)
-},
-                    expires: DateTime.Now.AddMinutes(30),
-                    signingCredentials: creds);
-                return Ok(new JwtSecurityTokenHandler().WriteToken(token));
-            }
-            return Ok("Login fail");
-        }
-
-        [HttpPut("signup")]
-        public async Task<IActionResult> SignUp(User u)
-        {
-            //Code SignUp here
-            return Ok();
-        }
-
->>>>>>> Duck
     }
 
     [HttpPost("login")]

@@ -43,6 +43,7 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateGrade(int id, Grade Grade)
     {
+      Grade.GradeId = id;
       var updatedGrade = await _gradeService.UpdateGradeAsync(Grade);
       if (updatedGrade == null)
       {

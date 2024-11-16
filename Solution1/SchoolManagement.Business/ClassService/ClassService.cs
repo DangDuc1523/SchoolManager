@@ -9,11 +9,13 @@ namespace SchoolManagement.Business.ClassService
   {
     private readonly IBaseRepository<Class> _classRepository;
     private readonly IBaseRepository<Student> _studentRepository;
+    private readonly SchoolDbContext _context;
 
-    public ClassService(IBaseRepository<Class> classRepository, IBaseRepository<Student> context)
+    public ClassService(IBaseRepository<Class> classRepository, IBaseRepository<Student> studentRepository, SchoolDbContext context)
     {
       _classRepository = classRepository;
-      _studentRepository = context;
+      _studentRepository = studentRepository;
+      _context = context;
     }
 
     public async Task<IEnumerable<Class>> GetAllClasssAsync()
@@ -53,6 +55,21 @@ namespace SchoolManagement.Business.ClassService
       Student s = await _studentRepository.GetByIdAsync(id);
       if (s == null) return null;
       else return await _classRepository.GetByIdAsync(s.ClassId);
+    }
+    public async Task<IEnumerable<Class>> GetClassByTeacherIdAsync(int userId)
+    {
+      var classsubjects = _context.ClassSubjects.Where(cs => cs.TeacherId == userId).ToList();
+      List<int> classlist = new List<int>();
+      foreach (var classsubject in classsubjects)
+      {
+        if (!classlist.Contains(classsubject.ClassId))
+        {
+          classlist.Add(classsubject.ClassId);
+        }
+      }
+      var classes = await _classRepository.GetAllAsync();
+      classes=classes.Where(u=>classlist.Contains(u.ClassId)).ToList();
+      return classes;
     }
   }
 }

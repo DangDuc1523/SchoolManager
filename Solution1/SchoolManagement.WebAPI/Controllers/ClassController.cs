@@ -40,13 +40,19 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       return CreatedAtAction(nameof(GetClassById), new { id = createdClass.ClassId }, createdClass);
     }
 
-    [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateClass(int id, Class Class)
+    [HttpPut("{classId}")]
+    public async Task<IActionResult> UpdateClass(int classId,[FromBody]Class Class)
     {
-      var updatedClass = await _classService.UpdateClassAsync(Class);
+      var updatedClass = await _classService.GetClassByIdAsync(classId);
       if (updatedClass == null)
       {
         return NotFound();
+      }
+      else
+      {
+        updatedClass = Class;
+        updatedClass.ClassId = classId;
+        await _classService.UpdateClassAsync(updatedClass);
       }
       return Ok(updatedClass);
     }
@@ -71,6 +77,15 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       }
       return Ok(Class);
     }
-
+    [HttpGet("teacher/{userId}")]
+    public async Task<IActionResult> GetClassByTeacherId(int userId)
+    {
+      var Class = await _classService.GetClassByTeacherIdAsync(userId);
+      if (Class == null)
+      {
+        return NotFound();
+      }
+      return Ok(Class);
+    }
   }
 }

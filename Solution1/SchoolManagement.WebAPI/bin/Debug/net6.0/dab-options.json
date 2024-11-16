@@ -1,0 +1,36 @@
+﻿{
+   "ConnectionStringName": "dab-connection-string",
+   "Dacpac": null,
+   "DatabaseType": 3,
+   "ProjectPath": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.WebAPI",
+   "Tables": [
+      {
+         "Name": "[dbo].[Class_Subjects]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Classes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Grades]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Students]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Subjects]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Timetables]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Users]",
+         "ObjectType": 0
+      }
+   ]
+}

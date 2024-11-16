@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using SchoolManagement.Business;
 using SchoolManagement.Business.AuthService;
 using SchoolManagement.Business.BaseService;
 using SchoolManagement.Business.ClassService;
@@ -45,6 +46,7 @@ builder.Services.AddScoped<ITimetableService, TimeTableService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ISubjectService, SubjectService>();
 builder.Services.AddScoped<AuthService>();
+builder.Services.AddTransient<EmailService>();
 
 
 // Add services to the container.

@@ -1,16 +1,16 @@
 .grades {
-  width: 90vw; /* Chiều rộng toàn màn hình */
-  height: 90vh; /* Chiều cao toàn màn hình */
+  width: 90vw; 
+  height: 90vh;
   padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('../../img/anpha.jpg'); /* Đảm bảo đường dẫn ảnh đúng */
-  background-size: cover; /* Ảnh phủ toàn màn hình */
-  background-position: center; /* Căn giữa ảnh nền */
-  background-repeat: no-repeat; /* Không lặp lại ảnh nền */
-  color: #fff; /* Đổi màu chữ cho dễ nhìn trên nền tối */
+  background-image: url('../../../img/anpha.jpg'); 
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat; 
+  color: #fff; 
 }
 
 .grades h2 {

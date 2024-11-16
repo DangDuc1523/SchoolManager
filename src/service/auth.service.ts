@@ -73,10 +73,28 @@ export class AuthService {
         const decodedToken: any = jwtDecode(token); // Giải mã token
         console.log('Token đã giải mã là:', decodedToken);
         // Lấy role từ trường có trong token (có thể thay đổi nếu cấu trúc token khác)
-        return decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] || null;
+        return decodedToken['UserRole'] || null;
     } catch (error) {
         console.error('Error decoding token:', error);
         return null;
     }
   }
+
+  getId(): string | null {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        console.error('No token found');
+        return null;
+    }
+    
+    try {
+        const decodedToken: any = jwtDecode(token); // Giải mã token
+        // Lấy role từ trường có trong token (có thể thay đổi nếu cấu trúc token khác)
+        return decodedToken['UserId'] || null;
+    } catch (error) {
+        console.error('Error decoding token:', error);
+        return null;
+    }
+  }
+
 }

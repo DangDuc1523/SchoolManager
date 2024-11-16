@@ -1,0 +1,7 @@
+F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.csproj.AssemblyReference.cache
+F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.GeneratedMSBuildEditorConfig.editorconfig
+F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.AssemblyInfoInputs.cache
+F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.AssemblyInfo.cs
+F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.csproj.CoreCompileInputs.cache
+F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.MvcApplicationPartsAssemblyInfo.cache
+F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.sourcelink.json

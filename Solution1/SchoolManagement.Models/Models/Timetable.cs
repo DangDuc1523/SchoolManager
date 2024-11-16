@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,18 +11,12 @@ namespace SchoolManagement.Models.Models
 {
     public partial class Timetable
     {
-        [Key]
-        [Column("TimetableID")]
         public int TimetableId { get; set; }
-        [Column("ClassID")]
         public int ClassId { get; set; }
-        [Column("SubjectID")]
         public int SubjectId { get; set; }
-        [StringLength(10)]
-        public string DayOfWeek { get; set; }
+        public string DateLearn { get; set; }
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }
-        [StringLength(50)]
         public string Room { get; set; }
     }
 }

@@ -2,26 +2,30 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { MainManagerComponent } from "../main-manager/main-manager.component";
-import { IClass } from '../../../dto/IClass'
+import { IClass } from '../../../dto/IClass';
+import { TimeClass } from '../../../dto/TimeClass';
+import { RouterModule } from '@angular/router'; 
 
 import { ApiService } from '../../../api/api.service';
+import { ClassManagerService } from '../../../service/Manager/class-manager.service';
 
 @Component({
   selector: 'app-list-class-manager',
   standalone: true,
-  imports: [ MainManagerComponent],
+  imports: [ MainManagerComponent, RouterModule],
   templateUrl: './list-class-manager.component.html',
   styleUrl: './list-class-manager.component.scss'
 })
 export class ListClassManagerComponent implements OnInit {
-  
 
   classData: IClass[] = [];
 
-  constructor(private apiService: ApiService) {}
+  router = inject(Router)
+
+  constructor(private apiService: ApiService, private classManager: ClassManagerService) {}
 
   ngOnInit(): void {
-    this.apiService.getClassManager().subscribe({
+    this.classManager.getClassManager().subscribe({
       next: (data: IClass[]) => {
         this.classData = data;
       },
@@ -33,4 +37,11 @@ export class ListClassManagerComponent implements OnInit {
       }
     });
   }
+
+    viewDetail(classId: string): void {
+      this.classManager.setClassId(classId);
+      this.router.navigate(['/timeClass']);
+    }
+
+  
 }

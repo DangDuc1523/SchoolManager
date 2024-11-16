@@ -2,22 +2,14 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
 namespace SchoolManagement.Models.Models
 {
     public partial class Grade
     {
-        [Key]
-        [Column("GradeID")]
         public int GradeId { get; set; }
-        [Column("StudentID")]
         public int StudentId { get; set; }
-        [Column("SubjectID")]
         public int SubjectId { get; set; }
-        [Column("ClassID")]
         public int ClassId { get; set; }
         public double? Score { get; set; }
     }

@@ -7,23 +7,25 @@ namespace SchoolManagement.WebAPI.Models;
 
 public partial class User
 {
-    public Guid Id { get; set; }
+    public int UserId { get; set; }
 
-    public string Name { get; set; }
+    public string Username { get; set; }
 
-    public string Email { get; set; }
-
-    public DateTime? DateOfBirth { get; set; }
-
-    public string Password { get; set; }
+    public string PasswordHash { get; set; }
 
     public string Role { get; set; }
 
-    public string Specialization { get; set; }
+    public string FullName { get; set; }
 
-    public virtual ICollection<Appointment> AppointmentDoctors { get; set; } = new List<Appointment>();
+    public DateTime? DateOfBirth { get; set; }
 
-    public virtual ICollection<Appointment> AppointmentPatients { get; set; } = new List<Appointment>();
+    public string Address { get; set; }
 
-    public virtual ICollection<Appointment> AppointmentUsers { get; set; } = new List<Appointment>();
+    public string ContactInfo { get; set; }
+
+    public string Specialty { get; set; }
+
+    public virtual ICollection<ClassSubject> ClassSubjects { get; set; } = new List<ClassSubject>();
+
+    public virtual ICollection<Student> Students { get; set; } = new List<Student>();
 }

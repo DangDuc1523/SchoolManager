@@ -1,6 +1,6 @@
 // src/app/models/class-data.model.ts
 export interface IClass {
-    classId: number;
+    classId: string;
     className: string;
     schedule: string;
     room: string;

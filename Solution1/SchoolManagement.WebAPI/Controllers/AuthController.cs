@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using SchoolManagement.Business;
-using SchoolManagement.Business.UserService;
-using SchoolManagement.Data;
+
+using SchoolManagement.Models.Data;
+
 using SchoolManagement.Models.Models;
 using System;
 using System.IdentityModel.Tokens.Jwt;

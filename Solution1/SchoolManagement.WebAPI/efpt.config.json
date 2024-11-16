@@ -15,7 +15,27 @@
    "T4TemplatePath": null,
    "Tables": [
       {
-         "Name": "[dbo].[Appointments]",
+         "Name": "[dbo].[Class_Subjects]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Classes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Grades]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Students]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Subjects]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Timetables]",
          "ObjectType": 0
       },
       {

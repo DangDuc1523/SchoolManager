@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MainManagerComponent } from "../main-manager/main-manager.component";
+import { AuthService } from '../../../service/auth.service';
 
 @Component({
   selector: 'app-profile-manager',
@@ -7,7 +8,12 @@ import { MainManagerComponent } from "../main-manager/main-manager.component";
   imports: [MainManagerComponent],
   templateUrl: './profile-manager.component.html',
   styleUrl: './profile-manager.component.scss'
+  
+
 })
 export class ProfileManagerComponent {
+
+  auth: AuthService = inject(AuthService);
+  id = this.auth.getId();
 
 }

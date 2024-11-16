@@ -1,13 +1,16 @@
-﻿using SchoolManagement.Models.Models;
+using Microsoft.EntityFrameworkCore;
+using SchoolManagement.Models.Models;
 
 namespace SchoolManagement.Business.UserService
 {
-    public interface IUserService
-    {
-        Task<IEnumerable<User>> GetAllUserAsync();
-        Task<User> GetUserByIdAsync(int id);
-        Task<User> AddUserAsync(User Class);
-        Task<User> UpdateUserAsync(User Class);
-        Task<User> DeleteUserAsync(int id);
-    }
+  public interface IUserService
+  {
+    Task<IEnumerable<User>> GetAllUserAsync();
+    Task<User> GetUserByIdAsync(int id);
+    Task<User> GetUserByUsernameAsync(string username);
+    Task<User> AddUserAsync(User Class);
+    Task<User> UpdateUserAsync(User Class);
+    Task<User> DeleteUserAsync(int id);
+    Task<bool> UserExists(string username);
+  }
 }

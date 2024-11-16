@@ -2,36 +2,21 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
-namespace SchoolManagement.Models.Models
-{
-    [Index("Username", Name = "UQ__Users__536C85E4DBFDECCB", IsUnique = true)]
+namespace SchoolManagement.Models.Models;
+
+
     public partial class User
     {
-        [Key]
-        [Column("UserID")]
         public int UserId { get; set; }
-        [Required]
-        [StringLength(50)]
         public string Username { get; set; }
-        [Required]
-        [StringLength(255)]
         public string PasswordHash { get; set; }
-        [StringLength(20)]
         public string Role { get; set; }
-        [Required]
-        [StringLength(100)]
         public string FullName { get; set; }
-        [Column(TypeName = "date")]
         public DateTime? DateOfBirth { get; set; }
-        [StringLength(255)]
         public string Address { get; set; }
-        [StringLength(100)]
         public string ContactInfo { get; set; }
-        [StringLength(50)]
         public string Specialty { get; set; }
 
         [NotMapped]
@@ -39,4 +24,5 @@ namespace SchoolManagement.Models.Models
         [NotMapped]
         public string OtpCode { get; set; }
     }
-}
+
+

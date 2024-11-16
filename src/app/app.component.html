@@ -4,10 +4,12 @@
       <!-- Chỉ hiển thị form đăng nhập nếu chưa đăng nhập -->
       @if(!isloggedin){
         <app-login (loginevent)="handleLogin($event)"></app-login>
+      }@else {
+        <router-outlet></router-outlet>
       }
 
     </div>   
   </div>
 </main>
-<router-outlet></router-outlet>
+
 

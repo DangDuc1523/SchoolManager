@@ -9,9 +9,19 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SchoolManagement.WebAPI
 build_property.RootNamespace = SchoolManagement.WebAPI
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\Admin\Desktop\Project\SchoolManager\Solution1\SchoolManagement.WebAPI\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = C:\Users\Admin\Desktop\Project\SchoolManager\Solution1\SchoolManagement.WebAPI
+=======
+build_property.ProjectDir = F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI
+>>>>>>> cfea0e42b4308a8d2faf94b74d70948524f8a9b0
 build_property._RazorSourceGeneratorDebug = 

@@ -1,23 +1,30 @@
+<div class="header">
+  <!-- Thay vì sử dụng routerLink, sử dụng sự kiện click và gọi hàm navigateTo -->
+  <p class="username">
+    <a (click)="navigateTo('profile')">Nguyễn Văn A {{ username }}</a>
+  </p>
+</div>
+
 <div class="student-dashboard">
-    <h2>Welcome to the Student Dashboard</h2>
-    <p>Your personal space for information, classes, check, and grades.</p>
-    <div class="dashboard-cards">
-      <div class="card" (click)="navigateTo('info')">
-        <span>📋</span>
-        <p>Info</p>
-      </div>
-      <div class="card" (click)="navigateTo('class')">
-        <span>🏫</span>
-        <p>Class</p>
-      </div>
-      <div class="card" (click)="navigateTo('check')">
-        <span>✔️</span>
-        <p>Check</p>
-      </div>
-      <div class="card" (click)="navigateTo('grade')">
-        <span>📊</span>
-        <p>Grade</p>
-      </div>
+  <h2>Welcome to the Student Dashboard</h2>
+  <p>Your personal space for information, classes, checks, and grades.</p>
+  <div class="dashboard-cards">
+    <div class="card" (click)="navigateTo('info')">
+      <span>📋</span>
+      <p>Info</p>
+    </div>
+    <div class="card" (click)="navigateTo('class')">
+      <span>🏫</span>
+      <p>Class</p>
+    </div>
+    <div class="card" (click)="navigateTo('check')">
+      <span>✔️</span>
+      <p>Check</p>
+    </div>
+    <div class="card" (click)="navigateTo('grade')">
+      <span>📊</span>
+      <p>Grade</p>
     </div>
   </div>
-  
+  <button class="logout-button" (click)="logout()">Logout</button>
+</div>

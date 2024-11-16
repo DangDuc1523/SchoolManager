@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using SchoolManagement.Business.TimeTableService;
 using SchoolManagement.Models.Models;
 
@@ -33,7 +33,20 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
             return Ok(TimeTable);
         }
 
-        [HttpPost]
+    [HttpGet("class/{classId}")]
+    public async Task<IActionResult> GetTimetablesByClassId(int classId)
+    {
+      var timetables = await _timeTableService.GetTimetablesByClassIdAsync(classId);
+      if (timetables == null || !timetables.Any())
+      {
+        return NotFound();
+      }
+      return Ok(timetables);
+    }
+
+
+
+    [HttpPost]
         public async Task<IActionResult> AddTimeTable(Timetable TimeTable)
         {
             var createdTimeTable = await _timeTableService.AddTimetableAsync(TimeTable);

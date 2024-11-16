@@ -2,21 +2,20 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
-namespace SchoolManagement.Models.Models
+namespace SchoolManagement.Models.Models;
+
+public partial class Subject
 {
-    public partial class Subject
-    {
-        [Key]
-        [Column("SubjectID")]
-        public int SubjectId { get; set; }
-        [Required]
-        [StringLength(50)]
-        public string SubjectName { get; set; }
-        [StringLength(255)]
-        public string Description { get; set; }
-    }
+    public int SubjectId { get; set; }
+
+    public string SubjectName { get; set; }
+
+    public string Description { get; set; }
+
+    public virtual ICollection<ClassSubject> ClassSubjects { get; set; } = new List<ClassSubject>();
+
+    public virtual ICollection<Grade> Grades { get; set; } = new List<Grade>();
+
+    public virtual ICollection<Timetable> Timetables { get; set; } = new List<Timetable>();
 }

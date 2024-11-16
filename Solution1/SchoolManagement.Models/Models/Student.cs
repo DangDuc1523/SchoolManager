@@ -2,22 +2,22 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
-namespace SchoolManagement.Models.Models
+namespace SchoolManagement.Models.Models;
+
+public partial class Student
 {
-    public partial class Student
-    {
-        [Key]
-        [Column("StudentID")]
-        public int StudentId { get; set; }
-        [Column("UserID")]
-        public int UserId { get; set; }
-        [Column("ClassID")]
-        public int ClassId { get; set; }
-        [Column(TypeName = "date")]
-        public DateTime? EnrollmentDate { get; set; }
-    }
+    public int StudentId { get; set; }
+
+    public int UserId { get; set; }
+
+    public int ClassId { get; set; }
+
+    public DateTime? EnrollmentDate { get; set; }
+
+    public virtual Class Class { get; set; }
+
+    public virtual ICollection<Grade> Grades { get; set; } = new List<Grade>();
+
+    public virtual User User { get; set; }
 }

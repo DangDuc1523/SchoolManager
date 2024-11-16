@@ -2,26 +2,35 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+
+
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
-namespace SchoolManagement.Models.Models
+
+
+
+namespace SchoolManagement.Models.Models;
+
+public partial class Timetable
+
 {
-    public partial class Timetable
-    {
-        [Key]
-        [Column("TimetableID")]
-        public int TimetableId { get; set; }
-        [Column("ClassID")]
-        public int ClassId { get; set; }
-        [Column("SubjectID")]
-        public int SubjectId { get; set; }
-        [StringLength(10)]
-        public string DayOfWeek { get; set; }
-        public TimeSpan StartTime { get; set; }
-        public TimeSpan EndTime { get; set; }
-        [StringLength(50)]
-        public string Room { get; set; }
-    }
+    public int TimetableId { get; set; }
+
+    public int ClassId { get; set; }
+
+    public int SubjectId { get; set; }
+
+    public string DateLearn { get; set; }
+
+    public TimeSpan StartTime { get; set; }
+
+    public TimeSpan EndTime { get; set; }
+
+    public string Room { get; set; }
+
+    public virtual Class Class { get; set; }
+
+    public virtual Subject Subject { get; set; }
 }

@@ -20,5 +20,8 @@ export class CheckComponent {
   viewMembers(selectedClass: any) {
     this.router.navigate(['/member'], { state: { class: selectedClass } });
   }
+  goBack() {
+    window.history.back();  // Sử dụng history của trình duyệt để quay lại trang trước
+  }
 }
 

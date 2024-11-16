@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\Admin\\Desktop\\Project\\SchoolManager\\Solution1\\SchoolManagement.Data\\SchoolManagement.Data.csproj": {}
   },
   "projects": {
@@ -19,6 +20,22 @@
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+    "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Data\\SchoolManagement.Data.csproj": {}
+  },
+  "projects": {
+    "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Data\\SchoolManagement.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Data\\SchoolManagement.Data.csproj",
+        "projectName": "SchoolManagement.Data",
+        "projectPath": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Data\\SchoolManagement.Data.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> cfea0e42b4308a8d2faf94b74d70948524f8a9b0
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,14 +43,23 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+<<<<<<< HEAD
+=======
+          "C:\\Program Files\\dotnet\\library-packs": {},
+>>>>>>> cfea0e42b4308a8d2faf94b74d70948524f8a9b0
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+<<<<<<< HEAD
               "C:\\Users\\Admin\\Desktop\\Project\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj": {
                 "projectPath": "C:\\Users\\Admin\\Desktop\\Project\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj"
+=======
+              "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj": {
+                "projectPath": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj"
+>>>>>>> cfea0e42b4308a8d2faf94b74d70948524f8a9b0
               }
             }
           }
@@ -42,6 +68,14 @@
           "warnAsError": [
             "NU1605"
           ]
+<<<<<<< HEAD
+=======
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+>>>>>>> cfea0e42b4308a8d2faf94b74d70948524f8a9b0
         }
       },
       "frameworks": {
@@ -69,6 +103,7 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
@@ -88,6 +123,23 @@
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj",
+        "projectName": "SchoolManagement.Models",
+        "projectPath": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> cfea0e42b4308a8d2faf94b74d70948524f8a9b0
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -95,6 +147,10 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+<<<<<<< HEAD
+=======
+          "C:\\Program Files\\dotnet\\library-packs": {},
+>>>>>>> cfea0e42b4308a8d2faf94b74d70948524f8a9b0
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -107,6 +163,14 @@
           "warnAsError": [
             "NU1605"
           ]
+<<<<<<< HEAD
+=======
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+>>>>>>> cfea0e42b4308a8d2faf94b74d70948524f8a9b0
         }
       },
       "frameworks": {
@@ -134,7 +198,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402\\RuntimeIdentifierGraph.json"
+>>>>>>> cfea0e42b4308a8d2faf94b74d70948524f8a9b0
         }
       }
     }

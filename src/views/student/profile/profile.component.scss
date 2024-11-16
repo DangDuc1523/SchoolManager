@@ -1,0 +1,56 @@
+.profile {
+    width: 100%;
+    max-width: 1000px;  /* Giới hạn chiều rộng của profile */
+    margin: 0 auto; /* Căn giữa */
+    padding: 100px;
+    background-color: #f4f4f9; /* Màu nền nhẹ */
+    border-radius: 10px; /* Bo tròn các góc */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    text-align: center; /* Căn giữa chữ trong profile */
+    font-family: 'Arial', sans-serif; /* Font chữ đẹp */
+  }
+  
+  .profile h2 {
+    color: #00796b;  /* Màu xanh nhẹ cho tiêu đề */
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .profile-detail {
+    background-color: #ffffff; /* Nền trắng cho phần chi tiết */
+    border-radius: 8px; /* Bo tròn góc */
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+  }
+  
+  .profile-detail p {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+    line-height: 1.6; /* Khoảng cách dòng dễ nhìn */
+  }
+  
+  .profile-detail strong {
+    color: #00796b; /* Màu cho nhãn (ví dụ: Họ và tên) */
+  }
+  
+  .profile-detail p:hover {
+    background-color: #e0f2f1; /* Màu nền khi hover */
+    transition: background-color 0.3s ease-in-out;
+  }
+  .back-btn:hover {
+    background-color: #0056b3;  // Thay đổi màu khi hover
+  }
+  .back-btn {
+    position: fixed;
+    top: 20px;        // Khoảng cách từ trên xuống
+    left: 20px;       // Khoảng cách từ trái sang
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }

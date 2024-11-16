@@ -10,9 +10,11 @@ import { CommonModule } from '@angular/common'; // Import CommonModule
 })
 export class GradeComponent {
   grades = [
-    { subject: 'Toán', score: 9.5, rating: 'Xuất sắc' },
-    { subject: 'Lý', score: 8.0, rating: 'Giỏi' },
-    { subject: 'Hóa', score: 7.0, rating: 'Khá' },
-    // Thêm các môn khác nếu cần
+    { room: '101', subject: 'Toán học', teacher: 'Cô Lan', score: 8.5 },
+    { room: '102', subject: 'Vật lý', teacher: 'Thầy Hải', score: 9.0 },
+    { room: '103', subject: 'Hóa học', teacher: 'Cô Mai', score: 7.0 },
   ];
+  goBack() {
+    window.history.back();  // Sử dụng history của trình duyệt để quay lại trang trước
+  }
 }

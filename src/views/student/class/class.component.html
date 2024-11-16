@@ -1,20 +1,86 @@
-<div class="timetable">
-  <h2>Thời Khóa Biểu</h2>
-  <div class="week">
-    <div class="day" *ngFor="let day of timetable">
-      <div class="day-header">
-        <h3 class="day-name">{{ day.name }}</h3>
-        <span class="date">{{ day.subjects[0].date | date: 'dd/MM/yyyy' }}</span> <!-- Hiển thị ngày cho ngày đầu tiên -->
-      </div>
-      <ul>
-        <li *ngFor="let subject of day.subjects">
-          <div class="subject-info">
-            <span class="time">{{ subject.time }}</span>
-            <span class="subject">{{ subject.name }}</span>
-            <span class="room">({{ subject.room }})</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
+<button class="back-btn" (click)="goBack()">Back</button>
+<div class="schedule-container">
+  <h2>Class Schedule</h2>
+  <table>
+    <tr>
+      <th class="time-header"></th>
+      <th class="monday">Monday</th>
+      <th class="tuesday">Tuesday</th>
+      <th class="wednesday">Wednesday</th>
+      <th class="thursday">Thursday</th>
+      <th class="friday">Friday</th>
+    </tr>
+    <tr>
+      <td class="time-cell">07:30 - 08:30</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="time-cell">08:30 - 09:30</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="time-cell">09:30 - 10:30</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="time-cell">10:30 - 11:30</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="time-cell">11:30 - 12:30</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="time-cell">12:30 - 13:30</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="time-cell">13:30 - 14:30</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="time-cell">14:30 - 15:30</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="time-cell">15:30 - 16:30</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
 </div>

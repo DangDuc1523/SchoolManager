@@ -79,7 +79,10 @@ export class AuthService {
         return null;
     }
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> a6f4eca1f954593fca6b85cd25b71c8c7bd271c4
   getId(): string | null {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -96,5 +99,8 @@ export class AuthService {
         return null;
     }
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> a6f4eca1f954593fca6b85cd25b71c8c7bd271c4
 }

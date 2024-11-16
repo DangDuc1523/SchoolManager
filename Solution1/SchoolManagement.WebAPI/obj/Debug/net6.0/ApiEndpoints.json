@@ -416,10 +416,36 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SchoolManagement.WebAPI.Controllers.Admin.TimeTableController",
+    "Method": "GetTimetablesByClassId",
+    "RelativePath": "api/TimeTable/class/{classId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "classId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SchoolManagement.WebAPI.Controllers.Admin.UserController",
     "Method": "GetAllUser",
     "RelativePath": "api/User",
     "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolManagement.WebAPI.Controllers.Admin.UserController",
+    "Method": "GetTeachers",
+    "RelativePath": "api/User",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [],

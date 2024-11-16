@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using SchoolManagement.Models.Data;
+using SchoolManagement.Data;
 using SchoolManagement.Models.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -37,10 +37,11 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
                     issuer: jwtSettings["Issuer"],
                     audience: jwtSettings["Audience"],
                     claims: new[]
-                    {
-                        new Claim(ClaimTypes.Name, acc.Username),
-                        new Claim(ClaimTypes.Role, acc.Role)
-                    },
+{
+            new Claim("UserId", acc.UserId.ToString()),
+            new Claim("Username", acc.Username),
+            new Claim("UserRole", acc.Role)
+},
                     expires: DateTime.Now.AddMinutes(30),
                     signingCredentials: creds);
                 return Ok(new JwtSecurityTokenHandler().WriteToken(token));

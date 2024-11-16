@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using SchoolManagement.Models.Models;
 
-namespace SchoolManagement.Models.Data
+namespace SchoolManagement.Data
 {
     public partial class SchoolDbContext : DbContext
     {
@@ -31,110 +31,12 @@ namespace SchoolManagement.Models.Data
         {
             modelBuilder.Entity<Class>(entity =>
             {
-                entity.Property(e => e.ClassId).HasColumnName("ClassID");
-
-                entity.Property(e => e.ClassName)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Room).HasMaxLength(50);
-
-                entity.Property(e => e.Schedule).HasMaxLength(255);
-
                 entity.Property(e => e.StudentCount).HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.TeacherId).HasColumnName("TeacherID");
-            });
-
-            modelBuilder.Entity<ClassSubject>(entity =>
-            {
-                entity.ToTable("Class_Subjects");
-
-                entity.Property(e => e.ClassSubjectId).HasColumnName("ClassSubjectID");
-
-                entity.Property(e => e.ClassId).HasColumnName("ClassID");
-
-                entity.Property(e => e.SubjectId).HasColumnName("SubjectID");
-
-                entity.Property(e => e.TeacherId).HasColumnName("TeacherID");
-            });
-
-            modelBuilder.Entity<Grade>(entity =>
-            {
-                entity.Property(e => e.GradeId).HasColumnName("GradeID");
-
-                entity.Property(e => e.ClassId).HasColumnName("ClassID");
-
-                entity.Property(e => e.StudentId).HasColumnName("StudentID");
-
-                entity.Property(e => e.SubjectId).HasColumnName("SubjectID");
             });
 
             modelBuilder.Entity<Student>(entity =>
             {
-                entity.Property(e => e.StudentId).HasColumnName("StudentID");
-
-                entity.Property(e => e.ClassId).HasColumnName("ClassID");
-
-                entity.Property(e => e.EnrollmentDate)
-                    .HasColumnType("date")
-                    .HasDefaultValueSql("(getdate())");
-
-                entity.Property(e => e.UserId).HasColumnName("UserID");
-            });
-
-            modelBuilder.Entity<Subject>(entity =>
-            {
-                entity.Property(e => e.SubjectId).HasColumnName("SubjectID");
-
-                entity.Property(e => e.Description).HasMaxLength(255);
-
-                entity.Property(e => e.SubjectName)
-                    .IsRequired()
-                    .HasMaxLength(50);
-            });
-
-            modelBuilder.Entity<Timetable>(entity =>
-            {
-                entity.Property(e => e.TimetableId).HasColumnName("TimetableID");
-
-                entity.Property(e => e.ClassId).HasColumnName("ClassID");
-
-                entity.Property(e => e.DayOfWeek).HasMaxLength(10);
-
-                entity.Property(e => e.Room).HasMaxLength(50);
-
-                entity.Property(e => e.SubjectId).HasColumnName("SubjectID");
-            });
-
-            modelBuilder.Entity<User>(entity =>
-            {
-                entity.HasIndex(e => e.Username, "UQ__Users__536C85E4B247CFFC")
-                    .IsUnique();
-
-                entity.Property(e => e.UserId).HasColumnName("UserID");
-
-                entity.Property(e => e.Address).HasMaxLength(255);
-
-                entity.Property(e => e.ContactInfo).HasMaxLength(100);
-
-                entity.Property(e => e.DateOfBirth).HasColumnType("date");
-
-                entity.Property(e => e.FullName)
-                    .IsRequired()
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.PasswordHash)
-                    .IsRequired()
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Role).HasMaxLength(20);
-
-                entity.Property(e => e.Specialty).HasMaxLength(50);
-
-                entity.Property(e => e.Username)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.EnrollmentDate).HasDefaultValueSql("(getdate())");
             });
 
             OnModelCreatingPartial(modelBuilder);

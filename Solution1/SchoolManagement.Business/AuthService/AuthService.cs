@@ -1,4 +1,4 @@
-﻿using SchoolManagement.Models.Data;
+﻿using SchoolManagement.Data;
 using SchoolManagement.Models.Models;
 
 namespace SchoolManagement.Business.AuthService

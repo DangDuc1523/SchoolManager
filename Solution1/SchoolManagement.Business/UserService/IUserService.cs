@@ -1,4 +1,4 @@
-﻿using SchoolManagement.Models.Models;
+using SchoolManagement.Models.Models;
 
 namespace SchoolManagement.Business.UserService
 {
@@ -9,5 +9,9 @@ namespace SchoolManagement.Business.UserService
         Task<User> AddUserAsync(User Class);
         Task<User> UpdateUserAsync(User Class);
         Task<User> DeleteUserAsync(int id);
-    }
+
+         Task<IEnumerable<User>> GetUsersByRoleAsync(string role);
+
+
+  }
 }

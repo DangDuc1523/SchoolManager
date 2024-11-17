@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TimeClass } from '../../dto/TimeClass';  // Đảm bảo rằng bạn đã import đúng DTO
 import { IClass } from '../../dto/IClass';
+import { User } from '../../dto/User';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,15 @@ export class ClassManagerService {
 
   // Phương thức gọi API để lấy thông tin thời gian học cho classId
   viewDetail(classId: string): Observable<TimeClass[]> {
-    return this.http.get<TimeClass[]>(`${this.baseurl}/TimeTable/class/${classId}`);
+    const test = this.http.get<TimeClass[]>(`${this.baseurl}/TimeTable/class/${classId}`);
+    return test;
   }
+
+  getInforClass(classId: string): Observable<User[]>
+  {
+    const test = this.http.get<User[]>(`${this.baseurl}/User/by-class/${classId}`);
+    console.log(test);
+    return test;
+  }
+
 }

@@ -9,16 +9,20 @@
         <tr>
           <th>Date Learn</th>
           <th>Start Time</th>
+          <th>Start Time</th>
+          <th>Start Time</th>
           <th>End Time</th>
           <th>Room</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let timeClass of timeClasses">
+          <td>{{ timeClass.subject.subjectName }}</td>
+          <td>{{ timeClass.subject.description }}</td>
           <td>{{ timeClass.dateLearn }}</td>
-          <td>{{ timeClass.startTime }}</td>
-          <td>{{ timeClass.endTime }}</td>
-          <td>{{ timeClass.room }}</td>
+          <td>{{ timeClass.startTime  }}</td>
+          <td>{{ timeClass.endTime   }}</td>
+          <td>{{ timeClass.room   }}</td>
         </tr>
       </tbody>
     </table>

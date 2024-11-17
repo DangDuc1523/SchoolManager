@@ -1,34 +1,49 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MainManagerComponent } from "../main-manager/main-manager.component";
+import { ClassManagerService } from '../../../service/Manager/class-manager.service';
+import { User } from '../../../dto/User';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-info-class',
   standalone: true,
-  imports: [MainManagerComponent],
+  imports: [MainManagerComponent, CommonModule],
   templateUrl: './info-class.component.html',
   styleUrl: './info-class.component.scss'
 })
-export class InfoClassComponent {
+export class InfoClassComponent implements OnInit {
+
+  classId: string = ''; 
+
+  user : User[] = []
   router = inject(Router)
 
-  mainManager(){
-    this.router.navigate(['mainManager']);
+  constructor(private classManager: ClassManagerService){
+    
   }
 
-  listAllClass(){
-    this.router.navigate(['listClassManager']);
+  ngOnInit(): void {
+    this.classId = this.classManager.getClassId();
+    this.getStudentClasses(this.classId);
   }
-  timeTable(){
-    this.router.navigate(['timeTableManager']);
+
+  getStudentClasses(classId: string): void{
+  this.classManager.getInforClass(classId).subscribe({
+    next: (data: User[]) => {
+      console.log(data);  // Kiểm tra dữ liệu trả về từ API
+      this.user = data;
+    },
+    error: (error: any) => {
+      console.error('Lỗi khi gọi API:', error);
+    },
+    complete: () => {
+      console.log('Gọi API hoàn tất.');
+    }
+  });
+}
+  addNewStudent(){
+    
   }
-  listAllTeacher(){
-    this.router.navigate(['listTeacherManager']);
-  }
-  profileManager(){
-    this.router.navigate(['profileManager']);
-  }
-  logout(){
-    this.router.navigate(['']);
-  }
+  
 }

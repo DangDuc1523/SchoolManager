@@ -1,29 +1,34 @@
 .grades {
-  width: 90vw; /* Chiều rộng toàn màn hình */
-  height: 90vh; /* Chiều cao toàn màn hình */
+  width: 90vw; 
+  height: 90vh;
   padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('../../../img/anpha.jpg'); /* Đảm bảo đường dẫn ảnh đúng */
-  background-size: cover; /* Ảnh phủ toàn màn hình */
-  background-position: center; /* Căn giữa ảnh nền */
-  background-repeat: no-repeat; /* Không lặp lại ảnh nền */
-  color: #fff; /* Đổi màu chữ cho dễ nhìn trên nền tối */
+  background-image: url('../../../img/anpha.jpg'); 
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat; 
+  color: #fff; 
 }
-.h2 {
-  background-color: #333;
+
+.grades h2 {
+  color: #333;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
+
 .grades table {
   width: 90%;
   border-collapse: collapse;
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.7); /* Nền bảng sáng */
 }
-.grades h2 {
-  color: #333;
-}
+
 .grades th, .grades td {
-  padding: 30px;
+  padding: 12px;
   text-align: center;
 }
 
@@ -33,6 +38,22 @@
 }
 
 .grades td {
-  background-color: rgba(255, 255, 255, 0.7); /* Nền nhẹ cho các ô dữ liệu */
+  background-color: rgba(255, 255, 255, 0.8); /* Nền nhẹ cho các ô dữ liệu */
   color: #333;
+  font-size: 18px;
+}
+.back-btn:hover {
+  background-color: #0056b3;  // Thay đổi màu khi hover
+}
+.back-btn {
+  position: fixed;
+  top: 20px;        // Khoảng cách từ trên xuống
+  right: 60px;       // Khoảng cách từ trái sang
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
 }

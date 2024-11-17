@@ -26,6 +26,8 @@ import { TimeTableComponent } from '../views/manager/time-table/time-table.compo
 import { ProfileManagerComponent } from '../views/manager/profile-manager/profile-manager.component';
 import { TimeClassComponent } from '../views/manager/time-class/time-class.component';
 
+
+
 export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'signup', component: SignupComponent },

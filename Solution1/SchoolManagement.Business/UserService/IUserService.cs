@@ -12,6 +12,7 @@ namespace SchoolManagement.Business.UserService
 
          Task<IEnumerable<User>> GetUsersByRoleAsync(string role);
 
+       Task<IEnumerable<User>> GetUsersByClassIdAsync(int classId);
 
   }
 }

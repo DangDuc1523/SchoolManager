@@ -33,3 +33,20 @@ F:\Angular\SchoolManager\Solution1\SchoolManagement.Business\obj\Debug\net6.0\Sc
 F:\Angular\SchoolManager\Solution1\SchoolManagement.Business\obj\Debug\net6.0\refint\SchoolManagement.Business.dll
 F:\Angular\SchoolManager\Solution1\SchoolManagement.Business\obj\Debug\net6.0\SchoolManagement.Business.pdb
 F:\Angular\SchoolManager\Solution1\SchoolManagement.Business\obj\Debug\net6.0\ref\SchoolManagement.Business.dll
+F:\New folder\Solution1\SchoolManagement.Business\bin\Debug\net6.0\SchoolManagement.Business.deps.json
+F:\New folder\Solution1\SchoolManagement.Business\bin\Debug\net6.0\SchoolManagement.Business.dll
+F:\New folder\Solution1\SchoolManagement.Business\bin\Debug\net6.0\SchoolManagement.Business.pdb
+F:\New folder\Solution1\SchoolManagement.Business\bin\Debug\net6.0\SchoolManagement.Data.dll
+F:\New folder\Solution1\SchoolManagement.Business\bin\Debug\net6.0\SchoolManagement.Models.dll
+F:\New folder\Solution1\SchoolManagement.Business\bin\Debug\net6.0\SchoolManagement.Data.pdb
+F:\New folder\Solution1\SchoolManagement.Business\bin\Debug\net6.0\SchoolManagement.Models.pdb
+F:\New folder\Solution1\SchoolManagement.Business\obj\Debug\net6.0\SchoolManagement.Business.csproj.AssemblyReference.cache
+F:\New folder\Solution1\SchoolManagement.Business\obj\Debug\net6.0\SchoolManagement.Business.GeneratedMSBuildEditorConfig.editorconfig
+F:\New folder\Solution1\SchoolManagement.Business\obj\Debug\net6.0\SchoolManagement.Business.AssemblyInfoInputs.cache
+F:\New folder\Solution1\SchoolManagement.Business\obj\Debug\net6.0\SchoolManagement.Business.AssemblyInfo.cs
+F:\New folder\Solution1\SchoolManagement.Business\obj\Debug\net6.0\SchoolManagement.Business.csproj.CoreCompileInputs.cache
+F:\New folder\Solution1\SchoolManagement.Business\obj\Debug\net6.0\SchoolMa.CC763DEE.Up2Date
+F:\New folder\Solution1\SchoolManagement.Business\obj\Debug\net6.0\SchoolManagement.Business.dll
+F:\New folder\Solution1\SchoolManagement.Business\obj\Debug\net6.0\refint\SchoolManagement.Business.dll
+F:\New folder\Solution1\SchoolManagement.Business\obj\Debug\net6.0\SchoolManagement.Business.pdb
+F:\New folder\Solution1\SchoolManagement.Business\obj\Debug\net6.0\ref\SchoolManagement.Business.dll

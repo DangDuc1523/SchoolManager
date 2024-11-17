@@ -5,14 +5,16 @@ namespace SchoolManagement.Business.UserService
 {
     public class UserService : IUserService
     {
-        private readonly IBaseRepository<User> _userRepository;
+    private readonly IBaseRepository<User> _userRepository;
+    private readonly IBaseRepository<Student> _studentRepository;
 
-        public UserService(IBaseRepository<User> UserRepository)
-        {
-            _userRepository = UserRepository;
-        }
+    public UserService(IBaseRepository<User> userRepository, IBaseRepository<Student> studentRepository)
+    {
+      _userRepository = userRepository;
+      _studentRepository = studentRepository;
+    }
 
-        public async Task<IEnumerable<User>> GetAllUserAsync()
+    public async Task<IEnumerable<User>> GetAllUserAsync()
         {
             return await _userRepository.GetAllAsync();
         }
@@ -48,6 +50,25 @@ namespace SchoolManagement.Business.UserService
     public async Task<IEnumerable<User>> GetUsersByRoleAsync(string role)
     {
       return await _userRepository.GetWhereAsync(u => u.Role == role);
+    }
+
+    public async Task<IEnumerable<User>> GetUsersByClassIdAsync(int classId)
+    {
+      // Lấy danh sách sinh viên theo ClassId
+      var students = await _studentRepository.GetWhereAsync(s => s.ClassId == classId);
+
+      // Duyệt qua danh sách sinh viên và lấy thông tin User của mỗi sinh viên
+      var users = new List<User>();
+      foreach (var student in students)
+      {
+        var user = await _userRepository.GetByIdAsync(student.UserId);
+        if (user != null)
+        {
+          users.Add(user);
+        }
+      }
+
+      return users;
     }
 
 

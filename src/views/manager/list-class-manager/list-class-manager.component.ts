@@ -43,5 +43,10 @@ export class ListClassManagerComponent implements OnInit {
       this.router.navigate(['/timeClass']);
     }
 
+    viewListStudent(classId: string){
+      this.classManager.setClassId(classId);
+      this.router.navigate(['/infoClassManager']);
+    }
+
   
 }

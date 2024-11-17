@@ -1,5 +1,6 @@
-using SchoolManagement.Data.BaseRepository;
 using SchoolManagement.Models.Models;
+using SchoolManagement.Data.BaseRepository;
+using Microsoft.EntityFrameworkCore;
 
 namespace SchoolManagement.Business.TimeTableService
 {
@@ -7,9 +8,9 @@ namespace SchoolManagement.Business.TimeTableService
   {
     private readonly IBaseRepository<Timetable> _timeTableRepository;
 
-    public TimeTableService(IBaseRepository<Timetable> TimeTableRepository)
+    public TimeTableService(IBaseRepository<Timetable> timeTableRepository)
     {
-      _timeTableRepository = TimeTableRepository;
+      _timeTableRepository = timeTableRepository;
     }
 
     public async Task<IEnumerable<Timetable>> GetAllTimetableAsync()
@@ -24,31 +25,35 @@ namespace SchoolManagement.Business.TimeTableService
 
     public async Task<IEnumerable<Timetable>> GetTimetablesByClassIdAsync(int classId)
     {
-      return await _timeTableRepository.GetWhereAsync(t => t.ClassId == classId);
+      // Sử dụng phương thức GetWhereWithIncludeAsync để lấy Timetables với Subject
+      var timetables = await _timeTableRepository.GetWhereWithIncludeAsync(
+          t => t.ClassId == classId,
+          t => t.Subject // Include Subject vào kết quả
+      );
+
+      return timetables;
     }
 
-    public async Task<Timetable> AddTimetableAsync(Timetable TimeTable)
+    public async Task<Timetable> AddTimetableAsync(Timetable timeTable)
     {
-      await _timeTableRepository.AddAsync(TimeTable);
-      return TimeTable;
+      await _timeTableRepository.AddAsync(timeTable);
+      return timeTable;
     }
 
-    public async Task<Timetable> UpdateTimetableAsync(Timetable TimeTable)
+    public async Task<Timetable> UpdateTimetableAsync(Timetable timeTable)
     {
-      await _timeTableRepository.UpdateAsync(TimeTable);
-      return TimeTable;
+      await _timeTableRepository.UpdateAsync(timeTable);
+      return timeTable;
     }
 
     public async Task<Timetable> DeleteTimetableAsync(int id)
     {
-      var TimeTable = await _timeTableRepository.GetByIdAsync(id);
-      if (TimeTable != null)
+      var timeTable = await _timeTableRepository.GetByIdAsync(id);
+      if (timeTable != null)
       {
         await _timeTableRepository.DeleteAsync(id);
       }
-      return TimeTable;
+      return timeTable;
     }
-
-
   }
 }

@@ -3,7 +3,33 @@
     <app-main-manager></app-main-manager>
     </div>
     <div>
-        <p>list teacher works!</p>
+        <div class="table-container">
+            <button>Add new teacher</button>
+            <table border="1">
+              <thead>
+                <tr>
+                    <th>STT</th>
+                  <th>Full Name</th>
+                  <th>Date of Birth</th>
+                  <th>Specialty</th>
+                  <th>Address</th>
+                  <th>Contact Info</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Sử dụng *ngFor để lặp qua danh sách giáo viên -->
+                <tr *ngFor="let teacher of listTeacher; let i = index">
+                    <td>{{ i + 1 }}</td> <!-- STT -->
+                    <td>{{ teacher.fullName }}</td> <!-- Tên giáo viên -->
+                    <td>{{ teacher.dateOfBirth | date: 'dd/MM/yyyy' }}</td> <!-- Ngày sinh -->
+                    <td>{{ teacher.specialty }}</td> <!-- Chuyên môn -->
+                    <td>{{ teacher.address }}</td> <!-- Địa chỉ -->
+                    <td>{{ teacher.contactInfo }}</td> <!-- Thông tin liên hệ -->
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+          
     </div>
 </div>
 

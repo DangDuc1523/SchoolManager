@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "4N1lIeMDspTgj4VnX2gU0R3D4IQPqoupxuA/WPv8VWg=",
+  "Source": "SchoolManagement.WebAPI",
+  "BasePath": "_content/SchoolManagement.WebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

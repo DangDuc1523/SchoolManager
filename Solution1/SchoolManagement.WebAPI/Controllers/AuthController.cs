@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using SchoolManagement.Business;
+using SchoolManagement.Business.UserService;
 using SchoolManagement.Data;
 using SchoolManagement.Models.Models;
 using System.IdentityModel.Tokens.Jwt;
@@ -12,6 +14,7 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
     [ApiController]
     public class AuthController : ControllerBase
     {
+<<<<<<< HEAD
         private readonly IConfiguration _configuration;
         private readonly SchoolDbContext _userService;
 
@@ -56,5 +59,12 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
             return Ok();
         }
 
+=======
+      _configuration = configuration;
+      _userService = userService;
+      _uService = uService;
+      _emailService = emailService;
+
+>>>>>>> 262ac9ed1b628c2651e3bfff48e37c12dcd1f5b7
     }
 }

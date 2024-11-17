@@ -20,6 +20,7 @@ using SchoolManagement.Data.SubjectRepository;
 using SchoolManagement.Data.TimeTableRepository;
 using SchoolManagement.Data.UserRepository;
 using System.Text;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 

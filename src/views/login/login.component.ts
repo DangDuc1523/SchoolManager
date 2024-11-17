@@ -1,16 +1,19 @@
+
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrls: ['./login.component.scss'] 
 })
 export class LoginComponent {
+
   singupCheck = false;
 
   router = inject(Router);
@@ -36,5 +39,6 @@ export class LoginComponent {
   signup() {
     // Phát sự kiện đăng ký khi nhấn vào nút SIGN UP
    // this.signupEvent.emit();
+
   }
 }

@@ -1,18 +1,27 @@
-﻿using SchoolManagement.Data.BaseRepository;
+using Microsoft.EntityFrameworkCore;
+using SchoolManagement.Data;
+using SchoolManagement.Data.BaseRepository;
 using SchoolManagement.Models.Models;
 
 namespace SchoolManagement.Business.SubjectService
 {
     public class SubjectService : ISubjectService
     {
-        private readonly IBaseRepository<Subject> _subjectRepository;
+    private readonly IBaseRepository<Subject> _subjectRepository;
+    private readonly IBaseRepository<ClassSubject> _classSubjectRepository;
+    private readonly SchoolDbContext _context;
 
-        public SubjectService(IBaseRepository<Subject> SubjectRepository)
-        {
-            _subjectRepository = SubjectRepository;
-        }
+    public SubjectService(
+            IBaseRepository<Subject> subjectRepository,
+            IBaseRepository<ClassSubject> classSubjectRepository,
+            SchoolDbContext context)
+    {
+      _subjectRepository = subjectRepository ;
+      _classSubjectRepository = classSubjectRepository ;
+      _context = context ;
+    }
 
-        public async Task<IEnumerable<Subject>> GetAllSubjectAsync()
+    public async Task<IEnumerable<Subject>> GetAllSubjectAsync()
         {
             return await _subjectRepository.GetAllAsync();
         }
@@ -43,7 +52,24 @@ namespace SchoolManagement.Business.SubjectService
             }
             return Subject;
         }
+        public async Task<IEnumerable<Subject>> GetSubjectsByClassIdAsync(int classId)
+        { 
+            var classSubjects = await _classSubjectRepository.GetWhereAsync(cs => cs.ClassId == classId);
 
-        
+            var subjectIds = classSubjects.Select(cs => cs.SubjectId).Distinct().ToList();
+
+            var subjects = await _subjectRepository.GetWhereAsync(s => subjectIds.Contains(s.SubjectId));
+
+            return subjects;
+        }
+        public async Task<IEnumerable<Subject>> GetSubjectsByClassAndTeacherAsync(int classId, int teacherId)
+        {
+            var classSubjects = await _classSubjectRepository.GetWhereAsync(cs => cs.ClassId == classId && cs.TeacherId == teacherId);
+            var subjectIds = classSubjects.Select(cs => cs.SubjectId).Distinct().ToList();
+            var subjects = await _subjectRepository.GetWhereAsync(s => subjectIds.Contains(s.SubjectId));
+
+            return subjects;
+        }
+
     }
 }

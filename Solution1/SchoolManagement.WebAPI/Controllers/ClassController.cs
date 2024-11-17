@@ -40,6 +40,7 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
             return CreatedAtAction(nameof(GetClassById), new { id = createdClass.ClassId }, createdClass);
         }
 
+<<<<<<< HEAD
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateClass(int id, Class Class)
         {
@@ -63,4 +64,56 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
         }
 
     }
+=======
+    [HttpPut("{classId}")]
+    public async Task<IActionResult> UpdateClass(int classId,[FromBody]Class Class)
+    {
+      var updatedClass = await _classService.GetClassByIdAsync(classId);
+      if (updatedClass == null)
+      {
+        return NotFound();
+      }
+      else
+      {
+        updatedClass = Class;
+        updatedClass.ClassId = classId;
+        await _classService.UpdateClassAsync(updatedClass);
+      }
+      return Ok(updatedClass);
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteClass(int id)
+    {
+      var deletedClass = await _classService.DeleteClassAsync(id);
+      if (deletedClass == null)
+      {
+        return NotFound();
+      }
+      return Ok(deletedClass);
+    }
+    [HttpGet("student/{studentId}")]
+    public async Task<IActionResult> GetClassByStudentId(int studentId)
+    {
+      var Class = await _classService.GetClassByStudentIdAsync(studentId);
+      if (Class == null)
+      {
+        return NotFound();
+      }
+      return Ok(Class);
+    }
+
+    [HttpGet("teacher/{teacherId}/classes")]
+    public async Task<IActionResult> GetAllClassesByTeacherId(int teacherId)
+    {
+      var classes = await _classService.GetAllClassesByTeacherIdAsync(teacherId);
+      if (!classes.Any())
+      {
+        return NotFound();
+      }
+      return Ok(classes);
+    }
+
+  }
+>>>>>>> 262ac9ed1b628c2651e3bfff48e37c12dcd1f5b7
 }

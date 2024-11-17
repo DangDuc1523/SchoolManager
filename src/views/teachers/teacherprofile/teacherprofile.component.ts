@@ -1,20 +1,85 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { CommonModule, DatePipe } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // Thêm FormsModule
+import { TeacherService } from '../../../services/teacher.service';
+import { Teacher } from '../../../dto/user.model';
+import { AuthService } from '../../../service/auth.service';
 
 @Component({
-  selector: 'app-teacherprofile',
+  selector: 'app-teacher-profile',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule], // Thêm FormsModule vào imports
   templateUrl: './teacherprofile.component.html',
-  styleUrls: ['./teacherprofile.component.scss']
+  styleUrls: ['./teacherprofile.component.scss'],
+  providers: [DatePipe],
 })
-export class TeacherProfileComponent {
-  // Sample teacher data for display only
-  teacher = {
-    fullName: 'John Doe',
-    dateOfBirth: new Date(1980, 5, 15),
-    address: '123 Main St, Springfield',
-    contactInfo: '123-456-7890',
-    specialty: 'Mathematics'
-  };
+export class TeacherProfileComponent implements OnInit {
+  teacher: Teacher | null = null;
+  isEditing: boolean = false; // Trạng thái chỉnh sửa
+  auth: AuthService = inject(AuthService);
+
+  constructor(private teacherService: TeacherService, private datePipe: DatePipe) {}
+
+  ngOnInit(): void {
+    const teacherId = this.auth.getId();
+  
+    if (!teacherId) {
+      console.error('Teacher ID is missing from AuthService.');
+      return;
+    }
+  
+    console.log('Teacher ID from AuthService:', teacherId);
+  
+    this.teacherService.getTeacherProfile(Number(teacherId)).subscribe({
+      next: (data: any) => {
+        console.log('Fetched teacher data from API:', data);
+  
+        data.userID = data.userId;
+        delete data.userId;
+  
+        if (!data.userID) {
+          console.error('API did not return userID. Data received:', data);
+        }
+  
+        data.dateOfBirth = this.datePipe.transform(data.dateOfBirth, 'yyyy-MM-dd') || '';
+        this.teacher = data;
+      },
+      error: (err) => {
+        console.error('Error fetching teacher profile:', err);
+      },
+    });
+  }
+  
+  
+
+  toggleEditMode(): void {
+    this.isEditing = !this.isEditing; // Chuyển đổi trạng thái chỉnh sửa
+  }
+
+  saveProfile(): void {
+    if (!this.teacher) {
+      alert('Failed to update profile. Teacher data is missing.');
+      return;
+    }
+  
+    if (!this.teacher.fullName || !this.teacher.dateOfBirth || !this.teacher.address || !this.teacher.contactInfo || !this.teacher.specialty) {
+      alert('All fields are required. Please fill in all fields.');
+      return;
+    }
+  
+    this.teacherService.updateUserProfile(this.teacher).subscribe({
+      next: () => {
+        this.isEditing = false;
+        alert('Profile updated successfully!');
+      },
+      error: () => {
+        alert('Failed to update profile. Please try again.');
+      },
+    });
+  }
+  
+  
 }
+  
+  
+

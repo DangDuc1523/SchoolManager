@@ -1,17 +1,17 @@
 ﻿{
-   "CodeGenerationMode": 3,
+   "CodeGenerationMode": 2,
    "ContextClassName": "SchoolDataContext",
    "ContextNamespace": null,
    "FilterSchemas": false,
    "IncludeConnectionString": false,
    "ModelNamespace": null,
    "OutputContextPath": null,
-   "OutputPath": "Models",
+   "OutputPath": "Modelstest",
    "PreserveCasingWithRegex": true,
    "ProjectRootNamespace": "SchoolManagement.Models",
    "Schemas": null,
    "SelectedHandlebarsLanguage": 2,
-   "SelectedToBeGenerated": 0,
+   "SelectedToBeGenerated": 2,
    "T4TemplatePath": null,
    "Tables": [
       {

@@ -1,4 +1,4 @@
-﻿using SchoolManagement.Models.Models;
+using SchoolManagement.Models.Models;
 
 namespace SchoolManagement.Business.SubjectService
 {
@@ -9,5 +9,7 @@ namespace SchoolManagement.Business.SubjectService
         Task<Subject> AddSubjectAsync(Subject Class);
         Task<Subject> UpdateSubjectAsync(Subject Class);
         Task<Subject> DeleteSubjectAsync(int id);
-    }
+        Task<IEnumerable<Subject>> GetSubjectsByClassIdAsync(int classId);
+        Task<IEnumerable<Subject>> GetSubjectsByClassAndTeacherAsync(int classId, int teacherId);
+  }
 }

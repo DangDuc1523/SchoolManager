@@ -79,7 +79,6 @@ export class AuthService {
         return null;
     }
   }
-
   getId(): string | null {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -96,5 +95,6 @@ export class AuthService {
         return null;
     }
   }
+
 
 }

@@ -1,0 +1,31 @@
+<div style="display: flex;">
+<div>
+<app-main-manager></app-main-manager>
+</div>
+<div class="container">
+<div *ngIf="timeClasses.length > 0; else noData">
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Date Learn</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Room</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let timeClass of timeClasses">
+          <td>{{ timeClass.dateLearn }}</td>
+          <td>{{ timeClass.startTime }}</td>
+          <td>{{ timeClass.endTime }}</td>
+          <td>{{ timeClass.room }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <ng-template #noData>
+    <p>Không có dữ liệu để hiển thị.</p>
+  </ng-template>
+</div>
+</div>

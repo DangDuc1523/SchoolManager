@@ -10,10 +10,10 @@
         <thead>
           <tr>
             <th>Mã lớp</th>
-            <th>Tên lớp</th>
-            <th>Lịch học</th>
-            <th>Phòng học</th>
+            <th>Tên lớp</th>          
             <th>Số học sinh</th>
+            <th>Lịch học</th>
+            <th>Thông tin thêm</th>
           </tr>
         </thead>
         <tbody>
@@ -22,9 +22,13 @@
             <tr>
             <td>{{ classItem.classId }}</td>
             <td>{{ classItem.className }}</td>
-            <td>{{ classItem.schedule }}</td>
-            <td>{{ classItem.room }}</td>
             <td>{{ classItem.studentCount }}</td>
+            <td>
+              <a [routerLink]="['/testClass', classItem.classId]">Detail</a>
+            </td>
+            <td>
+              <button (click)="viewDetail(classItem.classId)">Detail</button>
+            </td>
           </tr>
         }
         </tbody>

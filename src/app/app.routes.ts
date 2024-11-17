@@ -23,7 +23,11 @@ import { ListTeacherComponent } from '../views/manager/list-teacher/list-teacher
 import { ListClassManagerComponent } from '../views/manager/list-class-manager/list-class-manager.component';
 import { TimeTableComponent } from '../views/manager/time-table/time-table.component';
 import { ProfileManagerComponent } from '../views/manager/profile-manager/profile-manager.component';
+
 import { InfoClassComponent } from '../views/manager/info-class/info-class.component';
+
+import { TimeClassComponent } from '../views/manager/time-class/time-class.component';
+
 
 export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -52,5 +56,16 @@ export const routes: Routes = [
   { path: 'listClassManager', component:  ListClassManagerComponent},
   { path: 'infoClassManager', component: InfoClassComponent },
   { path: 'timeTableManager', component: TimeTableComponent },
-  { path: 'profileManager', component: ProfileManagerComponent }
+
+  { path: 'profileManager', component: ProfileManagerComponent },
+  { path: 'timeClass', component: TimeClassComponent }
+  
 ];
+
+@NgModule({
+  
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}
+

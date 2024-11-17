@@ -1,48 +1,73 @@
-.timetable {
-  .week {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+/* Container cho thời khóa biểu */
+.schedule-container {
+  width: 180%;
+  max-width: 1300px; /* Đảm bảo kích thước tối đa vẫn giữ nguyên */
+  margin: 0 auto;
+  padding: 40px;
+  background-color: rgba(176, 158, 158, 0.9); /* Nền trắng trong suốt cho bảng */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  background-image: url('/assets/720ff027d9dfb6d048cbae659e0290d2.jpg');
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover; /* Điều chỉnh này giúp hình nền bao phủ toàn bộ màn hình */
+  padding: 90px;
 
-    .day {
-      background-color: #e9ecef;
-      border-radius: 8px;
-      padding: 10px;
-      
-      .day-header {
-        display: flex;
-        justify-content: space-between;  /* Đặt 'Thứ' và ngày tháng ngang hàng */
-        align-items: center;
-        margin-bottom: 10px;
-        
-        .day-name {
-          color: #007bff;
-          font-weight: bold;
-        }
-
-        .date {
-          font-size: 0.9em;  /* Có thể giảm kích thước nếu cần */
-          margin-left: 200px;
-        }
-      }
-
-      ul {
-        list-style: none;
-        padding: 0;
-
-        li {
-          padding: 5px;
-          background-color: #fff;
-          border-radius: 5px;
-          margin-bottom: 5px;
-
-          .subject-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-          }
-        }
-      }
-    }
+  h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
   }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.9); /* Nền trắng trong suốt */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Nền trong suốt cho từng ô */
+  }
+
+  .time-header {
+    background-color: rgba(242, 242, 242, 0.8);
+    font-weight: bold;
+  }
+
+  .time-cell {
+    background-color: rgba(242, 242, 242, 0.8);
+    font-weight: bold;
+    width: 120px;
+  }
+
+  /* Màu nền cho các ngày */
+  .monday { background-color: rgba(255, 217, 102, 0.8); }
+  .tuesday { background-color: rgba(244, 204, 204, 0.8); }
+  .wednesday { background-color: rgba(249, 203, 156, 0.8); }
+  .thursday { background-color: rgba(217, 234, 211, 0.8); }
+  .friday { background-color: rgba(217, 210, 233, 0.8); }
+
+  
+}
+.back-btn:hover {
+  background-color: #0056b3;  // Thay đổi màu khi hover
+}
+.back-btn {
+  position: fixed;
+  top: 20px;        // Khoảng cách từ trên xuống
+  left: 30px;       // Khoảng cách từ trái sang
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
 }

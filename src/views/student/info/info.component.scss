@@ -5,27 +5,31 @@ body, html {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #f0f0f0; /* Nếu hình nền không hiển thị, nền sẽ là màu sáng */
 }
 
 .info {
-  width: 90vw; /* Chiều rộng toàn màn hình */
-  height: 90vh; /* Kéo dài thêm chiều cao của phần thông tin */
+  width: 95vw;  /* Điều chỉnh chiều rộng cho vừa phải */
+  height: 90vh;  /* Điều chỉnh chiều cao cho vừa phải */
   padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('../../../img/header.jpg');
-  background-size: cover; /* Đảm bảo ảnh được co giãn đúng */
-  background-position: center;
+  background-image: url('../../../img/119234579_169457918065236_755533166268046471_n-1.jpg'); /* Đảm bảo đường dẫn đúng */
+  background-size: cover; /* Đảm bảo hình nền bao phủ hết không gian */
+  background-position: center; /* Căn giữa hình nền */
   background-repeat: no-repeat;
   color: #333;
+  border-radius: 10px; /* Thêm border-radius cho góc bo tròn */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Thêm bóng đổ cho phần tử */
 }
 
 h2 {
   font-size: 32px;
   margin-bottom: 20px;
-  color: #c31010; /* Đổi màu chữ thành trắng cho dễ đọc */
+  color: black; /* Màu chữ sáng cho tiêu đề */
+  text-align: center; /* Căn giữa tiêu đề */
 }
 
 .form-group {
@@ -38,51 +42,73 @@ h2 {
 
 label {
   font-weight: bold;
-  font-size: 30px;
-  color: #cc7c14; /* Đổi màu chữ thành trắng */
+  font-size: 18px;
+  color: black; /* Màu chữ sáng cho label */
+  margin-bottom: 5px;
 }
 
 input {
-  width: 150%;
+  width: 100%; /* Điều chỉnh lại chiều rộng input */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.9);
   color: #333;
-  font-size: 15px;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
-.edit-button {
-  margin-top: 10px;
-  background-color: #ffc107;
-  color: #333;
+.actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+
+button {
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #e0a800;
-  }
 }
 
-.save-button {
+button[type="button"] {
+  background-color: #ffc107;
+  color: #333;
+}
+
+button[type="button"]:hover {
+  background-color: #e0a800;
+}
+
+button[type="submit"] {
   background-color: #28a745;
   color: white;
-  padding: 10px 20px;
+  width: 48%; /* Đặt chiều rộng cho button submit */
+}
+
+button[type="submit"]:hover:enabled {
+  background-color: #218838;
+}
+
+button[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.back-btn {
+  position: fixed;
+  top: 20px;        // Khoảng cách từ trên xuống
+  left: 20px;       // Khoảng cách từ trái sang
+  background-color: #007bff;
+  color: white;
   border: none;
-  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
   cursor: pointer;
-  width: 80%;
-  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
 
-  &:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-
-  &:hover:enabled {
-    background-color: #218838;
-  }
+.back-btn:hover {
+  background-color: #0056b3;  // Thay đổi màu khi hover
 }

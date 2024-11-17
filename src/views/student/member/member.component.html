@@ -1,10 +1,28 @@
+<!-- member.component.html -->
 <div class="class-info">
+  <button class="back-btn" (click)="goBack()">Back</button>
   <h2>Danh Sách Học Sinh - {{ selectedClass.name }}</h2>
   <p>Giáo Viên: {{ selectedClass.teacher }}</p>
   <p>Môn Học: {{ selectedClass.subject }}</p>
 
-  <ul>
-    <li *ngFor="let student of students">{{ student.name }}</li>
-  </ul>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>Họ Tên</th>
+        <th>Ngày Sinh</th>
+        <th>Địa Chỉ</th>
+        <th>Contact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ student.name }}</td>
+        <td>{{ student.dob  }}</td>
+        <td>{{ student.address }}</td>
+        <td>{{ student.contact }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-  

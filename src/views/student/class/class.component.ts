@@ -13,17 +13,28 @@
       {
         name: 'Thứ Hai',
         subjects: [
-          { date: '2024-11-11', time: '08:00 - 10:00', name: 'Toán', room: '101' },
-          { date: '2024-11-11', time: '10:30 - 12:00', name: 'Lý', room: '102' }
-        ]
-      },
-      {
-        name: 'Thứ Ba',
-        subjects: [
-          { date: '2024-11-12', time: '08:00 - 10:00', name: 'Hóa', room: '201' },
-          { date: '2024-11-12', time: '10:30 - 12:00', name: 'Văn', room: '202' }
+          {
+            name: 'Toán',
+            room: '101',
+            time: '08:00 AM',
+            startTime: '08:00',
+            endTime: '10:00',
+            class: 'Lớp A1',
+            date: new Date() // ngày cụ thể
+          },
+          {
+            name: 'Lý',
+            room: '102',
+            time: '10:30 AM',
+            startTime: '10:30',
+            endTime: '12:00',
+            class: 'Lớp A2',
+            date: new Date() // ngày cụ thể
+          }
         ]
       }
-    ];
-    
+    ];   
+    goBack() {
+      window.history.back();  // Sử dụng history của trình duyệt để quay lại trang trước
+    } 
   }

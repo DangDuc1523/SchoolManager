@@ -1,27 +1,23 @@
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace SchoolManagement.Data.BaseRepository
 {
-  public class BaseRepository<T> : IBaseRepository<T> where T : class
-  {
-    private readonly DbContextOptions<SchoolDbContext> _options;
-
-    public BaseRepository(DbContextOptions<SchoolDbContext> options)
+    public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
-      _options = options;
-    }
-
-    public async Task AddAsync(T entity)
-    {
-      using (var context = new SchoolDbContext(_options))
-      {
-        context.Add<T>(entity);
-        await context.SaveChangesAsync();
-      }
-    }
+        private readonly DbContextOptions<SchoolDbContext> _options;
+        public BaseRepository(DbContextOptions<SchoolDbContext> options)
+        {
+            _options = options;
+        }
+        public async Task AddAsync(T entity)
+        {
+            using (var context = new SchoolDbContext(_options))
+            {
+                context.Add<T>(entity);
+                await context.SaveChangesAsync();
+            }
+        }
 
     public async Task DeleteAsync(int id)
     {
@@ -41,11 +37,11 @@ namespace SchoolManagement.Data.BaseRepository
       }
     }
 
-    public async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> predicate = null)
-    {
-      using (var context = new SchoolDbContext(_options))
-      {
-        IQueryable<T> query = context.Set<T>();
+        public async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> predicate = null)
+        {
+            using (var context = new SchoolDbContext(_options))
+            {
+                IQueryable<T> query = context.Set<T>();
 
         if (predicate != null)
         {

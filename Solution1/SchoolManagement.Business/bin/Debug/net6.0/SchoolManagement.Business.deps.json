@@ -469,10 +469,14 @@
           "SchoolManagement.Models": "1.0.0"
         },
         "runtime": {
+<<<<<<< HEAD
           "SchoolManagement.Data.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
+=======
+          "SchoolManagement.Data.dll": {}
+>>>>>>> 262ac9ed1b628c2651e3bfff48e37c12dcd1f5b7
         }
       },
       "SchoolManagement.Models/1.0.0": {
@@ -480,10 +484,14 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.35"
         },
         "runtime": {
+<<<<<<< HEAD
           "SchoolManagement.Models.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
+=======
+          "SchoolManagement.Models.dll": {}
+>>>>>>> 262ac9ed1b628c2651e3bfff48e37c12dcd1f5b7
         }
       }
     }

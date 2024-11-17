@@ -15,6 +15,7 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
     {
       _userService = userService;
     }
+<<<<<<< HEAD
 
     // Phương thức GET lấy tất cả người dùng
     [HttpGet]
@@ -25,6 +26,15 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
     }
 
     // Phương thức GET lấy người dùng theo id
+=======
+    [HttpGet]
+    public async Task<IActionResult> GetAllUser()
+    {
+      var users = await _userService.GetAllUserAsync();
+      return Ok(users);
+    }
+
+>>>>>>> 262ac9ed1b628c2651e3bfff48e37c12dcd1f5b7
     [HttpGet("{id}")]
     public async Task<IActionResult> GetUserById(int id)
     {
@@ -70,9 +80,16 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
     //}
 
     [HttpPut("{id}")]
+<<<<<<< HEAD
     public async Task<IActionResult> UpdateUser(int id, User User)
     {
       var updatedUser = await _userService.UpdateUserAsync(User);
+=======
+    public async Task<IActionResult> UpdateUser(int id, User user)
+    {
+      user.UserId = id;
+      var updatedUser = await _userService.UpdateUserAsync(user);
+>>>>>>> 262ac9ed1b628c2651e3bfff48e37c12dcd1f5b7
       if (updatedUser == null)
       {
         return NotFound();
@@ -90,5 +107,32 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       }
       return Ok(deletedUser);
     }
+<<<<<<< HEAD
+=======
+
+
+    //[HttpGet("users/{userId}/search")]
+    //public async Task<IActionResult> GetUsersForDoctor(Guid doctorId, int pageNumber = 1, int pageSize = 10, DateTime? startDate = null, DateTime? endDate = null, UserStatus? status = null)
+    //{
+    //    var Users = await _userService.GetUsersForDoctorAsync(doctorId, pageNumber, pageSize, startDate, endDate, status);
+    //    return Ok(Users);
+    //}
+
+    //[HttpPatch("Users/{id}/cancel")]
+    //public async Task<IActionResult> CancelUser(Guid id)
+    //{
+    //    var User = await _UserService.GetUserByIdAsync(id);
+    //    if (User == null)
+    //    {
+    //        return NotFound();
+    //    }
+
+    //    User.Status = (int)UserStatus.Cancelled;
+    //    var updatedUser = await _UserService.UpdateUserAsync(User);
+
+    //    return Ok(updatedUser);
+    //}
+
+>>>>>>> 262ac9ed1b628c2651e3bfff48e37c12dcd1f5b7
   }
 }

@@ -5,3 +5,7 @@ F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\Scho
 F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.csproj.CoreCompileInputs.cache
 F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.MvcApplicationPartsAssemblyInfo.cache
 F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.sourcelink.json
+F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.MvcApplicationPartsAssemblyInfo.cs
+F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.dll
+F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\refint\SchoolManagement.WebAPI.dll
+F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.pdb

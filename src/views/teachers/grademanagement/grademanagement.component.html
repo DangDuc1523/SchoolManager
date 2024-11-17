@@ -1,35 +1,52 @@
-<div class="grade-management-container">
-    <h2>Grade Management</h2>
-    <p>Select a class and subject to manage grades.</p>
-    
-    <!-- Table to display students and input grades -->
-    <table>
+<div class="class-info-container">
+  <h2>Your Classes</h2>
+
+  <!-- Hiển thị lỗi nếu có -->
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+  <!-- Hiển thị danh sách lớp học -->
+  <div *ngIf="classes.length > 0" class="class-list-container">
+    <table class="class-table">
       <thead>
         <tr>
-          <th>Student ID</th>
-          <th>Full Name</th>
-          <th>Current Score</th>
-          <th>Update Score</th>
+          <th>Class Name</th>
+          <th>Schedule</th>
+          <th>Room</th>
+          <th>Number of Students</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let student of students; let i = index">
-          <td>{{ student.studentID }}</td>
-          <td>{{ student.fullName }}</td>
-          <td>{{ student.currentScore }}</td>
-          <td>
-            <input
-              type="number"
-              [(ngModel)]="student.newScore"
-              placeholder="Enter new score"
-              min="0"
-              max="10"
-              class="score-input"
-            />
-            <button (click)="updateScore(i)" class="btn btn-primary">Update</button>
-          </td>
+        <tr *ngFor="let classInfo of classes">
+          <td (click)="getSubjectsForClass(classInfo.classId, classInfo.className)" class="clickable">{{ classInfo.className }}</td>
+          <td>{{ classInfo.schedule }}</td>
+          <td>{{ classInfo.room }}</td>
+          <td>{{ classInfo.studentCount }}</td>
         </tr>
       </tbody>
     </table>
   </div>
-  
+
+  <!-- Hiển thị danh sách môn học nếu có -->
+  <div *ngIf="subjects.length > 0" class="subject-list-container">
+    <h3>Subjects for Class: {{ selectedClassName }}</h3>
+    <table class="subject-table">
+      <thead>
+        <tr>
+          <th>Subject Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let subject of subjects">
+          <td>{{ subject.subjectName }}</td>
+          <td>{{ subject.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Thông báo không có môn học -->
+  <div *ngIf="selectedClassName && subjects.length === 0" class="no-subjects">
+    No subjects found for the selected class.
+  </div>
+</div>

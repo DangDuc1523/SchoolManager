@@ -34,7 +34,6 @@ export class DashboardComponent {
   navigate5(){
     this.router.navigate(['home']);
   }
-
   navigate6(){
     this.router.navigate(['student']);
   }

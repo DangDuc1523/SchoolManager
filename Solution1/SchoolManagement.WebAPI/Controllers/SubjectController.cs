@@ -62,6 +62,26 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       }
       return Ok(deletedSubject);
     }
+    [HttpGet("class/{classId}")]
+    public async Task<IActionResult> GetSubjectsByClassIdAsync(int classId)
+    {
+      var subjects = await _subjectService.GetSubjectsByClassIdAsync(classId);
+      if (!subjects.Any())
+      {
+        return NotFound();
+      }
+      return Ok(subjects);
+    }
+    [HttpGet("class/{classId}/teacher/{teacherId}")]
+    public async Task<IActionResult> GetSubjectsByClassAndTeacher(int classId, int teacherId)
+    {
+      var subjects = await _subjectService.GetSubjectsByClassAndTeacherAsync(classId, teacherId);
+      if (!subjects.Any())
+      {
+        return NotFound();
+      }
+      return Ok(subjects);
+    }
 
   }
 }

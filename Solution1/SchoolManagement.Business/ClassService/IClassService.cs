@@ -10,6 +10,8 @@ namespace SchoolManagement.Business.ClassService
     Task<Class> UpdateClassAsync(Class Class);
     Task<Class> DeleteClassAsync(int id);
     Task<Class> GetClassByStudentIdAsync(int studentId);
-    Task<IEnumerable<Class>> GetClassByTeacherIdAsync(int userId);
+    Task<IEnumerable<Class>> GetAllClassesByTeacherIdAsync(int teacherId);
+
+
   }
 }

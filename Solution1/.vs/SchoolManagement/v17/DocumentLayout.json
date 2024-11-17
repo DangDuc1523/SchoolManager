@@ -159,8 +159,7 @@
               "RelativeToolTip": "SchoolManagement.Business\\UserService\\UserService.cs",
               "ViewState": "AgIAADEAAAAAAAAAAAAUwEUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T00:20:47.397Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T00:20:47.397Z"
             },
             {
               "$type": "Document",
@@ -172,8 +171,7 @@
               "RelativeToolTip": "SchoolManagement.Data\\BaseRepository\\IBaseRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T01:57:01.964Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T01:57:01.964Z"
             },
             {
               "$type": "Document",
@@ -185,8 +183,7 @@
               "RelativeToolTip": "SchoolManagement.Business\\UserService\\IUserService.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T00:20:59.267Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T00:20:59.267Z"
             },
             {
               "$type": "Document",
@@ -198,8 +195,7 @@
               "RelativeToolTip": "SchoolManagement.Data\\BaseRepository\\BaseRepository.cs",
               "ViewState": "AgIAAEcAAAAAAAAAAAAIwGUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T01:57:03.107Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T01:57:03.107Z"
             },
             {
               "$type": "Document",
@@ -211,8 +207,7 @@
               "RelativeToolTip": "SchoolManagement.Models\\Models\\User.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAIwB4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T00:20:22.266Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T00:20:22.266Z"
             },
             {
               "$type": "Document",
@@ -224,8 +219,7 @@
               "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\UserController.cs",
               "ViewState": "AgIAAEkAAAAAAAAAAAAcwDEAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T00:26:41.182Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T00:26:41.182Z"
             },
             {
               "$type": "Document",
@@ -237,8 +231,7 @@
               "RelativeToolTip": "SchoolManagement.WebAPI\\Program.cs",
               "ViewState": "AgIAAEAAAAAAAAAAAAAcwGsAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T00:24:17.564Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T00:24:17.564Z"
             },
             {
               "$type": "Document",
@@ -250,8 +243,7 @@
               "RelativeToolTip": "SchoolManagement.Data\\UserRepository\\UserRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T00:20:33.26Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T00:20:33.26Z"
             },
             {
               "$type": "Document",
@@ -263,8 +255,7 @@
               "RelativeToolTip": "SchoolManagement.Models\\Models\\Student.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T02:32:19.983Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T02:32:19.983Z"
             },
             {
               "$type": "Document",
@@ -276,8 +267,7 @@
               "RelativeToolTip": "SchoolManagement.Data\\UserRepository\\IUserRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T00:20:36.748Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T00:20:36.748Z"
             },
             {
               "$type": "Document",
@@ -289,8 +279,7 @@
               "RelativeToolTip": "SchoolManagement.Models\\Models\\Subject.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAswBoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T02:11:38.91Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T02:11:38.91Z"
             },
             {
               "$type": "Document",
@@ -302,8 +291,7 @@
               "RelativeToolTip": "SchoolManagement.Data\\TimeTableRepository\\TimeTableRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T01:50:30.087Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T01:50:30.087Z"
             },
             {
               "$type": "Document",
@@ -315,8 +303,7 @@
               "RelativeToolTip": "SchoolManagement.WebAPI\\Models\\Subject.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T01:52:07.101Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T01:52:07.101Z"
             },
             {
               "$type": "Document",
@@ -328,8 +315,7 @@
               "RelativeToolTip": "SchoolManagement.Business\\TimeTableService\\TimeTableService.cs",
               "ViewState": "AgIAACoAAAAAAAAAAAAowDsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T01:54:51.248Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T01:54:51.248Z"
             },
             {
               "$type": "Document",
@@ -341,8 +327,7 @@
               "RelativeToolTip": "SchoolManagement.Data\\ClassRepository\\ClassRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T02:05:51.96Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T02:05:51.96Z"
             },
             {
               "$type": "Document",
@@ -354,8 +339,7 @@
               "RelativeToolTip": "SchoolManagement.Business\\TimeTableService\\ITimeTableService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T01:49:57.74Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T01:49:57.74Z"
             },
             {
               "$type": "Document",
@@ -367,8 +351,7 @@
               "RelativeToolTip": "SchoolManagement.WebAPI\\Models\\Timetable.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T01:51:15.641Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T01:51:15.641Z"
             },
             {
               "$type": "Document",
@@ -380,8 +363,7 @@
               "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\TimeTableController.cs",
               "ViewState": "AgIAADEAAAAAAAAAAAAywE8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T01:51:01.316Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T01:51:01.316Z"
             },
             {
               "$type": "Document",
@@ -393,8 +375,7 @@
               "RelativeToolTip": "SchoolManagement.Data\\TimeTableRepository\\ITimeTableRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T01:50:30.879Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T01:50:30.879Z"
             },
             {
               "$type": "Document",
@@ -406,8 +387,7 @@
               "RelativeToolTip": "SchoolManagement.Models\\Models\\Timetable.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAQwBwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T01:48:58.51Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T01:48:58.51Z"
             },
             {
               "$type": "Document",
@@ -419,8 +399,7 @@
               "RelativeToolTip": "SchoolManagement.WebAPI\\Models\\User.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T00:21:49.479Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T00:21:49.479Z"
             }
           ]
         }

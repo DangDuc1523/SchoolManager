@@ -1,4 +1,11 @@
-﻿using SchoolManagement.Data.BaseRepository;
+﻿
+using SchoolManagement.Data.BaseRepository;
+
+using Microsoft.EntityFrameworkCore;
+using SchoolManagement.Data;
+using SchoolManagement.Data.BaseRepository;
+using SchoolManagement.Data.UserRepository;
+
 using SchoolManagement.Models.Models;
 
 namespace SchoolManagement.Business.ClassService
@@ -54,20 +61,21 @@ namespace SchoolManagement.Business.ClassService
       if (s == null) return null;
       else return await _classRepository.GetByIdAsync(s.ClassId);
     }
-    public async Task<IEnumerable<Class>> GetClassByTeacherIdAsync(int userId)
+
+    public async Task<IEnumerable<Class>> GetAllClassesByTeacherIdAsync(int teacherId)
     {
-      var classsubjects = _context.ClassSubjects.Where(cs => cs.TeacherId == userId).ToList();
-      List<int> classlist = new List<int>();
-      foreach (var classsubject in classsubjects)
-      {
-        if (!classlist.Contains(classsubject.ClassId))
-        {
-          classlist.Add(classsubject.ClassId);
-        }
-      }
-      var classes = await _classRepository.GetAllAsync();
-      classes=classes.Where(u=>classlist.Contains(u.ClassId)).ToList();
+      var classIds = await _context.ClassSubjects
+          .Where(cs => cs.TeacherId == teacherId)
+          .Select(cs => cs.ClassId)
+          .Distinct()
+          .ToListAsync();
+
+      var classes = await _context.Classes
+          .Where(c => classIds.Contains(c.ClassId))
+          .ToListAsync();
+
       return classes;
     }
+
   }
 }

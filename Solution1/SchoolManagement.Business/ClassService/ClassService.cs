@@ -1,4 +1,4 @@
-﻿
+﻿using Microsoft.EntityFrameworkCore;
 using SchoolManagement.Data;
 using SchoolManagement.Data.BaseRepository;
 using SchoolManagement.Data.UserRepository;

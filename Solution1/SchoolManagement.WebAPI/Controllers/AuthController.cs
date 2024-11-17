@@ -71,9 +71,11 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
         PasswordHash = registerDto.Password, 
         EmailConfirmed = false,
         FullName = registerDto.FullName,
-        Role = "Student"
-        // Các thuộc tính khác...
-
+        Role = "Student",
+        Address = registerDto.Address,
+        DateOfBirth = registerDto.DateOfBirth,
+        ContactInfo = registerDto.ContactInfo,
+        Specialty = registerDto.Specialty
       };
       var random = new Random();
       user.OtpCode = random.Next(100000, 999999).ToString();

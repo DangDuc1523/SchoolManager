@@ -5,22 +5,25 @@ import { AuthService } from '../../../service/auth.service';
 import { Subject } from '../../../dto/subject.model';
 import { Student } from '../../../dto/student.models';
 import { forkJoin, map } from 'rxjs';
+import { FormsModule } from '@angular/forms';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-classinfo',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './grademanagement.component.html',
   styleUrls: ['./grademanagement.component.scss'],
 })
 export class GradeManagementComponent implements OnInit {
-  classes: any[] = []; 
-  subjects: Subject[] = []; 
-  students: { student: Student; user: any }[] = []; 
+  classes: any[] = [];
+  subjects: Subject[] = [];
+  students: { student: Student; user: any; grade: any }[] = [];
   errorMessage = '';
-  selectedClassId: number = 0; 
-  selectedClassName = ''; 
-  selectedSubjectName = ''; 
+  selectedClassId: number = 0;
+  selectedClassName = '';
+  selectedSubjectName = '';
+  averageGrade: number = 0; // Store average grade
   private auth: AuthService = inject(AuthService);
   private teacherId: number = 0;
 
@@ -41,6 +44,7 @@ export class GradeManagementComponent implements OnInit {
       next: (classes) => {
         this.classes = classes;
         this.errorMessage = '';
+        this.resetSubjectAndStudentViews();
       },
       error: (error) => {
         console.error('Error fetching class info:', error);
@@ -50,8 +54,9 @@ export class GradeManagementComponent implements OnInit {
   }
 
   getSubjectsForClass(classId: number, className: string): void {
-    this.selectedClassId = classId; // Save selected class ID
-    this.selectedClassName = className; // Save selected class name
+    this.resetStudentView();
+    this.selectedClassId = classId;
+    this.selectedClassName = className;
     this.teacherService.getSubjectsByClassAndTeacher(classId, this.teacherId).subscribe({
       next: (subjects) => {
         this.subjects = subjects;
@@ -65,25 +70,30 @@ export class GradeManagementComponent implements OnInit {
   }
 
   getStudentsForSubject(subjectId: number, subjectName: string): void {
-    this.selectedSubjectName = subjectName; // Save selected subject name
+    this.selectedSubjectName = subjectName;
     this.teacherService.getStudentsByClassAndSubject(this.selectedClassId, subjectId).subscribe({
       next: (students) => {
         const studentDetailRequests = students.map((student) =>
-          this.teacherService.getTeacherProfile(student.userId).pipe(
-            map((user) => ({
+          forkJoin({
+            user: this.teacherService.getTeacherProfile(student.userId),
+            grade: this.teacherService.getGradeByStudentAndSubject(student.studentId, subjectId),
+          }).pipe(
+            map(({ user, grade }) => ({
               student,
               user,
+              grade: grade.length > 0 ? grade[0] : null,
             }))
           )
         );
 
         forkJoin(studentDetailRequests).subscribe({
           next: (studentDetails) => {
-            this.students = studentDetails;
+            this.students = studentDetails as { student: Student; user: any; grade: any }[];
+            this.calculateAverageGrade(); // Calculate average grade
             this.errorMessage = '';
           },
           error: (error) => {
-            console.error('Error fetching user details:', error);
+            console.error('Error fetching user or grade details:', error);
             this.errorMessage = 'Unable to fetch student details. Please try again later.';
           },
         });
@@ -93,5 +103,91 @@ export class GradeManagementComponent implements OnInit {
         this.errorMessage = 'Unable to fetch students. Please try again later.';
       },
     });
+  }
+
+  updateGrade(grade: any): void {
+    if (!grade) {
+      this.errorMessage = 'Grade information is missing. Unable to update.';
+      console.error('Grade object is null or undefined');
+      return;
+    }
+
+    if (grade.score < 0 || grade.score > 10) {
+      this.errorMessage = 'Score must be between 0 and 10.';
+      return;
+    }
+
+    this.teacherService.updateGrade(grade).subscribe({
+      next: () => {
+        console.log(`Grade with ID ${grade.gradeId} updated successfully.`);
+        this.calculateAverageGrade(); // Recalculate average grade after update
+        this.errorMessage = '';
+      },
+      error: (error) => {
+        console.error('Error updating grade:', error);
+        this.errorMessage = 'Unable to update grade. Please try again later.';
+      },
+    });
+  }
+
+  calculateAverageGrade(): void {
+    const totalGrades = this.students.reduce(
+      (sum, item) => (item.grade ? sum + item.grade.score : sum),
+      0
+    );
+    const gradeCount = this.students.filter((item) => item.grade).length;
+    this.averageGrade = gradeCount > 0 ? totalGrades / gradeCount : 0;
+  }
+
+
+  exportTableToExcel(): void {
+    // Calculate the average grade
+    const totalScore = this.students.reduce((sum, item) => sum + (item.grade?.score || 0), 0);
+    const averageGrade = this.students.length > 0 ? (totalScore / this.students.length).toFixed(2) : 'N/A';
+  
+    // Prepare metadata
+    const metadata = [
+      [`Class Name:`, this.selectedClassName],
+      [`Subject:`, this.selectedSubjectName],
+      [`Average Grade:`, averageGrade],
+      [],
+      [`#`, `Full Name`, `Date of Birth`, `Contact Info`, `Address`, `Grade`], // Table headers
+    ];
+  
+    // Prepare student data
+    const studentData = this.students.map((item, index) => [
+      index + 1,
+      item.user?.fullName || 'N/A',
+      item.user?.dateOfBirth || 'N/A',
+      item.user?.contactInfo || 'N/A',
+      item.user?.address || 'N/A',
+      item.grade?.score || 'N/A',
+    ]);
+  
+    // Combine metadata and student data
+    const sheetData = [...metadata, ...studentData];
+  
+    // Convert data to a worksheet
+    const ws = XLSX.utils.aoa_to_sheet(sheetData);
+  
+    // Create workbook and append worksheet
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Students for Subject');
+  
+    // Export to Excel
+    XLSX.writeFile(wb, `${this.selectedClassName}_${this.selectedSubjectName}_Students.xlsx`);
+  }
+  
+  
+
+  resetSubjectAndStudentViews(): void {
+    this.selectedClassName = '';
+    this.subjects = [];
+    this.resetStudentView();
+  }
+
+  resetStudentView(): void {
+    this.selectedSubjectName = '';
+    this.students = [];
   }
 }

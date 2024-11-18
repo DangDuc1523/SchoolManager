@@ -27,11 +27,11 @@ export class TeacherService {
     }
     return this.http.put<Teacher>(`${this.apiUrl}/User/${teacher.userID}`, teacher);
   }
-  //chưa đc
+  
   getClassSubjects(): Observable<ClassSubject[]> {
     return this.http.get<ClassSubject[]>(`${this.apiUrl}/User/ClassSubject`);
   }
-
+  //chưa đc
   getTimetablesByClass(classID: number): Observable<Timetable[]> {
     return this.http.get<Timetable[]>(`${this.apiUrl}/User/TimeTable/Class/${classID}`);
   }
@@ -57,7 +57,12 @@ export class TeacherService {
   getGradeByStudentAndSubject(studentId: number, subjectId: number): Observable<Grade[]> {
     return this.http.get<Grade[]>(`${this.apiUrl}/Grade/${studentId}/${subjectId}`);
   }
-  
+  updateGrade(grade: { gradeId: number; studentId: number; subjectId: number; classId: number; score: number }): Observable<any> {
+    if (!grade.gradeId) {
+      throw new Error('Grade ID is required for updating grade');
+    } 
+    return this.http.put(`${this.apiUrl}/Grade/${grade.gradeId}`, grade);
+  }
   
 }
 

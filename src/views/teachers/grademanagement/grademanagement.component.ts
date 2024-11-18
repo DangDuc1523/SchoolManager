@@ -1,43 +1,97 @@
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-
-interface Student {
-  studentID: string;
-  fullName: string;
-  currentScore: number;
-  newScore?: number; // This field is used for entering a new score
-}
+import { TeacherService } from '../../../services/teacher.service';
+import { AuthService } from '../../../service/auth.service';
+import { Subject } from '../../../dto/subject.model';
+import { Student } from '../../../dto/student.models';
+import { forkJoin, map } from 'rxjs';
 
 @Component({
-  selector: 'app-grademanagement',
+  selector: 'app-classinfo',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [CommonModule],
   templateUrl: './grademanagement.component.html',
-  styleUrls: ['./grademanagement.component.scss']
+  styleUrls: ['./grademanagement.component.scss'],
 })
-export class GradeManagementComponent {
-  students: Student[] = [
-    { studentID: 'S001', fullName: 'John Doe', currentScore: 8 },
-    { studentID: 'S002', fullName: 'Jane Smith', currentScore: 7 },
-    { studentID: 'S003', fullName: 'Mike Johnson', currentScore: 9 },
-    { studentID: 'S004', fullName: 'Emily Brown', currentScore: 6 },
-    { studentID: 'S005', fullName: 'Chris Evans', currentScore: 7 },
-    { studentID: 'S006', fullName: 'Sarah Connor', currentScore: 5 },
-    { studentID: 'S007', fullName: 'Tom Hardy', currentScore: 8 },
-    { studentID: 'S008', fullName: 'Olivia Wilde', currentScore: 9 },
-    { studentID: 'S009', fullName: 'Jake Gyllenhaal', currentScore: 6 },
-    { studentID: 'S010', fullName: 'Emma Stone', currentScore: 7 },
-  ];
+export class GradeManagementComponent implements OnInit {
+  classes: any[] = []; 
+  subjects: Subject[] = []; 
+  students: { student: Student; user: any }[] = []; 
+  errorMessage = '';
+  selectedClassId: number = 0; 
+  selectedClassName = ''; 
+  selectedSubjectName = ''; 
+  private auth: AuthService = inject(AuthService);
+  private teacherId: number = 0;
 
-  updateScore(index: number) {
-    const student = this.students[index];
-    if (student.newScore !== undefined) {
-      student.currentScore = student.newScore; // Update the current score with the new score
-      console.log(`Updated score for ${student.fullName}: ${student.newScore}`);
-      student.newScore = undefined; // Clear the newScore field after updating
+  constructor(private teacherService: TeacherService) {}
+
+  ngOnInit(): void {
+    this.teacherId = Number(this.auth.getId());
+    if (this.teacherId && this.teacherId > 0) {
+      this.getTeacherClasses(this.teacherId);
     } else {
-      console.log(`No new score entered for ${student.fullName}`);
+      this.errorMessage = 'Invalid teacher ID. Please check your authentication.';
+      console.error('Error: Invalid teacher ID');
     }
+  }
+
+  getTeacherClasses(teacherId: number): void {
+    this.teacherService.getClassesByTeacherId(teacherId).subscribe({
+      next: (classes) => {
+        this.classes = classes;
+        this.errorMessage = '';
+      },
+      error: (error) => {
+        console.error('Error fetching class info:', error);
+        this.errorMessage = 'Unable to fetch classes. Please try again later.';
+      },
+    });
+  }
+
+  getSubjectsForClass(classId: number, className: string): void {
+    this.selectedClassId = classId; // Save selected class ID
+    this.selectedClassName = className; // Save selected class name
+    this.teacherService.getSubjectsByClassAndTeacher(classId, this.teacherId).subscribe({
+      next: (subjects) => {
+        this.subjects = subjects;
+        this.errorMessage = '';
+      },
+      error: (error) => {
+        console.error('Error fetching subjects:', error);
+        this.errorMessage = 'Unable to fetch subjects. Please try again later.';
+      },
+    });
+  }
+
+  getStudentsForSubject(subjectId: number, subjectName: string): void {
+    this.selectedSubjectName = subjectName; // Save selected subject name
+    this.teacherService.getStudentsByClassAndSubject(this.selectedClassId, subjectId).subscribe({
+      next: (students) => {
+        const studentDetailRequests = students.map((student) =>
+          this.teacherService.getTeacherProfile(student.userId).pipe(
+            map((user) => ({
+              student,
+              user,
+            }))
+          )
+        );
+
+        forkJoin(studentDetailRequests).subscribe({
+          next: (studentDetails) => {
+            this.students = studentDetails;
+            this.errorMessage = '';
+          },
+          error: (error) => {
+            console.error('Error fetching user details:', error);
+            this.errorMessage = 'Unable to fetch student details. Please try again later.';
+          },
+        });
+      },
+      error: (error) => {
+        console.error('Error fetching students:', error);
+        this.errorMessage = 'Unable to fetch students. Please try again later.';
+      },
+    });
   }
 }

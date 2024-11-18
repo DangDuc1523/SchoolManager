@@ -1,4 +1,4 @@
-﻿using SchoolManagement.Data.BaseRepository;
+using SchoolManagement.Data.BaseRepository;
 using SchoolManagement.Models.Models;
 
 namespace SchoolManagement.Business.ClassSubjectService

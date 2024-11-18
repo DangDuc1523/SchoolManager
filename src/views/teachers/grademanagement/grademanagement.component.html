@@ -1,35 +1,74 @@
-<div class="grade-management-container">
-    <h2>Grade Management</h2>
-    <p>Select a class and subject to manage grades.</p>
-    
-    <!-- Table to display students and input grades -->
-    <table>
+<div class="class-info-container">
+  <h2>Your Classes</h2>
+
+  <!-- Display error if any -->
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+  <!-- Display list of classes -->
+  <div *ngIf="classes.length > 0" class="class-list-container">
+    <table class="class-table">
       <thead>
         <tr>
-          <th>Student ID</th>
-          <th>Full Name</th>
-          <th>Current Score</th>
-          <th>Update Score</th>
+          <th>Class Name</th>
+          <th>Schedule</th>
+          <th>Room</th>
+          <th>Number of Students</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let student of students; let i = index">
-          <td>{{ student.studentID }}</td>
-          <td>{{ student.fullName }}</td>
-          <td>{{ student.currentScore }}</td>
-          <td>
-            <input
-              type="number"
-              [(ngModel)]="student.newScore"
-              placeholder="Enter new score"
-              min="0"
-              max="10"
-              class="score-input"
-            />
-            <button (click)="updateScore(i)" class="btn btn-primary">Update</button>
-          </td>
+        <tr *ngFor="let classInfo of classes">
+          <td (click)="getSubjectsForClass(classInfo.classId, classInfo.className)" class="clickable">{{ classInfo.className }}</td>
+          <td>{{ classInfo.schedule }}</td>
+          <td>{{ classInfo.room }}</td>
+          <td>{{ classInfo.studentCount }}</td>
         </tr>
       </tbody>
     </table>
   </div>
-  
+
+  <!-- Display subjects for selected class -->
+  <div *ngIf="subjects.length > 0" class="subject-list-container">
+    <h3>Subjects for Class: {{ selectedClassName }}</h3>
+    <table class="subject-table">
+      <thead>
+        <tr>
+          <th>Subject Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let subject of subjects">
+          <td (click)="getStudentsForSubject(subject.subjectId, subject.subjectName)" class="clickable">{{ subject.subjectName }}</td>
+          <td>{{ subject.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Display students for selected subject -->
+  <div *ngIf="students.length > 0" class="student-list-container">
+    <h3>Students for Subject: {{ selectedSubjectName }}</h3>
+    <table class="student-table">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Username</th>
+          <th>Role</th>
+          <th>Date of Birth</th>
+          <th>Contact Info</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of students">
+          <td>{{ item.user?.fullName || 'N/A' }}</td>
+          <td>{{ item.user?.username || 'N/A' }}</td>
+          <td>{{ item.user?.role || 'N/A' }}</td>
+          <td>{{ item.user?.dateOfBirth || 'N/A' }}</td>
+          <td>{{ item.user?.contactInfo || 'N/A' }}</td>
+          <td>{{ item.user?.address || 'N/A' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

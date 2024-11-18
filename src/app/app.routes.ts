@@ -1,9 +1,9 @@
 
 import { DashboardComponent } from '../views/dashboard/dashboard.component';
 import { LoginComponent } from '../views/login/login.component';
+
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-
 
 import { SignupComponent } from '../views/signup/signup.component';
 import { ClassInfoComponent } from '../views/teachers/classinfo/classinfo.component';
@@ -17,20 +17,26 @@ import { InfoComponent } from '../views/student/info/info.component';
 import { CheckComponent } from '../views/student/check/check.component';
 import { GradeComponent } from '../views/student/grade/grade.component';
 import { MemberComponent } from '../views/student/member/member.component';
+import { ProfileComponent } from '../views/student/profile/profile.component';
 
 import { MainManagerComponent } from '../views/manager/main-manager/main-manager.component';
 import { ListTeacherComponent } from '../views/manager/list-teacher/list-teacher.component';
 import { ListClassManagerComponent } from '../views/manager/list-class-manager/list-class-manager.component';
-import { InfoClassComponent } from '../views/manager/info-class/info-class.component';
-import { TimeTableComponent } from '../views/manager/time-table/time-table.component';
+import { TimetableComponent } from '../views/manager/time-table/time-table.component';
 import { ProfileManagerComponent } from '../views/manager/profile-manager/profile-manager.component';
+import { ListStudentComponent } from '../views/manager/list-student/list-student.component';
+import { InfoClassComponent } from '../views/manager/info-class/info-class.component';
+
 import { TimeClassComponent } from '../views/manager/time-class/time-class.component';
+
 
 export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
+
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },  // Default route to dashboard
+
   { path: 'home', component: HomeComponent },
   { path: 'class-info', component: ClassInfoComponent },
   { path: 'grade-management', component: GradeManagementComponent },
@@ -43,15 +49,18 @@ export const routes: Routes = [
   { path: 'check', component: CheckComponent },
   { path: 'grade', component: GradeComponent },
   { path: 'member', component: MemberComponent },
+  { path: 'profile', component: ProfileComponent},
 
 // Manager
   { path: 'mainManager', component:  MainManagerComponent},
   { path: 'listTeacherManager', component:  ListTeacherComponent},
   { path: 'listClassManager', component:  ListClassManagerComponent},
   { path: 'infoClassManager', component: InfoClassComponent },
-  { path: 'timeTableManager', component: TimeTableComponent },
+  { path: 'timeTableManager', component: TimetableComponent },
+
   { path: 'profileManager', component: ProfileManagerComponent },
-  { path: 'timeClass', component: TimeClassComponent }
+  { path: 'timeClass', component: TimeClassComponent },
+  { path: 'listStudent', component: ListStudentComponent }
   
 ];
 
@@ -61,3 +70,4 @@ export const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+

@@ -1,0 +1,78 @@
+$accent-base: #1849e8;
+$cutty-sark: #546E7A;
+$porcelain: #ECEFF1;
+
+// Adding custom colors for <th> elements
+$th-background-color: $accent-base;
+$th-text-color: #ffffff;
+
+:host {
+  display: block;
+}
+
+.timetable {
+  display: grid;
+  grid-template-areas: ". week"
+                       "time content";
+  grid-template-columns: 120px;
+  grid-template-rows: 60px;
+  width: 100vw;
+  height: 100vh;
+
+  .weekend {
+    background: lighten($porcelain, 5%);
+    color: lighten($cutty-sark, 20%);
+  }
+
+  .week-names {
+    grid-area: week;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-transform: uppercase;
+    font-size: 12px;
+    
+    // Style for <th> (header) elements
+    th {
+      background-color: $th-background-color;
+      color: $th-text-color;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      box-shadow: inset 1px 0 0 $porcelain;
+    }
+
+    & > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      box-shadow: inset 1px 0 0 $porcelain;
+    }
+  }
+
+  .time-interval {
+    grid-area: time;
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    font-size: 14px;
+    & > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      box-shadow: inset 0 1px 0 0 $porcelain;
+    }
+  }
+
+  .content {
+    grid-area: content;
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(7, 1fr);
+    & > div {
+      box-shadow: inset 1px 0 0 $porcelain, inset 0 1px 0 0 $porcelain;
+    }
+  }
+}

@@ -43,12 +43,13 @@ namespace SchoolManagement.Data.BaseRepository
       using (var context = new SchoolDbContext(_options))
       {
         IQueryable<T> query = context.Set<T>();
+
+        // Include tất cả các navigation properties
         var navigationProperties = context.Model
             .FindEntityType(typeof(T))
             .GetNavigations()
             .Select(n => n.Name);
 
-        // Include tất cả các navigation properties
         foreach (var navigationProperty in navigationProperties)
         {
           query = query.Include(navigationProperty);
@@ -62,6 +63,7 @@ namespace SchoolManagement.Data.BaseRepository
         return await query.ToListAsync();
       }
     }
+
 
     public async Task<T> GetByIdAsync(int id)
     {
@@ -91,6 +93,18 @@ namespace SchoolManagement.Data.BaseRepository
       }
     }
 
+    public async Task<IEnumerable<T>> GetWhereWithIncludeAsync(
+        Expression<Func<T, bool>> predicate,
+        Expression<Func<T, object>> includeExpression)
+    {
+      using (var context = new SchoolDbContext(_options))
+      {
+        return await context.Set<T>()
+                            .Where(predicate)
+                            .Include(includeExpression)  // Bao gồm liên kết với bảng Subject
+                            .ToListAsync();
+      }
+    }
 
 
 

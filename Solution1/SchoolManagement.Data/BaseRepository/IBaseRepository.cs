@@ -1,5 +1,6 @@
-using SchoolManagement.Models.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace SchoolManagement.Data.BaseRepository
 {
@@ -10,11 +11,9 @@ namespace SchoolManagement.Data.BaseRepository
     Task AddAsync(T entity);
     Task UpdateAsync(T entity);
     Task DeleteAsync(int id);
-
     Task<IEnumerable<T>> GetWhereAsync(Expression<Func<T, bool>> predicate);
 
-
-
-    //Task<GetItemsPagingResDto<T>> GetItems(BasePagingAndSortDto payload);
+    // Phương thức mới hỗ trợ Include
+    Task<IEnumerable<T>> GetWhereWithIncludeAsync(Expression<Func<T, bool>> predicate, Expression<Func<T, object>> includeExpression);
   }
 }

@@ -3,8 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-
-
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
@@ -27,8 +25,8 @@ public partial class Timetable
   public TimeSpan EndTime { get; set; }
 
   public string Room { get; set; }
-  
+
   public virtual Class Class { get; set; }
-  
+ 
   public virtual Subject Subject { get; set; }
 }

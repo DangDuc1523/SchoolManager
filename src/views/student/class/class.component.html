@@ -1,86 +1,35 @@
-<button class="back-btn" (click)="goBack()">Back</button>
 <div class="schedule-container">
-  <h2>Class Schedule</h2>
-  <table>
-    <tr>
-      <th class="time-header"></th>
-      <th class="monday">Monday</th>
-      <th class="tuesday">Tuesday</th>
-      <th class="wednesday">Wednesday</th>
-      <th class="thursday">Thursday</th>
-      <th class="friday">Friday</th>
-    </tr>
-    <tr>
-      <td class="time-cell">07:30 - 08:30</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="time-cell">08:30 - 09:30</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="time-cell">09:30 - 10:30</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="time-cell">10:30 - 11:30</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="time-cell">11:30 - 12:30</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="time-cell">12:30 - 13:30</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="time-cell">13:30 - 14:30</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="time-cell">14:30 - 15:30</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="time-cell">15:30 - 16:30</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
+  <button class="back-btn" (click)="goBack()">Quay lại</button>
+  <h2>Thời Khóa Biểu Lớp Học</h2>
+
+  <!-- Kiểm tra dữ liệu trống -->
+  <div *ngIf="schedule.length > 0; else noData">
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th class="time-header">Giờ học</th>
+          <th *ngFor="let day of daysOfWeek">{{ day }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let time of timeSlots">
+          <td class="time-cell">{{ time }}</td>
+          <td
+            *ngFor="let day of daysOfWeek"
+            [ngClass]="{ 'scheduled': isScheduled(day, time) }"
+          >
+            <ng-container *ngIf="getSubjectByDayAndTime(day, time); else noSchedule">
+              {{ getSubjectByDayAndTime(day, time) }}
+            </ng-container>
+            <ng-template #noSchedule>-</ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Template cho trường hợp không có dữ liệu -->
+  <ng-template #noData>
+    <p class="no-data-message">Không có thời khóa biểu nào để hiển thị.</p>
+  </ng-template>
 </div>

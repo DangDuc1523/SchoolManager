@@ -33,7 +33,7 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       return Ok(User);
     }
 
-    [HttpPost]
+    [HttpPost("teacher")]
     public async Task<IActionResult> GetTeachers()
     {
       var teachers = await _userService.GetUsersByRoleAsync("Teacher");
@@ -45,13 +45,17 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       return Ok(teachers);
     }
 
+    [HttpGet("by-class/{classId}")]
+    public async Task<IActionResult> GetUsersByClassId(int classId)
+    {
+      var users = await _userService.GetUsersByClassIdAsync(classId);
+      if (users == null || !users.Any())
+      {
+        return NotFound("No users found for this class.");
+      }
 
-    //[HttpPost]
-    //public async Task<IActionResult> AddUser(User User)
-    //{
-    //    var createdUser = await _userService.AddUserAsync(User);
-    //    return CreatedAtAction(nameof(GetUserById), new { id = createdUser.UserId }, createdUser);
-    //}
+      return Ok(users);
+    }
 
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateUser(int id, User user)

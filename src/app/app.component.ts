@@ -1,17 +1,22 @@
+
 import { Component, inject, OnInit } from '@angular/core';
 import { AuthService } from '../service/auth.service';
 import { RouterModule, Router } from '@angular/router';
 import { LoginComponent } from '../views/login/login.component';
 import { CommonModule } from '@angular/common';
+
 import { DashboardComponent } from '../views/dashboard/dashboard.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
+
   imports: [RouterModule, LoginComponent, CommonModule, DashboardComponent],
+
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+
 export class AppComponent implements OnInit {
   title = 'AngularT';
   auth: AuthService = inject(AuthService);
@@ -34,6 +39,7 @@ export class AppComponent implements OnInit {
       const role = this.auth.getRoles();
       this.handleRoleNavigation(role);
     }
+
   }
 
   handleRoleNavigation(role: string | null) {

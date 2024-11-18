@@ -16,9 +16,8 @@ public partial class Student
   public int ClassId { get; set; }
 
   public DateTime? EnrollmentDate { get; set; }
-  [JsonIgnore]
+  
   public virtual Class Class { get; set; }
-  [NotMapped]
   [JsonIgnore]
   public virtual ICollection<Grade> Grades { get; set; } = new List<Grade>();
 

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Student } from '../dto/student.models';
+import { User } from '../dto/Student';
 import { Timetable } from '../dto/timetable.model';
 import { ClassSubject } from '../dto/classSubject.model';
 import { map, mergeMap } from 'rxjs/operators';
 import { Observable, forkJoin } from 'rxjs';
 import { Subject } from '../dto/subject.model';
+
 
 
 @Injectable({
@@ -17,17 +18,21 @@ export class StudentService {
 
   constructor(private http: HttpClient) {}
 
-  getStudentProfile(id: number): Observable<Student> {
-    return this.http.get<Student>(`${this.apiUrl}/User/${id}`);
+  getStudentProfile(id: number): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/User/${id}`);
+  }
+  updateStudentProfile(student: User): Observable<User> {
+    
+    return this.http.put<User>(`${this.apiUrl}/User/${student.userId}`, student);
   }
   getClass(StudentId: number): Observable<ClassSubject[]> {
-    return this.http.get<ClassSubject[]>(`${this.apiUrl}/User/ClassSubject?studentId=${StudentId}`);
+    return this.http.get<ClassSubject[]>(`${this.apiUrl}/TimeTable/student/${StudentId}`);// api này cx sai : đang lấy theo 1 kiểu gì đó rất ngớ ngẩn 
   }
   getTimetablesByClass(classID: number): Observable<Timetable[]> {
-    return this.http.get<Timetable[]>(`${this.apiUrl}/User/TimeTable/Class/${classID}`);
+    return this.http.get<Timetable[]>(`${this.apiUrl}/User/TimeTable/Class/${classID}`); // api sai
   }
   getClassSubjects(): Observable<ClassSubject[]> {
-    return this.http.get<ClassSubject[]>(`${this.apiUrl}/User/ClassSubject`);
+    return this.http.get<ClassSubject[]>(`${this.apiUrl}/User/ClassSubject`); // api sai
   }
   getSubjectsByClassId(classId: number): Observable<Subject[]> {
     return this.http.get<Subject[]>(`${this.apiUrl}/class/${classId}`);

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SchoolManagement.Business")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+72f24c0b66f396e9a90db2831fb5be12d4115e0c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+79558a2a7a3cee2a8f46d9036270234af499fe6c")]
 [assembly: System.Reflection.AssemblyProductAttribute("SchoolManagement.Business")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SchoolManagement.Business")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

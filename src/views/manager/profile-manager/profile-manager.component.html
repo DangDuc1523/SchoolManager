@@ -3,7 +3,42 @@
     <app-main-manager></app-main-manager>
     </div>
     <div>
-        <p>{{id}}</p>
+       
+<div>
+  <h2>User Information</h2>
+  <div *ngFor="let user of userInfo">
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Full Name:</strong> {{ user.fullName }}</p>
+    <p><strong>Role:</strong> {{ user.role }}</p>
+    <p><strong>Date of Birth:</strong> {{ user.dateOfBirth }}</p>
+    <p><strong>Address:</strong> {{ user.address }}</p>
+    <p><strong>Contact Info:</strong> {{ user.contactInfo }}</p>
+    <p><strong>Specialty:</strong> {{ user.specialty }}</p>
+
+    <!-- Hiển thị thông tin về các môn học của người dùng -->
+    <div *ngIf="user.classSubjects.length > 0">
+      <h3>Class Subjects</h3>
+      <ul>
+        <li *ngFor="let subject of user.classSubjects">
+          {{ subject }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Hiển thị thông tin về các học sinh của người dùng -->
+    <div *ngIf="user.students.length > 0">
+      <h3>Students</h3>
+      <ul>
+        <li *ngFor="let student of user.students">
+          {{ student }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
     </div>
 </div>
 

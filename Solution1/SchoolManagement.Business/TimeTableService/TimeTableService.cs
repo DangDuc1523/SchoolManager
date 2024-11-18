@@ -25,10 +25,20 @@ namespace SchoolManagement.Business.TimeTableService
       return await _timeTableRepository.GetByIdAsync(id);
     }
 
-    public async Task<IEnumerable<Timetable>> GetTimetablesByClassIdAsync(int classId)
+    public async Task<IEnumerable<Timetable>> GetTimetablesWithSubjectsByClassIdAsync(int classId)
     {
-      return await _timeTableRepository.GetWhereAsync(t => t.ClassId == classId);
+      // Lấy dữ liệu từ bảng Timetable, bao gồm bảng Subject liên quan
+      var timetables = await _timeTableRepository.GetWhereWithIncludeAsync(
+          t => t.ClassId == classId, // Lọc theo ClassId
+          t => t.Subject             // Include Subject vào kết quả
+      );
+
+      return timetables;
+
+
     }
+
+
 
     public async Task<Timetable> AddTimetableAsync(Timetable TimeTable)
     {
@@ -51,6 +61,11 @@ namespace SchoolManagement.Business.TimeTableService
       }
       return TimeTable;
     }
+    public async Task<IEnumerable<Timetable>> GetTimetablesByClassIdAsync(int classId)
+    {
+      return await _timeTableRepository.GetWhereAsync(t => t.ClassId == classId);
+    }
+
 
     public async Task<IEnumerable<Timetable>> GetTimetableByStudentId(int studentId)
     {

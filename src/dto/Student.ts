@@ -4,10 +4,11 @@ export interface User {
     passwordHash: string;
     role: string;
     fullName: string;
-    dateOfBirth: string;
+    dateOfBirth: string; // ISO string
     address: string;
     contactInfo: string;
     specialty: string;
-    classSubjects: any[];
-    students: any[];
- }
+  }
+  
+
+  

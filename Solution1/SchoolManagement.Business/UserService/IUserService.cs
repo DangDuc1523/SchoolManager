@@ -12,6 +12,9 @@ namespace SchoolManagement.Business.UserService
     Task<User> AddUserAsync(User Class);
     Task<User> UpdateUserAsync(User Class);
     Task<User> DeleteUserAsync(int id);
+
+    Task<IEnumerable<User>> GetUsersByClassIdAsync(int classId);
+
     Task<bool> UserExists(string username);
     Task<IEnumerable<User>> GetUsersByRoleAsync(string role);
   }

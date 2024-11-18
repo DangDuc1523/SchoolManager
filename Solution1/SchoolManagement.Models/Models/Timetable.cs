@@ -20,15 +20,13 @@ public partial class Timetable
 
   public int SubjectId { get; set; }
 
-  //public string DateLearn { get; set; }
+  public string DateLearn { get; set; }
 
   public TimeSpan StartTime { get; set; }
 
   public TimeSpan EndTime { get; set; }
 
   public string Room { get; set; }
-  [JsonIgnore]
-  public virtual Class Class { get; set; }
-  [JsonIgnore]
+
   public virtual Subject Subject { get; set; }
 }

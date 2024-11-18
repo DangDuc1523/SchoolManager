@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SchoolManagement.Business.StudentService;
 using SchoolManagement.Models.Models;
+using System.Text.Json;
 
 namespace SchoolManagement.WebAPI.Controllers
 {
@@ -53,6 +54,51 @@ namespace SchoolManagement.WebAPI.Controllers
       return Ok(Student);
     }
 
+
+    [HttpPost]
+    public async Task<IActionResult> AddStudent([FromBody] JsonElement request)
+    {
+      // Kiểm tra nếu UserId và ClassId tồn tại trong request
+      if (!request.TryGetProperty("UserId", out JsonElement userIdElement) || !request.TryGetProperty("ClassId", out JsonElement classIdElement))
+      {
+        return BadRequest("UserId and ClassId are required.");
+      }
+
+      try
+      {
+        // Chuyển đổi giá trị từ JsonElement sang kiểu int
+        int userId = userIdElement.GetInt32();
+        int classId = classIdElement.GetInt32();
+
+        // Kiểm tra nếu sinh viên đã tồn tại với UserId và ClassId này
+        var existingStudent = await _StudentService.GetStudentByUserIdAndClassIdAsync(userId, classId);
+        if (existingStudent != null)
+        {
+          return Conflict("Student with the given UserId and ClassId already exists.");
+        }
+
+        // Tạo đối tượng Student
+        var newStudent = new Student
+        {
+          UserId = userId,
+          ClassId = classId,
+          EnrollmentDate = DateTime.Now // Hoặc có thể làm gì đó khác với EnrollmentDate nếu cần
+        };
+
+        // Gọi service để thêm mới học sinh
+        var addedStudent = await _StudentService.AddStudentAsync(newStudent);
+
+        return CreatedAtAction(nameof(GetStudentById), new { id = addedStudent.StudentId }, addedStudent);
+      }
+      catch (Exception ex)
+      {
+        return StatusCode(500, "Internal server error: " + ex.Message);
+      }
+    }
+
+
+
+
     [HttpGet("class/{classId}/subject/{subjectId}")]
     public async Task<IActionResult> GetStudentsByClassAndSubject(int classId, int subjectId)
     {
@@ -63,5 +109,6 @@ namespace SchoolManagement.WebAPI.Controllers
       }
       return Ok(students);
     }
+
   }
 }

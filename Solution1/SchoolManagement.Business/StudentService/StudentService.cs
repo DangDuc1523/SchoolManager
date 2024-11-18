@@ -55,6 +55,15 @@ namespace SchoolManagement.Business.StudentService
       students = students.Where(s => s.ClassId == classId);
       return students;
     }
+
+    public async Task<Student> GetStudentByUserIdAndClassIdAsync(int userId, int classId)
+    {
+      var student = await _studentRepository.GetAllAsync();
+      return student.FirstOrDefault(s => s.UserId == userId && s.ClassId == classId);
+    }
+
+
+
     public async Task<IEnumerable<Student>> GetStudentsByClassAndSubjectAsync(int classId, int subjectId)
     {
       var grades = await _gradeRepository.GetWhereAsync(g => g.ClassId == classId && g.SubjectId == subjectId);
@@ -68,6 +77,7 @@ namespace SchoolManagement.Business.StudentService
 
       return students;
     }
+
 
   }
 }

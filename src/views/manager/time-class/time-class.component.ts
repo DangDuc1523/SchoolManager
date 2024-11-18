@@ -4,15 +4,29 @@ import { TimeClass } from '../../../dto/TimeClass';
 import { MainManagerComponent } from "../main-manager/main-manager.component";
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-time-class',
   templateUrl: './time-class.component.html',
   styleUrls: ['./time-class.component.scss'],
-  imports: [MainManagerComponent, CommonModule],
+  imports: [MainManagerComponent, CommonModule, ReactiveFormsModule],
   standalone: true,
 })
 export class TimeClassComponent implements OnInit {
+
+  addTimeTable = new FormGroup({
+   
+    nameSubject: new FormControl(''),
+    dateLearn: new FormControl(''),
+    startTime: new FormControl(''),
+    endTime: new FormControl(''),
+    room: new FormControl('')
+  });
+
+addNewTime() {
+throw new Error('Method not implemented.');
+}
 
   timeClasses: TimeClass[] = [];  // Mảng lưu trữ dữ liệu nhận được từ API
   dateLearn: string = '';

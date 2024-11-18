@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // Thêm FormsModule
-import { Student} from '../../../dto/user.model';
+import { User} from '../../../dto/Student';
 import { AuthService } from '../../../service/auth.service';
 import { StudentService } from '../../../services/student.service';
 
@@ -14,7 +14,7 @@ import { StudentService } from '../../../services/student.service';
   providers: [DatePipe],
 })
 export class ProfileComponent implements OnInit {
-  student: Student | null = null;
+  student: User | null = null;
   isEditing: boolean = false; // Trạng thái chỉnh sửa
   auth: AuthService = inject(AuthService);
 

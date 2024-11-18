@@ -4,8 +4,15 @@
     </div>
 
   <div>
-    <button>Add new student</button>
+      <button (click)="addNewStudent()">Add new student</button>
+  </div>
+
+
+
   <div class="container" *ngIf="user.length > 0; else noData">
+    <div *ngIf="message" class="alert" [ngClass]="{'alert-success': message.includes('success'), 'alert-danger': message.includes('error')}">
+      {{ message }}
+    </div>
     <table>
       <thead>
         <tr>
@@ -28,7 +35,7 @@
           <td>{{ u.contactInfo }}</td>
           <td>{{ u.role }}</td>
           <td>{{ u.specialty }}</td>
-          <td><button>Edit</button> <button>Delete</button></td>
+          <td><button>Edit</button> <button (click)="deleteUser(u.userId)">Delete</button></td>
         </tr>
       </tbody>
     </table>
@@ -37,5 +44,4 @@
   <ng-template #noData>
     <p>Không có dữ liệu để hiển thị.</p>
   </ng-template>
-</div>
 </div>

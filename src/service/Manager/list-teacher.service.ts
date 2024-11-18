@@ -12,7 +12,7 @@ export class ListTeacherService {
 
 
   getListTeacher(): Observable<User[]> {
-    return this.http.post<User[]>('https://localhost:44344/api/user/teachers', {}); // Gửi một object rỗng nếu API không yêu cầu dữ liệu
+    return this.http.post<User[]>('https://localhost:44344/api/User/teacher', {}); // Gửi một object rỗng nếu API không yêu cầu dữ liệu
   }
   
 }

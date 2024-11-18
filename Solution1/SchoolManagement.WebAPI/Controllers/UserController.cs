@@ -33,7 +33,7 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       return Ok(User);
     }
 
-    [HttpPost]
+    [HttpPost("teacher")]
     public async Task<IActionResult> GetTeachers()
     {
       var teachers = await _userService.GetUsersByRoleAsync("Teacher");

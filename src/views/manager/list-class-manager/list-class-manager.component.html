@@ -3,6 +3,19 @@
 <app-main-manager></app-main-manager>
 </div>
 <div class="container">
+  <form [formGroup]="addClassForm" (ngSubmit)="addClass()">
+    <label for="nameClass">Class Name:</label>
+    <input type="text" id="nameClass" formControlName="nameClass" required>
+  
+    <label for="schedule">Schedule:</label>
+    <input type="text" id="schedule" formControlName="schedule" placeholder="Dựa vào timeTable " required>
+  
+    <label for="room">Room:</label>
+    <input type="text" id="room" formControlName="room" required>
+  
+    <button type="submit">Add Class</button>
+  </form>
+  
     @if (classData.length > 0) {
     <div>
       <h2>Danh sách lớp học</h2>
@@ -13,7 +26,8 @@
             <th>Tên lớp</th>          
             <th>Số học sinh</th>
             <th>Danh sách học sinh</th>
-            <th>Thông tin thêm</th>
+            <th>Đặt lịch học</th>
+            <th>Chức năng</th>
           </tr>
         </thead>
         <tbody>
@@ -28,6 +42,11 @@
             </td>
             <td>
               <button (click)="viewDetail(classItem.classId)">Detail</button>
+            </td>
+            <td>
+              <button (click)="viewDetail(classItem.classId)">Edit</button>
+              <br>
+              <button (click)="deleteClass(classItem.classId)">Delete</button>
             </td>
           </tr>
         }

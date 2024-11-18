@@ -3,13 +3,36 @@
 <app-main-manager></app-main-manager>
 </div>
 <div class="container">
+  <form [formGroup]="addTimeTable" (ngSubmit)="addNewTime()">
+    <label for="nameSubject">Name Subject:</label>
+    <input type="text" id="nameSubject" formControlName="nameSubject" required>
+  
+    <label for="dateLearn">Date Learn:</label>
+    <input type="date" id="dateLearn" formControlName="dateLearn" required>
+  
+    <label for="startTime">Start Time:</label>
+    <input type="date" id="startTime" formControlName="startTime" required>
+
+    <label for="endTime">End Time:</label>
+    <input type="date" id="endTime" formControlName="endTime" required>
+    
+    <label for="room">Room:</label>
+    <select id="room" formControlName="room" required>
+      <option>IT</option>
+      <option>MKT</option>
+      <option>BSS</option>
+    </select>
+
+    <button type="submit">Add New</button>
+  </form>
+
 <div *ngIf="timeClasses.length > 0; else noData">
     <table border="1">
       <thead>
         <tr>
+          <th>Subject Name</th>
+          <th>Description</th>
           <th>Date Learn</th>
-          <th>Start Time</th>
-          <th>Start Time</th>
           <th>Start Time</th>
           <th>End Time</th>
           <th>Room</th>

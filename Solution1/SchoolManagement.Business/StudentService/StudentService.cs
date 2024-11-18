@@ -50,5 +50,13 @@ namespace SchoolManagement.Business.StudentService
       students = students.Where(s => s.ClassId == classId);
       return students;
     }
+
+    public async Task<Student> GetStudentByUserIdAndClassIdAsync(int userId, int classId)
+    {
+      var student = await _studentRepository.GetAllAsync();
+      return student.FirstOrDefault(s => s.UserId == userId && s.ClassId == classId);
+    }
+
+
   }
 }

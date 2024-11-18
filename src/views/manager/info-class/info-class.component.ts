@@ -4,11 +4,13 @@ import { MainManagerComponent } from "../main-manager/main-manager.component";
 import { ClassManagerService } from '../../../service/Manager/class-manager.service';
 import { User } from '../../../dto/User';
 import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup } from '@angular/forms';
+import {  ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-info-class',
   standalone: true,
-  imports: [MainManagerComponent, CommonModule],
+  imports: [MainManagerComponent, CommonModule, ReactiveFormsModule],
   templateUrl: './info-class.component.html',
   styleUrl: './info-class.component.scss'
 })
@@ -18,6 +20,14 @@ export class InfoClassComponent implements OnInit {
 
   user : User[] = []
   router = inject(Router)
+
+  addStudent = new FormGroup({
+    nameClass: new FormControl(''),
+    schedule: new FormControl(''),
+    room: new FormControl('')
+    
+  });
+  message: string ='';
 
   constructor(private classManager: ClassManagerService){
     
@@ -43,7 +53,26 @@ export class InfoClassComponent implements OnInit {
   });
 }
   addNewStudent(){
-    
+    this.router.navigate(['/listStudent'])
   }
+
+  deleteUser(userId: number): void {
+    // Hiển thị hộp thoại xác nhận
+    const isConfirmed = window.confirm('Are you sure you want to delete this student?');
+  
+    if (isConfirmed) {
+      this.classManager.deleteStudent(userId).subscribe(
+        (response) => {
+          this.message = 'Student deleted successfully!';  // Thông báo xóa thành công
+           // Tải lại danh sách sinh viên
+        },
+        (error) => {
+          this.message = 'An error occurred while deleting the student.';  // Thông báo lỗi khi xóa
+          console.error('Error deleting student:', error);
+        }
+      );
+    }
+  }
+  
   
 }

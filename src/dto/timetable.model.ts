@@ -1,3 +1,5 @@
+
+
 export interface Timetable {
   timetableID: number;
   classID: number;
@@ -6,3 +8,4 @@ export interface Timetable {
   startTime: string;
   endTime: string;
 }
+

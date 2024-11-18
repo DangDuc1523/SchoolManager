@@ -354,6 +354,22 @@
   },
   {
     "ContainingType": "SchoolManagement.WebAPI.Controllers.StudentController",
+    "Method": "AddStudent",
+    "RelativePath": "api/Student",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "System.Text.Json.JsonElement",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolManagement.WebAPI.Controllers.StudentController",
     "Method": "GetStudentById",
     "RelativePath": "api/Student/{id}",
     "HttpMethod": "GET",
@@ -623,16 +639,6 @@
   },
   {
     "ContainingType": "SchoolManagement.WebAPI.Controllers.Admin.UserController",
-    "Method": "GetTeachers",
-    "RelativePath": "api/User",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SchoolManagement.WebAPI.Controllers.Admin.UserController",
     "Method": "GetUserById",
     "RelativePath": "api/User/{id}",
     "HttpMethod": "GET",
@@ -698,6 +704,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolManagement.WebAPI.Controllers.Admin.UserController",
+    "Method": "GetTeachers",
+    "RelativePath": "api/User/teacher",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   }
 ]

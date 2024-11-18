@@ -1,0 +1,55 @@
+<div style="display: flex;">
+    <!-- Sidebar Manager -->
+    <div>
+      <app-main-manager></app-main-manager>
+    </div>
+    
+    
+    <!-- Main Container -->
+    <div class="container" *ngIf="filteredStudents && filteredStudents.length > 0; else noData">
+        <div *ngIf="message" class="alert">
+            {{ message }}
+          </div>
+      <table>
+        <thead>
+            <tr>
+                <th><h2>Class: {{classId}}</h2></th>
+            </tr>
+          <tr>
+            <th>Username</th>
+            <th>Tên Người Dùng</th>
+            <th>Ngày Sinh</th>
+            <th>Địa Chỉ</th>
+            <th>Liên Hệ</th>
+            <th>Vai Trò</th>
+            <th>Chuyên Ngành</th>
+            <th>Chức năng</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Hiển thị danh sách người dùng -->
+          <tr *ngFor="let u of filteredStudents">
+            <td>{{ u.username }}</td>
+            <td>{{ u.fullName }}</td>
+            <td>{{ u.dateOfBirth | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ u.address }}</td>
+            <td>{{ u.contactInfo }}</td>
+            <td>{{ u.role }}</td>
+            <td>{{ u.specialty }}</td>
+            <td>
+              <button (click)="addStudent(u.userId)">ADD</button>
+            
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+ 
+    <!-- Thông báo nếu không có dữ liệu -->
+    <ng-template #noData>
+      <div class="no-data">
+        <p>Không có dữ liệu để hiển thị.</p>
+      </div>
+    </ng-template>
+  </div>
+  

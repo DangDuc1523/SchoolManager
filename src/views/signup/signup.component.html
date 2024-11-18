@@ -4,122 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      background-color: #f5f5f5;
-    }
-    .container {
-      background-color: #fff;
-      padding: 2rem;
-      width: 300px;
-      border-radius: 8px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
-    .container h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-    .container label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-    }
-    .container input[type="text"],
-    .container input[type="date"],
-    .container input[type="password"],
-    .container input[type="tel"] {
-      width: 100%;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    .container input[type="submit"] {
-      width: 100%;
-      padding: 0.5rem;
-      background-color: #333;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-
-    .container select {
-      width: 100%;
-    
-      padding: 0.5rem;
-      background-color: #fffdfd;
-      color: #000000;
-      border: 2px solid rgb(0, 0, 0);
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 1rem;
-      
-    }
-
-    .container input[type="submit"]:hover {
-      background-color: #555;
-    }
-    .container p {
-      text-align: center;
-      margin-top: 1rem;
-    }
-    .container p a {
-      color: #333;
-      text-decoration: none;
-    }
-    .container p a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  
 </head>
 <body>
-
-  <div class="container">
-    <h2>Sign Up</h2>
-    <form action="#">
-      <label for="username">Gmail*</label>
-      <input type="text" id="username" name="gmail" placeholder="Enter your Gmail" required>
-
-      <label for="password">Password*</label>
-      <input type="password" id="password" name="password" placeholder="Create a password" required>
-
-      <label for="confirm-password">Confirm Password*</label>
-      <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter your password" required>
-
-      <label for="Full name">Full name*</label>
-      <input type="text" id="username" name="fullname" placeholder="Enter your full name" required>
-
-      <label for="Date of Birth">Date of Birth*</label>
-      <input type="date" id="username" name="dateOfBirth" placeholder="Enter your date of birth" required>
-      
-      <label for="Address">Address*</label>
-      <input type="text" id="username" name="address" placeholder="Enter your address" required>    
-      
-      <label for="phone">Phone Number*</label>
-      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-
-      <label for="specalty">Specalty*</label>
-      <select >
-        <option value="Marketing">Marketing</option>
-        <option value="IT">IT</option>
-        <option value="Bussiness">Bussiness</option>
-      </select>
-
-      <label for="otp">Enter OTP of gmail*</label>
-      <input type="text" id="otp" name="otp" placeholder="Enter the OTP" required>
-
-      <input type="submit" value="Sign Up">
-    </form>
-    <p>Already have an account? <a (click)="signin()">Log in</a></p>
-  </div>
+  <div class="wrapper">
+      <div class="title-text">
+        <div class="title signup">Signup </div>
+        <div class="title confirm">Confirm </div>
+      </div>
+      <div class="form-container">
+        <div class="slide-controls">
+          <input type="radio" name="slide" id="signup" checked>
+          <input type="radio" name="slide" id="confirm">
+          <label for="signup" class="slide signup">Signup</label>
+          <label for="confirm" class="slide confirm">Confirm</label>
+          <div class="slider-tab"></div>
+        </div>
+        <div class="form-inner">
+          <form action="#" class="signup">
+            <div class="field">
+              <input type="text" placeholder="Email Address" required>
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Password" required>
+            </div>
+            <div class="field">
+              <input type="password`" placeholder="Re-enter Password" required>
+            </div>
+            <div class="field">
+              <input type="text" placeholder="Full name" required>
+            </div>
+            <div class="field btn">
+              <div class="btn-layer"></div>
+              <input type="submit" value="Register">
+            </div>
+            <div class="signin-link...">Already have a account? <a href="">Signin</a></div>
+          </form>
+          <form action="#" class="confirm">
+            <div class="field">
+              <input type="text" placeholder="Enter OTP" required>
+            </div>
+            <div class="field btn">
+              <div class="btn-layer"></div>
+              <input type="submit" value="Confirm">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 
 </body>
 </html>

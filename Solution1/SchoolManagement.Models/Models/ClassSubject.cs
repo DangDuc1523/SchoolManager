@@ -15,10 +15,10 @@ public partial class ClassSubject
   public int SubjectId { get; set; }
 
   public int TeacherId { get; set; }
-  [JsonIgnore]
+  
   public virtual Class Class { get; set; }
-  [JsonIgnore]
+  
   public virtual Subject Subject { get; set; }
-  [JsonIgnore]
+  
   public virtual User Teacher { get; set; }
 }

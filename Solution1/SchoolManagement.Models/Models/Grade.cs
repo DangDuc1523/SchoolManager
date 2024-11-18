@@ -17,10 +17,10 @@ public partial class Grade
   public int ClassId { get; set; }
 
   public double? Score { get; set; }
-  [JsonIgnore]
+  
   public virtual Class Class { get; set; }
-  [JsonIgnore]
+  
   public virtual Student Student { get; set; }
-  [JsonIgnore]
+  
   public virtual Subject Subject { get; set; }
 }

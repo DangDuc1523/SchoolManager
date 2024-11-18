@@ -122,8 +122,7 @@
               "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\ClassController.cs",
               "ViewState": "AgIAAEcAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:36:11.804Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:36:11.804Z"
             },
             {
               "$type": "Document",
@@ -135,8 +134,7 @@
               "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\ClassSubjectController.cs",
               "ViewState": "AgIAADkAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:36:09.109Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:36:09.109Z"
             },
             {
               "$type": "Document",
@@ -148,8 +146,7 @@
               "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\GradeController.cs",
               "ViewState": "AgIAAFYAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:36:05.8Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:36:05.8Z"
             },
             {
               "$type": "Document",
@@ -161,8 +158,7 @@
               "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\StudentController.cs",
               "ViewState": "AgIAADkAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:36:01.995Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:36:01.995Z"
             },
             {
               "$type": "Document",
@@ -174,8 +170,7 @@
               "RelativeToolTip": "SchoolManagement.Business\\UserService\\UserService.cs",
               "ViewState": "AgIAADUAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:35:41.569Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:35:41.569Z"
             },
             {
               "$type": "Document",
@@ -185,7 +180,7 @@
               "RelativeDocumentMoniker": "SchoolManagement.WebAPI\\Controllers\\AuthController.cs",
               "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\AuthController.cs",
               "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAowC4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-18T05:32:01.314Z",
               "EditorCaption": ""
@@ -200,8 +195,7 @@
               "RelativeToolTip": "SchoolManagement.Business\\UserService\\IUserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:35:39.723Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:35:39.723Z"
             },
             {
               "$type": "Document",
@@ -213,8 +207,7 @@
               "RelativeToolTip": "SchoolManagement.Business\\TimeTableService\\TimeTableService.cs",
               "ViewState": "AgIAADsAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:35:34.541Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:35:34.541Z"
             },
             {
               "$type": "Document",
@@ -226,8 +219,7 @@
               "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\UserController.cs",
               "ViewState": "AgIAAGAAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:32:57.817Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:32:57.817Z"
             },
             {
               "$type": "Document",
@@ -239,8 +231,7 @@
               "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\TimeTableController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:32:46.665Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:32:46.665Z"
             },
             {
               "$type": "Document",
@@ -252,8 +243,7 @@
               "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\SubjectController.cs",
               "ViewState": "AgIAAGQAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:32:05.159Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:32:05.159Z"
             },
             {
               "$type": "Document",
@@ -265,8 +255,7 @@
               "RelativeToolTip": "SchoolManagement.Business\\TimeTableService\\ITimeTableService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:35:32.358Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:35:32.358Z"
             },
             {
               "$type": "Document",
@@ -278,8 +267,7 @@
               "RelativeToolTip": "SchoolManagement.Business\\SubjectService\\SubjectService.cs",
               "ViewState": "AgIAADsAAAAAAAAAAAAuwA0AAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:34:21.077Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:34:21.077Z"
             },
             {
               "$type": "Document",
@@ -291,8 +279,7 @@
               "RelativeToolTip": "SchoolManagement.Business\\SubjectService\\ISubjectService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:34:16.117Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:34:16.117Z"
             },
             {
               "$type": "Document",
@@ -304,8 +291,7 @@
               "RelativeToolTip": "SchoolManagement.Business\\GradeService\\IGradeService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:34:04.629Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:34:04.629Z"
             },
             {
               "$type": "Document",
@@ -317,8 +303,7 @@
               "RelativeToolTip": "SchoolManagement.Business\\GradeService\\GradeService.cs",
               "ViewState": "AgIAACgAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:33:45.366Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:33:45.366Z"
             },
             {
               "$type": "Document",
@@ -330,8 +315,7 @@
               "RelativeToolTip": "SchoolManagement.Business\\ClassService\\IClassService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:33:28.883Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:33:28.883Z"
             },
             {
               "$type": "Document",
@@ -343,8 +327,7 @@
               "RelativeToolTip": "SchoolManagement.Business\\AuthService\\AuthService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:33:18.601Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:33:18.601Z"
             },
             {
               "$type": "Document",
@@ -356,8 +339,7 @@
               "RelativeToolTip": "SchoolManagement.Business\\ClassSubjectService\\ClassSubjectService.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAowCQAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:30:04.158Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:30:04.158Z"
             },
             {
               "$type": "Document",
@@ -369,8 +351,7 @@
               "RelativeToolTip": "SchoolManagement.Business\\ClassService\\ClassService.cs",
               "ViewState": "AgIAADAAAAAAAAAAAAAmwDUAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:30:44.367Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:30:44.367Z"
             },
             {
               "$type": "Document",
@@ -382,8 +363,7 @@
               "RelativeToolTip": "SchoolManagement.Business\\ClassSubjectService\\IClassSubjectService.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:30:01.901Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:30:01.901Z"
             },
             {
               "$type": "Document",
@@ -395,8 +375,7 @@
               "RelativeToolTip": "SchoolManagement.Business\\StudentService\\StudentService.cs",
               "ViewState": "AgIAACoAAAAAAAAAAAAowDkAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:30:16.467Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:30:16.467Z"
             },
             {
               "$type": "Document",
@@ -408,8 +387,7 @@
               "RelativeToolTip": "SchoolManagement.WebAPI\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-18T05:28:20.656Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:28:20.656Z"
             },
             {
               "$type": "Document",
@@ -421,8 +399,7 @@
               "RelativeToolTip": "SchoolManagement.WebAPI\\appsettings.Development.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-18T05:28:05.923Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:28:05.923Z"
             }
           ]
         }

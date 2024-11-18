@@ -1,23 +1,24 @@
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace SchoolManagement.Data.BaseRepository
 {
-    public class BaseRepository<T> : IBaseRepository<T> where T : class
+  public class BaseRepository<T> : IBaseRepository<T> where T : class
+  {
+    private readonly DbContextOptions<SchoolDbContext> _options;
+    public BaseRepository(DbContextOptions<SchoolDbContext> options)
     {
-        private readonly DbContextOptions<SchoolDbContext> _options;
-        public BaseRepository(DbContextOptions<SchoolDbContext> options)
-        {
-            _options = options;
-        }
-        public async Task AddAsync(T entity)
-        {
-            using (var context = new SchoolDbContext(_options))
-            {
-                context.Add<T>(entity);
-                await context.SaveChangesAsync();
-            }
-        }
+      _options = options;
+    }
+    public async Task AddAsync(T entity)
+    {
+      using (var context = new SchoolDbContext(_options))
+      {
+        context.Add<T>(entity);
+        await context.SaveChangesAsync();
+      }
+    }
 
     public async Task DeleteAsync(int id)
     {
@@ -37,11 +38,22 @@ namespace SchoolManagement.Data.BaseRepository
       }
     }
 
-        public async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> predicate = null)
+    public async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> predicate = null)
+    {
+      using (var context = new SchoolDbContext(_options))
+      {
+        IQueryable<T> query = context.Set<T>();
+
+        // Include tất cả các navigation properties
+        var navigationProperties = context.Model
+            .FindEntityType(typeof(T))
+            .GetNavigations()
+            .Select(n => n.Name);
+
+        foreach (var navigationProperty in navigationProperties)
         {
-            using (var context = new SchoolDbContext(_options))
-            {
-                IQueryable<T> query = context.Set<T>();
+          query = query.Include(navigationProperty);
+        }
 
         if (predicate != null)
         {
@@ -51,6 +63,7 @@ namespace SchoolManagement.Data.BaseRepository
         return await query.ToListAsync();
       }
     }
+
 
     public async Task<T> GetByIdAsync(int id)
     {
@@ -80,7 +93,6 @@ namespace SchoolManagement.Data.BaseRepository
       }
     }
 
-    // Phương thức mới hỗ trợ Include để truy vấn các bảng liên kết
     public async Task<IEnumerable<T>> GetWhereWithIncludeAsync(
         Expression<Func<T, bool>> predicate,
         Expression<Func<T, object>> includeExpression)
@@ -93,5 +105,26 @@ namespace SchoolManagement.Data.BaseRepository
                             .ToListAsync();
       }
     }
+
+
+
+
+
+    //public async Task<GetItemsPagingResDto<T>> GetItems(BasePagingAndSortDto payload)
+    //{
+    //    using (var context = new SchoolDbContext(_options))
+    //    {
+    //        IQueryable<T> query = context.Set<T>();
+    //        query = query.Skip(payload.StartIndex).Take(payload.PageSize);
+
+    //        var result = new GetItemsPagingResDto<T>()
+    //        {
+    //            Items = await query.ToListAsync(),
+    //            TotalCount = query.Count()
+    //        };
+
+    //        return result;
+    //    }
+    //}
   }
 }

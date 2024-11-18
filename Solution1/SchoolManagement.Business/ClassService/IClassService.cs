@@ -1,4 +1,4 @@
-﻿using SchoolManagement.Models.Models;
+using SchoolManagement.Models.Models;
 
 namespace SchoolManagement.Business.ClassService
 {

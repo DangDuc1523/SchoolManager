@@ -1,6 +1,8 @@
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using SchoolManagement.Business;
 using SchoolManagement.Business.AuthService;
 using SchoolManagement.Business.BaseService;
 using SchoolManagement.Business.ClassService;
@@ -23,11 +25,9 @@ using System.Text;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add DbContext
+// Add DbContext:
 builder.Services.AddDbContext<SchoolDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
 // Add Repository
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 builder.Services.AddScoped<IClassRepository, ClassRepository>();
@@ -37,7 +37,6 @@ builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<ITimeTableRepository, TimeTableRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ISubjectRepository, SubjectRepository>();
-
 // Add Service
 builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
 builder.Services.AddScoped<IClassService, ClassService>();
@@ -48,8 +47,11 @@ builder.Services.AddScoped<ITimetableService, TimeTableService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ISubjectService, SubjectService>();
 builder.Services.AddScoped<AuthService>();
+builder.Services.AddTransient<EmailService>();
 
-// Add services to the container
+
+// Add services to the container.
+
 builder.Services.AddControllers();
 
 // Add CORS policy
@@ -63,39 +65,38 @@ builder.Services.AddCors(options =>
           .AllowCredentials());
 });
 
-// Swagger Configuration
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
+builder.Services.AddSwaggerGen(/*c =>
 {
-  // JWT Bearer token security configuration
-  c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
-  {
-    In = Microsoft.OpenApi.Models.ParameterLocation.Header,
-    Description = "Please enter JWT with Bearer into field. Example: Bearer {token}",
-    Name = "Authorization",
-    Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
-    Scheme = "Bearer"
-  });
-  c.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
+        In = ParameterLocation.Header,
+        Description = "Please enter JWT with Bearer into field. Example: Bearer {token}",
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement {
         {
-            new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+            new OpenApiSecurityScheme
             {
-                Reference = new Microsoft.OpenApi.Models.OpenApiReference
+                Reference = new OpenApiReference
                 {
-                    Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
+                    Type = ReferenceType.SecurityScheme,
                     Id = "Bearer"
                 }
             },
             new string[] { }
         }
     });
-});
+}*/);
 
-// JWT Authentication setup
+// Đọc JWT settings từ appsettings.json
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
 var key = Encoding.ASCII.GetBytes(jwtSettings["SecretKey"]);
 
+// Cấu hình dịch vụ Authentication với JWT
 builder.Services.AddAuthentication(options =>
 {
   options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -113,16 +114,15 @@ builder.Services.AddAuthentication(options =>
     IssuerSigningKey = new SymmetricSecurityKey(key)
   };
 });
-
-// Authorization setup (optional, for restricting access)
+// Cấu hình Authorization
 builder.Services.AddAuthorization(options =>
 {
   options.AddPolicy("AdminOnly", policy => policy.RequireRole("admin"));
 });
 
 var app = builder.Build();
-
-// Use Swagger in development
+//app.UseCors("AllowAngularApp");
+// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
   app.UseSwagger();
@@ -130,16 +130,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-// Enable CORS for Angular app
 app.UseCors("AllowAngularApp");
-
-// Authentication and Authorization middleware
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Map controllers to endpoints
+
 app.MapControllers();
 
-// Run the application
 app.Run();

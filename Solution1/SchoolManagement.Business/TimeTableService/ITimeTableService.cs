@@ -6,7 +6,8 @@ namespace SchoolManagement.Business.TimeTableService
   {
     Task<IEnumerable<Timetable>> GetAllTimetableAsync();
     Task<Timetable> GetTimetableByIdAsync(int id);
-    Task<IEnumerable<Timetable>> GetTimetablesByClassIdAsync(int classId);
+
+    Task<IEnumerable<Timetable>> GetTimetablesWithSubjectsByClassIdAsync(int classId); // Thêm phương thức này
 
     Task<Timetable> AddTimetableAsync(Timetable Class);
     Task<Timetable> UpdateTimetableAsync(Timetable Class);

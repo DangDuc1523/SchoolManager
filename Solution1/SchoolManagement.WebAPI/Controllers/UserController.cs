@@ -15,9 +15,6 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
     {
       _userService = userService;
     }
-<<<<<<< HEAD
-
-    // Phương thức GET lấy tất cả người dùng
     [HttpGet]
     public async Task<IActionResult> GetAllUser()
     {
@@ -25,16 +22,6 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       return Ok(users);
     }
 
-    // Phương thức GET lấy người dùng theo id
-=======
-    [HttpGet]
-    public async Task<IActionResult> GetAllUser()
-    {
-      var users = await _userService.GetAllUserAsync();
-      return Ok(users);
-    }
-
->>>>>>> 262ac9ed1b628c2651e3bfff48e37c12dcd1f5b7
     [HttpGet("{id}")]
     public async Task<IActionResult> GetUserById(int id)
     {
@@ -46,7 +33,18 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       return Ok(User);
     }
 
-    // Phương thức GET lấy người dùng theo classId
+    [HttpPost]
+    public async Task<IActionResult> GetTeachers()
+    {
+      var teachers = await _userService.GetUsersByRoleAsync("Teacher");
+      if (teachers == null || !teachers.Any())
+      {
+        return NotFound("No teachers found.");
+      }
+
+      return Ok(teachers);
+    }
+
     [HttpGet("by-class/{classId}")]
     public async Task<IActionResult> GetUsersByClassId(int classId)
     {
@@ -59,37 +57,11 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       return Ok(users);
     }
 
-    // Đổi đường dẫn cho phương thức POST lấy tất cả giáo viên
-    [HttpPost("teachers")]  // Đổi từ [HttpPost] thành [HttpPost("teachers")]
-    public async Task<IActionResult> GetTeachers()
-    {
-      var teachers = await _userService.GetUsersByRoleAsync("Teacher");
-      if (teachers == null || !teachers.Any())
-      {
-        return NotFound("No teachers found.");
-      }
-
-      return Ok(teachers);
-    }
-
-    //[HttpPost]
-    //public async Task<IActionResult> AddUser(User User)
-    //{
-    //    var createdUser = await _userService.AddUserAsync(User);
-    //    return CreatedAtAction(nameof(GetUserById), new { id = createdUser.UserId }, createdUser);
-    //}
-
     [HttpPut("{id}")]
-<<<<<<< HEAD
-    public async Task<IActionResult> UpdateUser(int id, User User)
-    {
-      var updatedUser = await _userService.UpdateUserAsync(User);
-=======
     public async Task<IActionResult> UpdateUser(int id, User user)
     {
       user.UserId = id;
       var updatedUser = await _userService.UpdateUserAsync(user);
->>>>>>> 262ac9ed1b628c2651e3bfff48e37c12dcd1f5b7
       if (updatedUser == null)
       {
         return NotFound();
@@ -107,8 +79,6 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       }
       return Ok(deletedUser);
     }
-<<<<<<< HEAD
-=======
 
 
     //[HttpGet("users/{userId}/search")]
@@ -133,6 +103,5 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
     //    return Ok(updatedUser);
     //}
 
->>>>>>> 262ac9ed1b628c2651e3bfff48e37c12dcd1f5b7
   }
 }

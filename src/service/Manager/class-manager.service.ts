@@ -30,9 +30,10 @@ export class ClassManagerService {
 
   // Phương thức gọi API để lấy thông tin thời gian học cho classId
   viewDetail(classId: string): Observable<TimeClass[]> {
-    const test = this.http.get<TimeClass[]>(`${this.baseurl}/TimeTable/class/${classId}`);
+    const test = this.http.get<TimeClass[]>(`${this.baseurl}/TimeTable/GetTimetablesByClass/${classId}`);
     return test;
   }
+
 
   getInforClass(classId: string): Observable<User[]>
   {

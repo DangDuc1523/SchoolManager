@@ -33,16 +33,13 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       return Ok(TimeTable);
     }
 
-    [HttpGet("class/{classId}")]
-    public async Task<IActionResult> GetTimetablesByClassId(int classId)
+    [HttpGet("GetTimetablesByClass/{classId}")]
+    public async Task<IActionResult> GetTimetablesByClass(int classId)
     {
-      var timetables = await _timeTableService.GetTimetablesByClassIdAsync(classId);
-      if (timetables == null || !timetables.Any())
-      {
-        return NotFound();
-      }
+      var timetables = await _timeTableService.GetTimetablesWithSubjectsByClassIdAsync(classId);
       return Ok(timetables);
     }
+
 
 
 

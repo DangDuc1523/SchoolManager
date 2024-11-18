@@ -5,17 +5,19 @@ using SchoolManagement.Models.Models;
 
 namespace SchoolManagement.Business.UserService
 {
-    public class UserService : IUserService
-    {
+  public class UserService : IUserService
+  {
     private readonly IBaseRepository<User> _userRepository;
     private readonly IBaseRepository<Student> _studentRepository;
     private readonly SchoolDbContext _context;
 
-    public UserService(IBaseRepository<User> userRepository,SchoolDbContext context, IBaseRepository<Student> studentRepository)
+    public UserService(IBaseRepository<User> userRepository, IBaseRepository<Student> studentRepository, SchoolDbContext context)
     {
       _userRepository = userRepository;
+      _studentRepository = studentRepository; // Đảm bảo giá trị này được gán
       _context = context;
     }
+
 
     public async Task<IEnumerable<User>> GetAllUserAsync()
     {
@@ -53,12 +55,11 @@ namespace SchoolManagement.Business.UserService
     {
       return await _context.Users.FindAsync(username);
     }
-   public async Task<bool> UserExists(string username)
+    public async Task<bool> UserExists(string username)
     {
       return await _context.Set<User>()
           .AnyAsync(u => u.Username == username);
     }
-
     public async Task<IEnumerable<User>> GetUsersByRoleAsync(string role)
     {
       return await _userRepository.GetWhereAsync(u => u.Role == role);
@@ -82,7 +83,6 @@ namespace SchoolManagement.Business.UserService
 
       return users;
     }
-
 
   }
 }

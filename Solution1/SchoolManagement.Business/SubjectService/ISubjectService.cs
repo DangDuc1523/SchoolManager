@@ -11,5 +11,6 @@ namespace SchoolManagement.Business.SubjectService
         Task<Subject> DeleteSubjectAsync(int id);
         Task<IEnumerable<Subject>> GetSubjectsByClassIdAsync(int classId);
         Task<IEnumerable<Subject>> GetSubjectsByClassAndTeacherAsync(int classId, int teacherId);
-  }
+        Task<IEnumerable<Subject>> GetSubjectByTeacherIdAsync(int teacherId);
+    }
 }

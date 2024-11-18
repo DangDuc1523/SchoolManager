@@ -1,11 +1,19 @@
+<<<<<<< HEAD
 using Microsoft.EntityFrameworkCore;
+=======
+>>>>>>> thanh
 using SchoolManagement.Data;
 using SchoolManagement.Data.BaseRepository;
 using SchoolManagement.Models.Models;
 
 namespace SchoolManagement.Business.SubjectService
 {
-    public class SubjectService : ISubjectService
+  public class SubjectService : ISubjectService
+  {
+    private readonly IBaseRepository<Subject> _subjectRepository;
+    private readonly SchoolDbContext _context;
+
+    public SubjectService(IBaseRepository<Subject> subjectRepository, SchoolDbContext context)
     {
     private readonly IBaseRepository<Subject> _subjectRepository;
     private readonly IBaseRepository<ClassSubject> _classSubjectRepository;
@@ -71,5 +79,20 @@ namespace SchoolManagement.Business.SubjectService
             return subjects;
         }
 
+    public async Task<IEnumerable<Subject>> GetSubjectByTeacherIdAsync(int teacherId)
+    {
+      var classSubjects = _context.ClassSubjects.Where(cs=>cs.TeacherId==teacherId).ToList();
+      List<int> subjectIdlist = new List<int>();
+      foreach (var classSubject in classSubjects)
+      {
+        if(!subjectIdlist.Contains(classSubject.SubjectId))
+        {
+          subjectIdlist.Add(classSubject.SubjectId);
+        }
+      }
+      var subjects = _context.Subjects.Where(s => subjectIdlist.Contains(s.SubjectId)).ToList();
+      return subjects;
     }
+
+  }
 }

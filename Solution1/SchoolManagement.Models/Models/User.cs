@@ -19,13 +19,10 @@ public partial class User
   public string Address { get; set; }
   public string ContactInfo { get; set; }
   public string Specialty { get; set; }
-
-  [NotMapped]
   [JsonIgnore]
   public bool EmailConfirmed { get; set; } = false;
-  [NotMapped]
   [JsonIgnore]
-  public string OtpCode { get; set; }
+  public string OtpCode { get; set; } = null;
 }
 
 

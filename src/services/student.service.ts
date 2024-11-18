@@ -20,14 +20,18 @@ export class StudentService {
   getStudentProfile(id: number): Observable<Student> {
     return this.http.get<Student>(`${this.apiUrl}/User/${id}`);
   }
+  updateStudentProfile(student: Student): Observable<Student> {
+    
+    return this.http.put<Student>(`${this.apiUrl}/User/${student.userID}`, student);
+  }
   getClass(StudentId: number): Observable<ClassSubject[]> {
-    return this.http.get<ClassSubject[]>(`${this.apiUrl}/User/ClassSubject?studentId=${StudentId}`);
+    return this.http.get<ClassSubject[]>(`${this.apiUrl}/TimeTable/student/${StudentId}`);// api này cx sai : đang lấy theo 1 kiểu gì đó rất ngớ ngẩn 
   }
   getTimetablesByClass(classID: number): Observable<Timetable[]> {
-    return this.http.get<Timetable[]>(`${this.apiUrl}/User/TimeTable/Class/${classID}`);
+    return this.http.get<Timetable[]>(`${this.apiUrl}/User/TimeTable/Class/${classID}`); // api sai
   }
   getClassSubjects(): Observable<ClassSubject[]> {
-    return this.http.get<ClassSubject[]>(`${this.apiUrl}/User/ClassSubject`);
+    return this.http.get<ClassSubject[]>(`${this.apiUrl}/User/ClassSubject`); // api sai
   }
   getSubjectsByClassId(classId: number): Observable<Subject[]> {
     return this.http.get<Subject[]>(`${this.apiUrl}/class/${classId}`);

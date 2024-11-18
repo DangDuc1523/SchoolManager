@@ -77,15 +77,17 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       }
       return Ok(Class);
     }
-    [HttpGet("teacher/{userId}")]
-    public async Task<IActionResult> GetClassByTeacherId(int userId)
+
+    [HttpGet("teacher/{teacherId}/classes")]
+    public async Task<IActionResult> GetAllClassesByTeacherId(int teacherId)
     {
-      var Class = await _classService.GetClassByTeacherIdAsync(userId);
-      if (Class == null)
+      var classes = await _classService.GetAllClassesByTeacherIdAsync(teacherId);
+      if (!classes.Any())
       {
         return NotFound();
       }
-      return Ok(Class);
+      return Ok(classes);
     }
+
   }
 }

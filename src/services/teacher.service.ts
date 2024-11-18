@@ -6,6 +6,8 @@ import { ClassSubject } from '../dto/classSubject.model';
 import { map, mergeMap } from 'rxjs/operators';
 import { Observable, forkJoin } from 'rxjs';
 import { Subject } from '../dto/subject.model';
+import { Student } from '../dto/student.models';
+import { Grade } from '../dto/grade.models';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +27,7 @@ export class TeacherService {
     }
     return this.http.put<Teacher>(`${this.apiUrl}/User/${teacher.userID}`, teacher);
   }
-
+  //chưa đc
   getClassSubjects(): Observable<ClassSubject[]> {
     return this.http.get<ClassSubject[]>(`${this.apiUrl}/User/ClassSubject`);
   }
@@ -37,7 +39,7 @@ export class TeacherService {
   getTeacherSchedules(teacherId: number): Observable<ClassSubject[]> {
     return this.http.get<ClassSubject[]>(`${this.apiUrl}/User/ClassSubject?teacherId=${teacherId}`);
   }
-
+  //đến đây
   getClassesByTeacherId(teacherId: number): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/Class/teacher/${teacherId}/classes`);
   }
@@ -49,5 +51,13 @@ export class TeacherService {
   getSubjectsByClassAndTeacher(classId: number, teacherId: number): Observable<Subject[]> {
     return this.http.get<Subject[]>(`${this.apiUrl}/Subject/class/${classId}/teacher/${teacherId}`);
   }
+  getStudentsByClassAndSubject(classId: number, subjectId: number): Observable<Student[]> {
+    return this.http.get<Student[]>(`${this.apiUrl}/Student/class/${classId}/subject/${subjectId}`);
+  }
+  getGradeByStudentAndSubject(studentId: number, subjectId: number): Observable<Grade[]> {
+    return this.http.get<Grade[]>(`${this.apiUrl}/Grade/${studentId}/${subjectId}`);
+  }
+  
+  
 }
 

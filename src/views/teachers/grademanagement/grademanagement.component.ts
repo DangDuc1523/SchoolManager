@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { TeacherService } from '../../../services/teacher.service';
 import { AuthService } from '../../../service/auth.service';
 import { Subject } from '../../../dto/subject.model';
+import { Student } from '../../../dto/student.models';
+import { forkJoin, map } from 'rxjs';
 
 @Component({
   selector: 'app-classinfo',
@@ -12,19 +14,22 @@ import { Subject } from '../../../dto/subject.model';
   styleUrls: ['./grademanagement.component.scss'],
 })
 export class GradeManagementComponent implements OnInit {
-  classes: any[] = []; // Danh sách các lớp học
-  subjects: Subject[] = []; // Danh sách môn học khi chọn class
+  classes: any[] = []; 
+  subjects: Subject[] = []; 
+  students: { student: Student; user: any }[] = []; 
   errorMessage = '';
-  selectedClassName = ''; // Tên lớp được chọn
+  selectedClassId: number = 0; 
+  selectedClassName = ''; 
+  selectedSubjectName = ''; 
   private auth: AuthService = inject(AuthService);
   private teacherId: number = 0;
 
   constructor(private teacherService: TeacherService) {}
 
   ngOnInit(): void {
-    this.teacherId = Number(this.auth.getId()); 
+    this.teacherId = Number(this.auth.getId());
     if (this.teacherId && this.teacherId > 0) {
-      this.getTeacherClasses(this.teacherId); 
+      this.getTeacherClasses(this.teacherId);
     } else {
       this.errorMessage = 'Invalid teacher ID. Please check your authentication.';
       console.error('Error: Invalid teacher ID');
@@ -39,17 +44,14 @@ export class GradeManagementComponent implements OnInit {
       },
       error: (error) => {
         console.error('Error fetching class info:', error);
-        if (error.status === 404) {
-          this.errorMessage = 'No classes found for this teacher.';
-        } else {
-          this.errorMessage = 'Unable to fetch classes. Please try again later.';
-        }
+        this.errorMessage = 'Unable to fetch classes. Please try again later.';
       },
     });
   }
 
   getSubjectsForClass(classId: number, className: string): void {
-    this.selectedClassName = className; // Lưu tên lớp được chọn
+    this.selectedClassId = classId; // Save selected class ID
+    this.selectedClassName = className; // Save selected class name
     this.teacherService.getSubjectsByClassAndTeacher(classId, this.teacherId).subscribe({
       next: (subjects) => {
         this.subjects = subjects;
@@ -57,11 +59,38 @@ export class GradeManagementComponent implements OnInit {
       },
       error: (error) => {
         console.error('Error fetching subjects:', error);
-        if (error.status === 404) {
-          this.errorMessage = 'No subjects found for this class.';
-        } else {
-          this.errorMessage = 'Unable to fetch subjects. Please try again later.';
-        }
+        this.errorMessage = 'Unable to fetch subjects. Please try again later.';
+      },
+    });
+  }
+
+  getStudentsForSubject(subjectId: number, subjectName: string): void {
+    this.selectedSubjectName = subjectName; // Save selected subject name
+    this.teacherService.getStudentsByClassAndSubject(this.selectedClassId, subjectId).subscribe({
+      next: (students) => {
+        const studentDetailRequests = students.map((student) =>
+          this.teacherService.getTeacherProfile(student.userId).pipe(
+            map((user) => ({
+              student,
+              user,
+            }))
+          )
+        );
+
+        forkJoin(studentDetailRequests).subscribe({
+          next: (studentDetails) => {
+            this.students = studentDetails;
+            this.errorMessage = '';
+          },
+          error: (error) => {
+            console.error('Error fetching user details:', error);
+            this.errorMessage = 'Unable to fetch student details. Please try again later.';
+          },
+        });
+      },
+      error: (error) => {
+        console.error('Error fetching students:', error);
+        this.errorMessage = 'Unable to fetch students. Please try again later.';
       },
     });
   }

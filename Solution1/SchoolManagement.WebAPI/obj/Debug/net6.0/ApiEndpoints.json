@@ -417,6 +417,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SchoolManagement.WebAPI.Controllers.StudentController",
+    "Method": "GetStudentsByClassAndSubject",
+    "RelativePath": "api/Student/class/{classId}/subject/{subjectId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "classId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "subjectId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SchoolManagement.WebAPI.Controllers.Admin.SubjectController",
     "Method": "GetAllSubject",
     "RelativePath": "api/Subject",
@@ -533,6 +554,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SchoolManagement.WebAPI.Controllers.Admin.SubjectController",
+    "Method": "GetSubjectByTeacherId",
+    "RelativePath": "api/Subject/teacher/{teacherId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teacherId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SchoolManagement.WebAPI.Controllers.Admin.TimeTableController",
     "Method": "GetAllTimeTable",
     "RelativePath": "api/TimeTable",
@@ -621,6 +658,38 @@
     "Parameters": [
       {
         "Name": "classId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolManagement.WebAPI.Controllers.Admin.TimeTableController",
+    "Method": "GetTimetablesByStudentId",
+    "RelativePath": "api/TimeTable/student/{studentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolManagement.WebAPI.Controllers.Admin.TimeTableController",
+    "Method": "GetTimetablesBySubjectId",
+    "RelativePath": "api/TimeTable/subject/{subjectId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "subjectId",
         "Type": "System.Int32",
         "IsRequired": true
       }

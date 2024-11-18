@@ -60,25 +60,30 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
     public async Task<IActionResult> Register(UserRegisterDto registerDto)
     {
       // Kiểm tra xem email hoặc username đã tồn tại chưa
-      var userExists = await _uService.UserExists(registerDto.Username);
-      if (userExists)
+      var userExists = await _uService.GetUserByUsernameAsync(registerDto.Username);
+      if (userExists != null && userExists.EmailConfirmed==true)
         return BadRequest("Email hoặc Username đã tồn tại");
 
       // Tạo người dùng mới và lưu vào database
       var user = new User
       {
         Username = registerDto.Username,
-        PasswordHash = registerDto.Password, // Hàm mã hóa mật khẩu
+        PasswordHash = registerDto.Password, 
         EmailConfirmed = false,
-        FullName = registerDto.FullName
-        // Các thuộc tính khác...
+        FullName = registerDto.FullName,
+        Role = "Student",
+        Address = registerDto.Address,
+        DateOfBirth = registerDto.DateOfBirth,
+        ContactInfo = registerDto.ContactInfo,
+        Specialty = registerDto.Specialty
       };
-
-      await _userService.AddAsync(user);
-
-      // Tạo mã OTP
       var random = new Random();
       user.OtpCode = random.Next(100000, 999999).ToString();
+      if (userExists != null) await _uService.DeleteUserAsync(userExists.UserId);
+      await _uService.AddUserAsync(user);
+
+      // Tạo mã OTP
+      
 
       // Gửi OTP qua email
       await _emailService.SendEmailAsync(user.Username, "Mã OTP xác nhận đăng ký",

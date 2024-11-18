@@ -42,7 +42,6 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
 
 
 
-
     [HttpPost]
     public async Task<IActionResult> AddTimeTable(Timetable TimeTable)
     {
@@ -73,5 +72,26 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       return Ok(deletedTimeTable);
     }
 
+    [HttpGet("student/{studentId}")]
+    public async Task<IActionResult> GetTimetablesByStudentId(int studentId)
+    {
+      var timetables = await _timeTableService.GetTimetableByStudentId(studentId);
+      if (timetables == null || !timetables.Any())
+      {
+        return NotFound();
+      }
+      return Ok(timetables);
+    }
+
+    [HttpGet("subject/{subjectId}")]
+    public async Task<IActionResult> GetTimetablesBySubjectId(int subjectId)
+    {
+      var timetables = await _timeTableService.GetTimetableBySubjectId(subjectId);
+      if (timetables == null || !timetables.Any())
+      {
+        return NotFound();
+      }
+      return Ok(timetables);
+    }
   }
 }

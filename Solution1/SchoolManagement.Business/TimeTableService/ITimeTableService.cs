@@ -12,5 +12,10 @@ namespace SchoolManagement.Business.TimeTableService
     Task<Timetable> AddTimetableAsync(Timetable Class);
     Task<Timetable> UpdateTimetableAsync(Timetable Class);
     Task<Timetable> DeleteTimetableAsync(int id);
+    Task<IEnumerable<Timetable>> GetTimetableByStudentId(int studentId);
+    Task<IEnumerable<Timetable>> GetTimetableBySubjectId(int subjectId);
+
+
+    Task<IEnumerable<Timetable>> GetTimetablesByClassIdAsync(int classId);
   }
 }

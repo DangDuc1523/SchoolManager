@@ -18,6 +18,7 @@ export interface Teacher extends User {
 export interface Student extends User {
   classID: number;
   enrollmentDate: string;
+  specialty: string;
 }
 
 export interface Admin extends User {

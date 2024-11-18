@@ -53,7 +53,8 @@ namespace SchoolManagement.Business.UserService
 
     public async Task<User> GetUserByUsernameAsync(string username)
     {
-      return await _context.Users.FindAsync(username);
+      User u = _context.Users.Where(u => u.Username == username).FirstOrDefault();
+      return u;
     }
     public async Task<bool> UserExists(string username)
     {

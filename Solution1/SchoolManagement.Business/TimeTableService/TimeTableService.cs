@@ -1,15 +1,18 @@
 using SchoolManagement.Data.BaseRepository;
 using SchoolManagement.Models.Models;
+using System.ComponentModel;
 
 namespace SchoolManagement.Business.TimeTableService
 {
   public class TimeTableService : ITimetableService
   {
     private readonly IBaseRepository<Timetable> _timeTableRepository;
+    private readonly IBaseRepository<Student> _studentRepository;
 
-    public TimeTableService(IBaseRepository<Timetable> TimeTableRepository)
+    public TimeTableService(IBaseRepository<Timetable> timeTableRepository, IBaseRepository<Student> studentRepository)
     {
-      _timeTableRepository = TimeTableRepository;
+      _timeTableRepository = timeTableRepository;
+      _studentRepository = studentRepository;
     }
 
     public async Task<IEnumerable<Timetable>> GetAllTimetableAsync()
@@ -58,7 +61,21 @@ namespace SchoolManagement.Business.TimeTableService
       }
       return TimeTable;
     }
+    public async Task<IEnumerable<Timetable>> GetTimetablesByClassIdAsync(int classId)
+    {
+      return await _timeTableRepository.GetWhereAsync(t => t.ClassId == classId);
+    }
 
 
+    public async Task<IEnumerable<Timetable>> GetTimetableByStudentId(int studentId)
+    {
+      Student s = await _studentRepository.GetByIdAsync(studentId);
+      return await GetTimetablesByClassIdAsync(s.ClassId);
+    }
+
+    public async Task<IEnumerable<Timetable>> GetTimetableBySubjectId(int subjectId)
+    {
+      return await _timeTableRepository.GetWhereAsync(t => t.SubjectId == subjectId);
+    }
   }
 }

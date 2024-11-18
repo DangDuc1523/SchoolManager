@@ -1,10 +1,10 @@
 <div class="class-info-container">
   <h2>Your Classes</h2>
 
-  <!-- Hiển thị lỗi nếu có -->
+  <!-- Display error if any -->
   <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 
-  <!-- Hiển thị danh sách lớp học -->
+  <!-- Display list of classes -->
   <div *ngIf="classes.length > 0" class="class-list-container">
     <table class="class-table">
       <thead>
@@ -26,7 +26,7 @@
     </table>
   </div>
 
-  <!-- Hiển thị danh sách môn học nếu có -->
+  <!-- Display subjects for selected class -->
   <div *ngIf="subjects.length > 0" class="subject-list-container">
     <h3>Subjects for Class: {{ selectedClassName }}</h3>
     <table class="subject-table">
@@ -38,15 +38,37 @@
       </thead>
       <tbody>
         <tr *ngFor="let subject of subjects">
-          <td>{{ subject.subjectName }}</td>
+          <td (click)="getStudentsForSubject(subject.subjectId, subject.subjectName)" class="clickable">{{ subject.subjectName }}</td>
           <td>{{ subject.description }}</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- Thông báo không có môn học -->
-  <div *ngIf="selectedClassName && subjects.length === 0" class="no-subjects">
-    No subjects found for the selected class.
+  <!-- Display students for selected subject -->
+  <div *ngIf="students.length > 0" class="student-list-container">
+    <h3>Students for Subject: {{ selectedSubjectName }}</h3>
+    <table class="student-table">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Username</th>
+          <th>Role</th>
+          <th>Date of Birth</th>
+          <th>Contact Info</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of students">
+          <td>{{ item.user?.fullName || 'N/A' }}</td>
+          <td>{{ item.user?.username || 'N/A' }}</td>
+          <td>{{ item.user?.role || 'N/A' }}</td>
+          <td>{{ item.user?.dateOfBirth || 'N/A' }}</td>
+          <td>{{ item.user?.contactInfo || 'N/A' }}</td>
+          <td>{{ item.user?.address || 'N/A' }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

@@ -52,5 +52,16 @@ namespace SchoolManagement.WebAPI.Controllers
       }
       return Ok(Student);
     }
+
+    [HttpGet("class/{classId}/subject/{subjectId}")]
+    public async Task<IActionResult> GetStudentsByClassAndSubject(int classId, int subjectId)
+    {
+      var students = await _StudentService.GetStudentsByClassAndSubjectAsync(classId, subjectId);
+      if (students == null || !students.Any())
+      {
+        return NotFound();
+      }
+      return Ok(students);
+    }
   }
 }

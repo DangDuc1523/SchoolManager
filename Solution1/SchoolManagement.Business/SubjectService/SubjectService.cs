@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-using Microsoft.EntityFrameworkCore;
-=======
->>>>>>> thanh
+
 using SchoolManagement.Data;
 using SchoolManagement.Data.BaseRepository;
 using SchoolManagement.Models.Models;
@@ -11,13 +8,10 @@ namespace SchoolManagement.Business.SubjectService
   public class SubjectService : ISubjectService
   {
     private readonly IBaseRepository<Subject> _subjectRepository;
-    private readonly SchoolDbContext _context;
-
-    public SubjectService(IBaseRepository<Subject> subjectRepository, SchoolDbContext context)
-    {
-    private readonly IBaseRepository<Subject> _subjectRepository;
     private readonly IBaseRepository<ClassSubject> _classSubjectRepository;
     private readonly SchoolDbContext _context;
+
+   
 
     public SubjectService(
             IBaseRepository<Subject> subjectRepository,

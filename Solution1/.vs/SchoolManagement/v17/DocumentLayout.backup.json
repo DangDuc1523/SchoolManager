@@ -1,0 +1,432 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|solutionrelative:schoolmanagement.webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.webapi\\controllers\\classcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|solutionrelative:schoolmanagement.webapi\\controllers\\classcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.webapi\\controllers\\classsubjectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|solutionrelative:schoolmanagement.webapi\\controllers\\classsubjectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.webapi\\controllers\\gradecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|solutionrelative:schoolmanagement.webapi\\controllers\\gradecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.webapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|solutionrelative:schoolmanagement.webapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.webapi\\controllers\\subjectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|solutionrelative:schoolmanagement.webapi\\controllers\\subjectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.webapi\\controllers\\timetablecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|solutionrelative:schoolmanagement.webapi\\controllers\\timetablecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.webapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|solutionrelative:schoolmanagement.webapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.business\\userservice\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|solutionrelative:schoolmanagement.business\\userservice\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.business\\userservice\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|solutionrelative:schoolmanagement.business\\userservice\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.business\\timetableservice\\timetableservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|solutionrelative:schoolmanagement.business\\timetableservice\\timetableservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.business\\timetableservice\\itimetableservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|solutionrelative:schoolmanagement.business\\timetableservice\\itimetableservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.business\\subjectservice\\subjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|solutionrelative:schoolmanagement.business\\subjectservice\\subjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.business\\subjectservice\\isubjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|solutionrelative:schoolmanagement.business\\subjectservice\\isubjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.business\\classservice\\classservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|solutionrelative:schoolmanagement.business\\classservice\\classservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.business\\gradeservice\\igradeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|solutionrelative:schoolmanagement.business\\gradeservice\\igradeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.business\\gradeservice\\gradeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|solutionrelative:schoolmanagement.business\\gradeservice\\gradeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.business\\classsubjectservice\\iclasssubjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|solutionrelative:schoolmanagement.business\\classsubjectservice\\iclasssubjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.business\\classsubjectservice\\classsubjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|solutionrelative:schoolmanagement.business\\classsubjectservice\\classsubjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.business\\classservice\\iclassservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|solutionrelative:schoolmanagement.business\\classservice\\iclassservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.business\\authservice\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|solutionrelative:schoolmanagement.business\\authservice\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.business\\studentservice\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|solutionrelative:schoolmanagement.business\\studentservice\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|solutionrelative:schoolmanagement.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|d:\\fpt\\semester6\\schoolmanager\\solution1\\schoolmanagement.webapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|solutionrelative:schoolmanagement.webapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ClassController.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\ClassController.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.WebAPI\\Controllers\\ClassController.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\ClassController.cs",
+              "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\ClassController.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:36:11.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ClassSubjectController.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\ClassSubjectController.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.WebAPI\\Controllers\\ClassSubjectController.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\ClassSubjectController.cs",
+              "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\ClassSubjectController.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:36:09.109Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GradeController.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\GradeController.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.WebAPI\\Controllers\\GradeController.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\GradeController.cs",
+              "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\GradeController.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:36:05.8Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.WebAPI\\Controllers\\StudentController.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\StudentController.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:36:01.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\UserService\\UserService.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Business\\UserService\\UserService.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\UserService\\UserService.cs",
+              "RelativeToolTip": "SchoolManagement.Business\\UserService\\UserService.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:35:41.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.WebAPI\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:32:01.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\UserService\\IUserService.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Business\\UserService\\IUserService.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\UserService\\IUserService.cs",
+              "RelativeToolTip": "SchoolManagement.Business\\UserService\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:35:39.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TimeTableService.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\TimeTableService\\TimeTableService.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Business\\TimeTableService\\TimeTableService.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\TimeTableService\\TimeTableService.cs",
+              "RelativeToolTip": "SchoolManagement.Business\\TimeTableService\\TimeTableService.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:35:34.541Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.WebAPI\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\UserController.cs",
+              "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:32:57.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TimeTableController.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\TimeTableController.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.WebAPI\\Controllers\\TimeTableController.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\TimeTableController.cs",
+              "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\TimeTableController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:32:46.665Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SubjectController.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\SubjectController.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.WebAPI\\Controllers\\SubjectController.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\SubjectController.cs",
+              "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\SubjectController.cs",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:32:05.159Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ITimeTableService.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\TimeTableService\\ITimeTableService.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Business\\TimeTableService\\ITimeTableService.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\TimeTableService\\ITimeTableService.cs",
+              "RelativeToolTip": "SchoolManagement.Business\\TimeTableService\\ITimeTableService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:35:32.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SubjectService.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\SubjectService\\SubjectService.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Business\\SubjectService\\SubjectService.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\SubjectService\\SubjectService.cs",
+              "RelativeToolTip": "SchoolManagement.Business\\SubjectService\\SubjectService.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAuwA0AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:34:21.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ISubjectService.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\SubjectService\\ISubjectService.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Business\\SubjectService\\ISubjectService.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\SubjectService\\ISubjectService.cs*",
+              "RelativeToolTip": "SchoolManagement.Business\\SubjectService\\ISubjectService.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:34:16.117Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IGradeService.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\GradeService\\IGradeService.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Business\\GradeService\\IGradeService.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\GradeService\\IGradeService.cs",
+              "RelativeToolTip": "SchoolManagement.Business\\GradeService\\IGradeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:34:04.629Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "GradeService.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\GradeService\\GradeService.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Business\\GradeService\\GradeService.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\GradeService\\GradeService.cs",
+              "RelativeToolTip": "SchoolManagement.Business\\GradeService\\GradeService.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:33:45.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IClassService.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\ClassService\\IClassService.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Business\\ClassService\\IClassService.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\ClassService\\IClassService.cs",
+              "RelativeToolTip": "SchoolManagement.Business\\ClassService\\IClassService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:33:28.883Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\AuthService\\AuthService.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Business\\AuthService\\AuthService.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\AuthService\\AuthService.cs",
+              "RelativeToolTip": "SchoolManagement.Business\\AuthService\\AuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:33:18.601Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ClassSubjectService.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\ClassSubjectService\\ClassSubjectService.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Business\\ClassSubjectService\\ClassSubjectService.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\ClassSubjectService\\ClassSubjectService.cs",
+              "RelativeToolTip": "SchoolManagement.Business\\ClassSubjectService\\ClassSubjectService.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowCQAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:30:04.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ClassService.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\ClassService\\ClassService.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Business\\ClassService\\ClassService.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\ClassService\\ClassService.cs",
+              "RelativeToolTip": "SchoolManagement.Business\\ClassService\\ClassService.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAmwDUAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:30:44.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IClassSubjectService.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\ClassSubjectService\\IClassSubjectService.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Business\\ClassSubjectService\\IClassSubjectService.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\ClassSubjectService\\IClassSubjectService.cs",
+              "RelativeToolTip": "SchoolManagement.Business\\ClassSubjectService\\IClassSubjectService.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:30:01.901Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "StudentService.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\StudentService\\StudentService.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Business\\StudentService\\StudentService.cs",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\StudentService\\StudentService.cs",
+              "RelativeToolTip": "SchoolManagement.Business\\StudentService\\StudentService.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAowDkAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T05:30:16.467Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "SchoolManagement.WebAPI\\appsettings.json",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\appsettings.json",
+              "RelativeToolTip": "SchoolManagement.WebAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-18T05:28:20.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "SchoolManagement.WebAPI\\appsettings.Development.json",
+              "ToolTip": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\appsettings.Development.json",
+              "RelativeToolTip": "SchoolManagement.WebAPI\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-18T05:28:05.923Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

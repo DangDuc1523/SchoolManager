@@ -62,7 +62,7 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       }
       return Ok(deletedSubject);
     }
-<<<<<<< HEAD
+
     [HttpGet("class/{classId}")]
     public async Task<IActionResult> GetSubjectsByClassIdAsync(int classId)
     {
@@ -84,7 +84,7 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       return Ok(subjects);
     }
 
-=======
+
     [HttpGet("teacher/{teacherId}")]
     public async Task<IActionResult> GetSubjectByTeacherId(int teacherId)
     {
@@ -95,6 +95,6 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       }
       return Ok(Subjects);
     }
->>>>>>> thanh
+
   }
 }

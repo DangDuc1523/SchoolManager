@@ -6,5 +6,5 @@ export interface User {
     DateOfBirth: string,
     Address: string,
     ContactInfo: string,
-    Specialty: string
+    Specialty?: string
  }

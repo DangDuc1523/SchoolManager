@@ -1,22 +1,54 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { CommonModule, DatePipe } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // Thêm FormsModule
+import { Student} from '../../../dto/user.model';
+import { AuthService } from '../../../service/auth.service';
+import { StudentService } from '../../../services/student.service';
 
 @Component({
-  selector: 'app-profile',
+  selector: 'app-student-profile',
+  standalone: true,
+  imports: [CommonModule, FormsModule], // Thêm FormsModule vào imports
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  styleUrls: ['./profile.component.scss'],
+  providers: [DatePipe],
 })
 export class ProfileComponent implements OnInit {
-  // Các thuộc tính đã fix cứng
-  fullname: string = 'Nguyễn Văn A';
-  username: string = 'nguyenvana';
-  dob: string = '2000-01-01';  // Định dạng ngày sinh (yyyy-mm-dd)
-  address: string = 'Hà Nội, Việt Nam';
-  contact: string = '0123456789';  // Thông tin liên hệ
-  specialty: string = 'Kỹ sư phần mềm';
+  student: Student | null = null;
+  isEditing: boolean = false; // Trạng thái chỉnh sửa
+  auth: AuthService = inject(AuthService);
 
-  constructor() {}
+  constructor(private studentService: StudentService, private datePipe: DatePipe) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const studentId = this.auth.getId();
+  
+    if (!studentId) {
+      console.error('Student ID is missing from AuthService.');
+      return;
+    }
+  
+    console.log('Student ID from AuthService:', studentId);
+  
+    this.studentService.getStudentProfile(Number(studentId)).subscribe({
+      next: (data: any) => {
+        console.log('Fetched student data from API:', data);
+  
+        data.userID = data.userId;
+        delete data.userId;
+  
+        if (!data.userID) {
+          console.error('API did not return userID. Data received:', data);
+        }
+  
+        data.dateOfBirth = this.datePipe.transform(data.dateOfBirth, 'yyyy-MM-dd') || '';
+        this.student = data;
+      },
+      error: (err) => {
+        console.error('Error fetching student profile:', err);
+      },
+    });
+  }
   goBack() {
     window.history.back();  // Sử dụng history của trình duyệt để quay lại trang trước
   }

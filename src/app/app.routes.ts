@@ -17,6 +17,7 @@ import { InfoComponent } from '../views/student/info/info.component';
 import { CheckComponent } from '../views/student/check/check.component';
 import { GradeComponent } from '../views/student/grade/grade.component';
 import { MemberComponent } from '../views/student/member/member.component';
+import { ProfileComponent } from '../views/student/profile/profile.component';
 
 import { MainManagerComponent } from '../views/manager/main-manager/main-manager.component';
 import { ListTeacherComponent } from '../views/manager/list-teacher/list-teacher.component';
@@ -48,7 +49,7 @@ export const routes: Routes = [
   { path: 'check', component: CheckComponent },
   { path: 'grade', component: GradeComponent },
   { path: 'member', component: MemberComponent },
-
+  { path: 'profile', component: ProfileComponent},
 
 // Manager
   { path: 'mainManager', component:  MainManagerComponent},

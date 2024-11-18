@@ -1,117 +1,118 @@
+/* General styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+
+h2, h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 .class-info-container {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 20px auto;
   padding: 20px;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
   background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
 
-  h2 {
-    text-align: center;
-    font-size: 24px;
-    color: #333333;
-    margin-bottom: 20px;
+/* Error message styling */
+.error-message {
+  color: #e74c3c;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+thead {
+  background-color: #2c3e50;
+  color: #fff;
+}
+
+thead th {
+  padding: 10px;
+  text-align: left;
+  font-size: 16px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s;
+}
+
+tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+tbody td {
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* Clickable rows */
+.clickable {
+  color: #3498db;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.clickable:hover {
+  color: #1abc9c;
+}
+
+/* Buttons */
+button {
+  padding: 8px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #1abc9c;
+  color: #fff;
+}
+
+/* Containers */
+.class-list-container,
+.subject-list-container,
+.student-list-container {
+  margin-top: 20px;
+}
+
+.no-subjects {
+  color: #7f8c8d;
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .class-info-container {
+    padding: 15px;
   }
 
-  .clickable {
-    cursor: pointer;
-    color: #3498db;
-    font-weight: bold;
-    text-decoration: underline;
-
-    &:hover {
-      color: #1d6fa5;
-      text-decoration: none;
-    }
+  table {
+    font-size: 12px;
   }
 
-  .error-message {
-    color: red;
-    font-weight: bold;
-    text-align: center;
-    margin: 20px 0;
-  }
-
-  .class-list-container {
-    margin-top: 20px;
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-
-      th {
-        padding: 15px;
-        background-color: #f7f7f7;
-        color: #555555;
-        font-weight: bold;
-        border-bottom: 2px solid #dddddd;
-        text-align: center;
-      }
-
-      td {
-        padding: 15px;
-        color: #333333;
-        border-bottom: 1px solid #dddddd;
-        text-align: center;
-
-        &:last-child {
-          font-weight: bold;
-        }
-      }
-
-      tr:hover {
-        background-color: #f1f1f1;
-      }
-    }
-  }
-
-  .subject-list-container {
-    margin-top: 30px;
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-
-    h3 {
-      font-size: 20px;
-      color: #333333;
-      margin-bottom: 15px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-
-      th {
-        padding: 10px;
-        background-color: #4caf50;
-        color: #ffffff;
-        font-weight: bold;
-        text-align: left;
-      }
-
-      td {
-        padding: 10px;
-        border: 1px solid #ddd;
-        color: #555555;
-      }
-
-      tr:nth-child(even) {
-        background-color: #f2f2f2;
-      }
-
-      tr:hover {
-        background-color: #e9f7ef;
-      }
-    }
-  }
-
-  .no-subjects {
-    margin-top: 20px;
-    text-align: center;
-    color: #555555;
-    font-style: italic;
+  thead th, tbody td {
+    padding: 8px;
   }
 }

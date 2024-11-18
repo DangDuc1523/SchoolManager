@@ -401,6 +401,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SchoolManagement.WebAPI.Controllers.StudentController",
+    "Method": "GetStudentsByClassAndSubject",
+    "RelativePath": "api/Student/class/{classId}/subject/{subjectId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "classId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "subjectId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SchoolManagement.WebAPI.Controllers.Admin.SubjectController",
     "Method": "GetAllSubject",
     "RelativePath": "api/Subject",

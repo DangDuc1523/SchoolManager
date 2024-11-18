@@ -62,6 +62,15 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       }
       return Ok(deletedSubject);
     }
-
+    [HttpGet("teacher/{teacherId}")]
+    public async Task<IActionResult> GetSubjectByTeacherId(int teacherId)
+    {
+      var Subjects = await _subjectService.GetSubjectByTeacherIdAsync(teacherId);
+      if (Subjects == null)
+      {
+        return NotFound();
+      }
+      return Ok(Subjects);
+    }
   }
 }

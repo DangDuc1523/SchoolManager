@@ -213,7 +213,6 @@ D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.
 D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.AssemblyInfoInputs.cache
 D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.AssemblyInfo.cs
 D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.csproj.CoreCompileInputs.cache
-D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.MvcApplicationPartsAssemblyInfo.cs
 D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.MvcApplicationPartsAssemblyInfo.cache
 D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.sourcelink.json
 D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\staticwebassets.build.json

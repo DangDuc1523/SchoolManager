@@ -48,13 +48,17 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       return CreatedAtAction(nameof(GetGradeById), new { id = createdGrade.GradeId }, createdGrade);
     }
 
+
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateGrade(int id, double score)
+    public async Task<IActionResult> UpdateGrade(int id, GradeDTO gradeDTO)
     {
-      var grades = await _gradeService.GetAllGradeAsync();
-      var g = grades.Where(t => t.GradeId == id).FirstOrDefault();
-      g.Score = score;
-      var updatedGrade = await _gradeService.UpdateGradeAsync(g);
+      gradeDTO.GradeId = id;
+      var grade = await _gradeService.GetGradeByIdAsync(id);
+      grade.SubjectId = gradeDTO.SubjectId;
+      grade.StudentId = gradeDTO.StudentId;
+      grade.Score = gradeDTO.Score;
+      grade.ClassId = gradeDTO.ClassId;
+      var updatedGrade = await _gradeService.UpdateGradeAsync(grade);
       if (updatedGrade == null)
       {
         return NotFound();

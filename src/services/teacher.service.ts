@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Teacher } from '../dto/user.model';
 import { Timetable } from '../dto/timetable.model';
 import { ClassSubject } from '../dto/classSubject.model';
-import { map, mergeMap } from 'rxjs/operators';
 import { Observable, forkJoin } from 'rxjs';
 import { Subject } from '../dto/subject.model';
 import { Student } from '../dto/student.models';
@@ -63,6 +62,12 @@ export class TeacherService {
       throw new Error('Grade ID is required for updating grade');
     } 
     return this.http.put(`${this.apiUrl}/Grade/${grade.gradeId}`, grade);
+  }
+  
+  importGrade(file: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('file', file); 
+    return this.http.post<any>(`${this.apiUrl}/Grade/ImportGrade`, formData);
   }
   
 }

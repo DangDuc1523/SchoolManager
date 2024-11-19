@@ -4,7 +4,7 @@ import { TeacherService } from '../../../services/teacher.service';
 import { AuthService } from '../../../service/auth.service';
 import { Subject } from '../../../dto/subject.model';
 import { Student } from '../../../dto/student.models';
-import { forkJoin, map } from 'rxjs';
+import { forkJoin, map, Observable } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import * as XLSX from 'xlsx';
 import { HomeComponent } from '../home/home.component';
@@ -21,11 +21,12 @@ export class GradeManagementComponent implements OnInit {
   subjects: Subject[] = [];
   students: { student: Student; user: any; grade: any }[] = [];
   errorMessage = '';
-  successMessage = ''; 
+  successMessage = '';
   selectedClassId: number = 0;
+  selectedSubjectId: number = 0;
   selectedClassName = '';
   selectedSubjectName = '';
-  averageGrade: number = 0; // Store average grade
+  averageGrade: number = 0;
   private auth: AuthService = inject(AuthService);
   private teacherId: number = 0;
 
@@ -33,7 +34,7 @@ export class GradeManagementComponent implements OnInit {
 
   ngOnInit(): void {
     this.teacherId = Number(this.auth.getId());
-    if (this.teacherId && this.teacherId > 0) {
+    if (this.teacherId > 0) {
       this.getTeacherClasses(this.teacherId);
     } else {
       this.errorMessage = 'Invalid teacher ID. Please check your authentication.';
@@ -45,7 +46,6 @@ export class GradeManagementComponent implements OnInit {
     this.teacherService.getClassesByTeacherId(teacherId).subscribe({
       next: (classes) => {
         this.classes = classes;
-        this.errorMessage = '';
         this.resetSubjectAndStudentViews();
       },
       error: (error) => {
@@ -62,7 +62,6 @@ export class GradeManagementComponent implements OnInit {
     this.teacherService.getSubjectsByClassAndTeacher(classId, this.teacherId).subscribe({
       next: (subjects) => {
         this.subjects = subjects;
-        this.errorMessage = '';
       },
       error: (error) => {
         console.error('Error fetching subjects:', error);
@@ -72,13 +71,15 @@ export class GradeManagementComponent implements OnInit {
   }
 
   getStudentsForSubject(subjectId: number, subjectName: string): void {
+    this.selectedSubjectId = subjectId;
     this.selectedSubjectName = subjectName;
+
     this.teacherService.getStudentsByClassAndSubject(this.selectedClassId, subjectId).subscribe({
       next: (students) => {
         const studentDetailRequests = students.map((student) =>
           forkJoin({
             user: this.teacherService.getTeacherProfile(student.userId),
-            grade: this.teacherService.getGradeByStudentAndSubject(student.studentId, subjectId),
+            grade: this.teacherService.getGradeByStudentAndSubject(student.userId, subjectId),
           }).pipe(
             map(({ user, grade }) => ({
               student,
@@ -91,8 +92,7 @@ export class GradeManagementComponent implements OnInit {
         forkJoin(studentDetailRequests).subscribe({
           next: (studentDetails) => {
             this.students = studentDetails as { student: Student; user: any; grade: any }[];
-            this.calculateAverageGrade(); // Calculate average grade
-            this.errorMessage = '';
+            this.calculateAverageGrade();
           },
           error: (error) => {
             console.error('Error fetching user or grade details:', error);
@@ -107,39 +107,38 @@ export class GradeManagementComponent implements OnInit {
     });
   }
 
-  updateGrade(grade: any): void {
-    if (!grade) {
-      this.errorMessage = 'Grade information is missing. Unable to update.';
-      console.error('Grade object is null or undefined');
+  updateGrade(grade: { gradeId: number; studentId: number; subjectId: number; classId: number; score: number }): void {
+    if (!grade || !grade.gradeId) {
+      this.errorMessage = 'Grade ID is required for updating grade.';
+      console.error('Error: Grade ID is missing.');
       return;
     }
-
+  
     if (grade.score < 0 || grade.score > 10) {
       this.errorMessage = 'Score must be between 0 and 10.';
+      console.error('Error: Invalid score value.');
       return;
     }
-
+  
     this.teacherService.updateGrade(grade).subscribe({
-      next: () => {
-        console.log(`Grade with ID ${grade.gradeId} updated successfully to score ${grade.score}.`);
-        this.calculateAverageGrade(); // Recalculate average grade after update
-        this.successMessage = `Grade updated successfully to ${grade.score}.`;
-        this.errorMessage = '';
-
-        // Clear success message after 3 seconds
-        setTimeout(() => {
-          this.successMessage = '';
-        }, 3000);
+      next: (response) => {
+        if (response) { // Nếu API trả về response bất kỳ
+          this.successMessage = 'Grade updated successfully!';
+          this.calculateAverageGrade();
+          setTimeout(() => (this.successMessage = ''), 3000);
+        } else {
+          this.errorMessage = 'Update failed. Please check the grade data.';
+        }
       },
       error: (error) => {
         console.error('Error updating grade:', error);
         this.errorMessage = 'Unable to update grade. Please try again later.';
-        this.successMessage = ''; // Clear success message if any error occurs
       },
     });
+    
   }
-
   
+
   calculateAverageGrade(): void {
     const totalGrades = this.students.reduce(
       (sum, item) => (item.grade ? sum + item.grade.score : sum),
@@ -149,46 +148,40 @@ export class GradeManagementComponent implements OnInit {
     this.averageGrade = gradeCount > 0 ? totalGrades / gradeCount : 0;
   }
 
-
   exportTableToExcel(): void {
-    // Calculate the average grade
-    const totalScore = this.students.reduce((sum, item) => sum + (item.grade?.score || 0), 0);
-    const averageGrade = this.students.length > 0 ? (totalScore / this.students.length).toFixed(2) : 'N/A';
-  
-    // Prepare metadata
-    const metadata = [
-      [`Class Name:`, this.selectedClassName],
-      [`Subject:`, this.selectedSubjectName],
-      [`Average Grade:`, averageGrade],
-      [],
-      [`#`, `Full Name`, `Date of Birth`, `Contact Info`, `Address`, `Grade`], // Table headers
+    const sheetData = [
+      [`StudentID`, `Full Name`, `SubjectID`, `ClassID`, `Score`],
+      ...this.students.map((item) => [
+        item.user?.userId || 'N/A',
+        item.user?.fullName || 'N/A',
+        this.selectedSubjectId || 'N/A',
+        this.selectedClassId || 'N/A',
+        item.grade?.score || 'N/A',
+      ]),
     ];
-  
-    // Prepare student data
-    const studentData = this.students.map((item, index) => [
-      index + 1,
-      item.user?.fullName || 'N/A',
-      item.user?.dateOfBirth || 'N/A',
-      item.user?.contactInfo || 'N/A',
-      item.user?.address || 'N/A',
-      item.grade?.score || 'N/A',
-    ]);
-  
-    // Combine metadata and student data
-    const sheetData = [...metadata, ...studentData];
-  
-    // Convert data to a worksheet
+
     const ws = XLSX.utils.aoa_to_sheet(sheetData);
-  
-    // Create workbook and append worksheet
     const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Students for Subject');
-  
-    // Export to Excel
-    XLSX.writeFile(wb, `${this.selectedClassName}_${this.selectedSubjectName}_Students.xlsx`);
+    XLSX.utils.book_append_sheet(wb, ws, 'Class Data');
+    XLSX.writeFile(wb, `ClassData.xlsx`);
   }
-  
-  
+
+  onImportGrade(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      this.teacherService.importGrade(file).subscribe({
+        next: (response) => {
+          this.successMessage = 'Import successful!';
+          this.getStudentsForSubject(this.selectedSubjectId, this.selectedSubjectName);
+          setTimeout(() => (this.successMessage = ''), 3000);
+        },
+        error: (error) => {
+          console.error('Error importing grades:', error);
+          this.errorMessage = 'Import failed. Please try again.';
+        },
+      });
+    }
+  }
 
   resetSubjectAndStudentViews(): void {
     this.selectedClassName = '';

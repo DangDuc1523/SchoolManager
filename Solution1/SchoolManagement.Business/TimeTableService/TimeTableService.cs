@@ -60,7 +60,8 @@ namespace SchoolManagement.Business.TimeTableService
     }
     public async Task<IEnumerable<Timetable>> GetTimetablesByClassIdAsync(int classId)
     {
-      return await _timeTableRepository.GetWhereAsync(t => t.ClassId == classId);
+      var tts = await _timeTableRepository.GetAllAsync();
+      return tts.Where(t => t.ClassId == classId).ToList();
     }
 
 

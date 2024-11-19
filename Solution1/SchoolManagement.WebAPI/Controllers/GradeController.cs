@@ -34,17 +34,26 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddGrade(Grade Grade)
+    public async Task<IActionResult> AddGrade(GradeDTO GradeDTO)
     {
-        var createdGrade = await _gradeService.AddGradeAsync(Grade);
-        return CreatedAtAction(nameof(GetGradeById), new { id = createdGrade.GradeId }, createdGrade);
+      Grade g = new Grade
+      {
+        ClassId = GradeDTO.ClassId,
+        SubjectId = GradeDTO.SubjectId,
+        StudentId = GradeDTO.StudentId,
+        Score = GradeDTO.Score
+      };
+      var createdGrade = await _gradeService.AddGradeAsync(g);
+      return CreatedAtAction(nameof(GetGradeById), new { id = createdGrade.GradeId }, createdGrade);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateGrade(int id, Grade Grade)
+    public async Task<IActionResult> UpdateGrade(int id, double score)
     {
-      Grade.GradeId = id;
-      var updatedGrade = await _gradeService.UpdateGradeAsync(Grade);
+      var grades = await _gradeService.GetAllGradeAsync();
+      var g = grades.Where(t => t.GradeId == id).FirstOrDefault();
+      g.Score = score;
+      var updatedGrade = await _gradeService.UpdateGradeAsync(g);
       if (updatedGrade == null)
       {
         return NotFound();
@@ -64,7 +73,7 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
     }
 
     [HttpGet("{studentId}/{subjectId}")]
-    public async Task<IActionResult> GetGradeBySubjectId(int studentId,int subjectId)
+    public async Task<IActionResult> GetGradeBySubjectId(int studentId, int subjectId)
     {
       var Grade = await _gradeService.GetGradeBySubjectId(studentId, subjectId);
       if (Grade == null)

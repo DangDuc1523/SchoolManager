@@ -121,10 +121,10 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       {
         password[i] = chars[random.Next(chars.Length)];
       }
-      userExists.PasswordHash = password.ToString();
+      userExists.PasswordHash = new string(password);
       await _uService.UpdateUserAsync(userExists);
       await _emailService.SendEmailAsync(username, "Mật khẩu đã được thay đổi",
-          $"Mật khẩu của bạn là: {password}.");
+          $"Mật khẩu của bạn là: {userExists.PasswordHash}.");
 
       return Ok("Đã gửi mật khẩu vào email của bạn");
     }

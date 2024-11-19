@@ -34,21 +34,28 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddClassSubject(ClassSubject ClassSubject)
+    public async Task<IActionResult> AddClassSubject(ClassSubjectDTO ClassSubjectDTO)
     {
-      var createdClassSubject = await _classSubjectService.AddClassSubjectAsync(ClassSubject);
+      ClassSubject c = new ClassSubject {
+        ClassId = ClassSubjectDTO.ClassId,
+        SubjectId = ClassSubjectDTO.SubjectId,
+        TeacherId = ClassSubjectDTO.TeacherId
+      };
+      var createdClassSubject = await _classSubjectService.AddClassSubjectAsync(c);
       return CreatedAtAction(nameof(GetClassSubjectById), new { id = createdClassSubject.ClassSubjectId }, createdClassSubject);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateClassSubject(int id, ClassSubject ClassSubject)
+    public async Task<IActionResult> UpdateClassSubject(int id, ClassSubjectDTO ClassSubjectDTO)
     {
       var updatedClassSubject = await _classSubjectService.GetClassSubjectByIdAsync(id);
       if (updatedClassSubject == null)
       {
         return NotFound();
       }
-      updatedClassSubject = ClassSubject;
+      updatedClassSubject.TeacherId = ClassSubjectDTO.TeacherId;
+      updatedClassSubject.SubjectId = ClassSubjectDTO.SubjectId;
+      updatedClassSubject.ClassId = ClassSubjectDTO.ClassId;
       updatedClassSubject.ClassSubjectId = id;
       return Ok(updatedClassSubject);
     }

@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "SchoolManagement.WebAPI.Controllers.Admin.AuthController",
+    "Method": "ForgetPassword",
+    "RelativePath": "api/Auth/forgetpassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolManagement.WebAPI.Controllers.Admin.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",
     "HttpMethod": "POST",
@@ -182,8 +198,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "ClassSubject",
-        "Type": "SchoolManagement.Models.Models.ClassSubject",
+        "Name": "ClassSubjectDTO",
+        "Type": "SchoolManagement.Models.Models.ClassSubjectDTO",
         "IsRequired": true
       }
     ],
@@ -219,8 +235,8 @@
         "IsRequired": true
       },
       {
-        "Name": "ClassSubject",
-        "Type": "SchoolManagement.Models.Models.ClassSubject",
+        "Name": "ClassSubjectDTO",
+        "Type": "SchoolManagement.Models.Models.ClassSubjectDTO",
         "IsRequired": true
       }
     ],
@@ -261,8 +277,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Grade",
-        "Type": "SchoolManagement.Models.Models.Grade",
+        "Name": "GradeDTO",
+        "Type": "SchoolManagement.Models.Models.GradeDTO",
         "IsRequired": true
       }
     ],
@@ -298,9 +314,9 @@
         "IsRequired": true
       },
       {
-        "Name": "Grade",
-        "Type": "SchoolManagement.Models.Models.Grade",
-        "IsRequired": true
+        "Name": "score",
+        "Type": "System.Double",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -338,6 +354,22 @@
         "Name": "subjectId",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolManagement.WebAPI.Controllers.Admin.GradeController",
+    "Method": "ImportFile",
+    "RelativePath": "api/Grade/ImportGrade",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -588,8 +620,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "TimeTable",
-        "Type": "SchoolManagement.Models.Models.Timetable",
+        "Name": "TimeTableDTO",
+        "Type": "SchoolManagement.Models.Models.TimetableDTO",
         "IsRequired": true
       }
     ],
@@ -625,8 +657,8 @@
         "IsRequired": true
       },
       {
-        "Name": "TimeTable",
-        "Type": "SchoolManagement.Models.Models.Timetable",
+        "Name": "timetableDTO",
+        "Type": "SchoolManagement.Models.Models.TimetableDTO",
         "IsRequired": true
       }
     ],

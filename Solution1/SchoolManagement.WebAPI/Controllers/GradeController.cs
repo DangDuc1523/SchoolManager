@@ -117,7 +117,8 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
               if(g!=null)
               {
                 g.Score = grade.Score;
-                _gradeService.UpdateGradeAsync(g);
+                 await _gradeService.UpdateGradeAsync(g);
+                continue;
               }
               grades.Add(grade);
             }
@@ -126,8 +127,9 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
 
         // Gửi danh sách dữ liệu vào service để xử lý lưu trữ
         await _gradeService.ImportGradesAsync(grades);
-
-        return Ok(new { message = "Import thành công!", count = grades.Count });
+        string mes = null;
+        if (grades.Count == 0) mes = "";
+        return Ok(new { message = "Cập nhật thành công!", count = grades.Count });
       }
       catch (Exception ex)
       {

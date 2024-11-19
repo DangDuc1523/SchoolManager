@@ -1,21 +1,22 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // Thêm FormsModule
+import { FormsModule } from '@angular/forms'; 
 import { TeacherService } from '../../../services/teacher.service';
 import { Teacher } from '../../../dto/user.model';
 import { AuthService } from '../../../service/auth.service';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-teacher-profile',
   standalone: true,
-  imports: [CommonModule, FormsModule], // Thêm FormsModule vào imports
+  imports: [CommonModule, FormsModule, HomeComponent], 
   templateUrl: './teacherprofile.component.html',
   styleUrls: ['./teacherprofile.component.scss'],
   providers: [DatePipe],
 })
 export class TeacherProfileComponent implements OnInit {
   teacher: Teacher | null = null;
-  isEditing: boolean = false; // Trạng thái chỉnh sửa
+  isEditing: boolean = false; 
   auth: AuthService = inject(AuthService);
 
   constructor(private teacherService: TeacherService, private datePipe: DatePipe) {}
@@ -53,7 +54,7 @@ export class TeacherProfileComponent implements OnInit {
   
 
   toggleEditMode(): void {
-    this.isEditing = !this.isEditing; // Chuyển đổi trạng thái chỉnh sửa
+    this.isEditing = !this.isEditing; 
   }
 
   saveProfile(): void {

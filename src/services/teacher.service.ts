@@ -36,13 +36,14 @@ export class TeacherService {
     return this.http.get<Timetable[]>(`${this.apiUrl}/User/TimeTable/Class/${classID}`);
   }
 
-  getTeacherSchedules(teacherId: number): Observable<ClassSubject[]> {
-    return this.http.get<ClassSubject[]>(`${this.apiUrl}/User/ClassSubject?teacherId=${teacherId}`);
-  }
-  //đến đây
   getClassesByTeacherId(teacherId: number): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/Class/teacher/${teacherId}/classes`);
   }
+  //chưa được
+
+  getTeacherTimeTable(teacherId: number): Observable<Timetable[]> {
+    return this.http.get<Timetable[]>(`${this.apiUrl}/TimeTable/student/${teacherId}`);
+  }  
 
   getSubjectsByClassId(classId: number): Observable<Subject[]> {
     return this.http.get<Subject[]>(`${this.apiUrl}/class/${classId}`);

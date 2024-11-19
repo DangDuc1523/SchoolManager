@@ -55,7 +55,6 @@ namespace SchoolManagement.Business.GradeService
       var g = grades.Where(g => (g.StudentId == studentId || g.StudentId == null) &&
         (g.SubjectId == null || g.SubjectId == subjectId)
       ).ToList();
-   
       if(g==null) return null;
       return g;
     }

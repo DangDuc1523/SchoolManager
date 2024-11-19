@@ -117,6 +117,7 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
               if(g!=null)
               {
                 g.Score = grade.Score;
+
                  await _gradeService.UpdateGradeAsync(g);
                 continue;
               }

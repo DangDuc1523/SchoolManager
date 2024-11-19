@@ -7,11 +7,12 @@ import { Student } from '../../../dto/student.models';
 import { forkJoin, map } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import * as XLSX from 'xlsx';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-classinfo',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, HomeComponent],
   templateUrl: './grademanagement.component.html',
   styleUrls: ['./grademanagement.component.scss'],
 })
@@ -20,6 +21,7 @@ export class GradeManagementComponent implements OnInit {
   subjects: Subject[] = [];
   students: { student: Student; user: any; grade: any }[] = [];
   errorMessage = '';
+  successMessage = ''; 
   selectedClassId: number = 0;
   selectedClassName = '';
   selectedSubjectName = '';
@@ -119,17 +121,25 @@ export class GradeManagementComponent implements OnInit {
 
     this.teacherService.updateGrade(grade).subscribe({
       next: () => {
-        console.log(`Grade with ID ${grade.gradeId} updated successfully.`);
+        console.log(`Grade with ID ${grade.gradeId} updated successfully to score ${grade.score}.`);
         this.calculateAverageGrade(); // Recalculate average grade after update
+        this.successMessage = `Grade updated successfully to ${grade.score}.`;
         this.errorMessage = '';
+
+        // Clear success message after 3 seconds
+        setTimeout(() => {
+          this.successMessage = '';
+        }, 3000);
       },
       error: (error) => {
         console.error('Error updating grade:', error);
         this.errorMessage = 'Unable to update grade. Please try again later.';
+        this.successMessage = ''; // Clear success message if any error occurs
       },
     });
   }
 
+  
   calculateAverageGrade(): void {
     const totalGrades = this.students.reduce(
       (sum, item) => (item.grade ? sum + item.grade.score : sum),

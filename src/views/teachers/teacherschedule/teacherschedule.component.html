@@ -1,5 +1,10 @@
+<div style="display: flex;">
+  <div>
+    <app-home></app-home>
+  </div>
 <div class="teacher-schedule-container">
   <h2>Teacher Schedule</h2>
+
   <table class="schedule-table">
     <thead>
       <tr>
@@ -10,15 +15,26 @@
     <tbody>
       <tr *ngFor="let time of timeSlots">
         <td>{{ time }}</td>
-        <td
-          *ngFor="let day of daysOfWeek"
-          [ngClass]="{ 'scheduled': isScheduled(day, time) }"
-        >
-          <ng-container *ngIf="getSubjectByDayAndTime(day, time)">
-            {{ getSubjectByDayAndTime(day, time) }}
+        <td *ngFor="let day of daysOfWeek" class="cell">
+          <ng-container *ngIf="getScheduleForTimeAndDay(day, time); else noSchedule">
+            <div>
+              <strong>Subject:</strong>
+              {{ getScheduleForTimeAndDay(day, time)?.subject?.subjectName }}
+            </div>
+            <div>
+              <strong>Class:</strong>
+              {{ getScheduleForTimeAndDay(day, time)?.class?.className }}
+            </div>
+            <div>
+              <strong>Room:</strong>
+              {{ getScheduleForTimeAndDay(day, time)?.room }}
+            </div>
           </ng-container>
+          <ng-template #noSchedule>
+          </ng-template>
         </td>
       </tr>
     </tbody>
   </table>
+</div>
 </div>

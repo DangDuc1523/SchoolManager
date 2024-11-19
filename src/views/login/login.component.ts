@@ -38,7 +38,7 @@ export class LoginComponent {
 
   signup() {
     // Phát sự kiện đăng ký khi nhấn vào nút SIGN UP
-   // this.signupEvent.emit();
-
+    this.router.navigate(['/signup'])
+    //this.signupEvent.emit();
   }
 }

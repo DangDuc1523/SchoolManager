@@ -1,11 +1,3 @@
-F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.csproj.AssemblyReference.cache
-F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.GeneratedMSBuildEditorConfig.editorconfig
-F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.AssemblyInfoInputs.cache
-F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.AssemblyInfo.cs
-F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.csproj.CoreCompileInputs.cache
-F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.MvcApplicationPartsAssemblyInfo.cs
-F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.MvcApplicationPartsAssemblyInfo.cache
-F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.sourcelink.json
 F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\bin\Debug\net6.0\appsettings.Development.json
 F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\bin\Debug\net6.0\appsettings.json
 F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\bin\Debug\net6.0\dab-options.json
@@ -82,6 +74,14 @@ F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\bin\Debug\net6.0\Scho
 F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\bin\Debug\net6.0\SchoolManagement.Business.pdb
 F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\bin\Debug\net6.0\SchoolManagement.Data.pdb
 F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\bin\Debug\net6.0\SchoolManagement.Models.pdb
+F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.csproj.AssemblyReference.cache
+F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.GeneratedMSBuildEditorConfig.editorconfig
+F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.AssemblyInfoInputs.cache
+F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.AssemblyInfo.cs
+F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.csproj.CoreCompileInputs.cache
+F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.MvcApplicationPartsAssemblyInfo.cs
+F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.MvcApplicationPartsAssemblyInfo.cache
+F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.sourcelink.json
 F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\staticwebassets.build.json
 F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\staticwebassets.development.json
 F:\Angular\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\staticwebassets\msbuild.SchoolManagement.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props

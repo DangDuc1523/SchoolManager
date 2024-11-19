@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using SchoolManagement.Data;
 using SchoolManagement.Data.BaseRepository;
 using SchoolManagement.Models.Models;
+using System.Diagnostics;
 
 namespace SchoolManagement.Business.GradeService
 {
@@ -50,11 +51,13 @@ namespace SchoolManagement.Business.GradeService
 
     public async Task<IEnumerable<Grade>> GetGradeBySubjectId(int studentId, int subjectId)
     {
-      var g = _context.Grades.Where(g => (g.StudentId == studentId || g.StudentId == null) &&
+      var grades = await _gradeRepository.GetAllAsync();
+      var g = grades.Where(g => (g.StudentId == studentId || g.StudentId == null) &&
         (g.SubjectId == null || g.SubjectId == subjectId)
-      ).ToListAsync();
+      ).ToList();
+   
       if(g==null) return null;
-      return await g;
+      return g;
     }
 
     public async Task ImportGradesAsync(List<Grade> grades)

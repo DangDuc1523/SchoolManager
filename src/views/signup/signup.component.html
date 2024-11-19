@@ -12,7 +12,7 @@
         <div class="title signup">Signup </div>
         <div class="title confirm">Confirm </div>
       </div>
-      <div class="form-container">
+      <div class="form-container" [formGroup]="signupForm" (submit)="register()">
         <div class="slide-controls">
           <input type="radio" name="slide" id="signup" checked>
           <input type="radio" name="slide" id="confirm">
@@ -23,16 +23,28 @@
         <div class="form-inner">
           <form action="#" class="signup">
             <div class="field">
-              <input type="text" placeholder="Email Address" required>
+              <input type="text" placeholder="Email Address" formControlName="username" required>
             </div>
             <div class="field">
-              <input type="password" placeholder="Password" required>
+              <input type="password" placeholder="Password" formControlName="password" required>
             </div>
             <div class="field">
               <input type="password`" placeholder="Re-enter Password" required>
             </div>
             <div class="field">
-              <input type="text" placeholder="Full name" required>
+              <input type="text" placeholder="Full name" formControlName="fullname" required>
+            </div>
+            <div class="field">
+              <input type="date" placeholder="Date of birth" formControlName="dob">
+            </div>
+            <div class="field">
+              <input type="text" placeholder="Address" formControlName="address">
+            </div>
+            <div class="field">
+              <input type="text" placeholder="Contact info" formControlName="phone">
+            </div>
+            <div class="field">
+              <input type="text" placeholder="Specialty" formControlName="specialty">
             </div>
             <div class="field btn">
               <div class="btn-layer"></div>

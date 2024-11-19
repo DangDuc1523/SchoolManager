@@ -111,7 +111,15 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
                 ClassId = int.Parse(worksheet.Cells[row, 4].Text),
                 Score = double.TryParse(worksheet.Cells[row, 5].Text, out var score) ? (double?)score : null
               };
-
+              var gs = await _gradeService.GetAllGradeAsync();
+              var g = gs.Where(g1=>g1.StudentId==grade.StudentId&&g1.ClassId==grade.ClassId
+                &&g1.SubjectId==grade.SubjectId).FirstOrDefault();
+              if(g!=null)
+              {
+                g.Score = grade.Score;
+                 await _gradeService.UpdateGradeAsync(g);
+                continue;
+              }
               grades.Add(grade);
             }
           }
@@ -119,8 +127,9 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
 
         // Gửi danh sách dữ liệu vào service để xử lý lưu trữ
         await _gradeService.ImportGradesAsync(grades);
-
-        return Ok(new { message = "Import thành công!", count = grades.Count });
+        string mes = null;
+        if (grades.Count == 0) mes = "";
+        return Ok(new { message = "Cập nhật thành công!", count = grades.Count });
       }
       catch (Exception ex)
       {

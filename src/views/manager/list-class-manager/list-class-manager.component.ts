@@ -1,101 +1,143 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DashboardComponent } from '../../dashboard/dashboard.component';
-import { MainManagerComponent } from "../main-manager/main-manager.component";
+import { MainManagerComponent } from '../main-manager/main-manager.component';
 import { IClass } from '../../../dto/IClass';
-import { TimeClass } from '../../../dto/TimeClass';
-import { RouterModule } from '@angular/router'; 
-
+import { RouterModule } from '@angular/router';
 import { ApiService } from '../../../api/api.service';
 import { ClassManagerService } from '../../../service/Manager/class-manager.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { Subject } from '../../../dto/subject.model';
+import { FormsModule } from '@angular/forms';
+import { User } from '../../../dto/Student';
 
 @Component({
   selector: 'app-list-class-manager',
   standalone: true,
-  imports: [ MainManagerComponent, RouterModule, ReactiveFormsModule],
+  imports: [FormsModule, MainManagerComponent, RouterModule, ReactiveFormsModule, CommonModule],
   templateUrl: './list-class-manager.component.html',
-  styleUrl: './list-class-manager.component.scss'
+  styleUrls: ['./list-class-manager.component.scss'],
 })
 export class ListClassManagerComponent implements OnInit {
-
-  classData: IClass[] = [];
-
-  router = inject(Router)
-
+  classData: IClass[] = []; // Danh sách lớp học
+  subject: Subject[] = [];
+  students: User[] = []; // Danh sách sinh viên
+  filteredTeacher: User[] = []; // Danh sách sau khi lọc
+  selectedSubjectId: number | null = null;
+  selectedTeacherId: number | null = null;
+  // FormGroup cho việc thêm lớp
   addClassForm = new FormGroup({
-    nameClass: new FormControl(''),
-    schedule: new FormControl(''),
-    room: new FormControl('')
-    
+    nameClass: new FormControl(''), // Tên lớp
+    schedule: new FormControl(''), // Lịch học
+    room: new FormControl(''),
+    subjectId: new FormControl(''), 
+    userId: new FormControl(''), // Phòng học
   });
+
+  // Inject Router
+  router = inject(Router);
 
   constructor(private apiService: ApiService, private classManager: ClassManagerService) {}
 
   ngOnInit(): void {
+    // Gọi API để lấy danh sách lớp học
     this.classManager.getClassManager().subscribe({
       next: (data: IClass[]) => {
-        this.classData = data;
+        this.classData = data; // Gán dữ liệu vào biến classData
+        console.log('Classes loaded:', data);
       },
-      error: (error: any) => { // Định rõ kiểu `any` cho `error` để tránh lỗi
-        console.error('Lỗi khi gọi API:', error);
+      error: (error: any) => {
+        console.error('Error fetching class data:', error);
       },
       complete: () => {
-        console.log('Gọi API hoàn tất.');
+        console.log('Class data fetch complete.');
+      },
+    });
+
+    this.classManager.getSubjects().subscribe({
+      next: (data: Subject[]) => {
+        this.subject = data; // Gán dữ liệu vào biến subject
+        console.log('Subjects loaded:', data);
+      },
+      error: (error: any) => {
+        console.error('Error fetching subject data:', error);
+      },
+    });
+
+    this.classManager.getAllStudents().subscribe(
+      (data) => {
+        this.students = data;
+        console.log(this.students);
+
+        this.filteredTeacher = this.students.filter(
+          (student) => student.role === 'Teacher'
+        ); // Lọc Teacher
+        console.log('Filtered Students:', this.filteredTeacher);
+      },
+      (error) => {
+        console.error('Error fetching students:', error);
       }
+    );
+  }
+
+  // Xem chi tiết thời khóa biểu của lớp
+  viewDetail(classId: string): void {
+    this.classManager.setClassId(classId);
+    this.router.navigate(['/timeClass']);
+  }
+
+  // Xem danh sách học sinh của lớp
+  viewListStudent(classId: string): void {
+    this.classManager.setClassId(classId);
+    this.router.navigate(['/infoClassManager']);
+  }
+
+  // Thêm lớp mới
+  addClass(): void {
+    const nameClass = this.addClassForm.get('nameClass')?.value?.trim() || '';
+    const schedule = this.addClassForm.get('schedule')?.value?.trim() || '';
+    const room = '';
+    const subjectId = this.addClassForm.get('subjectId')?.value || '';
+    const userId = this.addClassForm.get('userId')?.value || '';
+    if (!nameClass || !schedule || !room) {
+      alert('All fields are required!');
+      return;
+    }
+
+    this.classManager.addNewClass(nameClass, schedule, room).subscribe({
+      next: (response) => {
+        console.log('Class added successfully:', response);
+        this.addClassForm.reset(); // Reset form sau khi thêm thành công
+        this.refreshClassList(); // Cập nhật danh sách lớp
+      },
+      error: (error) => {
+        console.error('Error adding class:', error);
+      },
     });
   }
 
-    viewDetail(classId: string): void {
-      this.classManager.setClassId(classId);
-      this.router.navigate(['/timeClass']);
-    }
+  // Xóa lớp học
+  deleteClass(classId: string): void {
+    this.classManager.deleteClass(classId).subscribe({
+      next: (response) => {
+        console.log('Class deleted successfully:', response);
+        this.classData = this.classData.filter((classItem) => classItem.classId !== classId); // Cập nhật danh sách
+      },
+      error: (error) => {
+        console.error('Error deleting class:', error);
+      },
+    });
+  }
 
-    viewListStudent(classId: string){
-      this.classManager.setClassId(classId);
-      this.router.navigate(['/infoClassManager']);
-    }
-
-
-    addClass(): void {
-      // Lấy giá trị từ FormControl
-      const nameClass = this.addClassForm.get('nameClass')?.value ?? '';
-      const schedule = this.addClassForm.get('schedule')?.value ?? '';
-      const room = this.addClassForm.get('room')?.value ?? '';
-    
-      // Kiểm tra giá trị trước khi gọi API
-      console.log('NameClass:', nameClass);
-      console.log('Schedule:', schedule);
-      console.log('Room:', room);
-    
-      // Gọi API thêm lớp
-      this.classManager.addNewClass(nameClass, schedule, room).subscribe(
-        response => {
-          console.log('Class added successfully', response);
-          // Sau khi thêm lớp thành công, có thể reset form hoặc thông báo cho người dùng
-          this.addClassForm.reset();
-          location.reload();
-        },
-        error => {
-          console.error('Error adding class', error);
-        }
-      );
-    }
-    
-
-    deleteClass(classId: string): void {
-      this.classManager.deleteClass(classId).subscribe({
-        next: (response) => {
-          console.log('Class deleted successfully:', response);
-          // Cập nhật lại danh sách lớp sau khi xóa
-          this.classData = this.classData.filter(classItem => classItem.classId !== classId);
-        },
-        error: (error) => {
-          console.error('Error deleting class:', error);
-        }
-      });
-    }
-    
-
-  
+  // Làm mới danh sách lớp sau khi thêm hoặc xóa
+  private refreshClassList(): void {
+    this.classManager.getClassManager().subscribe({
+      next: (data: IClass[]) => {
+        this.classData = data; // Cập nhật lại danh sách lớp
+      },
+      error: (error: any) => {
+        console.error('Error refreshing class data:', error);
+      },
+    });
+  }
 }

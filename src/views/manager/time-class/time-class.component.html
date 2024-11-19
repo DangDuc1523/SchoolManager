@@ -5,17 +5,24 @@
 <div class="container">
   <form [formGroup]="addTimeTable" (ngSubmit)="addNewTime()">
     <label for="nameSubject">Name Subject:</label>
-    <input type="text" id="nameSubject" formControlName="nameSubject" required>
-  
+     <select formControlName="nameSubject" required>
+      <option>IT</option>
+      <option>MKT</option>
+      <option>BSS</option>
+     </select>
     <label for="dateLearn">Date Learn:</label>
     <input type="date" id="dateLearn" formControlName="dateLearn" required>
   
     <label for="startTime">Start Time:</label>
-    <input type="date" id="startTime" formControlName="startTime" required>
+    <select formControlName="startTime" required>
+      <option value="8:00">8:00</option>
+      <option value="10:00">10:00</option>
+      <option value="12:00">12:00</option>
+      <option value="14:00">14:00</option>
+      <option value="16:00">16:00</option>
+      <option value="18:00">18:00</option>
+    </select>
 
-    <label for="endTime">End Time:</label>
-    <input type="date" id="endTime" formControlName="endTime" required>
-    
     <label for="room">Room:</label>
     <select id="room" formControlName="room" required>
       <option>IT</option>

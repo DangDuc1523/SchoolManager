@@ -36,12 +36,13 @@
         return;
       }
   
-      this.loadClass(Number(studentId));
+      this.loadClass(Number(studentId)); // đây là userid
     }
   
     loadClass(studentId: number): void {
-      this.studentService.getClass(studentId).subscribe({
+      this.studentService.getClass(1).subscribe({
         next: (data: ClassSubject[]) => {
+          console.log("data",data)
           this.schedule = data.map((classSubject) => ({
             timetableID: 0,
             classID: classSubject.classId,
@@ -68,7 +69,7 @@
     isScheduled(day: string, time: string): boolean {
       return this.schedule.some(
         (item) =>
-          this.getDayOfWeek(item.dateLearn) === day &&
+          
           this.isTimeOverlap(item.startTime, item.endTime, time)
       );
     }
@@ -76,7 +77,6 @@
     getSubjectByDayAndTime(day: string, time: string): string | null {
       const match = this.schedule.find(
         (item) =>
-          this.getDayOfWeek(item.dateLearn) === day &&
           this.isTimeOverlap(item.startTime, item.endTime, time)
       );
       return match ? `Class ${match.classID} - Subject ${match.subjectID}` : null;

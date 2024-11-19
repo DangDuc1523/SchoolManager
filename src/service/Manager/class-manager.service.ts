@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, Observable, tap, throwError } from 'rxjs';
 import { TimeClass } from '../../dto/TimeClass'; // Đảm bảo rằng bạn đã import đúng DTO
 import { IClass } from '../../dto/IClass';
 import { User } from '../../dto/User';
-import { Timetable } from '../../dto/timetable.model';
+import { Timetable } from '../../dto/timeTableManager';
+import { Subject } from '../../dto/subject.model';
+import { Student } from '../../dto/student.models';
 
 
 @Injectable({
@@ -37,6 +39,7 @@ export class ClassManagerService {
   
 
   private classId: string = '';
+  private studentId: number = 0;
 
   setClassId(id: string): void {
     this.classId = id;
@@ -44,6 +47,14 @@ export class ClassManagerService {
 
   getClassId(): string {
     return this.classId;
+  }
+
+  setSubjectId(id: number): void {
+    this.studentId = id;
+  }
+
+  getSubjectId(): number {
+   return this.studentId;
   }
 
   private baseurl: string = 'https://localhost:44344/api';  // URL API của bạn
@@ -84,16 +95,41 @@ export class ClassManagerService {
   
 
   getTimetable(): Observable<Timetable[]> {
-    const s =  this.http.get<Timetable[]>('https://localhost:44344/api/TimeTable');
-    console.log(s);
-    return s;
+    return this.http.get<Timetable[]>('https://localhost:44344/api/TimeTable')
+      .pipe(
+        tap((response) => console.log('Timetable fetched:', response)),
+        catchError((error) => {
+          console.error('Error fetching timetable:', error);
+          return throwError(() => new Error('Failed to fetch timetable.'));
+        })
+      );
   }
-
+  
 
   getInfor(id: number): Observable<User[]> {
     const s =  this.http.get<User[]>(`https://localhost:44344/api/User/${id}`);
     console.log(s);
     return s;
+  }
+
+  getSubject(id: string): Observable<Subject[]> {
+    return this.http.get<Subject[]>(`https://localhost:44344/api/Subject/class/${id}`);
+  }
+
+  getStudentsByClassAndSubject( subjectId: number,classId: number): Observable<Student[]> {
+    return this.http.get<Student[]>(`${this.baseurl}/Student/class/${classId}/subject/${subjectId}`);
+  }
+
+  updateGrade(grade: { gradeId: number; studentId: number; subjectId: number; classId: number; score: number }): Observable<any> {
+    if (!grade.gradeId) {
+      throw new Error('Grade ID is required for updating grade');
+    } 
+    return this.http.put(`${this.baseurl}/Grade/${grade.gradeId}`, grade);
+  }
+
+
+  getSubjects(): Observable<Subject[]> {
+    return this.http.get<Subject[]>(`${this.baseurl}/Subject`);
   }
 
 }

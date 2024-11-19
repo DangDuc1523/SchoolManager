@@ -31,6 +31,13 @@ export class MainManagerComponent {
   profileManager(){
     this.router.navigate(['profileManager']);
   }
+
+  ScoreManager() {
+    this.router.navigate(['scoreTable']);
+    }
+    
+
+
   logout(){
       this.auth.logout();
       this.router.navigate(['/login']); // Điều hướng đến trang đăng nhập khi đăng xuất

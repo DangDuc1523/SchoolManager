@@ -26,8 +26,9 @@ import { TimetableComponent } from '../views/manager/time-table/time-table.compo
 import { ProfileManagerComponent } from '../views/manager/profile-manager/profile-manager.component';
 import { ListStudentComponent } from '../views/manager/list-student/list-student.component';
 import { InfoClassComponent } from '../views/manager/info-class/info-class.component';
-
+import { ScoreTableComponent } from '../views/manager/score-table/score-table.component';
 import { TimeClassComponent } from '../views/manager/time-class/time-class.component';
+import { ImportGradeComponent } from '../views/manager/import-grade/import-grade.component';
 
 
 export const routes: Routes = [
@@ -60,7 +61,9 @@ export const routes: Routes = [
 
   { path: 'profileManager', component: ProfileManagerComponent },
   { path: 'timeClass', component: TimeClassComponent },
-  { path: 'listStudent', component: ListStudentComponent }
+  { path: 'listStudent', component: ListStudentComponent },
+  { path: 'scoreTable', component: ScoreTableComponent },
+  { path: 'importGrade', component: ImportGradeComponent }
   
 ];
 

@@ -35,10 +35,7 @@ namespace SchoolManagement.Business.TimeTableService
 
       return timetables;
 
-
     }
-
-
 
     public async Task<Timetable> AddTimetableAsync(Timetable TimeTable)
     {
@@ -63,7 +60,8 @@ namespace SchoolManagement.Business.TimeTableService
     }
     public async Task<IEnumerable<Timetable>> GetTimetablesByClassIdAsync(int classId)
     {
-      return await _timeTableRepository.GetWhereAsync(t => t.ClassId == classId);
+      var tts = await _timeTableRepository.GetAllAsync();
+      return tts.Where(t => t.ClassId == classId).ToList();
     }
 
 
@@ -75,7 +73,8 @@ namespace SchoolManagement.Business.TimeTableService
 
     public async Task<IEnumerable<Timetable>> GetTimetableBySubjectId(int subjectId)
     {
-      return await _timeTableRepository.GetWhereAsync(t => t.SubjectId == subjectId);
+      var tts = await _timeTableRepository.GetAllAsync();
+      return tts.Where(t=>t.SubjectId==subjectId);
     }
   }
 }

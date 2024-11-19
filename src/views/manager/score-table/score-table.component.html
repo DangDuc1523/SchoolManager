@@ -1,0 +1,61 @@
+<div class="class-container" style="display: flex;">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <app-main-manager></app-main-manager>
+    </div>
+    <!-- Main Content -->
+    <div class="content">
+
+      <!-- Class List -->
+      <div *ngIf="classData && classData.length > 0; else noData" class="class-list-container">
+        <h2>Class List</h2>
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Class ID</th>
+              <th>Class Name</th>
+              <th>Student Count</th>
+              <th>Student List</th>
+              <th>Schedule</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let classItem of classData">
+              <td>{{ classItem.classId }}</td>
+              <td>{{ classItem.className }}</td>
+              <td>{{ classItem.studentCount }}</td>
+              <td>
+                <button class="detail-button" (click)="viewListStudent(classItem.classId)">
+                  View Students
+                </button>
+              </td>
+              <td>
+                <button class="detail-button" (click)="viewSubject(classItem.classId)">
+                  View Subject
+                </button>
+                <div *ngIf="subjects.length > 0 && classItem.classId == checkId">
+                    <ul>
+                      <li *ngFor="let subject of subjects">
+                        <button (click)="ImportScore(subject.subjectId, classItem.classId)">{{ subject.subjectName }}</button><br>                       
+                      </li>
+                    </ul>
+                  </div>
+              </td>
+              <td>
+                <button class="delete-button" (click)="ImportData()">
+                  Import Data
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      <!-- No Data Template -->
+      <ng-template #noData>
+        <p class="no-data-message">No classes available to display.</p>
+      </ng-template>
+    </div>
+  </div>
+  

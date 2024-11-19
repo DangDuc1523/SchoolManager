@@ -1,62 +1,88 @@
-<div style="display: flex;">
-<div>
-<app-main-manager></app-main-manager>
-</div>
-<div class="container">
-  <form [formGroup]="addClassForm" (ngSubmit)="addClass()">
-    <label for="nameClass">Class Name:</label>
-    <input type="text" id="nameClass" formControlName="nameClass" required>
-  
-    <label for="schedule">Schedule:</label>
-    <input type="text" id="schedule" formControlName="schedule" placeholder="Dựa vào timeTable " required>
-  
-    <label for="room">Room:</label>
-    <input type="text" id="room" formControlName="room" required>
-  
-    <button type="submit">Add Class</button>
-  </form>
-  
-    @if (classData.length > 0) {
-    <div>
-      <h2>Danh sách lớp học</h2>
-      <table>
+<div class="class-container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <app-main-manager></app-main-manager>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <!-- Add Class Form -->
+    <div class="form-container">
+      <h2>Add New Class</h2>
+      <form [formGroup]="addClassForm" (ngSubmit)="addClass()">
+        <div class="form-group">
+          <label for="nameClass">Class Name:</label>
+          <input
+            type="text"
+            id="nameClass"
+            formControlName="nameClass"
+            placeholder="Enter class name"
+            required
+          />
+        </div>
+        <div>
+          <label for="subject-select">Chọn môn học:</label>
+          <select id="subject-select" [(ngModel)]="selectedSubjectId">
+            <option *ngFor="let sub of subject" [value]="sub.subjectId">
+              {{ sub.subjectName }}
+            </option>
+          </select>
+
+          <div>
+            <label for="teacher-select">Chọn giáo viên:</label>
+            <select id="teacher-select" [(ngModel)]="selectedTeacherId">
+              <option *ngFor="let tea of filteredTeacher" [value]="tea.userId">
+                {{ tea.fullName + " " }} {{tea.specialty}} 
+              </option>
+            </select>
+          </div>
+        <button class="submit-button" type="submit">Add Class</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Class List -->
+    <div *ngIf="classData && classData.length > 0; else noData" class="class-list-container">
+      <h2>Class List</h2>
+      <table class="styled-table">
         <thead>
           <tr>
-            <th>Mã lớp</th>
-            <th>Tên lớp</th>          
-            <th>Số học sinh</th>
-            <th>Danh sách học sinh</th>
-            <th>Đặt lịch học</th>
-            <th>Chức năng</th>
+            <th>Class ID</th>
+            <th>Class Name</th>
+            <th>Student Count</th>
+            <th>Student List</th>
+            <th>Schedule</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          @for (classItem of classData; track classItem) {
-
-            <tr>
+          <tr *ngFor="let classItem of classData">
             <td>{{ classItem.classId }}</td>
             <td>{{ classItem.className }}</td>
             <td>{{ classItem.studentCount }}</td>
             <td>
-              <button (click)="viewListStudent(classItem.classId)">Detail</button>
+              <button class="detail-button" (click)="viewListStudent(classItem.classId)">
+                View Students
+              </button>
             </td>
             <td>
-              <button (click)="viewDetail(classItem.classId)">Detail</button>
+              <button class="detail-button" (click)="viewDetail(classItem.classId)">
+                View Details
+              </button>
             </td>
             <td>
-            
-              <button (click)="deleteClass(classItem.classId)">Delete</button>
+              <button class="delete-button" (click)="deleteClass(classItem.classId)">
+                Delete
+              </button>
             </td>
           </tr>
-        }
         </tbody>
       </table>
     </div>
-   } @else {
+
+    <!-- No Data Template -->
     <ng-template #noData>
-      <p>Không có dữ liệu để hiển thị.</p>
+      <p class="no-data-message">No classes available to display.</p>
     </ng-template>
-}
   </div>
-  
 </div>

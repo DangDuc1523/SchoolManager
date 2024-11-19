@@ -1,0 +1,35 @@
+<div *ngIf="students.length > 0; else noStudents">
+    <table>
+      <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Date of Birth</th>
+            <th>Contact Info</th>
+            <th>Address</th>
+            <th>Grade</th>
+            <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students; let i = index">
+          <td>{{ student.user?.fullName }}</td>
+          <td>{{ student.user?.dateOfBirth }}</td>
+          <td>{{ student.user?.contactInfo }}</td>
+          <td>{{ student.user?.address }}</td>        
+          <td>
+            <input name="grade" type="number" min="0" max="10"/>
+          </td>
+          <td>
+            <button (click)="updateGrade()">
+              Update
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <ng-template #noStudents>
+    <p>No students available for the selected class and subject.</p>
+  </ng-template>
+  

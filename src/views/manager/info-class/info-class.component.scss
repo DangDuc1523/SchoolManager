@@ -1,38 +1,98 @@
-      /* Styling for the table container */
-      .container {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-    }
+/* Cấu trúc chung */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f9; /* Màu nền nhẹ nhàng */
+    margin: 0;
+    padding: 0;
+}
 
-    /* Table styling */
-    table {
-        width: 90%;
-        border-collapse: collapse;
-        font-family: Arial, sans-serif;
-        text-align: left;
-    }
+/* Sidebar */
+div {
+    margin: 20px;
+}
 
-    /* Header styling */
-    thead th {
-        background-color: #4CAF50; /* Green-blue color for header */
-        color: white;
-        padding: 10px;
-        font-weight: bold;
-    }
+/* Main Container */
+.container {
+   
+    padding: 20px;
+    background-color: #ffffff; /* Màu nền sáng cho bảng */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm đổ bóng nhẹ */
+    border-radius: 8px;
+}
 
-    /* Body styling */
-    tbody td {
-        padding: 10px;
-        border-bottom: 1px solid #ddd;
-    }
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Đảm bảo không có khoảng cách giữa các ô */
+    margin-top: 20px;
+}
 
-    /* Alternating row color for readability */
-    tbody tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
+/* Header */
+th {
+    background-color: #4CAF50; /* Màu xanh lá cây cho tiêu đề */
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
+    border-radius: 5px;
+}
 
-    /* Hover effect on rows */
-    tbody tr:hover {
-        background-color: #d9edf7;
-    }
+/* Row */
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Viền dưới nhẹ */
+    font-size: 14px;
+}
+
+/* Row hover effect */
+tr:hover {
+    background-color: #f1f1f1; /* Màu nền khi hover qua dòng */
+}
+
+/* Add button styles */
+button {
+    background-color: #007BFF; /* Màu xanh dương */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3; /* Màu khi hover */
+}
+
+/* Alert message */
+.alert {
+    background-color: #ff9800;
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+/* No data message */
+.no-data {
+    text-align: center;
+    font-size: 18px;
+    color: #777;
+    margin-top: 50px;
+}
+
+/* Styling for Class ID header */
+h2 {
+    font-size: 20px;
+    color: #333;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* Styles for User details in the table */
+th, td {
+    font-family: 'Arial', sans-serif;
+}
+

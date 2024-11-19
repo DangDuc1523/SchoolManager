@@ -1,35 +1,35 @@
-<div style="display: flex;">
-    <div>
+<div class="teacher-container">
+  <div class="sidebar">
     <app-main-manager></app-main-manager>
+  </div>
+  <div class="content">
+    <div class="header">
+      <h1>Teacher Management</h1>
+      <button class="add-button">Add New Teacher</button>
     </div>
-    <div>
-        <div class="table-container">
-            <button>Add new teacher</button>
-            <table border="1">
-              <thead>
-                <tr>
-                    <th>STT</th>
-                  <th>Full Name</th>
-                  <th>Date of Birth</th>
-                  <th>Specialty</th>
-                  <th>Address</th>
-                  <th>Contact Info</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- Sử dụng *ngFor để lặp qua danh sách giáo viên -->
-                <tr *ngFor="let teacher of listTeacher; let i = index">
-                    <td>{{ i + 1 }}</td> <!-- STT -->
-                    <td>{{ teacher.fullName }}</td> <!-- Tên giáo viên -->
-                    <td>{{ teacher.dateOfBirth | date: 'dd/MM/yyyy' }}</td> <!-- Ngày sinh -->
-                    <td>{{ teacher.specialty }}</td> <!-- Chuyên môn -->
-                    <td>{{ teacher.address }}</td> <!-- Địa chỉ -->
-                    <td>{{ teacher.contactInfo }}</td> <!-- Thông tin liên hệ -->
-                  </tr>
-              </tbody>
-            </table>
-          </div>
-          
+    <div class="table-container">
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Full Name</th>
+            <th>Date of Birth</th>
+            <th>Specialty</th>
+            <th>Address</th>
+            <th>Contact Info</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let teacher of listTeacher; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ teacher.fullName }}</td>
+            <td>{{ teacher.dateOfBirth | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ teacher.specialty }}</td>
+            <td>{{ teacher.address }}</td>
+            <td>{{ teacher.contactInfo }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>
-

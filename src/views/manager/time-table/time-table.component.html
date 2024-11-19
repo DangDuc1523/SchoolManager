@@ -1,55 +1,57 @@
-<div style="display: flex;">
-    <div>
+<div class="container">
+  <!-- Sidebar Section -->
+  <div class="sidebar">
     <app-main-manager></app-main-manager>
-    </div>
-    <div>
-<div class="timetable">
-    <div class="week-names">
-      <div><th>Monday</th></div>
-      <div><th>Tuesday</th></div>
-      <div><th>Wednesday</th></div>
-      <div><th>Thursday</th></div>
-      <div><th>Friday</th></div>
-      <div class="weekend"><th>Saturday</th></div>
-      <div class="weekend"><th>Sunday</th></div>
-    </div>
-    <div class="time-interval">
-      <div>8:00 - 10:00</div>
-      <div>10:00 - 12:00</div>
-      <div>12:00 - 14:00</div>
-      <div>14:00 - 16:00</div>
-      <div>16:00 - 18:00</div>
-      <div>18:00 - 20:00</div>
-    </div>
-    <div class="content">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
   </div>
+
+  <!-- Timetable Section -->
+  <div class="timetable">
+    <!-- Week Selector -->
+    <div class="week-selector" style="margin-bottom: 20px;">
+      <label for="week-range" style="margin-right: 10px; font-weight: bold;">Select Week:</label>
+      <input
+        id="week-start"
+        type="date"
+        [(ngModel)]="selectedStartDate"
+        (change)="onWeekChange()"
+        style="margin-right: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 4px;"
+      />
+      <input
+        id="week-end"
+        type="date"
+        [(ngModel)]="selectedEndDate"
+        (change)="onWeekChange()"
+        style="padding: 5px; border: 1px solid #ccc; border-radius: 4px;"
+      />
+    </div>
+
+    <!-- Timetable Table -->
+    <table>
+      <!-- Table Header -->
+      <thead>
+        <tr>
+          <th class="time-header">Time</th>
+          <th *ngFor="let day of daysOfWeek">{{ day }}</th>
+        </tr>
+      </thead>
+
+      <!-- Table Body -->
+      <tbody>
+        <tr *ngFor="let slot of timeSlots; let timeIndex = index">
+          <!-- Time Label Column -->
+          <td class="time-label">{{ slot.start }} - {{ slot.end }}</td>
+
+          <!-- Time Cells -->
+          <td *ngFor="let day of daysOfWeek; let dayIndex = index" class="time-cell">
+            <div *ngIf="getTimetableForSlot(dayIndex, timeIndex) as timetable">
+              <div class="class-info">
+                <strong>{{ timetable.class.className }}</strong>
+                <span>Room: {{ timetable.room }}</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  </div>
+</div>

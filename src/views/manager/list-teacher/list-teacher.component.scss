@@ -1,52 +1,84 @@
-.table-container {
-    margin: 20px;
-    overflow-x: auto;
+.teacher-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f7f9fc;
+
+  .sidebar {
+    width: 20%;
   }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
+
+  .content {
+    flex-grow: 1;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+
+      h1 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #2c3e50;
+      }
+
+      .add-button {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #2980b9;
+        }
+      }
+    }
+
+    .table-container {
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        th, td {
+          padding: 12px 15px;
+          text-align: left;
+        }
+
+        thead {
+          background-color: #34495e;
+          color: white;
+
+          th {
+            font-size: 16px;
+          }
+        }
+
+        tbody {
+          tr {
+            &:nth-child(even) {
+              background-color: #f2f2f2;
+            }
+
+            &:hover {
+              background-color: #dff9fb;
+            }
+
+            td {
+              font-size: 14px;
+              color: #2c3e50;
+            }
+          }
+        }
+      }
+    }
   }
-  
-  th, td {
-    padding: 10px 15px;
-    text-align: center;
-    border: 1px solid #ddd;
-  }
-  
-  th {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  button {
-    background-color: white;
-    border: 1px solid #007bff;
-    color: #007bff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #007bff;
-    color: white;
-  }
-  
+}

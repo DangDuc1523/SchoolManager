@@ -4,19 +4,18 @@ import { Timetable } from '../../../dto/timeTableManager';
 import { ClassManagerService } from '../../../service/Manager/class-manager.service';
 import { RouterModule } from '@angular/router'; 
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-time-table',
   standalone: true,
-  imports: [MainManagerComponent, RouterModule, CommonModule],
+  imports: [MainManagerComponent, RouterModule, CommonModule, FormsModule ],
   templateUrl: './time-table.component.html',
-  styleUrl: './time-table.component.scss'
+  styleUrls: ['./time-table.component.scss']
 })
-
 export class TimetableComponent implements OnInit {
-
   timetables: Timetable[] = [];
+  filteredTimetables: Timetable[] = [];
   timeSlots = [
     { start: "08:00", end: "10:00" },
     { start: "10:00", end: "12:00" },
@@ -26,31 +25,62 @@ export class TimetableComponent implements OnInit {
     { start: "18:00", end: "20:00" }
   ];
 
-  daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+  // Selected week range
+  selectedStartDate: string | null = null;
+  selectedEndDate: string | null = null;
 
   constructor(private classManager: ClassManagerService) {}
 
   ngOnInit(): void {
-    
+    this.classManager.getTimetable().subscribe({
+      next: (data: Timetable[]) => {
+        this.timetables = data;
+        this.filteredTimetables = data; // Initialize filtered data
+        console.log('Timetable loaded successfully', data);
+      },
+      error: (err) => {
+        console.error('Error loading timetable:', err);
+        alert('Failed to load timetable. Please try again later.');
+      }
+    });
   }
 
-  // Hàm kiểm tra xem ngày và giờ có khớp với timetable hay không
-  isValidSlot(timetable: Timetable, timeIndex: number): boolean {
-    const date = new Date(timetable.dateLearn);
-    const dayOfWeek = date.getDay(); // getDay() trả về số thứ tự ngày trong tuần (0 - Chủ Nhật, 6 - Thứ Bảy)
+  /**
+   * Update filteredTimetables based on the selected week.
+   */
+  onWeekChange(): void {
+    if (this.selectedStartDate && this.selectedEndDate) {
+      const start = new Date(this.selectedStartDate);
+      const end = new Date(this.selectedEndDate);
 
-    // Kiểm tra xem ngày học có trùng với ngày trong tuần không
-    const isDayValid = this.daysOfWeek[dayOfWeek] === this.daysOfWeek[timeIndex];
+      this.filteredTimetables = this.timetables.filter((timetable) => {
+        const date = new Date(timetable.dateLearn);
+        return date >= start && date <= end;
+      });
+    } else {
+      this.filteredTimetables = [...this.timetables]; // Reset to full data if no range selected
+    }
+  }
 
-    // Kiểm tra thời gian bắt đầu có nằm trong khoảng thời gian không
-    const startHour = parseInt(timetable.startTime.split(':')[0], 10);
+  /**
+   * Get timetable data for a specific day and time slot.
+   */
+  getTimetableForSlot(dayIndex: number, timeIndex: number): Timetable | null {
+    const dayOfWeek = this.daysOfWeek[dayIndex];
     const timeSlot = this.timeSlots[timeIndex];
-    const timeRangeStart = parseInt(timeSlot.start.split(':')[0], 10);
-    const timeRangeEnd = parseInt(timeSlot.end.split(':')[0], 10);
 
-    const isTimeValid = startHour >= timeRangeStart && startHour < timeRangeEnd;
+    return this.filteredTimetables.find((timetable) => {
+      const timetableDate = new Date(timetable.dateLearn);
+      const timetableDay = this.daysOfWeek[timetableDate.getDay()];
+      const startTime = timetable.startTime.slice(0, 5);
 
-    return isDayValid && isTimeValid;
+      return (
+        timetableDay === dayOfWeek &&
+        startTime >= timeSlot.start &&
+        startTime < timeSlot.end
+      );
+    }) || null;
   }
 }
-

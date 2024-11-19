@@ -111,7 +111,14 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
                 ClassId = int.Parse(worksheet.Cells[row, 4].Text),
                 Score = double.TryParse(worksheet.Cells[row, 5].Text, out var score) ? (double?)score : null
               };
-
+              var gs = await _gradeService.GetAllGradeAsync();
+              var g = gs.Where(g1=>g1.StudentId==grade.StudentId&&g1.ClassId==grade.ClassId
+                &&g1.SubjectId==grade.SubjectId).FirstOrDefault();
+              if(g!=null)
+              {
+                g.Score = grade.Score;
+                _gradeService.UpdateGradeAsync(g);
+              }
               grades.Add(grade);
             }
           }

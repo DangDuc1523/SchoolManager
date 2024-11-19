@@ -55,9 +55,15 @@ namespace SchoolManagement.Business.GradeService
       var g = grades.Where(g => (g.StudentId == studentId || g.StudentId == null) &&
         (g.SubjectId == null || g.SubjectId == subjectId)
       ).ToList();
-      if (g == null) return null;
+   
+      if(g==null) return null;
       return g;
-      
+    }
+
+    public async Task ImportGradesAsync(List<Grade> grades)
+    {
+      await _context.Grades.AddRangeAsync(grades.ToList());
+      await _context.SaveChangesAsync();
     }
   }
 }

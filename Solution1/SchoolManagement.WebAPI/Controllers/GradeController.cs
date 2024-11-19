@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using OfficeOpenXml;
 using SchoolManagement.Business.GradeService;
 using SchoolManagement.Models.Models;
 
@@ -34,17 +35,26 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddGrade(Grade Grade)
+    public async Task<IActionResult> AddGrade(GradeDTO GradeDTO)
     {
-        var createdGrade = await _gradeService.AddGradeAsync(Grade);
-        return CreatedAtAction(nameof(GetGradeById), new { id = createdGrade.GradeId }, createdGrade);
+      Grade g = new Grade
+      {
+        ClassId = GradeDTO.ClassId,
+        SubjectId = GradeDTO.SubjectId,
+        StudentId = GradeDTO.StudentId,
+        Score = GradeDTO.Score
+      };
+      var createdGrade = await _gradeService.AddGradeAsync(g);
+      return CreatedAtAction(nameof(GetGradeById), new { id = createdGrade.GradeId }, createdGrade);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateGrade(int id, Grade Grade)
+    public async Task<IActionResult> UpdateGrade(int id, double score)
     {
-      Grade.GradeId = id;
-      var updatedGrade = await _gradeService.UpdateGradeAsync(Grade);
+      var grades = await _gradeService.GetAllGradeAsync();
+      var g = grades.Where(t => t.GradeId == id).FirstOrDefault();
+      g.Score = score;
+      var updatedGrade = await _gradeService.UpdateGradeAsync(g);
       if (updatedGrade == null)
       {
         return NotFound();
@@ -64,7 +74,7 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
     }
 
     [HttpGet("{studentId}/{subjectId}")]
-    public async Task<IActionResult> GetGradeBySubjectId(int studentId,int subjectId)
+    public async Task<IActionResult> GetGradeBySubjectId(int studentId, int subjectId)
     {
       var Grade = await _gradeService.GetGradeBySubjectId(studentId, subjectId);
       if (Grade == null)
@@ -74,29 +84,57 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       return Ok(Grade);
     }
 
-    //[HttpPost]
+    [HttpPost("ImportGrade")]
+    public async Task<IActionResult> ImportFile(IFormFile file)
+    {
+      if (file == null || file.Length == 0)
+        return BadRequest("File không hợp lệ.");
+      try
+      {
+        var grades = new List<Grade>();
 
-    //[HttpGet("Grades/{GradeId}/search")]
-    //public async Task<IActionResult> GetGradesForDoctor(Guid doctorId, int pageNumber = 1, int pageSize = 10, DateTime? startDate = null, DateTime? endDate = null, GradeStatus? status = null)
-    //{
-    //    var Grades = await _gradeService.GetGradesForDoctorAsync(doctorId, pageNumber, pageSize, startDate, endDate, status);
-    //    return Ok(Grades);
-    //}
+        using (var stream = new MemoryStream())
+        {
+          await file.CopyToAsync(stream);
+          ExcelPackage.LicenseContext = LicenseContext.NonCommercial; // Cấu hình giấy phép
+          using (var package = new ExcelPackage(stream))
+          {
+            var worksheet = package.Workbook.Worksheets[0]; // Lấy sheet đầu tiên
+            var rowCount = worksheet.Dimension.Rows;
 
-    //[HttpPatch("Grades/{id}/cancel")]
-    //public async Task<IActionResult> CancelGrade(Guid id)
-    //{
-    //    var Grade = await _gradeService.GetGradeByIdAsync(id);
-    //    if (Grade == null)
-    //    {
-    //        return NotFound();
-    //    }
+            for (int row = 2; row <= rowCount; row++) // Bỏ qua hàng tiêu đề
+            {
+              var grade = new Grade
+              {
+                StudentId = int.Parse(worksheet.Cells[row, 1].Text),
+                SubjectId = int.Parse(worksheet.Cells[row, 3].Text),
+                ClassId = int.Parse(worksheet.Cells[row, 4].Text),
+                Score = double.TryParse(worksheet.Cells[row, 5].Text, out var score) ? (double?)score : null
+              };
+              var gs = await _gradeService.GetAllGradeAsync();
+              var g = gs.Where(g1=>g1.StudentId==grade.StudentId&&g1.ClassId==grade.ClassId
+                &&g1.SubjectId==grade.SubjectId).FirstOrDefault();
+              if(g!=null)
+              {
+                g.Score = grade.Score;
+                 await _gradeService.UpdateGradeAsync(g);
+                continue;
+              }
+              grades.Add(grade);
+            }
+          }
+        }
 
-    //    Grade.Status = (int)GradeStatus.Cancelled;
-    //    var updatedGrade = await _gradeService.UpdateGradeAsync(Grade);
-
-    //    return Ok(updatedGrade);
-    //}
-
+        // Gửi danh sách dữ liệu vào service để xử lý lưu trữ
+        await _gradeService.ImportGradesAsync(grades);
+        string mes = null;
+        if (grades.Count == 0) mes = "";
+        return Ok(new { message = "Cập nhật thành công!", count = grades.Count });
+      }
+      catch (Exception ex)
+      {
+        return StatusCode(500, $"Lỗi: {ex.Message}");
+      }
+    }
   }
 }

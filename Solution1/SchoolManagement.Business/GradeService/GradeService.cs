@@ -56,5 +56,11 @@ namespace SchoolManagement.Business.GradeService
       if(g==null) return null;
       return await g;
     }
+
+    public async Task ImportGradesAsync(List<Grade> grades)
+    {
+      await _context.Grades.AddRangeAsync(grades.ToList());
+      await _context.SaveChangesAsync();
+    }
   }
 }

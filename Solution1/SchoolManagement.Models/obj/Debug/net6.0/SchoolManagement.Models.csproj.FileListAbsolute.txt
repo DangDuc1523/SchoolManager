@@ -1,0 +1,13 @@
+D:\Angular\student\SchoolManager\Solution1\SchoolManagement.Models\bin\Debug\net6.0\SchoolManagement.Models.deps.json
+D:\Angular\student\SchoolManager\Solution1\SchoolManagement.Models\bin\Debug\net6.0\SchoolManagement.Models.dll
+D:\Angular\student\SchoolManager\Solution1\SchoolManagement.Models\bin\Debug\net6.0\SchoolManagement.Models.pdb
+D:\Angular\student\SchoolManager\Solution1\SchoolManagement.Models\obj\Debug\net6.0\SchoolManagement.Models.csproj.AssemblyReference.cache
+D:\Angular\student\SchoolManager\Solution1\SchoolManagement.Models\obj\Debug\net6.0\SchoolManagement.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\Angular\student\SchoolManager\Solution1\SchoolManagement.Models\obj\Debug\net6.0\SchoolManagement.Models.AssemblyInfoInputs.cache
+D:\Angular\student\SchoolManager\Solution1\SchoolManagement.Models\obj\Debug\net6.0\SchoolManagement.Models.AssemblyInfo.cs
+D:\Angular\student\SchoolManager\Solution1\SchoolManagement.Models\obj\Debug\net6.0\SchoolManagement.Models.csproj.CoreCompileInputs.cache
+D:\Angular\student\SchoolManager\Solution1\SchoolManagement.Models\obj\Debug\net6.0\SchoolManagement.Models.sourcelink.json
+D:\Angular\student\SchoolManager\Solution1\SchoolManagement.Models\obj\Debug\net6.0\SchoolManagement.Models.dll
+D:\Angular\student\SchoolManager\Solution1\SchoolManagement.Models\obj\Debug\net6.0\refint\SchoolManagement.Models.dll
+D:\Angular\student\SchoolManager\Solution1\SchoolManagement.Models\obj\Debug\net6.0\SchoolManagement.Models.pdb
+D:\Angular\student\SchoolManager\Solution1\SchoolManagement.Models\obj\Debug\net6.0\ref\SchoolManagement.Models.dll

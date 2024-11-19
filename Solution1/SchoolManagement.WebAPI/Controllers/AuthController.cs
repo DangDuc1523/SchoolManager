@@ -107,5 +107,26 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
 
       return Ok("Email của bạn đã được xác thực thành công.");
     }
+    [HttpPost("forgetpassword")]
+    public async Task<IActionResult> ForgetPassword(string username)
+    {
+      var userExists = await _uService.GetUserByUsernameAsync(username);
+      if (userExists == null && userExists.EmailConfirmed == false)
+        return BadRequest("Username không tồn tại");
+      const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      var random = new Random();
+      var password = new char[8];
+
+      for (int i = 0; i < 8; i++)
+      {
+        password[i] = chars[random.Next(chars.Length)];
+      }
+      userExists.PasswordHash = password.ToString();
+      await _uService.UpdateUserAsync(userExists);
+      await _emailService.SendEmailAsync(username, "Mật khẩu đã được thay đổi",
+          $"Mật khẩu của bạn là: {password}.");
+
+      return Ok("Đã gửi mật khẩu vào email của bạn");
+    }
   }
 }

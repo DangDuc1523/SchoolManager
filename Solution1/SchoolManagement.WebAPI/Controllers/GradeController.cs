@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using OfficeOpenXml;
 using SchoolManagement.Business.GradeService;
 using SchoolManagement.Models.Models;
 
@@ -83,29 +84,48 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       return Ok(Grade);
     }
 
-    //[HttpPost]
+    [HttpPost("ImportGrade")]
+    public async Task<IActionResult> ImportFile(IFormFile file)
+    {
+      if (file == null || file.Length == 0)
+        return BadRequest("File không hợp lệ.");
+      try
+      {
+        var grades = new List<Grade>();
 
-    //[HttpGet("Grades/{GradeId}/search")]
-    //public async Task<IActionResult> GetGradesForDoctor(Guid doctorId, int pageNumber = 1, int pageSize = 10, DateTime? startDate = null, DateTime? endDate = null, GradeStatus? status = null)
-    //{
-    //    var Grades = await _gradeService.GetGradesForDoctorAsync(doctorId, pageNumber, pageSize, startDate, endDate, status);
-    //    return Ok(Grades);
-    //}
+        using (var stream = new MemoryStream())
+        {
+          await file.CopyToAsync(stream);
+          ExcelPackage.LicenseContext = LicenseContext.NonCommercial; // Cấu hình giấy phép
+          using (var package = new ExcelPackage(stream))
+          {
+            var worksheet = package.Workbook.Worksheets[0]; // Lấy sheet đầu tiên
+            var rowCount = worksheet.Dimension.Rows;
 
-    //[HttpPatch("Grades/{id}/cancel")]
-    //public async Task<IActionResult> CancelGrade(Guid id)
-    //{
-    //    var Grade = await _gradeService.GetGradeByIdAsync(id);
-    //    if (Grade == null)
-    //    {
-    //        return NotFound();
-    //    }
+            for (int row = 2; row <= rowCount; row++) // Bỏ qua hàng tiêu đề
+            {
+              var grade = new Grade
+              {
+                StudentId = int.Parse(worksheet.Cells[row, 1].Text),
+                SubjectId = int.Parse(worksheet.Cells[row, 3].Text),
+                ClassId = int.Parse(worksheet.Cells[row, 4].Text),
+                Score = double.TryParse(worksheet.Cells[row, 5].Text, out var score) ? (double?)score : null
+              };
 
-    //    Grade.Status = (int)GradeStatus.Cancelled;
-    //    var updatedGrade = await _gradeService.UpdateGradeAsync(Grade);
+              grades.Add(grade);
+            }
+          }
+        }
 
-    //    return Ok(updatedGrade);
-    //}
+        // Gửi danh sách dữ liệu vào service để xử lý lưu trữ
+        await _gradeService.ImportGradesAsync(grades);
 
+        return Ok(new { message = "Import thành công!", count = grades.Count });
+      }
+      catch (Exception ex)
+      {
+        return StatusCode(500, $"Lỗi: {ex.Message}");
+      }
+    }
   }
 }

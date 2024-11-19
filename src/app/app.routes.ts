@@ -1,10 +1,8 @@
 
 import { DashboardComponent } from '../views/dashboard/dashboard.component';
 import { LoginComponent } from '../views/login/login.component';
-
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-
 import { SignupComponent } from '../views/signup/signup.component';
 import { ClassInfoComponent } from '../views/teachers/classinfo/classinfo.component';
 import { GradeManagementComponent } from '../views/teachers/grademanagement/grademanagement.component';

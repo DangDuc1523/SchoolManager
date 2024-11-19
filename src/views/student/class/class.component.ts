@@ -36,28 +36,28 @@
         return;
       }
   
-      this.loadClass(Number(studentId)); // đây là userid
+      // this.loadClass(Number(studentId)); // đây là userid
     }
   
-    loadClass(studentId: number): void {
-      this.studentService.getClass(1).subscribe({
-        next: (data: ClassSubject[]) => {
-          console.log("data",data)
-          this.schedule = data.map((classSubject) => ({
-            timetableID: 0,
-            classID: classSubject.classId,
-            subjectID: classSubject.subjectId,
-            dateLearn: classSubject.dateLearn,    
-            startTime: classSubject.startTime,    
-            endTime: classSubject.endTime,        
-          }));
-          console.log('Transformed schedule:', this.schedule);
-        },
-        error: (err) => {
-          console.error('Error fetching schedule:', err);
-        },
-      });
-    }
+    // loadClass(studentId: number): void {
+    //   this.studentService.getClass(1).subscribe({
+    //     next: (data: ClassSubject[]) => {
+    //       console.log("data",data)
+    //       this.schedule = data.map((classSubject) => ({
+    //         timetableID: 0,
+    //         classID: classSubject.classId,
+    //         subjectID: classSubject.subjectId,
+    //         dateLearn: classSubject.dateLearn,    
+    //         startTime: classSubject.startTime,    
+    //         endTime: classSubject.endTime,        
+    //       }));
+    //       console.log('Transformed schedule:', this.schedule);
+    //     },
+    //     error: (err) => {
+    //       console.error('Error fetching schedule:', err);
+    //     },
+    //   });
+    // }
     
     
     getMockDate(): string {

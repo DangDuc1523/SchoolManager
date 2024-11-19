@@ -1,108 +1,204 @@
+/* Container chính */
 .teacher-profile-container {
-  max-width: 600px;
+  max-width: 90%;
   margin: 40px auto;
   padding: 30px;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  background-color: #fff;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e3e3e3;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #f9f9f9, #ffffff); /* Nền gradient nhẹ */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   font-family: 'Roboto', Arial, sans-serif;
   text-align: center;
 }
 
+/* Tiêu đề chính */
 .teacher-profile-header {
-  font-size: 28px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 20px;
+  font-size: 2rem; /* Chữ nhỏ hơn */
+  font-weight: 700;
+  color: #34495e;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
 }
 
+/* Thông tin hồ sơ */
 .teacher-profile-info {
   margin: 0 auto;
   text-align: left;
-  width: 80%;
+  width: 100%;
 }
 
 .teacher-profile-item {
-  margin-bottom: 15px;
+  margin-bottom: 20px; /* Thu nhỏ khoảng cách giữa các mục */
 }
 
 .teacher-profile-label {
-  font-weight: bold;
-  color: #555;
+  font-weight: 600;
+  color: #2c3e50;
   display: inline-block;
-  width: 150px;
+  width: 200px; /* Giữ độ rộng nhãn */
+  font-size: 1.1rem; /* Chữ nhỏ hơn */
 }
 
 .teacher-profile-value {
-  font-size: 16px;
-  color: #333;
+  font-size: 1.1rem; /* Chữ nhỏ hơn */
+  color: #555;
+  padding-left: 10px;
 }
 
 .teacher-profile-input {
-  padding: 10px;
-  font-size: 16px;
+  padding: 12px; /* Thu nhỏ padding */
+  font-size: 1.1rem; /* Chữ nhỏ hơn */
   border: 1px solid #ccc;
-  border-radius: 6px;
-  transition: border-color 0.3s;
+  border-radius: 8px;
   width: calc(100% - 20px);
+  background-color: #ffffff;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .teacher-profile-input:focus {
-  border-color: #007bff;
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
   outline: none;
 }
 
+/* Nút hành động */
 .teacher-profile-actions {
-  margin-top: 20px;
+  margin-top: 50px; /* Tăng khoảng cách với phần thông tin bên trên */
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 button {
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 12px 25px; /* Thu nhỏ padding */
+  font-size: 1rem; /* Chữ nhỏ hơn */
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s;
+  font-weight: 600;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 button:disabled {
-  background-color: #ccc;
+  background-color: #bdc3c7;
   cursor: not-allowed;
 }
 
 .btn-primary {
-  background-color: #007bff;
+  background-color: #3498db;
   color: #fff;
 }
 
 .btn-primary:hover:not(:disabled) {
-  background-color: #0056b3;
+  background-color: #217dbb;
+  box-shadow: 0 5px 10px rgba(52, 152, 219, 0.4);
 }
 
 .btn-success {
-  background-color: #28a745;
+  background-color: #2ecc71;
   color: #fff;
 }
 
 .btn-success:hover:not(:disabled) {
-  background-color: #218838;
+  background-color: #28a65c;
+  box-shadow: 0 5px 10px rgba(46, 204, 113, 0.4);
 }
 
 .btn-secondary {
-  background-color: #6c757d;
+  background-color: #95a5a6;
   color: #fff;
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background-color: #5a6268;
+  background-color: #7e8c8d;
 }
 
+/* Thông báo lỗi */
 .error-message {
-  color: red;
-  font-size: 0.9em;
+  color: #e74c3c;
+  font-size: 0.9rem; /* Chữ nhỏ hơn */
   margin-top: 5px;
+  margin-left: 200px; /* Căn chỉnh với nhãn */
+}
+
+/* Bảng */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  font-size: 1.1rem; /* Chữ nhỏ hơn */
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #f5f6f7;
+  color: #34495e;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+thead th {
+  padding: 15px; /* Giảm padding */
+  text-align: left;
+  font-size: 1.2rem; /* Chữ nhỏ hơn */
+  border-bottom: 2px solid #dcdcdc;
+}
+
+tbody tr {
+  transition: background-color 0.3s ease;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+tbody tr:hover {
+  background-color: #f4f8fb;
+  cursor: pointer;
+}
+
+tbody td {
+  padding: 15px; /* Giảm padding */
+  font-size: 1.1rem; /* Chữ nhỏ hơn */
+  color: #555;
+  background-color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .teacher-profile-container {
+    padding: 20px;
+  }
+
+  .teacher-profile-label {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+
+  .teacher-profile-info {
+    width: 100%;
+  }
+
+  .teacher-profile-input {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .teacher-profile-actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  table {
+    font-size: 1rem;
+  }
+
+  thead th,
+  tbody td {
+    padding: 12px;
+  }
 }

@@ -1,49 +1,52 @@
-<div class="class-info-container">
-  <h2>Your Classes</h2>
-
-  <div *ngIf="classes.length > 0" class="class-list-container">
-    <table class="class-table">
-      <thead>
-        <tr>
-          <th>Class Name</th>
-          <th>Schedule</th>
-          <th>Room</th>
-          <th>Number of Students</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let classInfo of classes">
-          <td>{{ classInfo.className }}</td>
-          <td>{{ classInfo.schedule }}</td>
-          <td>{{ classInfo.room }}</td>
-          <td>{{ classInfo.studentCount }}</td>
-          <td>
-            <button (click)="getSubjectsByClassId(classInfo.classId)">View Subjects</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<div style="display: flex;">
+  <div>
+    <app-home></app-home>
   </div>
 
-  <div *ngIf="subjects.length > 0" class="subject-list-container">
-    <table class="subject-table">
-      <thead>
-        <tr>
-          <th>Subject Name</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let subject of subjects">
-          <td>{{ subject.subjectName }}</td>
-          <td>{{ subject.description }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <div class="class-info-container" style="flex: 1;">
+    <h2>Your Classes</h2>
+    <div *ngIf="classes.length > 0" class="class-list-container">
+      <table class="class-table">
+        <thead>
+          <tr>
+            <th>Class Name</th>
+            <th>Room</th>
+            <th>Number of Students</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let classInfo of classes">
+            <td>{{ classInfo.className }}</td>
+            <td>{{ classInfo.room }}</td>
+            <td>{{ classInfo.studentCount }}</td>
+            <td>
+              <button (click)="getSubjectsByClassId(classInfo.classId)">View Subjects</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-  <div *ngIf="selectedClassId && subjects.length === 0" class="no-subjects">
-    No subjects found for this class.
+    <div *ngIf="subjects.length > 0" class="subject-list-container">
+      <table class="subject-table">
+        <thead>
+          <tr>
+            <th>Subject Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let subject of subjects">
+            <td>{{ subject.subjectName }}</td>
+            <td>{{ subject.description }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="selectedClassId && subjects.length === 0" class="no-subjects">
+      No subjects found for this class.
+    </div>
   </div>
 </div>

@@ -42,12 +42,13 @@ export class AuthService {
   }
 
   // Đăng ký người dùng mới
-  signup(username: string, password: string) {
-    const payload = { username, password };
+  signup(username: string, password: string, fullname:string, dob:Date, address:string, phone:string, specialty:string) {
+    const payload = { username,password,fullname,dob,address,phone,specialty };
     this.apiService.signup(payload).subscribe({
       next: (response: any) => {
-        localStorage.setItem('token', response.token);
-        this.router.navigate(['mainManager']); // Điều hướng sau khi đăng ký
+        //localStorage.setItem('token', response.token);
+        alert();
+        this.router.navigate(['signup']); // Điều hướng sau khi đăng ký
       },
       error: (error) => {
         console.error('Error during signup', error);

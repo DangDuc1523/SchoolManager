@@ -22,22 +22,24 @@
         </div>
         <div>
           <label for="subject-select">Chọn môn học:</label>
-          <select id="subject-select" [(ngModel)]="selectedSubjectId">
+          <select id="subject-select" formControlName="subjectId">
             <option *ngFor="let sub of subject" [value]="sub.subjectId">
               {{ sub.subjectName }}
             </option>
           </select>
-
-          <div>
-            <label for="teacher-select">Chọn giáo viên:</label>
-            <select id="teacher-select" [(ngModel)]="selectedTeacherId">
-              <option *ngFor="let tea of filteredTeacher" [value]="tea.userId">
-                {{ tea.fullName + " " }} {{tea.specialty}} 
-              </option>
-            </select>
-          </div>
-        <button class="submit-button" type="submit">Add Class</button>
         </div>
+        
+        <div>
+          <label for="teacher-select">Chọn giáo viên:</label>
+          <select id="teacher-select" formControlName="userId">
+            <option *ngFor="let tea of filteredTeacher" [value]="tea.userId">
+              {{ tea.fullName + " " }} {{ tea.specialty }} 
+            </option>
+          </select>
+        </div>
+        
+        <button class="submit-button" type="submit">Add Class</button>
+
       </form>
     </div>
 

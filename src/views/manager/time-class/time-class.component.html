@@ -1,65 +1,67 @@
 <div style="display: flex;">
-<div>
-<app-main-manager></app-main-manager>
-</div>
-<div class="container">
-  <form [formGroup]="addTimeTable" (ngSubmit)="addNewTime()">
-    <label for="nameSubject">Name Subject:</label>
-     <select formControlName="nameSubject" required>
-      <option>IT</option>
-      <option>MKT</option>
-      <option>BSS</option>
-     </select>
-    <label for="dateLearn">Date Learn:</label>
-    <input type="date" id="dateLearn" formControlName="dateLearn" required>
-  
-    <label for="startTime">Start Time:</label>
-    <select formControlName="startTime" required>
-      <option value="8:00">8:00</option>
-      <option value="10:00">10:00</option>
-      <option value="12:00">12:00</option>
-      <option value="14:00">14:00</option>
-      <option value="16:00">16:00</option>
-      <option value="18:00">18:00</option>
-    </select>
-
-    <label for="room">Room:</label>
-    <select id="room" formControlName="room" required>
-      <option>IT</option>
-      <option>MKT</option>
-      <option>BSS</option>
-    </select>
-
-    <button type="submit">Add New</button>
-  </form>
-
-<div *ngIf="timeClasses.length > 0; else noData">
-    <table border="1">
-      <thead>
-        <tr>
-          <th>Subject Name</th>
-          <th>Description</th>
-          <th>Date Learn</th>
-          <th>Start Time</th>
-          <th>End Time</th>
-          <th>Room</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let timeClass of timeClasses">
-          <td>{{ timeClass.subject.subjectName }}</td>
-          <td>{{ timeClass.subject.description }}</td>
-          <td>{{ timeClass.dateLearn }}</td>
-          <td>{{ timeClass.startTime  }}</td>
-          <td>{{ timeClass.endTime   }}</td>
-          <td>{{ timeClass.room   }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div>
+    <app-main-manager></app-main-manager>
   </div>
-  
-  <ng-template #noData>
-    <p>Không có dữ liệu để hiển thị.</p>
-  </ng-template>
-</div>
+  <div class="container">
+    <form [formGroup]="addTimeTable" (ngSubmit)="addNewTime()">
+      <label for="nameSubject">Name Subject:</label>
+      <select formControlName="nameSubject" required>
+        <option value="">Select a subject</option>
+        <option *ngFor="let subject of subjects" [value]="subject.subjectId">
+          {{ subject.subjectName }}
+        </option>
+      </select>
+
+      <label for="dateLearn">Date Learn:</label>
+      <input type="date" id="dateLearn" formControlName="dateLearn" required>
+
+      <label for="startTime">Start Time:</label>
+      <select formControlName="startTime" required>
+        <option value="8:00">8:00</option>
+        <option value="10:00">10:00</option>
+        <option value="12:00">12:00</option>
+        <option value="14:00">14:00</option>
+        <option value="16:00">16:00</option>
+        <option value="18:00">18:00</option>
+      </select>
+
+      <label for="room">Room:</label>
+      <select id="room" formControlName="room" required>
+        <option value="IT">IT</option>
+        <option value="MKT">MKT</option>
+        <option value="BSS">BSS</option>
+      </select>
+
+      <button type="submit">Add New</button>
+    </form>
+
+    <div *ngIf="timeClasses.length > 0; else noData">
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Subject Name</th>
+            <th>Description</th>
+            <th>Date Learn</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Room</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let timeClass of timeClasses">
+            <td>{{ timeClass.subject.subjectName }}</td>
+            <td>{{ timeClass.subject.description }}</td>
+            <td>{{ timeClass.dateLearn }}</td>
+            <td>{{ timeClass.startTime }}</td>
+            <td>{{ timeClass.endTime }}</td>
+            <td>{{ timeClass.room }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <ng-template #noData>
+      <p>Không có dữ liệu để hiển thị.</p>
+    </ng-template>
+  </div>
 </div>

@@ -25,11 +25,13 @@ export class ListClassManagerComponent implements OnInit {
   filteredTeacher: User[] = []; // Danh sách sau khi lọc
   selectedSubjectId: number | null = null;
   selectedTeacherId: number | null = null;
+  classid: number = 0;
+  subjectId: number = 0;
+  userId: number = 0;
+
   // FormGroup cho việc thêm lớp
   addClassForm = new FormGroup({
     nameClass: new FormControl(''), // Tên lớp
-    schedule: new FormControl(''), // Lịch học
-    room: new FormControl(''),
     subjectId: new FormControl(''), 
     userId: new FormControl(''), // Phòng học
   });
@@ -92,21 +94,36 @@ export class ListClassManagerComponent implements OnInit {
     this.router.navigate(['/infoClassManager']);
   }
 
-  // Thêm lớp mới
   addClass(): void {
     const nameClass = this.addClassForm.get('nameClass')?.value?.trim() || '';
-    const schedule = this.addClassForm.get('schedule')?.value?.trim() || '';
+    const schedule = '';
     const room = '';
-    const subjectId = this.addClassForm.get('subjectId')?.value || '';
-    const userId = this.addClassForm.get('userId')?.value || '';
-    if (!nameClass || !schedule || !room) {
+    this.subjectId = Number(this.addClassForm.get('subjectId')?.value);
+    this.userId = Number(this.addClassForm.get('userId')?.value);
+    
+    if (!nameClass) {
       alert('All fields are required!');
       return;
     }
-
+  
     this.classManager.addNewClass(nameClass, schedule, room).subscribe({
       next: (response) => {
+        this.classid = response.classId; // Lấy classId từ phản hồi API
         console.log('Class added successfully:', response);
+  
+        // Gọi addClassSubject sau khi nhận được classId từ response
+        console.log("classid :" + this.classid);
+        console.log("subjectid " +this.subjectId);
+        console.log("userid " +this.userId);
+        this.classManager.addClassSubject(this.classid, this.subjectId, this.userId).subscribe({
+          next: (classSubjectResponse) => {
+            console.log('Class-Subject added successfully:', classSubjectResponse);
+          },
+          error: (classSubjectError) => {
+            console.error('Error adding Class-Subject:', classSubjectError);
+          }
+        });
+  
         this.addClassForm.reset(); // Reset form sau khi thêm thành công
         this.refreshClassList(); // Cập nhật danh sách lớp
       },
@@ -115,6 +132,7 @@ export class ListClassManagerComponent implements OnInit {
       },
     });
   }
+  
 
   // Xóa lớp học
   deleteClass(classId: string): void {

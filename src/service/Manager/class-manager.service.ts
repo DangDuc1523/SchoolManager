@@ -132,4 +132,18 @@ export class ClassManagerService {
     return this.http.get<Subject[]>(`${this.baseurl}/Subject`);
   }
 
+  addClassSubject(classId: number, subjectId: number, teacherId: number): Observable<any> {
+    const data = {
+      classId: classId,
+      subjectId: subjectId,
+      teacherId: teacherId
+    };
+  
+    return this.http.post<any>(`https://localhost:44344/api/ClassSubject`, data);
+  }
+  
+  addNewTimeTable(timetable: Timetable): Observable<Timetable> {
+    return this.http.post<Timetable>(`https://localhost:44344/api/TimeTable`, timetable);
+  }
+
 }

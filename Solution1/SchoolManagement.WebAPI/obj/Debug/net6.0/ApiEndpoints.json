@@ -314,9 +314,9 @@
         "IsRequired": true
       },
       {
-        "Name": "score",
-        "Type": "System.Double",
-        "IsRequired": false
+        "Name": "gradeDTO",
+        "Type": "SchoolManagement.Models.Models.GradeDTO",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

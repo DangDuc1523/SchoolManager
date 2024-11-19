@@ -5,16 +5,15 @@
   <div class="class-info-container">
     <h2>Your Classes</h2>
 
-      <!-- Display success message -->
-  <div *ngIf="successMessage" class="success-message">
-    {{ successMessage }}
-  </div>
+    <!-- Display success message -->
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
 
-  <!-- Display error message -->
-  <div *ngIf="errorMessage" class="error-message">
-    {{ errorMessage }}
-  </div>
-
+    <!-- Display error message -->
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
 
     <!-- Display list of classes -->
     <div *ngIf="classes.length > 0" class="class-list-container">
@@ -65,10 +64,21 @@
     <div *ngIf="students.length > 0" class="student-list-container">
       <h3>Students for Subject: {{ selectedSubjectName }}</h3>
       <p>Average Grade: {{ averageGrade | number: '1.2-2' }}</p>
-      <button (click)="exportTableToExcel()">Export to Excel</button>
+      <div class="action-buttons">
+        <button (click)="exportTableToExcel()">Export to Excel</button>
+        <button (click)="fileInput.click()">Import from Excel</button>
+        <input
+          #fileInput
+          type="file"
+          accept=".xlsx, .xls"
+          (change)="onImportGrade($event)"
+          style="display: none;"
+        />
+      </div>
       <table class="class-table">
         <thead>
           <tr>
+            <th>Student ID</th>
             <th>Full Name</th>
             <th>Date of Birth</th>
             <th>Contact Info</th>
@@ -79,6 +89,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of students">
+            <td>{{ item.user?.userId|| 'N/A' }}</td>
             <td>{{ item.user?.fullName || 'N/A' }}</td>
             <td>{{ item.user?.dateOfBirth || 'N/A' }}</td>
             <td>{{ item.user?.contactInfo || 'N/A' }}</td>

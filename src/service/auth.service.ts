@@ -2,6 +2,8 @@ import { Injectable, inject, EventEmitter } from '@angular/core';
 import { ApiService } from '../api/api.service';
 import { jwtDecode } from 'jwt-decode';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -42,16 +44,23 @@ export class AuthService {
   }
 
   // Đăng ký người dùng mới
-  signup(username: string, password: string, fullname:string, dob:Date, address:string, phone:string, specialty:string) {
-    const payload = { username,password,fullname,dob,address,phone,specialty };
-    this.apiService.signup(payload).subscribe({
-      next: (response: any) => {
-        //localStorage.setItem('token', response.token);
-        alert();
-        this.router.navigate(['signup']); // Điều hướng sau khi đăng ký
+  signup(Username: string, Password: string, Fullname:string, Dob:string, Address:string, Phone:string, Specialty:string){
+    const newRegisterDTO = { 
+      username : Username,
+      password : Password,
+      fullname : Fullname,
+      dob : Dob,
+      address:Address,
+      phone:Phone,
+      specialty :Specialty
+    };
+    console.log(newRegisterDTO)
+    this.apiService.signup(newRegisterDTO).subscribe({
+      next: (response: string) => {
+        alert("thanh cong") // Phát sự kiện sau khi đăng nhập thành công
       },
       error: (error) => {
-        console.error('Error during signup', error);
+        console.error('Error during login', error);
       }
     });
   }

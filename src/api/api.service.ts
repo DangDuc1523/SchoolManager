@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 import { IClass } from '../dto/IClass'
 import { TimeClass } from '../dto/TimeClass';
+import { RegisterDTO } from '../dto/RegisterDTO';
 
 
 @Injectable({
@@ -22,8 +23,9 @@ export class ApiService {
   }
 
 
-  signup(data: any): Observable<any>{
-    return this.http.post<any>('https://localhost:44344/api', data);
+  signup(newRegisterDTO:any): Observable<any>{
+    return this.http.post<any>("https://localhost:44344/api/Auth/register", newRegisterDTO);
+    
   }
 
 

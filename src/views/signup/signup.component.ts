@@ -31,7 +31,7 @@ export class SignupComponent {
     const address = this.signupForm.value.address ?? '';
     const phone = this.signupForm.value.phone ?? '';
     const specialty = this.signupForm.value.phone ?? '';
-    this.auth.register(username,password,fullname,dob,address,phone,specialty);
+    this.auth.signup(username,password,fullname,dob,address,phone,specialty);
   }
 
 

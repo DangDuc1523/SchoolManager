@@ -1,3 +1,10 @@
+D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.csproj.AssemblyReference.cache
+D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.AssemblyInfoInputs.cache
+D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.AssemblyInfo.cs
+D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.csproj.CoreCompileInputs.cache
+D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.MvcApplicationPartsAssemblyInfo.cache
+D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.sourcelink.json
 D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\bin\Debug\net6.0\appsettings.Development.json
 D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\bin\Debug\net6.0\appsettings.json
 D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\bin\Debug\net6.0\dab-options.json
@@ -74,14 +81,6 @@ D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\bin\Debug\net6.
 D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\bin\Debug\net6.0\SchoolManagement.Business.pdb
 D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\bin\Debug\net6.0\SchoolManagement.Data.pdb
 D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\bin\Debug\net6.0\SchoolManagement.Models.pdb
-D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.csproj.AssemblyReference.cache
-D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.GeneratedMSBuildEditorConfig.editorconfig
-D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.AssemblyInfoInputs.cache
-D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.AssemblyInfo.cs
-D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.csproj.CoreCompileInputs.cache
-D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.MvcApplicationPartsAssemblyInfo.cs
-D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.MvcApplicationPartsAssemblyInfo.cache
-D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\SchoolManagement.WebAPI.sourcelink.json
 D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\staticwebassets.build.json
 D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\staticwebassets.development.json
 D:\FPT\Semester6\SchoolManager\Solution1\SchoolManagement.WebAPI\obj\Debug\net6.0\staticwebassets\msbuild.SchoolManagement.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props

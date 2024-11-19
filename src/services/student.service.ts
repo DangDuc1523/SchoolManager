@@ -6,6 +6,7 @@ import { ClassSubject } from '../dto/classSubject.model';
 import { map, mergeMap } from 'rxjs/operators';
 import { Observable, forkJoin } from 'rxjs';
 import { Subject } from '../dto/subject.model';
+import { Grade } from '../dto/grade.models';
 
 
 
@@ -40,4 +41,12 @@ export class StudentService {
   getSubjectsByClassAndTeacher(classId: number, studentId: number): Observable<Subject[]> {
     return this.http.get<Subject[]>(`${this.apiUrl}/Subject/class/${classId}/teacher/${studentId}`);
   }
+  
+  getGradeByStudentAndSubject(studentId: number, subjectId: number): Observable<Grade[]> {
+    return this.http.get<Grade[]>(`${this.apiUrl}/Grade/${studentId}/${subjectId}`);
+  }
+  getGradesByStudentAndSubject(studentId: number, subjectId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/Grade/${studentId}/${subjectId}`);
+  }
+  
 }

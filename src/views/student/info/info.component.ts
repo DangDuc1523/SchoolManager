@@ -13,7 +13,14 @@ import { AuthService } from '../../../service/auth.service';
   providers: [DatePipe],
 })
 export class InfoComponent implements OnInit {
-  student: any = null; // Dữ liệu sinh viên
+  student: any = {
+  fullName: '',
+  dateOfBirth: '',
+  address: '',
+  contactInfo: '',
+  specialty: '',
+};
+
   isEditing: boolean = false; // Trạng thái chỉnh sửa
   auth: AuthService = inject(AuthService);
 

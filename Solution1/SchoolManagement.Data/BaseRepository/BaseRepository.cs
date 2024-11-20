@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
+using System;
 using System.Linq.Expressions;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
@@ -105,8 +107,6 @@ namespace SchoolManagement.Data.BaseRepository
                             .ToListAsync();
       }
     }
-
-
 
 
 

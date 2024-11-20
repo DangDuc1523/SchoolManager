@@ -5,6 +5,7 @@ import { ClassSubject } from '../../../dto/classSubject.model';
 import { AuthService } from '../../../service/auth.service';
 import { StudentService } from '../../../services/student.service';
 
+
 @Component({
   selector: 'app-class',
   standalone: true,

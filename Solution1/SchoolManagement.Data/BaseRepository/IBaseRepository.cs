@@ -15,5 +15,6 @@ namespace SchoolManagement.Data.BaseRepository
 
     // Phương thức mới hỗ trợ Include
     Task<IEnumerable<T>> GetWhereWithIncludeAsync(Expression<Func<T, bool>> predicate, Expression<Func<T, object>> includeExpression);
+
   }
 }

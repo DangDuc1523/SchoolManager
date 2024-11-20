@@ -1,5 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
+using OfficeOpenXml.Table.PivotTable;
 using SchoolManagement.Business.ClassService;
+using SchoolManagement.Business.ClassSubjectService;
+using SchoolManagement.Business.GradeService;
+using SchoolManagement.Business.StudentService;
+using SchoolManagement.Business.TimeTableService;
+using SchoolManagement.Data;
 using SchoolManagement.Models.Models;
 
 namespace SchoolManagement.WebAPI.Controllers.Admin
@@ -10,11 +16,24 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
   public class ClassController : Controller
   {
     private readonly IClassService _classService;
+    private readonly IStudentService _st;
+    private readonly IClassSubjectService _cs;
+    private readonly IGradeService _gradeService;
+    private readonly ITimetableService _tt;
+    private readonly SchoolDbContext _context;
 
-    public ClassController(IClassService ClassService)
+    public ClassController(IClassService classService, IStudentService st,
+      IClassSubjectService cs, IGradeService gradeService,
+      ITimetableService tt, SchoolDbContext context)
     {
-      _classService = ClassService;
+      _classService = classService;
+      _st = st;
+      _cs = cs;
+      _gradeService = gradeService;
+      _tt = tt;
+      _context = context;
     }
+
     [HttpGet]
     public async Task<IActionResult> GetAllClass()
     {

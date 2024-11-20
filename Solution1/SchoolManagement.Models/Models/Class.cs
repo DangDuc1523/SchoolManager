@@ -9,25 +9,25 @@ namespace SchoolManagement.Models.Models;
 
 public partial class Class
 {
+  public Class()
+  {
+    Grades = new HashSet<Grade>();
+    Students = new HashSet<Student>();
+    Timetables = new HashSet<Timetable>();
+    ClassSubjects = new HashSet<ClassSubject>();
+  }
+
   public int ClassId { get; set; }
-
   public string ClassName { get; set; }
-
   public string Schedule { get; set; }
-
   public string Room { get; set; }
-
   public int? StudentCount { get; set; }
-  [NotMapped]
   [JsonIgnore]
-  public virtual ICollection<ClassSubject> ClassSubjects { get; set; } = new List<ClassSubject>();
-  [NotMapped]
+  public virtual ICollection<Grade> Grades { get; set; }
   [JsonIgnore]
-  public virtual ICollection<Grade> Grades { get; set; } = new List<Grade>();
-  [NotMapped]
+  public virtual ICollection<Student> Students { get; set; }
   [JsonIgnore]
-  public virtual ICollection<Student> Students { get; set; } = new List<Student>();
-  [NotMapped]
+  public virtual ICollection<Timetable> Timetables { get; set; }
   [JsonIgnore]
-  public virtual ICollection<Timetable> Timetables { get; set; } = new List<Timetable>();
+  public virtual ICollection<ClassSubject> ClassSubjects { get; set; }
 }

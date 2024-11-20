@@ -1,3 +1,4 @@
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using SchoolManagement.Business;
@@ -105,7 +106,7 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
 
       await _uService.UpdateUserAsync(user);
 
-      return Ok("Email của bạn đã được xác thực thành công.");
+      return Ok(new { message = "Đăng ký thành công! Vui lòng kiểm tra email để lấy mã OTP xác nhận." });
     }
     [HttpPost("forgetpassword")]
     public async Task<IActionResult> ForgetPassword(string username)

@@ -1,5 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
+using SchoolManagement.Business.ClassService;
+using SchoolManagement.Business.ClassSubjectService;
+using SchoolManagement.Business.GradeService;
 using SchoolManagement.Business.SubjectService;
+using SchoolManagement.Business.TimeTableService;
+using SchoolManagement.Data;
+using SchoolManagement.Data.GradeRepository;
 using SchoolManagement.Models.Models;
 
 namespace SchoolManagement.WebAPI.Controllers.Admin
@@ -9,12 +15,24 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
   [Route("api/[controller]")]
   public class SubjectController : Controller
   {
+    private readonly IClassService _classService;
     private readonly ISubjectService _subjectService;
+    private readonly IClassSubjectService _classSubjectService;
+    private readonly IGradeService _gradeService;
+    private readonly ITimetableService _tt;
+    private readonly SchoolDbContext _context;
 
-    public SubjectController(ISubjectService SubjectService)
+    public SubjectController(IClassService classService, ISubjectService subjectService, IClassSubjectService classSubjectService,
+      IGradeService gradeService, ITimetableService tt, SchoolDbContext context)
     {
-      _subjectService = SubjectService;
+      _classService = classService;
+      _subjectService = subjectService;
+      _classSubjectService = classSubjectService;
+      _gradeService = gradeService;
+      _tt = tt;
+      _context = context;
     }
+
     [HttpGet]
     public async Task<IActionResult> GetAllSubject()
     {

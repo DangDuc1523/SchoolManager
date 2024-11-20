@@ -12,7 +12,7 @@
         <div class="title signup">Signup </div>
         <div class="title confirm">Confirm </div>
       </div>
-      <div class="form-container" [formGroup]="signupForm" (submit)="register()">
+      <div class="form-container" >
         <div class="slide-controls">
           <input type="radio" name="slide" id="signup" checked>
           <input type="radio" name="slide" id="confirm">
@@ -20,16 +20,16 @@
           <label for="confirm" class="slide confirm">Confirm</label>
           <div class="slider-tab"></div>
         </div>
-        <div class="form-inner">
-          <form action="#" class="signup">
+        <div class="form-inner" >
+          <form action="#" class="signup" [formGroup]="signupForm" (submit)="Signup()">
             <div class="field">
-              <input type="text" placeholder="Email Address" formControlName="username" required>
+              <input type="text" placeholder="Email Address" formControlName="username" for="username" required>
             </div>
             <div class="field">
               <input type="password" placeholder="Password" formControlName="password" required>
             </div>
             <div class="field">
-              <input type="password`" placeholder="Re-enter Password" required>
+              <input type="password" placeholder="Re-enter Password" required>
             </div>
             <div class="field">
               <input type="text" placeholder="Full name" formControlName="fullname" required>
@@ -54,11 +54,11 @@
           </form>
           <form action="#" class="confirm">
             <div class="field">
-              <input type="text" placeholder="Enter OTP" required>
+              <input type="text" placeholder="Enter OTP" for="OTP" required>
             </div>
             <div class="field btn">
               <div class="btn-layer"></div>
-              <input type="submit" value="Confirm">
+              <input type="submit" value="Confirm" >
             </div>
           </form>
         </div>

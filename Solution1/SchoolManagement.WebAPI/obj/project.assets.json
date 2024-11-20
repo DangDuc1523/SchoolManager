@@ -3633,19 +3633,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\admin\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Project\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj",
       "projectName": "SchoolManagement.WebAPI",
-      "projectPath": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj",
-      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\Project\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\Project\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3653,21 +3658,20 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\SchoolManagement.Business.csproj": {
-              "projectPath": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Business\\SchoolManagement.Business.csproj"
+            "C:\\Users\\Admin\\Desktop\\Project\\SchoolManager\\Solution1\\SchoolManagement.Business\\SchoolManagement.Business.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Desktop\\Project\\SchoolManager\\Solution1\\SchoolManagement.Business\\SchoolManagement.Business.csproj"
             },
-            "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Data\\SchoolManagement.Data.csproj": {
-              "projectPath": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Data\\SchoolManagement.Data.csproj"
+            "C:\\Users\\Admin\\Desktop\\Project\\SchoolManager\\Solution1\\SchoolManagement.Data\\SchoolManagement.Data.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Desktop\\Project\\SchoolManager\\Solution1\\SchoolManagement.Data\\SchoolManagement.Data.csproj"
             },
-            "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj": {
-              "projectPath": "D:\\FPT\\Semester6\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj"
+            "C:\\Users\\Admin\\Desktop\\Project\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Desktop\\Project\\SchoolManager\\Solution1\\SchoolManagement.Models\\SchoolManagement.Models.csproj"
             }
           }
         }
@@ -3676,11 +3680,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -3723,7 +3722,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

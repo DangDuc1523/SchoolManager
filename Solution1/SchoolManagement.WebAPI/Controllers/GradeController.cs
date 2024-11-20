@@ -1,6 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using OfficeOpenXml;
+using SchoolManagement.Business.ClassService;
 using SchoolManagement.Business.GradeService;
+using SchoolManagement.Business.StudentService;
+using SchoolManagement.Business.SubjectService;
+using SchoolManagement.Business.UserService;
 using SchoolManagement.Models.Models;
 
 namespace SchoolManagement.WebAPI.Controllers.Admin
@@ -11,15 +15,25 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
   public class GradeController : Controller
   {
     private readonly IGradeService _gradeService;
+    private readonly IUserService _userService;
+    private readonly IStudentService _studentService;
+    private readonly ISubjectService _subjectService;
+    private readonly IClassService _classService;
 
-    public GradeController(IGradeService GradeService)
+    public GradeController(IGradeService gradeService, IUserService userService)
     {
-      _gradeService = GradeService;
+      _gradeService = gradeService;
+      _userService = userService;
     }
+
     [HttpGet]
     public async Task<IActionResult> GetAllGrade()
     {
       var Grades = await _gradeService.GetAllGradeAsync();
+      foreach (var Grade in Grades)
+      {
+        Grade.Student.User = await _userService.GetUserByIdAsync(Grade.Student.UserId);
+      }
       return Ok(Grades);
     }
 
@@ -31,6 +45,10 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       {
         return NotFound();
       }
+      Grade.Student = await _studentService.GetStudentByIdAsync(Grade.StudentId);
+      Grade.Subject = await _subjectService.GetSubjectByIdAsync(Grade.SubjectId);
+      Grade.Class = await _classService.GetClassByIdAsync(Grade.ClassId);
+      Grade.Student.User = await _userService.GetUserByIdAsync(Grade.Student.UserId);
       return Ok(Grade);
     }
 
@@ -57,6 +75,7 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       grade.SubjectId = gradeDTO.SubjectId;
       grade.StudentId = gradeDTO.StudentId;
       grade.Score = gradeDTO.Score;
+
       grade.ClassId = gradeDTO.ClassId;
       var updatedGrade = await _gradeService.UpdateGradeAsync(grade);
       if (updatedGrade == null)
@@ -80,12 +99,16 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
     [HttpGet("{studentId}/{subjectId}")]
     public async Task<IActionResult> GetGradeBySubjectId(int studentId, int subjectId)
     {
-      var Grade = await _gradeService.GetGradeBySubjectId(studentId, subjectId);
-      if (Grade == null)
+      var Grades = await _gradeService.GetGradeBySubjectId(studentId, subjectId);
+      if (Grades == null)
       {
         return NotFound();
       }
-      return Ok(Grade);
+      foreach (var Grade in Grades)
+      {
+        Grade.Student.User = await _userService.GetUserByIdAsync(Grade.Student.UserId);
+      }
+      return Ok(Grades);
     }
 
     [HttpPost("ImportGrade")]

@@ -2,6 +2,8 @@ import { Injectable, inject, EventEmitter } from '@angular/core';
 import { ApiService } from '../api/api.service';
 import { jwtDecode} from 'jwt-decode'; 
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,7 @@ export class AuthService {
   private router = inject(Router); 
   loginEvent = new EventEmitter<string | null>(); 
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService,private http:HttpClient) {}
 
   isLoggedIn(): boolean {
     const token = localStorage.getItem('token');
@@ -43,20 +45,6 @@ export class AuthService {
     });
   }
   
-
-
-  signup(username: string, password: string, fullname: string, dob: Date, address: string, phone: string, specialty: string): void {
-    const payload = { username, password, fullname, dob, address, phone, specialty };
-    this.apiService.signup(payload).subscribe({
-      next: () => {
-        alert('Signup successful');
-        this.router.navigate(['/login']); 
-      },
-      error: (error) => {
-        console.error('Error during signup:', error);
-      }
-    });
-  }
 
   logout(): void {
     localStorage.clear(); // Xóa tất cả dữ liệu trong localStorage
@@ -130,4 +118,30 @@ export class AuthService {
     }
   }
   
+  private apiUrl = 'https://localhost:44344/api/Auth/register';
+ 
+  signup(
+    username: string,
+    password: string,
+    fullname: string,
+    dob: string,
+    address: string,
+    phone: string,
+    specialty: string
+  ): Observable<any> {
+    // Tạo object DTO (Data Transfer Object)
+    const registerDTO = {
+      username: username,
+      password: password,
+      fullName: fullname,
+      dateOfBirth: dob, // Đảm bảo chuỗi ngày sinh ở định dạng ISO (yyyy-MM-dd)
+      address: address,
+      contactInfo: phone,
+      specialty: specialty
+    };
+
+    // Gửi request POST đến API
+    return this.http.post<any>(this.apiUrl, registerDTO);
+  }
+
 }

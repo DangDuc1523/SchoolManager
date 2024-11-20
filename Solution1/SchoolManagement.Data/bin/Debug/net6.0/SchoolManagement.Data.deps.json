@@ -468,10 +468,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.35"
         },
         "runtime": {
-          "SchoolManagement.Models.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "SchoolManagement.Models.dll": {}
         }
       }
     }

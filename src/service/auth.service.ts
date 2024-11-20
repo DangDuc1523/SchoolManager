@@ -1,6 +1,6 @@
 import { Injectable, inject, EventEmitter } from '@angular/core';
 import { ApiService } from '../api/api.service';
-import { jwtDecode } from 'jwt-decode';
+import { jwtDecode} from 'jwt-decode'; 
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -9,40 +9,44 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
-  private router = inject(Router); // Inject Router để điều hướng
-  loginEvent = new EventEmitter<string>(); // Thêm EventEmitter để phát sự kiện
+  private router = inject(Router); 
+  loginEvent = new EventEmitter<string | null>(); 
 
   constructor(private apiService: ApiService) {}
 
-  // Kiểm tra xem người dùng có đăng nhập không (token còn hạn)
   isLoggedIn(): boolean {
     const token = localStorage.getItem('token');
     if (token) {
-      const decodedToken: any = jwtDecode(token);
-      const currentTime = Math.floor(Date.now() / 1000);
-      if (decodedToken.exp && decodedToken.exp > currentTime) {
-        return true;
-      } else {
-        this.logout();
+      try {
+        const decodedToken: any = jwtDecode(token);
+        const currentTime = Math.floor(Date.now() / 1000);
+        return decodedToken.exp && decodedToken.exp > currentTime;
+      } catch (error) {
+        console.error('Error decoding token:', error);
+        this.logout(); // Xóa token không hợp lệ
       }
     }
-    return false;
+    return false; // Trả về false nếu không có token
   }
+  
 
-  // Thực hiện đăng nhập và điều hướng dựa trên vai trò
-  login(username: string, password: string) {
+  
+  login(username: string, password: string): void {
     this.apiService.login(username, password).subscribe({
       next: (response: string) => {
-        localStorage.setItem('token', response);
-        const role = this.getRoles();
-        this.loginEvent.emit(role ?? undefined); // Phát sự kiện sau khi đăng nhập thành công
+        localStorage.setItem('token', response); 
+        const role = this.getRoles(); 
+        this.loginEvent.emit(role); 
+        this.handleRoleNavigation(role);
       },
       error: (error) => {
-        console.error('Error during login', error);
+        console.error('Error during login:', error);
       }
     });
   }
+  
 
+<<<<<<< HEAD
   // Đăng ký người dùng mới
   signup(Username: string, Password: string, Fullname:string, Dob:string, Address:string, Phone:string, Specialty:string){
     const newRegisterDTO = { 
@@ -61,65 +65,95 @@ export class AuthService {
       },
       error: (error) => {
         console.error('Error during login', error);
+=======
+
+  signup(username: string, password: string, fullname: string, dob: Date, address: string, phone: string, specialty: string): void {
+    const payload = { username, password, fullname, dob, address, phone, specialty };
+    this.apiService.signup(payload).subscribe({
+      next: () => {
+        alert('Signup successful');
+        this.router.navigate(['/login']); 
+      },
+      error: (error) => {
+        console.error('Error during signup:', error);
+>>>>>>> 15cf1ac6554ce828e36536d3e953347d765826b7
       }
     });
   }
 
-  // Đăng xuất người dùng
-  logout() {
-    localStorage.clear();
-    location.reload();
+  logout(): void {
+    localStorage.clear(); // Xóa tất cả dữ liệu trong localStorage
+    this.router.navigate(['/login']); // Điều hướng về trang đăng nhập
   }
 
-  // Giải mã token và lấy vai trò người dùng từ token
+  
   getRoles(): string | null {
     const token = localStorage.getItem('token');
-    if (!token) {
-      console.error('No token found');
-      return null;
+    if (token) {
+      try {
+        const decodedToken: any = jwtDecode(token); // Giải mã token
+        return decodedToken['UserRole'] || null; // Trả về UserRole nếu có
+      } catch (error) {
+        console.error('Error decoding token:', error);
+        return null;
+      }
     }
-
-    try {
-      const decodedToken: any = jwtDecode(token); // Giải mã token
-      console.log('Token đã giải mã là:', decodedToken);
-      return decodedToken['UserRole'] || null;
-    } catch (error) {
-      console.error('Error decoding token:', error);
-      return null;
-    }
+    return null;
   }
+  
 
-  // Lấy ID người dùng từ token (ví dụ: studentId)
-  getStudentId(): number | null {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      console.error('No token found');
-      return null;
-    }
-
-    try {
-      const decodedToken: any = jwtDecode(token); // Giải mã token
-      const studentId = Number(decodedToken['StudentId']); // Chuyển đổi StudentId sang kiểu số
-      return isNaN(studentId) ? null : studentId;
-    } catch (error) {
-      console.error('Error decoding token:', error);
-      return null;
-    }
-  }
-
+ 
   getId(): string | null {
     const token = localStorage.getItem('token');
-    if (!token) {
-      console.error('No token found');
-      return null;
+    if (token) {
+      try {
+        const decodedToken: any = jwtDecode(token);
+        return decodedToken['UserId'] || null; // Trả về UserId nếu có
+      } catch (error) {
+        console.error('Error decoding token:', error);
+        return null;
+      }
     }
+    return null;
+  }
+<<<<<<< HEAD
+=======
 
-    try {
-      const decodedToken: any = jwtDecode(token); // Giải mã token
-      return decodedToken['UserId'] || null;
-    } catch (error) {
-      console.error('Error decoding token:', error);
-      return null;
+  getStudentId(): number | null {
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        const decodedToken: any = jwtDecode(token);
+        const studentId = Number(decodedToken['StudentId']);
+        return isNaN(studentId) ? null : studentId; // Kiểm tra và trả về StudentId nếu hợp lệ
+      } catch (error) {
+        console.error('Error decoding token:', error);
+        return null;
+      }
+    }
+    return null;
+  }
+
+
+  private handleRoleNavigation(role: string | null): void {
+    const currentUrl = this.router.url;
+  
+    // Không điều hướng nếu đang ở Dashboard hoặc Signup
+    if (currentUrl === '/dashboard' || currentUrl === '/signup') {
+      return;
+    }
+  
+    // Điều hướng dựa trên vai trò
+    if (role === 'Admin') {
+      this.router.navigate(['/mainManager']);
+    } else if (role === 'Teacher') {
+      this.router.navigate(['/home']);
+    } else if (role === 'Student') {
+      this.router.navigate(['/student']);
+    } else {
+      this.router.navigate(['/login']);
     }
   }
+  
+>>>>>>> 15cf1ac6554ce828e36536d3e953347d765826b7
 }

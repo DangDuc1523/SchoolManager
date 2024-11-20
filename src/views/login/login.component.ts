@@ -32,9 +32,25 @@ export class LoginComponent {
   login() {
     const username = this.loginForm.value.username ?? '';
     const password = this.loginForm.value.password ?? '';
-    this.auth.login(username, password);   
-    this.loginevent.emit(this.auth.isLoggedIn());
+    
+    // Đăng nhập thông qua AuthService
+    this.auth.login(username, password);
+  
+    // Lắng nghe sự kiện đăng nhập thành công
+    this.auth.loginEvent.subscribe((role) => {
+      if (role === 'Admin') {
+        this.router.navigate(['/mainManager']);
+      } else if (role === 'Teacher') {
+        this.router.navigate(['/home']);
+      } else if (role === 'Student') {
+        this.router.navigate(['/student']);
+      } else {
+        this.router.navigate(['/']);
+      }
+    });
   }
+  
+
 
   signup() {
     // Phát sự kiện đăng ký khi nhấn vào nút SIGN UP

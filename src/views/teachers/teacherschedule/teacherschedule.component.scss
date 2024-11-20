@@ -1,38 +1,89 @@
 .teacher-schedule-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 30px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0); /* Nền gradient */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', Arial, sans-serif;
+
+  h2 {
+    text-align: center;
+    font-size: 2rem; /* Tăng kích thước tiêu đề */
+    font-weight: 600;
+    color: #2c3e50; /* Màu tiêu đề đồng nhất */
+    margin-bottom: 25px;
+  }
 }
 
-h2 {
-  text-align: center;
-  color: #333;
-}
-
+/* Bảng thời khóa biểu */
 .schedule-table {
-  width: 100%;
-  border-collapse: collapse;
+  width: 100%; /* Kéo rộng bảng */
+  border-collapse: collapse; /* Loại bỏ khoảng cách giữa các đường viền */
   margin-top: 20px;
+  font-size: 1.2rem; /* Kích thước font chữ vừa phải */
+  text-align: center;
+  border: 1px solid #dcdcdc; /* Viền ngoài cho bảng */
 }
 
 .schedule-table th,
 .schedule-table td {
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #ddd;
+  padding: 15px; /* Khoảng cách giữa nội dung và viền ô */
+  border: 1px solid #dcdcdc; /* Viền giữa các ô */
+  vertical-align: middle;
 }
 
 .schedule-table th {
-  background-color: #007bff;
-  color: white;
+  background-color: #3498db; /* Màu nền tiêu đề */
+  color: #ffffff; /* Chữ trắng */
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.scheduled {
-  background-color: #28a745;
-  color: white;
+.schedule-table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Nền nhạt cho hàng chẵn */
+}
+
+.schedule-table tr:hover {
+  background-color: #eaf2f8; /* Hiệu ứng hover */
+  cursor: pointer;
+}
+
+.schedule-table td {
+  background-color: #ffffff; /* Nền trắng */
+  color: #555; /* Màu chữ trung tính */
+}
+
+/* Nội dung ô lịch */
+.cell div {
+  margin-bottom: 8px;
+  text-align: left; /* Căn lề trái cho thông tin */
+}
+
+.cell strong {
+  color: #3498db; /* Màu xanh đồng nhất với tiêu đề */
+  font-weight: bold;
+}
+
+.no-schedule {
+  text-align: center;
+  color: #999; /* Màu chữ trung tính cho ô trống */
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .teacher-schedule-container {
+    padding: 20px;
+  }
+
+  .schedule-table {
+    font-size: 1rem; /* Giảm kích thước font trên màn hình nhỏ */
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+    padding: 10px; /* Giảm padding để phù hợp với màn hình nhỏ */
+  }
 }

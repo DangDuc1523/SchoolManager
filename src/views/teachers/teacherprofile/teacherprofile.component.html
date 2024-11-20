@@ -1,3 +1,7 @@
+<div style="display: flex;">
+  <div>
+    <app-home></app-home>
+  </div>
 <div *ngIf="teacher" class="teacher-profile-container">
   <h2 class="teacher-profile-header">Teacher Profile</h2>
 
@@ -82,4 +86,5 @@
     </button>
     <button *ngIf="isEditing" (click)="toggleEditMode()" class="btn btn-secondary">Cancel</button>
   </div>
+</div>
 </div>

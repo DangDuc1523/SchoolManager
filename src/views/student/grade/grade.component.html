@@ -1,19 +1,12 @@
-<div class="grades">
-  <button class="back-btn" (click)="goBack()">Back</button>
-
-  <h2>Thông Tin Điểm Môn Học</h2>
-  <table>
-    <tr>
-      <th>Lớp Học</th>
-      <th>Môn Học</th>
-      <th>Giáo Viên</th>
-      <th>Điểm</th>
-    </tr>
-    <tr *ngFor="let grade of grades">
-      <td>{{ grade.room }}</td>
-      <td>{{ grade.subject }}</td>
-      <td>{{ grade.teacher }}</td>
-      <td>{{ grade.score }}</td>
-    </tr>
-  </table>
-</div>
+<table>
+  <tr>
+    <th>Lớp học</th>
+    <th>Môn học</th>
+    <th>Điểm</th>
+  </tr>
+  <tr *ngFor="let grade of grades">
+    <td>{{ grade.room }}</td>
+    <td>{{ grade.subject }}</td>
+    <td>{{ grade.score | number:'1.1-2' }}</td>
+  </tr>
+</table>

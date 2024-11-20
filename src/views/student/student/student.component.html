@@ -1,5 +1,4 @@
 <div class="header">
-  <!-- Thay vì sử dụng routerLink, sử dụng sự kiện click và gọi hàm navigateTo -->
   <p class="username">
     <a (click)="navigateTo('profile')">Nguyễn Văn A {{ username }}</a>
   </p>
@@ -9,15 +8,15 @@
   <h2>Welcome to the Student Dashboard</h2>
   <p>Your personal space for information, classes, checks, and grades.</p>
   <div class="dashboard-cards">
-    <div class="card" (click)="navigateTo('info')">
+    <div class="card" (click)="navigateTo1()">
       <span>📋</span>
       <p>Info</p>
     </div>
-    <div class="card" (click)="navigateTo('class')">
+    <div class="card" (click)="navigateTo2()">
       <span>🏫</span>
       <p>Class</p>
     </div>
-    <div class="card" (click)="navigateTo('check')">
+    <div class="card" (click)="navigateTo3()">
       <span>✔️</span>
       <p>Check</p>
     </div>

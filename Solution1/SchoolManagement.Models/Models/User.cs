@@ -2,27 +2,32 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace SchoolManagement.Models.Models;
-
-
-public partial class User
+namespace SchoolManagement.Models.Models
 {
-  public int UserId { get; set; }
-  public string Username { get; set; }
-  public string PasswordHash { get; set; }
-  public string Role { get; set; }
-  public string FullName { get; set; }
-  public DateTime? DateOfBirth { get; set; }
-  public string Address { get; set; }
-  public string ContactInfo { get; set; }
-  public string Specialty { get; set; }
-  [JsonIgnore]
-  public bool EmailConfirmed { get; set; } = false;
-  [JsonIgnore]
-  public string OtpCode { get; set; } = null;
+    public partial class User
+    {
+        public User()
+        {
+            ClassSubjects = new HashSet<ClassSubject>();
+            Students = new HashSet<Student>();
+        }
+
+        public int UserId { get; set; }
+        public string Username { get; set; }
+        public string PasswordHash { get; set; }
+        public string Role { get; set; }
+        public string FullName { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public string Address { get; set; }
+        public string ContactInfo { get; set; }
+        public string Specialty { get; set; }
+        public bool? EmailConfirmed { get; set; }
+        public string OtpCode { get; set; }
+    [JsonIgnore]
+    public virtual ICollection<ClassSubject> ClassSubjects { get; set; }
+    [JsonIgnore]
+    public virtual ICollection<Student> Students { get; set; }
+    }
 }
-
-

@@ -3,11 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../service/auth.service';
 import { Subject } from '../../../dto/subject.model'; 
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-classinfo',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HomeComponent],
   templateUrl: './classinfo.component.html',
   styleUrls: ['./classinfo.component.scss'],
 })

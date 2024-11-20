@@ -6,6 +6,7 @@ export interface Grade {
   score: number;
   class: {
     classId: number;
+
     className: string;
     schedule: string;
     room: string;

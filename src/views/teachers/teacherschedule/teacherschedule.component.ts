@@ -1,28 +1,25 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { TeacherService } from '../../../services/teacher.service';
 import { AuthService } from '../../../service/auth.service';
 import { Timetable } from '../../../dto/timetable.model';
-import { ClassSubject } from '../../../dto/classSubject.model';
+import { CommonModule } from '@angular/common';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-teacherschedule',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HomeComponent],
   templateUrl: './teacherschedule.component.html',
   styleUrls: ['./teacherschedule.component.scss'],
 })
 export class TeacherScheduleComponent implements OnInit {
-  daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
   timeSlots = [
-    '08:00 - 09:00',
-    '09:00 - 10:00',
-    '10:00 - 11:00',
-    '11:00 - 12:00',
-    '13:00 - 14:00',
-    '14:00 - 15:00',
-    '15:00 - 16:00',
+    '08:00 - 09:30',
+    '10:00 - 11:30',
+    '13:00 - 14:30',
+    '15:00 - 16:30',
   ];
+  daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   schedule: Timetable[] = [];
 
   auth: AuthService = inject(AuthService);
@@ -40,41 +37,30 @@ export class TeacherScheduleComponent implements OnInit {
   }
 
   loadTeacherSchedule(teacherId: number): void {
-    this.teacherService.getTeacherSchedules(teacherId).subscribe({
-      next: (data: ClassSubject[]) => {
-        this.schedule = data.map((classSubject) => ({
-          timetableID: 0, 
-          classID: classSubject.classId,
-          subjectID: classSubject.subjectId,
-          dateLearn: '2024-11-20', 
-          startTime: '08:00', 
-          endTime: '10:00', 
+    this.teacherService.getTeacherTimeTable(teacherId).subscribe({
+      next: (data) => {
+        this.schedule = data.map((item) => ({
+          ...item,
+          room: item.room || 'Unknown', // Đảm bảo thông tin phòng
         }));
-        console.log('Transformed schedule:', this.schedule);
       },
       error: (err) => {
         console.error('Error fetching schedule:', err);
       },
     });
   }
-  
-  
 
-  isScheduled(day: string, time: string): boolean {
-    return this.schedule.some(
+  getScheduleForTimeAndDay(day: string, time: string): Timetable | null {
+    return this.schedule.find(
       (item) =>
-        this.getDayOfWeek(item.dateLearn) === day &&
+        this.getWeekday(item.dateLearn) === day &&
         this.isTimeOverlap(item.startTime, item.endTime, time)
-    );
+    ) || null;
   }
 
-  getSubjectByDayAndTime(day: string, time: string): string | null {
-    const match = this.schedule.find(
-      (item) =>
-        this.getDayOfWeek(item.dateLearn) === day &&
-        this.isTimeOverlap(item.startTime, item.endTime, time)
-    );
-    return match ? `Class ${match.classID}` : null;
+  getWeekday(date: string): string {
+    const parsedDate = new Date(date);
+    return parsedDate.toLocaleDateString('en-US', { weekday: 'long' });
   }
 
   isTimeOverlap(start: string, end: string, slot: string): boolean {
@@ -88,10 +74,5 @@ export class TeacherScheduleComponent implements OnInit {
   timeToMinutes(time: string): number {
     const [hours, minutes] = time.split(':').map(Number);
     return hours * 60 + minutes;
-  }
-
-  getDayOfWeek(date: string): string {
-    const parsedDate = new Date(date);
-    return parsedDate.toLocaleDateString('en-US', { weekday: 'long' }); // Lấy tên ngày trong tuần
   }
 }

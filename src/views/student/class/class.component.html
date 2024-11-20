@@ -18,8 +18,15 @@
             *ngFor="let day of daysOfWeek"
             [ngClass]="{ 'scheduled': isScheduled(day, time) }"
           >
-            <ng-container *ngIf="getSubjectByDayAndTime(day, time); else noSchedule">
-              {{ getSubjectByDayAndTime(day, time) }}
+            <!-- Kiểm tra trực tiếp trong schedule -->
+            <ng-container *ngIf="isScheduled(day, time)">
+              <div *ngFor="let subject of schedule">
+                <ng-container *ngIf="getDayOfWeek(subject.dateLearn) === day && subject.startTime === time">
+                  <strong>{{ subject.subjectName }}</strong> <br/>
+                  <span>Lớp: {{ subject.className }}</span><br/>
+                  <span>Phòng: {{ subject.room }}</span>
+                </ng-container>
+              </div>
             </ng-container>
             <ng-template #noSchedule>-</ng-template>
           </td>

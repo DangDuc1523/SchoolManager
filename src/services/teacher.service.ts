@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Teacher } from '../dto/user.model';
 import { Timetable } from '../dto/timetable.model';
 import { ClassSubject } from '../dto/classSubject.model';
-import { map, mergeMap } from 'rxjs/operators';
 import { Observable, forkJoin } from 'rxjs';
 import { Subject } from '../dto/subject.model';
 import { Student } from '../dto/student.models';
@@ -36,13 +35,14 @@ export class TeacherService {
     return this.http.get<Timetable[]>(`${this.apiUrl}/User/TimeTable/Class/${classID}`);
   }
 
-  getTeacherSchedules(teacherId: number): Observable<ClassSubject[]> {
-    return this.http.get<ClassSubject[]>(`${this.apiUrl}/User/ClassSubject?teacherId=${teacherId}`);
-  }
-  //đến đây
   getClassesByTeacherId(teacherId: number): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/Class/teacher/${teacherId}/classes`);
   }
+  //chưa được
+
+  getTeacherTimeTable(teacherId: number): Observable<Timetable[]> {
+    return this.http.get<Timetable[]>(`${this.apiUrl}/TimeTable/student/${teacherId}`);
+  }  
 
   getSubjectsByClassId(classId: number): Observable<Subject[]> {
     return this.http.get<Subject[]>(`${this.apiUrl}/class/${classId}`);
@@ -62,6 +62,12 @@ export class TeacherService {
       throw new Error('Grade ID is required for updating grade');
     } 
     return this.http.put(`${this.apiUrl}/Grade/${grade.gradeId}`, grade);
+  }
+  
+  importGrade(file: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('file', file); 
+    return this.http.post<any>(`${this.apiUrl}/Grade/ImportGrade`, formData);
   }
   
 }

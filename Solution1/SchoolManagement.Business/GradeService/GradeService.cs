@@ -55,7 +55,6 @@ namespace SchoolManagement.Business.GradeService
       var g = grades.Where(g => (g.StudentId == studentId || g.StudentId == null) &&
         (g.SubjectId == null || g.SubjectId == subjectId)
       ).ToList();
-   
       if(g==null) return null;
       return g;
     }
@@ -65,6 +64,7 @@ namespace SchoolManagement.Business.GradeService
       await _context.Grades.AddRangeAsync(grades.ToList());
       await _context.SaveChangesAsync();
     }
+
 
     public async Task DeleteStudentAndGradesAsync(int studentId, int classId)
     {
@@ -118,6 +118,20 @@ namespace SchoolManagement.Business.GradeService
       return grade;
     }
 
+
+
+    public async Task<IEnumerable<Grade>> GetGradesByStudentIdAsync(int studentId)
+    {
+      // Lấy tất cả điểm của học sinh với studentId
+      var grades = await _context.Grades
+          .Where(g => g.StudentId == studentId)
+          .Include(g => g.Student)  // Include thông tin học sinh
+          .Include(g => g.Subject)  // Include thông tin môn học
+          .Include(g => g.Class)    // Include thông tin lớp học
+          .ToListAsync();
+
+      return grades;
+    }
 
   }
 }

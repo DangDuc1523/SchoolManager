@@ -114,5 +114,6 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       }
       return Ok(timetables);
     }
+
   }
 }

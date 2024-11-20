@@ -1,16 +1,14 @@
-
 import { DashboardComponent } from '../views/dashboard/dashboard.component';
 import { LoginComponent } from '../views/login/login.component';
-
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-
 import { SignupComponent } from '../views/signup/signup.component';
 import { ClassInfoComponent } from '../views/teachers/classinfo/classinfo.component';
 import { GradeManagementComponent } from '../views/teachers/grademanagement/grademanagement.component';
 import { HomeComponent } from '../views/teachers/home/home.component';
 import { TeacherProfileComponent } from '../views/teachers/teacherprofile/teacherprofile.component';
 import { TeacherScheduleComponent } from '../views/teachers/teacherschedule/teacherschedule.component';
+
 import { StudentComponent } from '../views/student/student/student.component';
 import { ClassComponent } from '../views/student/class/class.component';
 import { InfoComponent } from '../views/student/info/info.component';
@@ -31,43 +29,41 @@ import { TimeClassComponent } from '../views/manager/time-class/time-class.compo
 
 
 export const routes: Routes = [
+  // Các route không cần phân quyền
   { path: 'dashboard', component: DashboardComponent },
-
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },  // Default route to dashboard
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, // Default route
 
-  { path: 'home', component: HomeComponent },
-  { path: 'class-info', component: ClassInfoComponent },
-  { path: 'grade-management', component: GradeManagementComponent },
-  { path: 'teacher-profile', component: TeacherProfileComponent },
-  { path: 'teacher-schedule', component: TeacherScheduleComponent },
+  // Teacher routes (yêu cầu guard)
+  { path: 'home', component: HomeComponent, },
+  { path: 'class-info', component: ClassInfoComponent, },
+  { path: 'grade-management', component: GradeManagementComponent, },
+  { path: 'teacher-profile', component: TeacherProfileComponent,  },
+  { path: 'teacher-schedule', component: TeacherScheduleComponent,  },
 
-  { path: 'student', component: StudentComponent },
-  { path: 'info', component: InfoComponent }, 
-  { path: 'class', component: ClassComponent },
-  { path: 'check', component: CheckComponent },
-  { path: 'grade', component: GradeComponent },
-  { path: 'member', component: MemberComponent },
-  { path: 'profile', component: ProfileComponent},
-
-// Manager
-  { path: 'mainManager', component:  MainManagerComponent},
-  { path: 'listTeacherManager', component:  ListTeacherComponent},
-  { path: 'listClassManager', component:  ListClassManagerComponent},
-  { path: 'infoClassManager', component: InfoClassComponent },
-  { path: 'timeTableManager', component: TimetableComponent },
-
-  { path: 'profileManager', component: ProfileManagerComponent },
-  { path: 'timeClass', component: TimeClassComponent },
-  { path: 'listStudent', component: ListStudentComponent }
   
+  { path: 'student', component: StudentComponent,  },
+  { path: 'info', component: InfoComponent  }, 
+  { path: 'class', component: ClassComponent  },
+  { path: 'check', component: CheckComponent },
+  { path: 'grade', component: GradeComponent  },
+  { path: 'member', component: MemberComponent },
+  { path: 'profile', component: ProfileComponent },
+
+  
+  { path: 'mainManager', component: MainManagerComponent,  },
+  { path: 'listTeacherManager', component: ListTeacherComponent, },
+  { path: 'listClassManager', component: ListClassManagerComponent,  },
+  { path: 'infoClassManager', component: InfoClassComponent, },
+  { path: 'timeTableManager', component: TimetableComponent,  },
+  { path: 'profileManager', component: ProfileManagerComponent,  },
+  { path: 'timeClass', component: TimeClassComponent,  },
+  { path: 'listStudent', component: ListStudentComponent,  }
 ];
 
 @NgModule({
-  
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
-

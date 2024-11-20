@@ -5,5 +5,6 @@ export interface Grade {
     subjectId: number;
     classId: number;
     score: number; 
+    subjectName: string;
   }
-  
+ 

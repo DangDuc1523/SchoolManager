@@ -1,12 +1,19 @@
-<table>
-  <tr>
-    <th>Lớp học</th>
-    <th>Môn học</th>
-    <th>Điểm</th>
-  </tr>
-  <tr *ngFor="let grade of grades">
-    <td>{{ grade.room }}</td>
-    <td>{{ grade.subject }}</td>
-    <td>{{ grade.score | number:'1.1-2' }}</td>
-  </tr>
-</table>
+<div class="grades">
+  <h2>Thông tin điểm của học sinh</h2>
+
+  <div *ngIf="grades.length > 0; else noGrades">
+    <div *ngFor="let grade of grades">
+      <h3>Môn học: {{ grade.subject.subjectName }}</h3>
+      <p>Điểm: {{ grade.score }}</p>
+      <p>Lớp học: {{ grade.class.className }} - {{ grade.class.schedule }}</p>
+      <p>Phòng học: {{ grade.class.room }}</p>
+      <p>Số học sinh: {{ grade.class.studentCount }}</p>
+      <hr />
+    </div>
+  </div>
+
+  <!-- Nếu không có điểm -->
+  <ng-template #noGrades>
+    <p>Không có dữ liệu điểm cho học sinh này.</p>
+  </ng-template>
+</div>

@@ -6,10 +6,12 @@ namespace SchoolManagement.Business.GradeService
   {
     Task<IEnumerable<Grade>> GetAllGradeAsync();
     Task<Grade> GetGradeByIdAsync(int id);
-    Task<Grade> AddGradeAsync(Grade Class);
-    Task<Grade> UpdateGradeAsync(Grade Class);
+    Task<Grade> AddGradeAsync(Grade grade);
+    Task<Grade> UpdateGradeAsync(Grade grade);
     Task<Grade> DeleteGradeAsync(int id);
     Task<IEnumerable<Grade>> GetGradeBySubjectId(int studentId, int subjectId);
     Task ImportGradesAsync(List<Grade> grades);
+    Task<IEnumerable<Grade>> GetGradesByStudentIdAsync(int studentId);
+
   }
 }

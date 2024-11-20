@@ -1,75 +1,54 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StudentService } from '../../../services/student.service';
-import { CommonModule } from '@angular/common';
+import { Grade } from '../../../dto/classgrade';
+import { CommonModule, DatePipe } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // Thêm FormsModule
+import { AuthService } from '../../../service/auth.service';
+import { inject } from '@angular/core';
 
 @Component({
   selector: 'app-grade',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule], // Thêm FormsModule vào imports
   templateUrl: './grade.component.html',
-  styleUrls: ['./grade.component.scss']
+  styleUrls: ['./grade.component.scss'],
 })
 export class GradeComponent implements OnInit {
-  grades: any[] = [];
-  studentId!: number;
-  subjectId: number = 1;
+  grades: Grade[] = [];
+  studentId: number = 0;
+  auth: AuthService = inject(AuthService);
+
+  // Ép kiểu từ string | null sang number | null
+  id: number | null = this.auth.getId() ? Number(this.auth.getId()) : null;
 
   constructor(
-    private studentService: StudentService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private studentService: StudentService
   ) {}
 
   ngOnInit(): void {
-    // Lấy studentId và subjectId từ tham số route
-    const studentIdFromRoute = this.route.snapshot.paramMap.get('studentId');
-    const subjectIdFromRoute = this.route.snapshot.paramMap.get('subjectId');
-    
-    // Kiểm tra nếu tham số tồn tại trong URL
-    if (studentIdFromRoute && subjectIdFromRoute) {
-      this.studentId = Number(studentIdFromRoute);
-      this.subjectId = Number(subjectIdFromRoute);
+    // Optionally, check if id is valid before calling loadGrades
+    if (this.id !== null) {
+      this.loadGrades(this.id);  // Only call if id is not null
     } else {
-      console.error('Không có studentId hoặc subjectId trong URL');
-      return;
+      console.error('Invalid user ID');
     }
-
-    // Kiểm tra console log để xem ID có đúng không
-    console.log('Student ID:', this.studentId);
-    console.log('Subject ID:', this.subjectId);
-
-    this.fetchGrades();
   }
 
-  fetchGrades(): void {
-    // Kiểm tra giá trị của studentId và subjectId trước khi gọi API
-    if (!this.studentId || !this.subjectId) {
-      console.error('studentId hoặc subjectId không hợp lệ');
-      return;
-    }
-
-    // Gọi API với studentId và subjectId
-    this.studentService.getGradesByStudentAndSubject(this.studentId, this.subjectId).subscribe({
-      next: (data) => {
-        console.log('Dữ liệu nhận được:', data);
-        if (Array.isArray(data) && data.length > 0) {
-          // Gán giá trị grades nếu có dữ liệu
-          this.grades = data.map(grade => ({
-            room: grade.class?.room || 'N/A',  // Lấy room từ lớp học
-            subject: grade.subject?.subjectName || 'N/A',  // Lấy subjectName từ môn học
-            score: grade.score  // Điểm
-          }));
-        } else {
-          console.log('Không có dữ liệu điểm');
+  // Change the method signature to accept number | null
+  loadGrades(id: number | null): void {
+    if (id !== null) {  // Check if id is not null inside the method
+      this.studentService.getGradesByStudentId(id).subscribe(
+        (data) => {
+          this.grades = data;
+        },
+        (error) => {
+          console.error('Error fetching grades:', error);
         }
-      },
-      error: (err) => {
-        console.error('Error fetching grades:', err);
-      }
-    });
-  }
-
-  goBack() {
-    window.history.back();
+      );
+    } else {
+      console.error('Invalid user ID');
+    }
   }
 }

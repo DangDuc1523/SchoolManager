@@ -46,28 +46,9 @@ export class AuthService {
   }
   
 
-<<<<<<< HEAD
-  // Đăng ký người dùng mới
-  signup(Username: string, Password: string, Fullname:string, Dob:string, Address:string, Phone:string, Specialty:string){
-    const newRegisterDTO = { 
-      username : Username,
-      password : Password,
-      fullname : Fullname,
-      dob : Dob,
-      address:Address,
-      phone:Phone,
-      specialty :Specialty
-    };
-    console.log(newRegisterDTO)
-    this.apiService.signup(newRegisterDTO).subscribe({
-      next: (response: string) => {
-        alert("thanh cong") // Phát sự kiện sau khi đăng nhập thành công
-      },
-      error: (error) => {
-        console.error('Error during login', error);
-=======
 
-  signup(username: string, password: string, fullname: string, dob: Date, address: string, phone: string, specialty: string): void {
+
+  signup(username: string, password: string, fullname: string, dob: string, address: string, phone: string, specialty: string): void {
     const payload = { username, password, fullname, dob, address, phone, specialty };
     this.apiService.signup(payload).subscribe({
       next: () => {
@@ -76,7 +57,7 @@ export class AuthService {
       },
       error: (error) => {
         console.error('Error during signup:', error);
->>>>>>> 15cf1ac6554ce828e36536d3e953347d765826b7
+
       }
     });
   }
@@ -116,8 +97,6 @@ export class AuthService {
     }
     return null;
   }
-<<<<<<< HEAD
-=======
 
   getStudentId(): number | null {
     const token = localStorage.getItem('token');
@@ -155,5 +134,5 @@ export class AuthService {
     }
   }
   
->>>>>>> 15cf1ac6554ce828e36536d3e953347d765826b7
+
 }

@@ -75,7 +75,28 @@ export class ListStudentComponent implements OnInit{
     } else {
       this.message = 'UserId and ClassId are required.';  // Thông báo nếu thiếu UserId hoặc ClassId
     }
+    
+
+
+    if (userId && this.classManager.getSubId() && this.classId) {
+      const observer = {
+        next: (response: any) => {
+          this.message = 'Grade added successfully!';
+          console.log('Response:', response);
+        },
+        error: (error: any) => {
+          this.message = 'Error adding grade.';
+          console.error('Error:', error);
+        },
+      };
+    
+      this.classManager.addDefaultGrade(userId, this.classManager.getSubId(), this.classId).subscribe(observer);
+    } else {
+      this.message = 'Please fill in all fields.';
+    }
+    
   }
+}
 
   // deleteUser(userId: number): void {
   //   // console.log('Delete user with ID:', userId);
@@ -91,4 +112,3 @@ export class ListStudentComponent implements OnInit{
   //   // );
   // }
 
-}

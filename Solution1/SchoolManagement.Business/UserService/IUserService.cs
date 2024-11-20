@@ -17,5 +17,7 @@ namespace SchoolManagement.Business.UserService
 
     Task<bool> UserExists(string username);
     Task<IEnumerable<User>> GetUsersByRoleAsync(string role);
+
+    Task<User> ChangeUserRoleAsync(int userId, string newRole);
   }
 }

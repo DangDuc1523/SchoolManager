@@ -96,17 +96,19 @@ export class ListClassManagerComponent implements OnInit {
 
   addClass(): void {
     const nameClass = this.addClassForm.get('nameClass')?.value?.trim() || '';
-    const schedule = '';
-    const room = '';
+    const subjectId = this.addClassForm.get('subjectId')?.value?.trim() || '';
+    const userid = this.addClassForm.get('userId')?.value?.trim() || '';
     this.subjectId = Number(this.addClassForm.get('subjectId')?.value);
     this.userId = Number(this.addClassForm.get('userId')?.value);
+
+    this.classManager.setSubId(this.subjectId);
     
     if (!nameClass) {
       alert('All fields are required!');
       return;
     }
   
-    this.classManager.addNewClass(nameClass, schedule, room).subscribe({
+    this.classManager.addNewClass(nameClass, subjectId).subscribe({
       next: (response) => {
         this.classid = response.classId; // Lấy classId từ phản hồi API
         console.log('Class added successfully:', response);

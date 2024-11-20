@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfileManagerComponent } from './profile-manager.component';
+import { AllGradeComponent } from './all-grade.component';
 
-describe('ProfileManagerComponent', () => {
-  let component: ProfileManagerComponent;
-  let fixture: ComponentFixture<ProfileManagerComponent>;
+describe('AllGradeComponent', () => {
+  let component: AllGradeComponent;
+  let fixture: ComponentFixture<AllGradeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProfileManagerComponent]
+      imports: [AllGradeComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ProfileManagerComponent);
+    fixture = TestBed.createComponent(AllGradeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

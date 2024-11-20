@@ -1,7 +1,84 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "F:\\Angular\\SchoolManager\\Solution1\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|f:\\angular\\schoolmanager\\solution1\\schoolmanagement.webapi\\controllers\\gradecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|solutionrelative:schoolmanagement.webapi\\controllers\\gradecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|f:\\angular\\schoolmanager\\solution1\\schoolmanagement.webapi\\controllers\\timetablecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|solutionrelative:schoolmanagement.webapi\\controllers\\timetablecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|f:\\angular\\schoolmanager\\solution1\\schoolmanagement.business\\timetableservice\\itimetableservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|solutionrelative:schoolmanagement.business\\timetableservice\\itimetableservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F37903B-913C-4B9D-8280-0D995A84287B}|SchoolManagement.Models\\SchoolManagement.Models.csproj|f:\\angular\\schoolmanager\\solution1\\schoolmanagement.models\\models\\timetabledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F37903B-913C-4B9D-8280-0D995A84287B}|SchoolManagement.Models\\SchoolManagement.Models.csproj|solutionrelative:schoolmanagement.models\\models\\timetabledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F37903B-913C-4B9D-8280-0D995A84287B}|SchoolManagement.Models\\SchoolManagement.Models.csproj|f:\\angular\\schoolmanager\\solution1\\schoolmanagement.models\\models\\timetable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F37903B-913C-4B9D-8280-0D995A84287B}|SchoolManagement.Models\\SchoolManagement.Models.csproj|solutionrelative:schoolmanagement.models\\models\\timetable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|f:\\angular\\schoolmanager\\solution1\\schoolmanagement.business\\gradeservice\\gradeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|solutionrelative:schoolmanagement.business\\gradeservice\\gradeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|f:\\angular\\schoolmanager\\solution1\\schoolmanagement.business\\gradeservice\\igradeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|solutionrelative:schoolmanagement.business\\gradeservice\\igradeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|f:\\angular\\schoolmanager\\solution1\\schoolmanagement.business\\studentservice\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|solutionrelative:schoolmanagement.business\\studentservice\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|f:\\angular\\schoolmanager\\solution1\\schoolmanagement.business\\userservice\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|solutionrelative:schoolmanagement.business\\userservice\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|f:\\angular\\schoolmanager\\solution1\\schoolmanagement.webapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|solutionrelative:schoolmanagement.webapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|f:\\angular\\schoolmanager\\solution1\\schoolmanagement.business\\userservice\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D5F5DAC-5B7D-4058-9B17-DB0A892E2276}|SchoolManagement.Business\\SchoolManagement.Business.csproj|solutionrelative:schoolmanagement.business\\userservice\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F37903B-913C-4B9D-8280-0D995A84287B}|SchoolManagement.Models\\SchoolManagement.Models.csproj|f:\\angular\\schoolmanager\\solution1\\schoolmanagement.models\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F37903B-913C-4B9D-8280-0D995A84287B}|SchoolManagement.Models\\SchoolManagement.Models.csproj|solutionrelative:schoolmanagement.models\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|f:\\angular\\schoolmanager\\solution1\\schoolmanagement.webapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|solutionrelative:schoolmanagement.webapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F37903B-913C-4B9D-8280-0D995A84287B}|SchoolManagement.Models\\SchoolManagement.Models.csproj|f:\\angular\\schoolmanager\\solution1\\schoolmanagement.models\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F37903B-913C-4B9D-8280-0D995A84287B}|SchoolManagement.Models\\SchoolManagement.Models.csproj|solutionrelative:schoolmanagement.models\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F37903B-913C-4B9D-8280-0D995A84287B}|SchoolManagement.Models\\SchoolManagement.Models.csproj|f:\\angular\\schoolmanager\\solution1\\schoolmanagement.models\\models\\gradedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F37903B-913C-4B9D-8280-0D995A84287B}|SchoolManagement.Models\\SchoolManagement.Models.csproj|solutionrelative:schoolmanagement.models\\models\\gradedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F37903B-913C-4B9D-8280-0D995A84287B}|SchoolManagement.Models\\SchoolManagement.Models.csproj|f:\\angular\\schoolmanager\\solution1\\schoolmanagement.models\\models\\grade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F37903B-913C-4B9D-8280-0D995A84287B}|SchoolManagement.Models\\SchoolManagement.Models.csproj|solutionrelative:schoolmanagement.models\\models\\grade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55A14363-09E9-472C-82ED-0EEC20AA936E}|SchoolManagement.Data\\SchoolManagement.Data.csproj|f:\\angular\\schoolmanager\\solution1\\schoolmanagement.data\\graderepository\\graderepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55A14363-09E9-472C-82ED-0EEC20AA936E}|SchoolManagement.Data\\SchoolManagement.Data.csproj|solutionrelative:schoolmanagement.data\\graderepository\\graderepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|f:\\angular\\schoolmanager\\solution1\\schoolmanagement.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|solutionrelative:schoolmanagement.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|f:\\angular\\schoolmanager\\solution1\\schoolmanagement.webapi\\schoolmanagement.webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{82F5E6B1-19F3-464D-9D51-6C8394B315BC}|SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj|solutionrelative:schoolmanagement.webapi\\schoolmanagement.webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +86,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 15,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,6 +123,253 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TimetableDTO.cs",
+              "DocumentMoniker": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\Models\\TimetableDTO.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Models\\Models\\TimetableDTO.cs",
+              "ToolTip": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\Models\\TimetableDTO.cs",
+              "RelativeToolTip": "SchoolManagement.Models\\Models\\TimetableDTO.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T22:19:57.596Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Timetable.cs",
+              "DocumentMoniker": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\Models\\Timetable.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Models\\Models\\Timetable.cs",
+              "ToolTip": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\Models\\Timetable.cs",
+              "RelativeToolTip": "SchoolManagement.Models\\Models\\Timetable.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAQwCAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T22:19:56.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TimeTableController.cs",
+              "DocumentMoniker": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\TimeTableController.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.WebAPI\\Controllers\\TimeTableController.cs",
+              "ToolTip": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\TimeTableController.cs",
+              "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\TimeTableController.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAADwv3YAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T22:19:49.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "StudentService.cs",
+              "DocumentMoniker": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Business\\StudentService\\StudentService.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Business\\StudentService\\StudentService.cs",
+              "ToolTip": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Business\\StudentService\\StudentService.cs",
+              "RelativeToolTip": "SchoolManagement.Business\\StudentService\\StudentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T21:19:21.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "User.cs",
+              "DocumentMoniker": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\Models\\User.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Models\\Models\\User.cs",
+              "ToolTip": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\Models\\User.cs",
+              "RelativeToolTip": "SchoolManagement.Models\\Models\\User.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAkwAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T19:29:29.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.WebAPI\\Controllers\\StudentController.cs",
+              "ToolTip": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\StudentController.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAuwHsAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T17:48:22.637Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GradeController.cs",
+              "DocumentMoniker": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\GradeController.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.WebAPI\\Controllers\\GradeController.cs",
+              "ToolTip": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\GradeController.cs",
+              "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\GradeController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAhwBQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T16:40:50.171Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ITimeTableService.cs",
+              "DocumentMoniker": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Business\\TimeTableService\\ITimeTableService.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Business\\TimeTableService\\ITimeTableService.cs",
+              "ToolTip": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Business\\TimeTableService\\ITimeTableService.cs",
+              "RelativeToolTip": "SchoolManagement.Business\\TimeTableService\\ITimeTableService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T22:26:56.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Student.cs",
+              "DocumentMoniker": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\Models\\Student.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Models\\Models\\Student.cs",
+              "ToolTip": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\Models\\Student.cs",
+              "RelativeToolTip": "SchoolManagement.Models\\Models\\Student.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAADwvxkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T16:52:20.321Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "GradeDTO.cs",
+              "DocumentMoniker": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\Models\\GradeDTO.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Models\\Models\\GradeDTO.cs",
+              "ToolTip": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\Models\\GradeDTO.cs",
+              "RelativeToolTip": "SchoolManagement.Models\\Models\\GradeDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T16:40:04.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GradeService.cs",
+              "DocumentMoniker": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Business\\GradeService\\GradeService.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Business\\GradeService\\GradeService.cs",
+              "ToolTip": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Business\\GradeService\\GradeService.cs",
+              "RelativeToolTip": "SchoolManagement.Business\\GradeService\\GradeService.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAAAHcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T16:38:52.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IGradeService.cs",
+              "DocumentMoniker": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Business\\GradeService\\IGradeService.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Business\\GradeService\\IGradeService.cs",
+              "ToolTip": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Business\\GradeService\\IGradeService.cs",
+              "RelativeToolTip": "SchoolManagement.Business\\GradeService\\IGradeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T16:39:35.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Business\\UserService\\UserService.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Business\\UserService\\UserService.cs",
+              "ToolTip": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Business\\UserService\\UserService.cs",
+              "RelativeToolTip": "SchoolManagement.Business\\UserService\\UserService.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAGcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T19:29:15.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.WebAPI\\Controllers\\UserController.cs",
+              "ToolTip": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\Controllers\\UserController.cs",
+              "RelativeToolTip": "SchoolManagement.WebAPI\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAuwFIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T19:30:11.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Business\\UserService\\IUserService.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Business\\UserService\\IUserService.cs",
+              "ToolTip": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Business\\UserService\\IUserService.cs",
+              "RelativeToolTip": "SchoolManagement.Business\\UserService\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T19:31:38.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Grade.cs",
+              "DocumentMoniker": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\Models\\Grade.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Models\\Models\\Grade.cs",
+              "ToolTip": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Models\\Models\\Grade.cs",
+              "RelativeToolTip": "SchoolManagement.Models\\Models\\Grade.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBIAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T16:40:03.327Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "GradeRepository.cs",
+              "DocumentMoniker": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Data\\GradeRepository\\GradeRepository.cs",
+              "RelativeDocumentMoniker": "SchoolManagement.Data\\GradeRepository\\GradeRepository.cs",
+              "ToolTip": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.Data\\GradeRepository\\GradeRepository.cs",
+              "RelativeToolTip": "SchoolManagement.Data\\GradeRepository\\GradeRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T16:38:46.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "SchoolManagement.WebAPI\\appsettings.json",
+              "ToolTip": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\appsettings.json",
+              "RelativeToolTip": "SchoolManagement.WebAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-19T15:58:58.227Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "SchoolManagement.WebAPI",
+              "DocumentMoniker": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj",
+              "RelativeDocumentMoniker": "SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj",
+              "ToolTip": "F:\\Angular\\SchoolManager\\Solution1\\SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj",
+              "RelativeToolTip": "SchoolManagement.WebAPI\\SchoolManagement.WebAPI.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-11-19T15:58:55.07Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -21,7 +21,7 @@ export class ImportGradeComponent implements OnInit{
   constructor(private classManager: ClassManagerService) {}
   
   ngOnInit(): void {
-    this.subjectId = this.classManager.getSubjectId();
+    this.subjectId = this.classManager.getSubId();
     this.loadStudents(this.subjectId, Number(this.classManager.getClassId()));
   }
 

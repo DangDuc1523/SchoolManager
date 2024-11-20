@@ -7,6 +7,7 @@ import { User } from '../../dto/User';
 import { Timetable } from '../../dto/timeTableManager';
 import { Subject } from '../../dto/subject.model';
 import { Student } from '../../dto/student.models';
+import { Grade } from '../../dto/grade.models';
 
 
 @Injectable({
@@ -22,15 +23,16 @@ export class ClassManagerService {
     );
   }
   
+  private apiUrl = 'https://localhost:44344/api';
 
 
 
-  addNewClass(nameClass: string, schedule: string, room: string): Observable<any> {
+  addNewClass(nameClass: string, schedule: string): Observable<any> {
     const newClass = {
       classId: 0,          // classId sẽ là 0 khi thêm mới
       className: nameClass, // className là tên lớp học
       schedule: schedule,   // schedule là thời khóa biểu
-      room: room,           // room là phòng học
+      room: '',           // room là phòng học
       studentCount: 0       // studentCount ban đầu là 0
     };
     console.log(newClass); // Kiểm tra cấu trúc dữ liệu gửi đi
@@ -49,11 +51,11 @@ export class ClassManagerService {
     return this.classId;
   }
 
-  setSubjectId(id: number): void {
+  setSubId(id: number): void {
     this.studentId = id;
   }
 
-  getSubjectId(): number {
+  getSubId(): number {
    return this.studentId;
   }
 
@@ -68,6 +70,11 @@ export class ClassManagerService {
   // Phương thức gọi API để lấy thông tin thời gian học cho classId
   viewDetail(classId: string): Observable<TimeClass[]> {
     const test = this.http.get<TimeClass[]>(`${this.baseurl}/TimeTable/GetTimetablesByClass/${classId}`);
+    return test;
+  }
+
+  viewDetail2(classId: string): Observable<Timetable[]> {
+    const test = this.http.get<Timetable[]>(`${this.baseurl}/TimeTable/GetTimetablesByClass/${classId}`);
     return test;
   }
 
@@ -89,9 +96,19 @@ export class ClassManagerService {
     return this.http.post<any>('https://localhost:44344/api/Student', { UserId: userId, ClassId: classId });
   }
   
-  deleteStudent(userId: number): Observable<any> {
-    return this.http.delete<any>(`${this.baseurl}/Student/${userId}`);
+  deleteStudent(userId: number, classId: number ): Observable<any> {
+    return this.http.delete<any>(`https://localhost:44344/api/Grade/DeleteStudentAndGrades/${userId}/${classId}`);
   }
+
+  deleteStudentAndGrades(studentId: number, classId: number): Observable<any> {
+    const apiUrl = `https://localhost:44344/api/Grade/DeleteStudentAndGrades/${studentId}/${classId}`;
+    return this.http.delete(apiUrl);
+  }
+  
+  getStudentByUserIdAndClassId(userId: number, classId: number): Observable<number> {
+    return this.http.get<any>(`https://localhost:44344/api/Student/user/${userId}/class/${classId}`);
+  }
+  
   
 
   getTimetable(): Observable<Timetable[]> {
@@ -142,8 +159,30 @@ export class ClassManagerService {
     return this.http.post<any>(`https://localhost:44344/api/ClassSubject`, data);
   }
   
-  addNewTimeTable(timetable: Timetable): Observable<Timetable> {
-    return this.http.post<Timetable>(`https://localhost:44344/api/TimeTable`, timetable);
+  addTimeTable(timeTableData: any): Observable<any> {
+    return this.http.post(`https://localhost:44344/api/TimeTable`, timeTableData);
   }
+
+
+  addDefaultGrade(studentId: number, subjectId: number, classId: number): Observable<any> {
+    return this.http.post<any>(
+      `https://localhost:44344/api/Grade/AddDefaultGrade?studentId=${studentId}&subjectId=${subjectId}&classId=${classId}`,
+      {}
+    );
+  }
+
+
+  getGrades(): Observable<Grade[]> {
+    return this.http.get<Grade[]>(`https://localhost:44344/api/Grade`);
+  }
+
+
+
+  importGrade(file: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('file', file); 
+    return this.http.post<any>(`${this.apiUrl}/Grade/ImportGrade`, formData);
+  }
+
 
 }

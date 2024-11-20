@@ -5,8 +5,10 @@
   <div class="content">
     <div class="header">
       <h1>Teacher Management</h1>
-      <button class="add-button">Add New Teacher</button>
+      <button class="add-button" (click)="toggleUserList()">Add New Teacher</button>
     </div>
+
+    <!-- Bảng danh sách giáo viên -->
     <div class="table-container">
       <table class="styled-table">
         <thead>
@@ -17,6 +19,7 @@
             <th>Specialty</th>
             <th>Address</th>
             <th>Contact Info</th>
+            <th>Function</th>
           </tr>
         </thead>
         <tbody>
@@ -27,6 +30,36 @@
             <td>{{ teacher.specialty }}</td>
             <td>{{ teacher.address }}</td>
             <td>{{ teacher.contactInfo }}</td>
+            <td><button (click)="DeleteTeacher(teacher.userId)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Bảng danh sách người dùng -->
+    <div class="table-container" *ngIf="showUserList">
+      <h3>List of Users</h3>
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Full Name</th>
+            <th>Date of Birth</th>
+            <th>Specialty</th>
+            <th>Address</th>
+            <th>Contact Info</th>
+            <th>Function</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of listUser; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ user.fullName }}</td>
+            <td>{{ user.dateOfBirth | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ user.specialty }}</td>
+            <td>{{ user.address }}</td>
+            <td>{{ user.contactInfo }}</td>
+            <td><button (click)="addTeacher(user.userId)">Add</button></td>
           </tr>
         </tbody>
       </table>

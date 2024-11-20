@@ -8,7 +8,9 @@
 
       <!-- Class List -->
       <div *ngIf="classData && classData.length > 0; else noData" class="class-list-container">
-        <h2>Class List</h2>
+        <h2>Class List</h2> <button class="delete-button" (click)="ImportScoreByData()">
+          Import All By Excel
+        </button>
         <table class="styled-table">
           <thead>
             <tr>

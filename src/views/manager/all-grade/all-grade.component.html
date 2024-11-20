@@ -1,0 +1,47 @@
+<div *ngIf="loading" class="loading">
+    Đang tải dữ liệu...
+  </div>
+  
+  <div *ngIf="!loading && grades.length === 0" class="no-data">
+    Không có dữ liệu.
+  </div>
+  
+  <button (click)="exportToExcel()" class="btn-export">
+    Xuất Excel
+  </button>
+  <div class="action-buttons">
+    <button (click)="fileInput.click()">Import from Excel</button>
+    <input
+      #fileInput
+      type="file"
+      accept=".xlsx, .xls"
+      (change)="onImportGrade($event)"
+      style="display: none;"
+    />
+  </div>
+  
+  <table *ngIf="!loading && grades.length > 0" class="table">
+    <thead>
+      <tr>
+        <th>ID CLass</th>
+        <th>Class</th>
+        <th>ID Student</th>
+        <th>Student Name</th>
+        <th>Subject</th>
+        <th>Subject</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let grade of grades; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ grade.class.className }}</td> <!-- Loại bỏ dấu ? -->
+        <td>{{ grade.student.studentId }}</td>
+        <td>{{ grade.student.user?.fullName }}</td><!-- Dùng toán tử ba ngôi để kiểm tra `undefined` hoặc `null` -->
+        <td>{{ grade.subject.subjectId }}</td>
+        <td>{{ grade.subject.subjectName }}</td>        
+        <td>{{ grade.score }}</td>
+      </tr>
+    </tbody>
+  </table>
+  

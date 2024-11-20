@@ -81,6 +81,25 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
     }
 
 
+    [HttpPatch("{id}/change-role")]
+    public async Task<IActionResult> ChangeUserRole(int id, [FromQuery] string newRole)
+    {
+      if (newRole != "Student" && newRole != "Teacher")
+      {
+        return BadRequest("Invalid role.");
+      }
+
+      var updatedUser = await _userService.ChangeUserRoleAsync(id, newRole);
+      if (updatedUser == null)
+      {
+        return NotFound("User not found.");
+      }
+
+      return Ok(updatedUser);
+    }
+
+
+
     //[HttpGet("users/{userId}/search")]
     //public async Task<IActionResult> GetUsersForDoctor(Guid doctorId, int pageNumber = 1, int pageSize = 10, DateTime? startDate = null, DateTime? endDate = null, UserStatus? status = null)
     //{

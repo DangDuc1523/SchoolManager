@@ -11,5 +11,10 @@ namespace SchoolManagement.Business.GradeService
     Task<Grade> DeleteGradeAsync(int id);
     Task<IEnumerable<Grade>> GetGradeBySubjectId(int studentId, int subjectId);
     Task ImportGradesAsync(List<Grade> grades);
+    Task DeleteStudentAndGradesAsync(int studentId, int classId);
+
+    Task<Grade> AddDefaultGradeAsync(int studentId, int subjectId, int classId);
+
+
   }
 }

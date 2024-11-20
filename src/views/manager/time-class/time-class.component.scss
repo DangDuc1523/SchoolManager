@@ -1,16 +1,120 @@
+/* Overall container style */
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+/* Heading for the form */
+h2 {
+  text-align: center;
+  color: #2c3e50;
+  font-family: Arial, sans-serif;
+}
+
+/* Form elements style */
+form {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 1fr 1fr;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Style for form labels */
+label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #34495e;
+}
+
+/* Input and select styling */
+input[type="date"],
+input[type="text"],
+select {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+input[type="date"]:focus,
+input[type="text"]:focus,
+select:focus {
+  border-color: #2980b9;
+  outline: none;
+  box-shadow: 0 0 5px rgba(41, 128, 185, 0.6);
+}
+
+/* Button style */
+button {
+  padding: 10px 20px;
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #3498db;
+}
+
+button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+/* Table styling */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table th, table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+table th {
+  background-color: #2980b9;
+  color: white;
+}
+
+table tr:nth-child(even) {
+  background-color: #f4f6f7;
+}
+
+table tr:hover {
+  background-color: #f0f4f7;
+}
+
+/* No data message */
+ng-template #noData {
+  text-align: center;
+  color: #7f8c8d;
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  form {
+    grid-template-columns: 1fr;
   }
-  
-  th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: center;
+
+  table th, table td {
+    font-size: 14px;
   }
-  
-  th {
-    background-color: #f2f2f2;
-  }
-  
+}

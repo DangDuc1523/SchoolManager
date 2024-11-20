@@ -23,12 +23,13 @@ import { MainManagerComponent } from '../views/manager/main-manager/main-manager
 import { ListTeacherComponent } from '../views/manager/list-teacher/list-teacher.component';
 import { ListClassManagerComponent } from '../views/manager/list-class-manager/list-class-manager.component';
 import { TimetableComponent } from '../views/manager/time-table/time-table.component';
-import { ProfileManagerComponent } from '../views/manager/profile-manager/profile-manager.component';
+
 import { ListStudentComponent } from '../views/manager/list-student/list-student.component';
 import { InfoClassComponent } from '../views/manager/info-class/info-class.component';
 import { ScoreTableComponent } from '../views/manager/score-table/score-table.component';
 import { TimeClassComponent } from '../views/manager/time-class/time-class.component';
 import { ImportGradeComponent } from '../views/manager/import-grade/import-grade.component';
+import { AllGradeComponent } from '../views/manager/all-grade/all-grade.component';
 
 
 export const routes: Routes = [
@@ -59,11 +60,12 @@ export const routes: Routes = [
   { path: 'infoClassManager', component: InfoClassComponent },
   { path: 'timeTableManager', component: TimetableComponent },
 
-  { path: 'profileManager', component: ProfileManagerComponent },
   { path: 'timeClass', component: TimeClassComponent },
   { path: 'listStudent', component: ListStudentComponent },
   { path: 'scoreTable', component: ScoreTableComponent },
-  { path: 'importGrade', component: ImportGradeComponent }
+  { path: 'importGrade', component: ImportGradeComponent },
+  { path: 'allGrade', component: AllGradeComponent }
+
   
 ];
 

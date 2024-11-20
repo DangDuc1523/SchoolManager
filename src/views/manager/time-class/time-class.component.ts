@@ -1,45 +1,40 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClassManagerService } from '../../../service/Manager/class-manager.service';
-import { TimeClass } from '../../../dto/TimeClass';
+import { Observable } from 'rxjs';
 import { MainManagerComponent } from "../main-manager/main-manager.component";
-import { ActivatedRoute } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { Subject } from '../../../dto/subject.model';
 import { Timetable } from '../../../dto/timeTableManager';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
-  selector: 'app-time-class',
-  templateUrl: './time-class.component.html',
-  styleUrls: ['./time-class.component.scss'],
-  imports: [MainManagerComponent, CommonModule, ReactiveFormsModule],
+  selector: 'app-time-table-form',
   standalone: true,
+  imports: [MainManagerComponent, ReactiveFormsModule, CommonModule],
+  templateUrl: './time-class.component.html',
+  styleUrls: ['./time-class.component.scss']
 })
 export class TimeClassComponent implements OnInit {
-  classId: string = '';
-  subjects: Subject[] = [];  // Mảng subjects để hiển thị trong select
-  addTimeTable: FormGroup;  // FormGroup để quản lý form
-  timeClasses: TimeClass[] = [];
-  constructor(private classManagerService: ClassManagerService) {
-    // Khởi tạo form với các control
-    this.addTimeTable = new FormGroup({
-      nameSubject: new FormControl(''),
-      dateLearn: new FormControl(''),
-      startTime: new FormControl(''),
-      endTime: new FormControl(''),
-      room: new FormControl('')
-    });
+  addTimeTable: FormGroup;
+  timeClasses: any[] = []; // Array to store the time table data
+  subjects : Subject[] = []
+  classId : string = ''
+  
 
-
-    this.addTimeTable.get('startTime')?.valueChanges.subscribe((startTime) => {
-      this.setEndTime(startTime);
+  constructor(
+    private fb: FormBuilder,
+    private classManagerService: ClassManagerService  // Inject the service
+  ) {
+    this.addTimeTable = this.fb.group({
+      dateLearn: ['', Validators.required],
+      startTime: ['', Validators.required],
+      room: ['']
     });
   }
-  
-  
 
   ngOnInit(): void {
-    // Lấy dữ liệu môn học từ API
     this.classManagerService.getSubjects().subscribe(
       (data) => {
         this.subjects = data;
@@ -50,33 +45,58 @@ export class TimeClassComponent implements OnInit {
     );
     this.classId = this.classManagerService.getClassId();
     this.getTimeClasses(this.classId);
+
   }
 
-  setEndTime(startTime: string): void {
-    if (!startTime) {
-      this.addTimeTable.get('endTime')?.setValue('');
-      return;
+  // Method to handle form submission
+  addNewTime(): void {
+    if (this.addTimeTable.valid) {
+      const formData = this.addTimeTable.value;
+
+      const newTimeClass = {
+        timetableId: 0,  // Assuming new timetable, so ID is 0
+        classId: 0,      // Assuming no class ID initially, can be dynamic later
+        subjectId: 0,    // Assuming no subject ID initially, can be dynamic later
+        dateLearn: formData.dateLearn,
+        startTime: {
+          ticks: this.convertToTicks(formData.startTime)
+        },
+        endTime: {
+          ticks: this.convertToTicks(this.calculateEndTime(formData.startTime))
+        },
+        room: formData.room
+      };
+
+      // Send data to API using the service
+      this.classManagerService.addTimeTable(newTimeClass).subscribe(response => {
+        console.log('Data submitted successfully', response);
+        this.timeClasses.push(newTimeClass); // Add the new time class to the table
+        this.addTimeTable.reset(); // Reset the form after submission
+      }, error => {
+        console.error('Error submitting data', error);
+      });
     }
-
-    // Tách giờ và phút từ startTime
-    const [hours, minutes] = startTime.split(':').map(Number);
-
-    // Thêm 2 giờ vào startTime
-    let endHour = hours + 2;  // Cộng thêm 2 giờ
-
-    // Kiểm tra xem giờ có vượt qua 24h hay không
-    if (endHour >= 24) {
-      endHour -= 24;
-    }
-
-    // Đảm bảo endTime có định dạng "H:mm"
-    const endTime = `${endHour}:${minutes < 10 ? '0' + minutes : minutes}`;
-    this.addTimeTable.get('endTime')?.setValue(endTime);
   }
+
+  // Convert time to ticks (milliseconds since epoch)
+  convertToTicks(time: string): number {
+    const [hour, minute] = time.split(':').map((part) => parseInt(part, 10));
+    const date = new Date();
+    date.setHours(hour, minute, 0, 0);
+    return date.getTime(); // Get ticks (milliseconds since Jan 1, 1970)
+  }
+
+  // Method to calculate the end time based on start time
+  calculateEndTime(startTime: string): string {
+    const startHour = parseInt(startTime.split(':')[0], 10);
+    const endHour = startHour + 1;  // Assuming each class lasts 1 hour
+    return `${endHour}:00`;
+  }
+
 
   getTimeClasses(classId: string): void {
-    this.classManagerService.viewDetail(classId).subscribe(
-      (data: TimeClass[]) => {
+    this.classManagerService.viewDetail2(classId).subscribe(
+      (data: Timetable[]) => {
         if (data && data.length > 0) {
           this.timeClasses = data; // Lưu toàn bộ dữ liệu trả về vào mảng
         } else {
@@ -90,28 +110,7 @@ export class TimeClassComponent implements OnInit {
       }
     );
   }
-  // Hàm để gửi dữ liệu từ form tới API
-  addNewTime(): void {
-    const timetableData: Timetable = {
-      // Mã lịch học mới (có thể được sinh tự động ở server)
-      classId: 0, // Lớp học (có thể cần lấy từ URL hoặc form)
-      subjectId: this.addTimeTable.value.nameSubject, // Lấy giá trị subjectId từ form
-      dateLearn: this.addTimeTable.value.dateLearn,
-      startTime: this.addTimeTable.value.startTime,
-      endTime: this.addTimeTable.value.startTime,
-      room: this.addTimeTable.value.room,
-     
-    };
 
-    // Gửi dữ liệu qua POST request
-    this.classManagerService.addNewTimeTable(timetableData).subscribe(
-      (response) => {
-        console.log('Lịch học đã được thêm:', response);
-        // Có thể cập nhật lại danh sách thời khóa biểu sau khi thêm mới
-      },
-      (error) => {
-        console.error('Lỗi khi thêm lịch học:', error);
-      }
-    );
-  }
 }
+
+

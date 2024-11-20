@@ -85,5 +85,22 @@ namespace SchoolManagement.Business.UserService
       return users;
     }
 
+    public async Task<User> ChangeUserRoleAsync(int userId, string newRole)
+    {
+      var user = await _userRepository.GetByIdAsync(userId);
+      if (user == null)
+      {
+        return null; // Không tìm thấy user
+      }
+
+      if (user.Role == newRole)
+      {
+        return user; // Role không thay đổi
+      }
+
+      user.Role = newRole;
+      await _userRepository.UpdateAsync(user); // Cập nhật user với role mới
+      return user;
+    }
   }
 }

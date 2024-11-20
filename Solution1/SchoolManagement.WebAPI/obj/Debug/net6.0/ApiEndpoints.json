@@ -277,7 +277,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "GradeDTO",
+        "Name": "gradeDTO",
         "Type": "SchoolManagement.Models.Models.GradeDTO",
         "IsRequired": true
       }
@@ -352,6 +352,53 @@
       },
       {
         "Name": "subjectId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolManagement.WebAPI.Controllers.Admin.GradeController",
+    "Method": "AddDefaultGrade",
+    "RelativePath": "api/Grade/AddDefaultGrade",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "subjectId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "classId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolManagement.WebAPI.Controllers.Admin.GradeController",
+    "Method": "DeleteStudentAndGrades",
+    "RelativePath": "api/Grade/DeleteStudentAndGrades/{studentId}/{classId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "classId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -463,6 +510,27 @@
       },
       {
         "Name": "subjectId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolManagement.WebAPI.Controllers.StudentController",
+    "Method": "GetStudentByUserIdAndClassId",
+    "RelativePath": "api/Student/user/{userId}/class/{classId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "classId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -787,6 +855,27 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolManagement.WebAPI.Controllers.Admin.UserController",
+    "Method": "ChangeUserRole",
+    "RelativePath": "api/User/{id}/change-role",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "newRole",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

@@ -4,13 +4,6 @@
   </div>
   <div class="container">
     <form [formGroup]="addTimeTable" (ngSubmit)="addNewTime()">
-      <label for="nameSubject">Name Subject:</label>
-      <select formControlName="nameSubject" required>
-        <option value="">Select a subject</option>
-        <option *ngFor="let subject of subjects" [value]="subject.subjectId">
-          {{ subject.subjectName }}
-        </option>
-      </select>
 
       <label for="dateLearn">Date Learn:</label>
       <input type="date" id="dateLearn" formControlName="dateLearn" required>
@@ -26,13 +19,9 @@
       </select>
 
       <label for="room">Room:</label>
-      <select id="room" formControlName="room" required>
-        <option value="IT">IT</option>
-        <option value="MKT">MKT</option>
-        <option value="BSS">BSS</option>
-      </select>
+      <input type="text" name="room" formControlName="room">
 
-      <button type="submit">Add New</button>
+      <button type="submit" (click)="addNewTime()">Add New</button>
     </form>
 
     <div *ngIf="timeClasses.length > 0; else noData">

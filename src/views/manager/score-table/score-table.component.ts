@@ -66,8 +66,12 @@ export class ScoreTableComponent implements OnInit {
 
   ImportScore(subjectId: number, classId: string){
     this.classManager.setClassId(classId);
-    this.classManager.setSubjectId(subjectId);
+    this.classManager.setSubId(subjectId);
     this.router.navigate(['/importGrade']);
+  }
+
+  ImportScoreByData(){
+    this.router.navigate(['/allGrade']);
   }
 
 

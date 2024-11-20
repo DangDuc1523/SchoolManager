@@ -15,4 +15,13 @@ export class ListTeacherService {
     return this.http.post<User[]>('https://localhost:44344/api/User/teacher', {}); // Gửi một object rỗng nếu API không yêu cầu dữ liệu
   }
   
+  getAllStudents(): Observable<User[]> {
+    return this.http.get<User[]>('https://localhost:44344/api/User');
+  }
+
+  changeUserRole(userId: number, newRole: string): Observable<any> {
+    return this.http.patch(`https://localhost:44344/api/User/${userId}/change-role?newRole=${newRole}`, {});
+  }
+  
+
 }

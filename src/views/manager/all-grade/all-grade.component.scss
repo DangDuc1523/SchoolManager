@@ -1,0 +1,82 @@
+/* Styling for the loading and no data messages */
+.loading, .no-data {
+  text-align: center;
+  font-size: 1.2em;
+  color: #555;
+  padding: 20px;
+}
+
+/* General button styling */
+.btn-export, .action-buttons button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-export:hover, .action-buttons button:hover {
+  background-color: #45a049;
+}
+
+/* Table styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table th, .table td {
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table tbody tr td {
+  font-size: 1.1em;
+}
+
+/* Styling for action buttons and file input */
+.action-buttons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .table th, .table td {
+    padding: 8px 10px;
+  }
+
+  .btn-export, .action-buttons button {
+    font-size: 0.9rem;
+  }
+
+  .table {
+    font-size: 0.9rem;
+  }
+}

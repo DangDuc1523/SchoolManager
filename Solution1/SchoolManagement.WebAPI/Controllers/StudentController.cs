@@ -110,5 +110,28 @@ namespace SchoolManagement.WebAPI.Controllers
       return Ok(students);
     }
 
+    [HttpGet("user/{userId}/class/{classId}")]
+    public async Task<IActionResult> GetStudentByUserIdAndClassId(int userId, int classId)
+    {
+      var student = await _StudentService.GetStudentByUserIdAndClassIdAsync(userId, classId);
+      if (student == null)
+      {
+        return NotFound();
+      }
+
+      // Trả về một đối tượng chỉ có những thông tin cần thiết
+      var result = new
+      {
+        studentId = student.StudentId,
+        userId = student.UserId,
+        classId = student.ClassId,
+        enrollmentDate = student.EnrollmentDate
+      };
+
+      return Ok(result);
+    }
+
+
+
   }
 }

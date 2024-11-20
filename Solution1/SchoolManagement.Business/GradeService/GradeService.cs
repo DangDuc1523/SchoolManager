@@ -65,5 +65,59 @@ namespace SchoolManagement.Business.GradeService
       await _context.Grades.AddRangeAsync(grades.ToList());
       await _context.SaveChangesAsync();
     }
+
+    public async Task DeleteStudentAndGradesAsync(int studentId, int classId)
+    {
+      // Lấy danh sách Grade liên quan
+      var gradesToDelete = _context.Grades
+          .Where(g => g.StudentId == studentId && g.ClassId == classId);
+
+      // Xóa Grade
+      if (gradesToDelete.Any())
+      {
+        _context.Grades.RemoveRange(gradesToDelete);
+      }
+
+      // Lấy thông tin Student cần xóa
+      var studentToDelete = await _context.Students
+          .FirstOrDefaultAsync(s => s.StudentId == studentId);
+
+      if (studentToDelete != null)
+      {
+        // Xóa Student
+        _context.Students.Remove(studentToDelete);
+      }
+
+      // Lưu thay đổi
+      await _context.SaveChangesAsync();
+    }
+
+
+    public async Task<Grade> AddDefaultGradeAsync(int studentId, int subjectId, int classId)
+    {
+      // Kiểm tra nếu Grade đã tồn tại để tránh trùng lặp
+      var existingGrades = await _gradeRepository.GetAllAsync();
+      var existingGrade = existingGrades.FirstOrDefault(g =>
+          g.StudentId == studentId && g.SubjectId == subjectId && g.ClassId == classId);
+
+      if (existingGrade != null)
+      {
+        throw new Exception("Grade đã tồn tại cho các thông tin được cung cấp.");
+      }
+
+      // Tạo mới Grade với Score mặc định là 0
+      var grade = new Grade
+      {
+        StudentId = studentId,
+        SubjectId = subjectId,
+        ClassId = classId,
+        Score = 0 // Giá trị mặc định
+      };
+
+      await _gradeRepository.AddAsync(grade);
+      return grade;
+    }
+
+
   }
 }

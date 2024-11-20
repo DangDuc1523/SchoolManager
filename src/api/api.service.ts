@@ -11,6 +11,7 @@ import { RegisterDTO } from '../dto/RegisterDTO';
 })
 export class ApiService {
   
+  
    private baseurl = "https://localhost:44344/api"
   
   constructor(private http: HttpClient) { }
@@ -31,5 +32,9 @@ export class ApiService {
 
   viewDetail(classId: string): Observable<TimeClass[]> {
     return this.http.get<TimeClass[]>(`${this.baseurl}/TimeTable/class/${classId}`);
+  }
+
+  ResetPassword(username: string) : Observable<any> {
+    return this.http.post(`https://localhost:44344/api/Auth/forgetpassword1`,username);
   }
 }

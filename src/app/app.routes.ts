@@ -28,6 +28,7 @@ import { ListStudentComponent } from '../views/manager/list-student/list-student
 import { InfoClassComponent } from '../views/manager/info-class/info-class.component';
 
 import { TimeClassComponent } from '../views/manager/time-class/time-class.component';
+import { ForgetPasswordComponent } from '../views/forget-password/forget-password.component';
 
 
 export const routes: Routes = [
@@ -35,6 +36,7 @@ export const routes: Routes = [
 
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'forgetpassword',component: ForgetPasswordComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' },  // Default route to dashboard
 
   { path: 'home', component: HomeComponent },

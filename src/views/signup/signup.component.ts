@@ -34,11 +34,6 @@ export class SignupComponent {
     this.auth.signup(username,password,fullname,dob,address,phone,specialty);
   }
 
-
-
-
-
-
   signin(){
     this.router.navigate(['signin'])
   }

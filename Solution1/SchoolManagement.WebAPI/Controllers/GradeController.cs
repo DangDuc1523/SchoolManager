@@ -75,11 +75,8 @@ namespace SchoolManagement.WebAPI.Controllers.Admin
       grade.SubjectId = gradeDTO.SubjectId;
       grade.StudentId = gradeDTO.StudentId;
       grade.Score = gradeDTO.Score;
-<<<<<<< HEAD
-      grade.ClassId=gradeDTO.ClassId;
-=======
+
       grade.ClassId = gradeDTO.ClassId;
->>>>>>> 15cf1ac6554ce828e36536d3e953347d765826b7
       var updatedGrade = await _gradeService.UpdateGradeAsync(grade);
       if (updatedGrade == null)
       {

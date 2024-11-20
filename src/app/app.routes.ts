@@ -25,7 +25,6 @@ import { ListStudentComponent } from '../views/manager/list-student/list-student
 import { InfoClassComponent } from '../views/manager/info-class/info-class.component';
 
 import { TimeClassComponent } from '../views/manager/time-class/time-class.component';
-import { ForgetPasswordComponent } from '../views/forget-password/forget-password.component';
 
 // Guards
 import { AdminGuard } from '../service/roleGuard';
@@ -37,10 +36,7 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-
-  { path: 'forgetpassword',component: ForgetPasswordComponent},
-  { path: '', redirectTo: '/login', pathMatch: 'full' },  // Default route to dashboard
-
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, // Default route
 
   // Teacher routes (yêu cầu guard)
   { path: 'home', component: HomeComponent, canActivate: [TeacherGuard] },

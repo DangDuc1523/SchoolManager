@@ -54,21 +54,21 @@ export class SignupComponent {
     // }
   );
   }
-  OTP : string = '';
-  username: string = '';
-  Confirm() {
-    const otp = this.OTP?? '';
-    const username = this.username?? '';
-    this.authService.confirm(username,otp).subscribe(
-      (respone: any) => {
-        console.log('Phản hồi từ server:', response);
-      // Hiển thị thông báo thành công
-      alert(response);
-      window.location.reload;
-      }
-    )
+  // OTP : string = '';
+  // username: string = '';
+  // Confirm() {
+  //   const otp = this.OTP?? '';
+  //   const username = this.username?? '';
+  //   this.authService.confirm(username,otp).subscribe(
+  //     (respone: any) => {
+  //       console.log('Phản hồi từ server:', response);
+  //     // Hiển thị thông báo thành công
+  //     alert(response);
+  //     window.location.reload;
+  //     }
+  //   )
 
-  }
+  // }
 
   signin(){
     this.router.navigate(['signin'])
@@ -97,5 +97,3 @@ export class SignupComponent {
   }
 
 }
-
-
